@@ -1,0 +1,537 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6253D205188033120017790C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6253D204188033120017790C /* Foundation.framework */; };
+		6253D207188033120017790C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6253D206188033120017790C /* CoreGraphics.framework */; };
+		6253D209188033120017790C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6253D208188033120017790C /* UIKit.framework */; };
+		6253D20B188033120017790C /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6253D20A188033120017790C /* SpriteKit.framework */; };
+		6253D211188033120017790C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6253D20F188033120017790C /* InfoPlist.strings */; };
+		6253D213188033120017790C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6253D212188033120017790C /* main.m */; };
+		6253D217188033120017790C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6253D216188033120017790C /* AppDelegate.m */; };
+		6253D21A188033120017790C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6253D218188033120017790C /* Main.storyboard */; };
+		6253D21D188033120017790C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6253D21C188033120017790C /* ViewController.m */; };
+		6253D220188033120017790C /* MyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 6253D21F188033120017790C /* MyScene.m */; };
+		6253D222188033120017790C /* Spaceship.png in Resources */ = {isa = PBXBuildFile; fileRef = 6253D221188033120017790C /* Spaceship.png */; };
+		6253D224188033120017790C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6253D223188033120017790C /* Images.xcassets */; };
+		6253D22B188033130017790C /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6253D22A188033130017790C /* XCTest.framework */; };
+		6253D22C188033130017790C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6253D204188033120017790C /* Foundation.framework */; };
+		6253D22D188033130017790C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6253D208188033120017790C /* UIKit.framework */; };
+		6253D235188033130017790C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6253D233188033130017790C /* InfoPlist.strings */; };
+		6253D237188033130017790C /* ChaosGameTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6253D236188033130017790C /* ChaosGameTests.m */; };
+		62AA5411188433BB001FA053 /* CEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AA5410188433BB001FA053 /* CEntity.m */; };
+		62AA5414188434C9001FA053 /* CEntityFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AA5413188434C9001FA053 /* CEntityFactory.m */; };
+		62AA5417188434D5001FA053 /* CComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AA5416188434D5001FA053 /* CComponent.m */; };
+		62AA5421188442E8001FA053 /* CPositionComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AA5420188442E8001FA053 /* CPositionComponent.m */; };
+		62AA5424188442F9001FA053 /* CRenderComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AA5423188442F9001FA053 /* CRenderComponent.m */; };
+		62AA54271884430B001FA053 /* CPhysicComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AA54261884430B001FA053 /* CPhysicComponent.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6253D22E188033130017790C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6253D1F9188033120017790C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6253D200188033120017790C;
+			remoteInfo = ChaosGame;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		6253D201188033120017790C /* ChaosGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChaosGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6253D204188033120017790C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		6253D206188033120017790C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		6253D208188033120017790C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		6253D20A188033120017790C /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
+		6253D20E188033120017790C /* ChaosGame-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ChaosGame-Info.plist"; sourceTree = "<group>"; };
+		6253D210188033120017790C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		6253D212188033120017790C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		6253D214188033120017790C /* ChaosGame-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ChaosGame-Prefix.pch"; sourceTree = "<group>"; };
+		6253D215188033120017790C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		6253D216188033120017790C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		6253D219188033120017790C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6253D21B188033120017790C /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		6253D21C188033120017790C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		6253D21E188033120017790C /* MyScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyScene.h; sourceTree = "<group>"; };
+		6253D21F188033120017790C /* MyScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyScene.m; sourceTree = "<group>"; };
+		6253D221188033120017790C /* Spaceship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Spaceship.png; sourceTree = "<group>"; };
+		6253D223188033120017790C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		6253D229188033130017790C /* ChaosGameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChaosGameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6253D22A188033130017790C /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		6253D232188033130017790C /* ChaosGameTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ChaosGameTests-Info.plist"; sourceTree = "<group>"; };
+		6253D234188033130017790C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		6253D236188033130017790C /* ChaosGameTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChaosGameTests.m; sourceTree = "<group>"; };
+		62AA540F188433BB001FA053 /* CEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CEntity.h; path = ChaosEngine/CEntity.h; sourceTree = "<group>"; };
+		62AA5410188433BB001FA053 /* CEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CEntity.m; path = ChaosEngine/CEntity.m; sourceTree = "<group>"; };
+		62AA5412188434C9001FA053 /* CEntityFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CEntityFactory.h; path = ChaosEngine/CEntityFactory.h; sourceTree = "<group>"; };
+		62AA5413188434C9001FA053 /* CEntityFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CEntityFactory.m; path = ChaosEngine/CEntityFactory.m; sourceTree = "<group>"; };
+		62AA5415188434D5001FA053 /* CComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CComponent.h; path = ChaosEngine/CComponent.h; sourceTree = "<group>"; };
+		62AA5416188434D5001FA053 /* CComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CComponent.m; path = ChaosEngine/CComponent.m; sourceTree = "<group>"; };
+		62AA541F188442E8001FA053 /* CPositionComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CPositionComponent.h; path = ChaosEngine/CPositionComponent.h; sourceTree = "<group>"; };
+		62AA5420188442E8001FA053 /* CPositionComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CPositionComponent.m; path = ChaosEngine/CPositionComponent.m; sourceTree = "<group>"; };
+		62AA5422188442F9001FA053 /* CRenderComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CRenderComponent.h; path = ChaosEngine/CRenderComponent.h; sourceTree = "<group>"; };
+		62AA5423188442F9001FA053 /* CRenderComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CRenderComponent.m; path = ChaosEngine/CRenderComponent.m; sourceTree = "<group>"; };
+		62AA54251884430B001FA053 /* CPhysicComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CPhysicComponent.h; path = ChaosEngine/CPhysicComponent.h; sourceTree = "<group>"; };
+		62AA54261884430B001FA053 /* CPhysicComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CPhysicComponent.m; path = ChaosEngine/CPhysicComponent.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6253D1FE188033120017790C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6253D207188033120017790C /* CoreGraphics.framework in Frameworks */,
+				6253D209188033120017790C /* UIKit.framework in Frameworks */,
+				6253D20B188033120017790C /* SpriteKit.framework in Frameworks */,
+				6253D205188033120017790C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6253D226188033130017790C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6253D22B188033130017790C /* XCTest.framework in Frameworks */,
+				6253D22D188033130017790C /* UIKit.framework in Frameworks */,
+				6253D22C188033130017790C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6253D1F8188033120017790C = {
+			isa = PBXGroup;
+			children = (
+				6253D240188035950017790C /* ChaosEngine */,
+				6253D20C188033120017790C /* ChaosGame */,
+				6253D230188033130017790C /* ChaosGameTests */,
+				6253D203188033120017790C /* Frameworks */,
+				6253D202188033120017790C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6253D202188033120017790C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6253D201188033120017790C /* ChaosGame.app */,
+				6253D229188033130017790C /* ChaosGameTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6253D203188033120017790C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6253D204188033120017790C /* Foundation.framework */,
+				6253D206188033120017790C /* CoreGraphics.framework */,
+				6253D208188033120017790C /* UIKit.framework */,
+				6253D20A188033120017790C /* SpriteKit.framework */,
+				6253D22A188033130017790C /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6253D20C188033120017790C /* ChaosGame */ = {
+			isa = PBXGroup;
+			children = (
+				6253D215188033120017790C /* AppDelegate.h */,
+				6253D216188033120017790C /* AppDelegate.m */,
+				6253D218188033120017790C /* Main.storyboard */,
+				6253D21B188033120017790C /* ViewController.h */,
+				6253D21C188033120017790C /* ViewController.m */,
+				6253D21E188033120017790C /* MyScene.h */,
+				6253D21F188033120017790C /* MyScene.m */,
+				6253D221188033120017790C /* Spaceship.png */,
+				6253D223188033120017790C /* Images.xcassets */,
+				6253D20D188033120017790C /* Supporting Files */,
+			);
+			path = ChaosGame;
+			sourceTree = "<group>";
+		};
+		6253D20D188033120017790C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6253D20E188033120017790C /* ChaosGame-Info.plist */,
+				6253D20F188033120017790C /* InfoPlist.strings */,
+				6253D212188033120017790C /* main.m */,
+				6253D214188033120017790C /* ChaosGame-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6253D230188033130017790C /* ChaosGameTests */ = {
+			isa = PBXGroup;
+			children = (
+				6253D236188033130017790C /* ChaosGameTests.m */,
+				6253D231188033130017790C /* Supporting Files */,
+			);
+			path = ChaosGameTests;
+			sourceTree = "<group>";
+		};
+		6253D231188033130017790C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6253D232188033130017790C /* ChaosGameTests-Info.plist */,
+				6253D233188033130017790C /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6253D240188035950017790C /* ChaosEngine */ = {
+			isa = PBXGroup;
+			children = (
+				62AA540F188433BB001FA053 /* CEntity.h */,
+				62AA5410188433BB001FA053 /* CEntity.m */,
+				62AA5412188434C9001FA053 /* CEntityFactory.h */,
+				62AA5413188434C9001FA053 /* CEntityFactory.m */,
+				62AA5415188434D5001FA053 /* CComponent.h */,
+				62AA5416188434D5001FA053 /* CComponent.m */,
+				62AA541F188442E8001FA053 /* CPositionComponent.h */,
+				62AA5420188442E8001FA053 /* CPositionComponent.m */,
+				62AA5422188442F9001FA053 /* CRenderComponent.h */,
+				62AA5423188442F9001FA053 /* CRenderComponent.m */,
+				62AA54251884430B001FA053 /* CPhysicComponent.h */,
+				62AA54261884430B001FA053 /* CPhysicComponent.m */,
+			);
+			name = ChaosEngine;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6253D200188033120017790C /* ChaosGame */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6253D23A188033130017790C /* Build configuration list for PBXNativeTarget "ChaosGame" */;
+			buildPhases = (
+				6253D1FD188033120017790C /* Sources */,
+				6253D1FE188033120017790C /* Frameworks */,
+				6253D1FF188033120017790C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ChaosGame;
+			productName = ChaosGame;
+			productReference = 6253D201188033120017790C /* ChaosGame.app */;
+			productType = "com.apple.product-type.application";
+		};
+		6253D228188033130017790C /* ChaosGameTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6253D23D188033130017790C /* Build configuration list for PBXNativeTarget "ChaosGameTests" */;
+			buildPhases = (
+				6253D225188033130017790C /* Sources */,
+				6253D226188033130017790C /* Frameworks */,
+				6253D227188033130017790C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6253D22F188033130017790C /* PBXTargetDependency */,
+			);
+			name = ChaosGameTests;
+			productName = ChaosGameTests;
+			productReference = 6253D229188033130017790C /* ChaosGameTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6253D1F9188033120017790C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Baris YILMAZ";
+				TargetAttributes = {
+					6253D228188033130017790C = {
+						TestTargetID = 6253D200188033120017790C;
+					};
+				};
+			};
+			buildConfigurationList = 6253D1FC188033120017790C /* Build configuration list for PBXProject "ChaosGame" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6253D1F8188033120017790C;
+			productRefGroup = 6253D202188033120017790C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6253D200188033120017790C /* ChaosGame */,
+				6253D228188033130017790C /* ChaosGameTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6253D1FF188033120017790C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6253D211188033120017790C /* InfoPlist.strings in Resources */,
+				6253D224188033120017790C /* Images.xcassets in Resources */,
+				6253D222188033120017790C /* Spaceship.png in Resources */,
+				6253D21A188033120017790C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6253D227188033130017790C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6253D235188033130017790C /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6253D1FD188033120017790C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				62AA5411188433BB001FA053 /* CEntity.m in Sources */,
+				6253D220188033120017790C /* MyScene.m in Sources */,
+				62AA5421188442E8001FA053 /* CPositionComponent.m in Sources */,
+				6253D21D188033120017790C /* ViewController.m in Sources */,
+				6253D217188033120017790C /* AppDelegate.m in Sources */,
+				6253D213188033120017790C /* main.m in Sources */,
+				62AA5424188442F9001FA053 /* CRenderComponent.m in Sources */,
+				62AA5414188434C9001FA053 /* CEntityFactory.m in Sources */,
+				62AA5417188434D5001FA053 /* CComponent.m in Sources */,
+				62AA54271884430B001FA053 /* CPhysicComponent.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6253D225188033130017790C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6253D237188033130017790C /* ChaosGameTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6253D22F188033130017790C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6253D200188033120017790C /* ChaosGame */;
+			targetProxy = 6253D22E188033130017790C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		6253D20F188033120017790C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6253D210188033120017790C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		6253D218188033120017790C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6253D219188033120017790C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		6253D233188033130017790C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6253D234188033130017790C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6253D238188033130017790C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		6253D239188033130017790C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6253D23B188033130017790C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ChaosGame/ChaosGame-Prefix.pch";
+				INFOPLIST_FILE = "ChaosGame/ChaosGame-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		6253D23C188033130017790C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ChaosGame/ChaosGame-Prefix.pch";
+				INFOPLIST_FILE = "ChaosGame/ChaosGame-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		6253D23E188033130017790C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ChaosGame.app/ChaosGame";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ChaosGame/ChaosGame-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "ChaosGameTests/ChaosGameTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		6253D23F188033130017790C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ChaosGame.app/ChaosGame";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ChaosGame/ChaosGame-Prefix.pch";
+				INFOPLIST_FILE = "ChaosGameTests/ChaosGameTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6253D1FC188033120017790C /* Build configuration list for PBXProject "ChaosGame" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6253D238188033130017790C /* Debug */,
+				6253D239188033130017790C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6253D23A188033130017790C /* Build configuration list for PBXNativeTarget "ChaosGame" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6253D23B188033130017790C /* Debug */,
+				6253D23C188033130017790C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6253D23D188033130017790C /* Build configuration list for PBXNativeTarget "ChaosGameTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6253D23E188033130017790C /* Debug */,
+				6253D23F188033130017790C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6253D1F9188033120017790C /* Project object */;
+}
