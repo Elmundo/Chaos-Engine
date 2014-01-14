@@ -12,8 +12,11 @@
 @interface CEntity : NSObject
 
 @property (nonatomic, strong) NSMutableDictionary *componentDic;
-@property (nonatomic, strong) NSMutableString *entityName;
+@property (nonatomic, strong) NSString *entityName;
 
+- (void)initialize:(NSString *)entityName;
 - (void)addComponent:(CComponent *)component;
 - (void)removeComponent:(CComponent *)component;
+- (CComponent *)getComponentWithName:(NSString *)componentName;
++ (unsigned)entityID;
 @end

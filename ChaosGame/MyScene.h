@@ -7,6 +7,7 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
+#import "CScene.h"
 
 #import "CEntityFactory.h"
 #import "CComponent.h"
@@ -14,6 +15,6 @@
 #import "CPositionComponent.h"
 #import "CRenderComponent.h"
 
-@interface MyScene : SKScene
+@interface MyScene : CScene 
 
 @end

@@ -10,4 +10,19 @@
 
 @implementation CPositionComponent
 
+- (void)didAddedToEntity:(CEntity *)owner
+{
+    
+}
+
+- (void)didRemovedFromEntity
+{
+    [super didRemovedFromEntity];
+}
+
+- (CGPoint)getPosition
+{
+    return self.position;
+}
+
 @end

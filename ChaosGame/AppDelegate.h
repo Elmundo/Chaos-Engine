@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CAppDelegate.h"
+#import "ViewController.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
-
-@property (strong, nonatomic) UIWindow *window;
+@interface AppDelegate : CAppDelegate
 
 @end

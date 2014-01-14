@@ -10,11 +10,21 @@
 
 @implementation CEntityFactory
 
++ (id)shared
+{
+    static CEntityFactory *instance = nil;
+    if (instance == nil) {
+        instance = [[CEntityFactory alloc] init];
+    }
+    
+    return instance;
+}
+
 - (id)init
 {
     self = [super init];
     if (self) {
-        self.entityDic = [[NSMutableDictionary alloc] initWithCapacity:10];
+        self.entityDic = [[NSMutableDictionary alloc] init];
     }
     
     return self;
@@ -23,8 +33,7 @@
 - (CEntity *)createEntity
 {
     CEntity *entity = [[CEntity alloc] init];
-    
-    [self.entityDic setObject:entity forKey:entity.entityName];
+    [self.entityDic setObject:entity forKey:[NSString stringWithFormat:@"%i", [CEntity entityID]]];
     
     return entity;
 }

@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <SpriteKit/SpriteKit.h>
+#import "CViewController.h"
+#import "CSceneManager.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : CViewController
 
 @end

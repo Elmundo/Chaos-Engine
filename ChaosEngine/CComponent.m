@@ -21,4 +21,28 @@
     return self;
 }
 
+/* Override this method in subclass */
+- (void)didAddedToEntity:(CEntity *)owner
+{
+    
+}
+
+/* Override this method in subclass */
+- (void)didRemovedFromEntity
+{
+    self.owner = nil;
+    self.componentName = nil;
+    [self.owner removeComponent:self];
+}
+
+- (CComponent *)getComponent:(NSString *)componentName
+{
+    return [self.owner getComponentWithName:componentName];
+}
+
+- (void)destroy
+{
+    [self didRemovedFromEntity];
+}
+
 @end

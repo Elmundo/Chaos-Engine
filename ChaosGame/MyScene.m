@@ -13,28 +13,34 @@
 -(id)initWithSize:(CGSize)size {    
     if (self = [super initWithSize:size]) {
         /* Setup your scene here */
-
+        [[CLogger shared] logWithTarget:self method:@"initWithSize:" message:@"Deneme Bir ki"];
     }
-    
-    //Create Entity Factory
-    CEntityFactory *factory = [[CEntityFactory alloc] init];
-    
-    CEntity *e1 = [factory createEntity];
-    
-    CPositionComponent *posComponent = [[CPositionComponent alloc] init];
-    CRenderComponent *renderComponent = [[CRenderComponent alloc] init];
-    CPhysicComponent *physicComponent = [[CPhysicComponent alloc] init];
-    
-    [e1 addComponent:posComponent];
-    [e1 addComponent:renderComponent];
-    [e1 addComponent:physicComponent];
-    
+
     return self;
 }
 
--(void)testChaosEngine
+- (void)didMoveToView:(SKView *)view
 {
+    [super didMoveToView:view];
+}
+
+- (void)createSceneContents
+{
+    self.backgroundColor = [SKColor redColor];
     
+    CEntity *skeletonEntity = [[CEntityFactory shared] createEntity];
+    
+    CPositionComponent *positionComponent = [[CPositionComponent alloc] init];
+    positionComponent.position = CGPointMake(0, 0);
+    
+    CRenderComponent *rendererComponent = [[CRenderComponent alloc] init];
+    rendererComponent.scene = self;
+    rendererComponent.sceneName = NSStringFromClass([self class]);
+    rendererComponent.resourceName = @"zelda.jpg";
+    
+    [skeletonEntity addComponent:positionComponent];
+    [skeletonEntity addComponent:rendererComponent];
+    [skeletonEntity initialize:@"skeletion01"];
 }
 
 -(void)update:(CFTimeInterval)currentTime {

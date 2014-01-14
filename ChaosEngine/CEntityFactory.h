@@ -15,4 +15,6 @@
 
 - (CEntity *)createEntity;
 
++ (id)shared;
+
 @end

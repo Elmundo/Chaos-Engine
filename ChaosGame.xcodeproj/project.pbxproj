@@ -14,7 +14,6 @@
 		6253D211188033120017790C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6253D20F188033120017790C /* InfoPlist.strings */; };
 		6253D213188033120017790C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6253D212188033120017790C /* main.m */; };
 		6253D217188033120017790C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6253D216188033120017790C /* AppDelegate.m */; };
-		6253D21A188033120017790C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6253D218188033120017790C /* Main.storyboard */; };
 		6253D21D188033120017790C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6253D21C188033120017790C /* ViewController.m */; };
 		6253D220188033120017790C /* MyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 6253D21F188033120017790C /* MyScene.m */; };
 		6253D222188033120017790C /* Spaceship.png in Resources */ = {isa = PBXBuildFile; fileRef = 6253D221188033120017790C /* Spaceship.png */; };
@@ -24,6 +23,13 @@
 		6253D22D188033130017790C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6253D208188033120017790C /* UIKit.framework */; };
 		6253D235188033130017790C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6253D233188033130017790C /* InfoPlist.strings */; };
 		6253D237188033130017790C /* ChaosGameTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6253D236188033130017790C /* ChaosGameTests.m */; };
+		6262776218852B1F00006BBD /* CViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6262776018852B1F00006BBD /* CViewController.m */; };
+		6262776318852B1F00006BBD /* CViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6262776118852B1F00006BBD /* CViewController.xib */; };
+		6262776618852CDE00006BBD /* CScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 6262776518852CDE00006BBD /* CScene.m */; };
+		6262776A1885321600006BBD /* CAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 626277691885321600006BBD /* CAppDelegate.m */; };
+		6262776D1885669100006BBD /* CSceneManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6262776C1885669100006BBD /* CSceneManager.m */; };
+		626277701885732800006BBD /* CLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 6262776F1885732800006BBD /* CLogger.m */; };
+		62627774188581DE00006BBD /* zelda.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 62627773188581DE00006BBD /* zelda.jpg */; };
 		62AA5411188433BB001FA053 /* CEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AA5410188433BB001FA053 /* CEntity.m */; };
 		62AA5414188434C9001FA053 /* CEntityFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AA5413188434C9001FA053 /* CEntityFactory.m */; };
 		62AA5417188434D5001FA053 /* CComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AA5416188434D5001FA053 /* CComponent.m */; };
@@ -54,7 +60,6 @@
 		6253D214188033120017790C /* ChaosGame-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ChaosGame-Prefix.pch"; sourceTree = "<group>"; };
 		6253D215188033120017790C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6253D216188033120017790C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		6253D219188033120017790C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6253D21B188033120017790C /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		6253D21C188033120017790C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		6253D21E188033120017790C /* MyScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyScene.h; sourceTree = "<group>"; };
@@ -66,6 +71,18 @@
 		6253D232188033130017790C /* ChaosGameTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ChaosGameTests-Info.plist"; sourceTree = "<group>"; };
 		6253D234188033130017790C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6253D236188033130017790C /* ChaosGameTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChaosGameTests.m; sourceTree = "<group>"; };
+		6262775F18852B1F00006BBD /* CViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CViewController.h; path = ChaosEngine/CViewController.h; sourceTree = "<group>"; };
+		6262776018852B1F00006BBD /* CViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CViewController.m; path = ChaosEngine/CViewController.m; sourceTree = "<group>"; };
+		6262776118852B1F00006BBD /* CViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CViewController.xib; path = ChaosEngine/CViewController.xib; sourceTree = "<group>"; };
+		6262776418852CDE00006BBD /* CScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CScene.h; path = ChaosEngine/CScene.h; sourceTree = "<group>"; };
+		6262776518852CDE00006BBD /* CScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CScene.m; path = ChaosEngine/CScene.m; sourceTree = "<group>"; };
+		626277681885321600006BBD /* CAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAppDelegate.h; path = ChaosEngine/CAppDelegate.h; sourceTree = "<group>"; };
+		626277691885321600006BBD /* CAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CAppDelegate.m; path = ChaosEngine/CAppDelegate.m; sourceTree = "<group>"; };
+		6262776B1885669100006BBD /* CSceneManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CSceneManager.h; path = ChaosEngine/CSceneManager.h; sourceTree = "<group>"; };
+		6262776C1885669100006BBD /* CSceneManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CSceneManager.m; path = ChaosEngine/CSceneManager.m; sourceTree = "<group>"; };
+		6262776E1885732800006BBD /* CLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CLogger.h; path = ChaosEngine/CLogger.h; sourceTree = "<group>"; };
+		6262776F1885732800006BBD /* CLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CLogger.m; path = ChaosEngine/CLogger.m; sourceTree = "<group>"; };
+		62627773188581DE00006BBD /* zelda.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = zelda.jpg; path = assets/zelda.jpg; sourceTree = "<group>"; };
 		62AA540F188433BB001FA053 /* CEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CEntity.h; path = ChaosEngine/CEntity.h; sourceTree = "<group>"; };
 		62AA5410188433BB001FA053 /* CEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CEntity.m; path = ChaosEngine/CEntity.m; sourceTree = "<group>"; };
 		62AA5412188434C9001FA053 /* CEntityFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CEntityFactory.h; path = ChaosEngine/CEntityFactory.h; sourceTree = "<group>"; };
@@ -140,9 +157,9 @@
 		6253D20C188033120017790C /* ChaosGame */ = {
 			isa = PBXGroup;
 			children = (
+				626277721885811300006BBD /* assets */,
 				6253D215188033120017790C /* AppDelegate.h */,
 				6253D216188033120017790C /* AppDelegate.m */,
-				6253D218188033120017790C /* Main.storyboard */,
 				6253D21B188033120017790C /* ViewController.h */,
 				6253D21C188033120017790C /* ViewController.m */,
 				6253D21E188033120017790C /* MyScene.h */,
@@ -198,8 +215,27 @@
 				62AA5423188442F9001FA053 /* CRenderComponent.m */,
 				62AA54251884430B001FA053 /* CPhysicComponent.h */,
 				62AA54261884430B001FA053 /* CPhysicComponent.m */,
+				6262775F18852B1F00006BBD /* CViewController.h */,
+				6262776018852B1F00006BBD /* CViewController.m */,
+				6262776418852CDE00006BBD /* CScene.h */,
+				6262776518852CDE00006BBD /* CScene.m */,
+				626277681885321600006BBD /* CAppDelegate.h */,
+				626277691885321600006BBD /* CAppDelegate.m */,
+				6262776B1885669100006BBD /* CSceneManager.h */,
+				6262776C1885669100006BBD /* CSceneManager.m */,
+				6262776E1885732800006BBD /* CLogger.h */,
+				6262776F1885732800006BBD /* CLogger.m */,
+				6262776118852B1F00006BBD /* CViewController.xib */,
 			);
 			name = ChaosEngine;
+			sourceTree = "<group>";
+		};
+		626277721885811300006BBD /* assets */ = {
+			isa = PBXGroup;
+			children = (
+				62627773188581DE00006BBD /* zelda.jpg */,
+			);
+			name = assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,10 +314,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6262776318852B1F00006BBD /* CViewController.xib in Resources */,
 				6253D211188033120017790C /* InfoPlist.strings in Resources */,
 				6253D224188033120017790C /* Images.xcassets in Resources */,
+				62627774188581DE00006BBD /* zelda.jpg in Resources */,
 				6253D222188033120017790C /* Spaceship.png in Resources */,
-				6253D21A188033120017790C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,14 +337,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6262776D1885669100006BBD /* CSceneManager.m in Sources */,
 				62AA5411188433BB001FA053 /* CEntity.m in Sources */,
 				6253D220188033120017790C /* MyScene.m in Sources */,
+				6262776218852B1F00006BBD /* CViewController.m in Sources */,
 				62AA5421188442E8001FA053 /* CPositionComponent.m in Sources */,
+				626277701885732800006BBD /* CLogger.m in Sources */,
 				6253D21D188033120017790C /* ViewController.m in Sources */,
 				6253D217188033120017790C /* AppDelegate.m in Sources */,
+				6262776A1885321600006BBD /* CAppDelegate.m in Sources */,
 				6253D213188033120017790C /* main.m in Sources */,
 				62AA5424188442F9001FA053 /* CRenderComponent.m in Sources */,
 				62AA5414188434C9001FA053 /* CEntityFactory.m in Sources */,
+				6262776618852CDE00006BBD /* CScene.m in Sources */,
 				62AA5417188434D5001FA053 /* CComponent.m in Sources */,
 				62AA54271884430B001FA053 /* CPhysicComponent.m in Sources */,
 			);
@@ -338,14 +380,6 @@
 				6253D210188033120017790C /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		6253D218188033120017790C /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				6253D219188033120017790C /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 		6253D233188033130017790C /* InfoPlist.strings */ = {

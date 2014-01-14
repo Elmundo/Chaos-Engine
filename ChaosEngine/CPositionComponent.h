@@ -10,4 +10,8 @@
 
 @interface CPositionComponent : CComponent
 
+@property (nonatomic, assign) CGPoint position;
+
+- (CGPoint)getPosition;
+
 @end

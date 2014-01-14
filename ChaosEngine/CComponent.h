@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CLogger.h"
 
 @class CEntity;
 
@@ -14,5 +15,9 @@
 
 @property (nonatomic, weak) CEntity *owner;
 @property (nonatomic, strong) NSString *componentName;
+
+- (void)didAddedToEntity:(CEntity *)owner;
+- (void)didRemovedFromEntity;
+- (CComponent *)getComponent:(NSString *)componentName;
 
 @end
