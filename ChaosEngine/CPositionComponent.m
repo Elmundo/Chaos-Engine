@@ -10,9 +10,16 @@
 
 @implementation CPositionComponent
 
+@synthesize position = _position;
+
 - (void)didAddedToEntity:(CEntity *)owner
 {
+    [super didAddedToEntity:owner];
     
+    self.notificationManager = [NSNotificationCenter defaultCenter];
+    
+    [self addEventListener:@selector(testMethod:) message:@"Event"];
+    [self removeEventListener:@selector(testMethod:) message:@"Event"];
 }
 
 - (void)didRemovedFromEntity
@@ -20,9 +27,32 @@
     [super didRemovedFromEntity];
 }
 
-- (CGPoint)getPosition
+- (void)setPoint:(int)x and:(int)y
 {
-    return self.position;
+    _position.x = x;
+    _position.y = y;
+   
+    [self.notificationManager postNotificationName:@"EventPositionUpdated" object:nil];
+}
+
+- (void)setWithCGPoint:(CGPoint)point
+{
+    _position.x = point.x;
+    _position.y = point.y;
+    
+    [self setPoint:point.x and:point.y];
+}
+
+- (void)testMethod:(CEvent *)event
+{
+    
+}
+
+#pragma mark GETTER & SETTER
+
+- (CPoint *)position { return _position; }
+- (void)setPosition:(CPoint *)position {
+    _position = position;
 }
 
 @end

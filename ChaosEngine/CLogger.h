@@ -12,14 +12,14 @@
 
 @interface CLogger : NSObject
 
-+ (id)shared;
+//+ (id)shared;
 
-- (void)logWithTarget:(id)class method:(NSString *)name message:(NSString *)message;
++ (void)logWithTarget:(id)class method:(NSString *)name message:(NSString *)message;
 
-- (void)debugWithTarget:(id)class method:(NSString *)name message:(NSString *)message;
++ (void)debugWithTarget:(id)class method:(NSString *)name message:(NSString *)message;
 
-- (void)warnWithTarget:(id)class method:(NSString *)name message:(NSString *)message;
++ (void)warnWithTarget:(id)class method:(NSString *)name message:(NSString *)message;
 
-- (void)errorWithTarget:(id)class method:(NSString *)name message:(NSString *)message;
++ (void)errorWithTarget:(id)class method:(NSString *)name message:(NSString *)message;
 
 @end

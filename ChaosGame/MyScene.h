@@ -16,5 +16,7 @@
 #import "CRenderComponent.h"
 
 @interface MyScene : CScene 
-
+{
+    CPositionComponent *positionComponent;
+}
 @end

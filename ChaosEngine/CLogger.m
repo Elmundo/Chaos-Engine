@@ -10,6 +10,7 @@
 
 @implementation CLogger
 
+/*
 + (id)shared
 {
     static CLogger *instance = nil;
@@ -19,23 +20,24 @@
     
     return instance;
 }
+*/
 
-- (void)logWithTarget:(id)class method:(NSString *)name message:(NSString *)message
++ (void)logWithTarget:(id)class method:(NSString *)name message:(NSString *)message
 {
     NSLog(@"LOG: [Class %@] method: [%@] | message: [%@]", NSStringFromClass([class class]), name, message);
 }
 
-- (void)debugWithTarget:(id)class method:(NSString *)name message:(NSString *)message
++ (void)debugWithTarget:(id)class method:(NSString *)name message:(NSString *)message
 {
     NSLog(@"DEBUG: [Class %@] method: [%@] | message: [%@]", NSStringFromClass([class class]), name, message);
 }
 
-- (void)warnWithTarget:(id)class method:(NSString *)name message:(NSString *)message
++ (void)warnWithTarget:(id)class method:(NSString *)name message:(NSString *)message
 {
     NSLog(@"WARN: [Class %@] method: [%@] | message: [%@]", NSStringFromClass([class class]), name, message);
 }
 
-- (void)errorWithTarget:(id)class method:(NSString *)name message:(NSString *)message
++ (void)errorWithTarget:(id)class method:(NSString *)name message:(NSString *)message
 {
     NSLog(@"ERROR: [Class %@] method: [%@] | message: [%@]", NSStringFromClass([class class]), name, message);
 }

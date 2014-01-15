@@ -7,16 +7,20 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CEntityDispatcher.h"
+
 @class CComponent;
 
 @interface CEntity : NSObject
 
 @property (nonatomic, strong) NSMutableDictionary *componentDic;
 @property (nonatomic, strong) NSString *entityName;
+@property (nonatomic, strong) CEntityDispatcher *dispatcher;
 
 - (void)initialize:(NSString *)entityName;
 - (void)addComponent:(CComponent *)component;
 - (void)removeComponent:(CComponent *)component;
 - (CComponent *)getComponentWithName:(NSString *)componentName;
 + (unsigned)entityID;
+
 @end

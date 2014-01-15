@@ -22,6 +22,7 @@ static unsigned entity_id = 0;
         //[self.entityName stringByAppendingFormat:@"%i", _entity_id];
         
         self.componentDic = [[NSMutableDictionary alloc] initWithCapacity:3];
+        self.dispatcher = [[CEntityDispatcher alloc] init];
     }
     
     return self;
@@ -30,6 +31,7 @@ static unsigned entity_id = 0;
 - (void)initialize:(NSString *)entityName
 {
     self.entityName = entityName;
+    [CLogger logWithTarget:self method:@"Entity is created" message:self.entityName];
     for (NSString *componentName in self.componentDic) {
         
         CComponent *component = [self.componentDic objectForKey:componentName];
@@ -37,7 +39,6 @@ static unsigned entity_id = 0;
         if (result) {
             [component didAddedToEntity:self];
         }
-        
     }
 }
 
@@ -45,7 +46,6 @@ static unsigned entity_id = 0;
 {
     component.owner = self;
     [self.componentDic setObject:component forKey:component.componentName];
-    [component didAddedToEntity:self];
 }
 
 - (void)removeComponent:(CComponent *)component

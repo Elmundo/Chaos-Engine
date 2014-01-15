@@ -7,11 +7,16 @@
 //
 
 #import "CComponent.h"
+#import "CUtil.h"
+#import "CPoint.h"
 
 @interface CPositionComponent : CComponent
 
-@property (nonatomic, assign) CGPoint position;
+@property (nonatomic, strong) NSNotificationCenter *notificationManager;
 
-- (CGPoint)getPosition;
+@property (nonatomic, strong) CPoint *position;
+
+- (void)setPoint:(int)x and:(int)y;
+- (void)setWithCGPoint:(CGPoint)point;
 
 @end

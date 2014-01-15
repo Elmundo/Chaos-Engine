@@ -29,7 +29,11 @@
 		6262776A1885321600006BBD /* CAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 626277691885321600006BBD /* CAppDelegate.m */; };
 		6262776D1885669100006BBD /* CSceneManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6262776C1885669100006BBD /* CSceneManager.m */; };
 		626277701885732800006BBD /* CLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 6262776F1885732800006BBD /* CLogger.m */; };
-		62627774188581DE00006BBD /* zelda.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 62627773188581DE00006BBD /* zelda.jpg */; };
+		6262777B18868D0B00006BBD /* CUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 6262777A18868D0B00006BBD /* CUtil.m */; };
+		6262777F1886A34400006BBD /* sword.png in Resources */ = {isa = PBXBuildFile; fileRef = 6262777E1886A34400006BBD /* sword.png */; };
+		626277821886A4BF00006BBD /* CPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 626277811886A4BF00006BBD /* CPoint.m */; };
+		626277881886DDC500006BBD /* CEntityDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 626277871886DDC500006BBD /* CEntityDispatcher.m */; };
+		6262778B1886DE7F00006BBD /* CEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 6262778A1886DE7F00006BBD /* CEvent.m */; };
 		62AA5411188433BB001FA053 /* CEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AA5410188433BB001FA053 /* CEntity.m */; };
 		62AA5414188434C9001FA053 /* CEntityFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AA5413188434C9001FA053 /* CEntityFactory.m */; };
 		62AA5417188434D5001FA053 /* CComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AA5416188434D5001FA053 /* CComponent.m */; };
@@ -82,7 +86,15 @@
 		6262776C1885669100006BBD /* CSceneManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CSceneManager.m; path = ChaosEngine/CSceneManager.m; sourceTree = "<group>"; };
 		6262776E1885732800006BBD /* CLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CLogger.h; path = ChaosEngine/CLogger.h; sourceTree = "<group>"; };
 		6262776F1885732800006BBD /* CLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CLogger.m; path = ChaosEngine/CLogger.m; sourceTree = "<group>"; };
-		62627773188581DE00006BBD /* zelda.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = zelda.jpg; path = assets/zelda.jpg; sourceTree = "<group>"; };
+		6262777918868D0B00006BBD /* CUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CUtil.h; path = ChaosEngine/CUtil.h; sourceTree = "<group>"; };
+		6262777A18868D0B00006BBD /* CUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CUtil.m; path = ChaosEngine/CUtil.m; sourceTree = "<group>"; };
+		6262777E1886A34400006BBD /* sword.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sword.png; path = assets/sword.png; sourceTree = "<group>"; };
+		626277801886A4BF00006BBD /* CPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CPoint.h; path = ChaosEngine/CPoint.h; sourceTree = "<group>"; };
+		626277811886A4BF00006BBD /* CPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CPoint.m; path = ChaosEngine/CPoint.m; sourceTree = "<group>"; };
+		626277861886DDC500006BBD /* CEntityDispatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CEntityDispatcher.h; path = ChaosEngine/CEntityDispatcher.h; sourceTree = "<group>"; };
+		626277871886DDC500006BBD /* CEntityDispatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CEntityDispatcher.m; path = ChaosEngine/CEntityDispatcher.m; sourceTree = "<group>"; };
+		626277891886DE7F00006BBD /* CEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CEvent.h; path = ChaosEngine/CEvent.h; sourceTree = "<group>"; };
+		6262778A1886DE7F00006BBD /* CEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CEvent.m; path = ChaosEngine/CEvent.m; sourceTree = "<group>"; };
 		62AA540F188433BB001FA053 /* CEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CEntity.h; path = ChaosEngine/CEntity.h; sourceTree = "<group>"; };
 		62AA5410188433BB001FA053 /* CEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CEntity.m; path = ChaosEngine/CEntity.m; sourceTree = "<group>"; };
 		62AA5412188434C9001FA053 /* CEntityFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CEntityFactory.h; path = ChaosEngine/CEntityFactory.h; sourceTree = "<group>"; };
@@ -225,6 +237,14 @@
 				6262776C1885669100006BBD /* CSceneManager.m */,
 				6262776E1885732800006BBD /* CLogger.h */,
 				6262776F1885732800006BBD /* CLogger.m */,
+				6262777918868D0B00006BBD /* CUtil.h */,
+				6262777A18868D0B00006BBD /* CUtil.m */,
+				626277801886A4BF00006BBD /* CPoint.h */,
+				626277811886A4BF00006BBD /* CPoint.m */,
+				626277861886DDC500006BBD /* CEntityDispatcher.h */,
+				626277871886DDC500006BBD /* CEntityDispatcher.m */,
+				626277891886DE7F00006BBD /* CEvent.h */,
+				6262778A1886DE7F00006BBD /* CEvent.m */,
 				6262776118852B1F00006BBD /* CViewController.xib */,
 			);
 			name = ChaosEngine;
@@ -233,7 +253,7 @@
 		626277721885811300006BBD /* assets */ = {
 			isa = PBXGroup;
 			children = (
-				62627773188581DE00006BBD /* zelda.jpg */,
+				6262777E1886A34400006BBD /* sword.png */,
 			);
 			name = assets;
 			sourceTree = "<group>";
@@ -317,7 +337,7 @@
 				6262776318852B1F00006BBD /* CViewController.xib in Resources */,
 				6253D211188033120017790C /* InfoPlist.strings in Resources */,
 				6253D224188033120017790C /* Images.xcassets in Resources */,
-				62627774188581DE00006BBD /* zelda.jpg in Resources */,
+				6262777F1886A34400006BBD /* sword.png in Resources */,
 				6253D222188033120017790C /* Spaceship.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -339,15 +359,19 @@
 			files = (
 				6262776D1885669100006BBD /* CSceneManager.m in Sources */,
 				62AA5411188433BB001FA053 /* CEntity.m in Sources */,
+				626277821886A4BF00006BBD /* CPoint.m in Sources */,
 				6253D220188033120017790C /* MyScene.m in Sources */,
+				6262777B18868D0B00006BBD /* CUtil.m in Sources */,
 				6262776218852B1F00006BBD /* CViewController.m in Sources */,
 				62AA5421188442E8001FA053 /* CPositionComponent.m in Sources */,
 				626277701885732800006BBD /* CLogger.m in Sources */,
 				6253D21D188033120017790C /* ViewController.m in Sources */,
 				6253D217188033120017790C /* AppDelegate.m in Sources */,
 				6262776A1885321600006BBD /* CAppDelegate.m in Sources */,
+				6262778B1886DE7F00006BBD /* CEvent.m in Sources */,
 				6253D213188033120017790C /* main.m in Sources */,
 				62AA5424188442F9001FA053 /* CRenderComponent.m in Sources */,
+				626277881886DDC500006BBD /* CEntityDispatcher.m in Sources */,
 				62AA5414188434C9001FA053 /* CEntityFactory.m in Sources */,
 				6262776618852CDE00006BBD /* CScene.m in Sources */,
 				62AA5417188434D5001FA053 /* CComponent.m in Sources */,

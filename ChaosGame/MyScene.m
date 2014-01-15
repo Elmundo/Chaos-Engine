@@ -13,7 +13,7 @@
 -(id)initWithSize:(CGSize)size {    
     if (self = [super initWithSize:size]) {
         /* Setup your scene here */
-        [[CLogger shared] logWithTarget:self method:@"initWithSize:" message:@"Deneme Bir ki"];
+        [CLogger logWithTarget:self method:@"initWithSize:" message:@"My scene is init."];
     }
 
     return self;
@@ -26,21 +26,31 @@
 
 - (void)createSceneContents
 {
-    self.backgroundColor = [SKColor redColor];
+    self.backgroundColor = [SKColor blackColor];
     
     CEntity *skeletonEntity = [[CEntityFactory shared] createEntity];
     
-    CPositionComponent *positionComponent = [[CPositionComponent alloc] init];
-    positionComponent.position = CGPointMake(0, 0);
-    
+    positionComponent = [[CPositionComponent alloc] init];
+    positionComponent.position = [[CPoint alloc] initWithX:CGRectGetMidX(self.frame) and:CGRectGetMidY(self.frame)];
+
     CRenderComponent *rendererComponent = [[CRenderComponent alloc] init];
     rendererComponent.scene = self;
     rendererComponent.sceneName = NSStringFromClass([self class]);
-    rendererComponent.resourceName = @"zelda.jpg";
+    rendererComponent.resourceName = @"sword.png";
+    rendererComponent.positionRef = positionComponent.position;
     
     [skeletonEntity addComponent:positionComponent];
     [skeletonEntity addComponent:rendererComponent];
     [skeletonEntity initialize:@"skeletion01"];
+    
+    [self performSelector:@selector(updatePosition) withObject:nil afterDelay:5.0f];
+    //positionComponent.position = CGPointMake(50, 50);
+}
+
+-(void)updatePosition
+{
+    [positionComponent setPoint:50 and:50];
+    [CLogger logWithTarget:self method:@"updatePosition" message:@"Sword position is updated"];
 }
 
 -(void)update:(CFTimeInterval)currentTime {
