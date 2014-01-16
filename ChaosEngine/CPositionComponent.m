@@ -15,11 +15,6 @@
 - (void)didAddedToEntity:(CEntity *)owner
 {
     [super didAddedToEntity:owner];
-    
-    self.notificationManager = [NSNotificationCenter defaultCenter];
-    
-    [self addEventListener:@selector(testMethod:) message:@"Event"];
-    [self removeEventListener:@selector(testMethod:) message:@"Event"];
 }
 
 - (void)didRemovedFromEntity
@@ -32,7 +27,7 @@
     _position.x = x;
     _position.y = y;
    
-    [self.notificationManager postNotificationName:@"EventPositionUpdated" object:nil];
+    [self dispatchEventWithMessage:@"EventPositionChanged"];
 }
 
 - (void)setWithCGPoint:(CGPoint)point
@@ -43,13 +38,8 @@
     [self setPoint:point.x and:point.y];
 }
 
-- (void)testMethod:(CEvent *)event
-{
-    
-}
 
 #pragma mark GETTER & SETTER
-
 - (CPoint *)position { return _position; }
 - (void)setPosition:(CPoint *)position {
     _position = position;

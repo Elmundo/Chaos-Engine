@@ -42,12 +42,17 @@
 
 - (void)addEventListener:(SEL)action message:(NSString *)message
 {
-    [_owner.dispatcher addEventListener:action withEvent:message];
+    [_owner.dispatcher addEventListener:self withAction:action withEvent:message];
 }
 
 - (void)removeEventListener:(SEL)action message:(NSString *)message
 {
-    [_owner.dispatcher removeEventListener:action withEvent:message];
+    [_owner.dispatcher removeEventListener:self withAction:action withEvent:message];
+}
+
+- (void)dispatchEventWithMessage:(NSString *)message
+{
+    [_owner.dispatcher dispatchEvent:message];
 }
 
 - (void)destroy

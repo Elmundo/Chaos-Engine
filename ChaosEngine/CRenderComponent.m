@@ -20,7 +20,7 @@
     self.notificationManager = [NSNotificationCenter defaultCenter];
     self.spriteNode.anchorPoint = CGPointMake(0.5, 0.5);
     
-    [self.notificationManager addObserver:self selector:@selector(didPositionUpdated) name:@"EventPositionUpdated" object:nil];
+    [self addEventListener:@selector(didPositionUpdated) message:@"EventPositionChanged"];
     
     if (self.resourceName == nil) {
         [CLogger errorWithTarget:self method:@"didAddedToEntity"
@@ -40,15 +40,7 @@
         [CLogger errorWithTarget:self method:@"didAddedToEntity"
                                   message:cStringWithValue(@"There is no such a scene", self.sceneName)];
     }
-    /*
-    // This block code shall be changed
-    // CRenderComponent should not need to know CPositionComponent.
-    // Just need to know a generic variable that could bring the CPoint data with a given SEL object
-    
-    CPositionComponent *component = (CPositionComponent *)[self getComponent:@"CPositionComponent"];
-    self.position = component.position;
-    self.spriteNode.position = [self.position CGPoint];
-    */
+   
     self.position = (CPoint *)self.positionRef;
     self.spriteNode.position = [self.position CGPoint];
     

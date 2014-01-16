@@ -12,8 +12,6 @@
 
 @interface CLogger : NSObject
 
-//+ (id)shared;
-
 + (void)logWithTarget:(id)class method:(NSString *)name message:(NSString *)message;
 
 + (void)debugWithTarget:(id)class method:(NSString *)name message:(NSString *)message;

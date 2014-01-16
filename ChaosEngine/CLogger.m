@@ -10,21 +10,9 @@
 
 @implementation CLogger
 
-/*
-+ (id)shared
-{
-    static CLogger *instance = nil;
-    if (!instance) {
-        instance = [[CLogger alloc] init];
-    }
-    
-    return instance;
-}
-*/
-
 + (void)logWithTarget:(id)class method:(NSString *)name message:(NSString *)message
 {
-    NSLog(@"LOG: [Class %@] method: [%@] | message: [%@]", NSStringFromClass([class class]), name, message);
+    NSLog(@"LOG: [Class %@]∫ method: [%@] | message: [%@]", NSStringFromClass([class class]), name, message);
 }
 
 + (void)debugWithTarget:(id)class method:(NSString *)name message:(NSString *)message

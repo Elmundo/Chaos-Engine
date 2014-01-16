@@ -7,16 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CEventListener.h"
 #import "CEvent.h"
+#import "CLogger.h"
 
 @interface CEntityDispatcher : NSObject
 
 @property (nonatomic, strong) NSMutableDictionary *observers;
 
-- (void)addEventListener:(SEL)action withEvent:(NSString *)message;
+- (void)addEventListener:(id)target withAction:(SEL)action withEvent:(NSString *)message;
 
-- (void)removeEventListener:(SEL)action withEvent:(NSString *)message;
+- (void)removeEventListener:(id)target withAction:(SEL)action withEvent:(NSString *)message;
 
-- (void)dispatchEvent:(CEvent *)event;
+- (void)dispatchEvent:(NSString *)message;
 
 @end

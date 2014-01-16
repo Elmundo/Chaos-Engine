@@ -34,6 +34,7 @@
 		626277821886A4BF00006BBD /* CPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 626277811886A4BF00006BBD /* CPoint.m */; };
 		626277881886DDC500006BBD /* CEntityDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 626277871886DDC500006BBD /* CEntityDispatcher.m */; };
 		6262778B1886DE7F00006BBD /* CEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 6262778A1886DE7F00006BBD /* CEvent.m */; };
+		626277901888283E00006BBD /* CEventListener.m in Sources */ = {isa = PBXBuildFile; fileRef = 6262778F1888283E00006BBD /* CEventListener.m */; };
 		62AA5411188433BB001FA053 /* CEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AA5410188433BB001FA053 /* CEntity.m */; };
 		62AA5414188434C9001FA053 /* CEntityFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AA5413188434C9001FA053 /* CEntityFactory.m */; };
 		62AA5417188434D5001FA053 /* CComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AA5416188434D5001FA053 /* CComponent.m */; };
@@ -95,6 +96,8 @@
 		626277871886DDC500006BBD /* CEntityDispatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CEntityDispatcher.m; path = ChaosEngine/CEntityDispatcher.m; sourceTree = "<group>"; };
 		626277891886DE7F00006BBD /* CEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CEvent.h; path = ChaosEngine/CEvent.h; sourceTree = "<group>"; };
 		6262778A1886DE7F00006BBD /* CEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CEvent.m; path = ChaosEngine/CEvent.m; sourceTree = "<group>"; };
+		6262778E1888283E00006BBD /* CEventListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CEventListener.h; path = ChaosEngine/CEventListener.h; sourceTree = "<group>"; };
+		6262778F1888283E00006BBD /* CEventListener.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CEventListener.m; path = ChaosEngine/CEventListener.m; sourceTree = "<group>"; };
 		62AA540F188433BB001FA053 /* CEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CEntity.h; path = ChaosEngine/CEntity.h; sourceTree = "<group>"; };
 		62AA5410188433BB001FA053 /* CEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CEntity.m; path = ChaosEngine/CEntity.m; sourceTree = "<group>"; };
 		62AA5412188434C9001FA053 /* CEntityFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CEntityFactory.h; path = ChaosEngine/CEntityFactory.h; sourceTree = "<group>"; };
@@ -243,6 +246,8 @@
 				626277811886A4BF00006BBD /* CPoint.m */,
 				626277861886DDC500006BBD /* CEntityDispatcher.h */,
 				626277871886DDC500006BBD /* CEntityDispatcher.m */,
+				6262778E1888283E00006BBD /* CEventListener.h */,
+				6262778F1888283E00006BBD /* CEventListener.m */,
 				626277891886DE7F00006BBD /* CEvent.h */,
 				6262778A1886DE7F00006BBD /* CEvent.m */,
 				6262776118852B1F00006BBD /* CViewController.xib */,
@@ -367,6 +372,7 @@
 				626277701885732800006BBD /* CLogger.m in Sources */,
 				6253D21D188033120017790C /* ViewController.m in Sources */,
 				6253D217188033120017790C /* AppDelegate.m in Sources */,
+				626277901888283E00006BBD /* CEventListener.m in Sources */,
 				6262776A1885321600006BBD /* CAppDelegate.m in Sources */,
 				6262778B1886DE7F00006BBD /* CEvent.m in Sources */,
 				6253D213188033120017790C /* main.m in Sources */,
