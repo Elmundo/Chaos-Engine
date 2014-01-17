@@ -9,10 +9,9 @@
 #import "CComponent.h"
 #import "CUtil.h"
 #import "CPoint.h"
+#import "CPositionEvent.h"
 
 @interface CPositionComponent : CComponent
-
-@property (nonatomic, strong) NSNotificationCenter *notificationManager;
 
 @property (nonatomic, strong) CPoint *position;
 

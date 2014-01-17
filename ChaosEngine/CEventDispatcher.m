@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Baris YILMAZ. All rights reserved.
 //
 
-#import "CEntityDispatcher.h"
+#import "CEventDispatcher.h"
 
-@implementation CEntityDispatcher
+@implementation CEventDispatcher
 
 @synthesize observers = _observers;
 
@@ -52,20 +52,20 @@
     }
 }
 
-- (void)dispatchEvent:(NSString *)message
+- (void)dispatchEvent:(CEvent *)event
 {
-    if (![_observers objectForKey:message]) {
+    if (![_observers objectForKey:event.type]) {
         return;
     }
     
-    NSArray *message_observers = [_observers objectForKey:message];
+    NSArray *message_observers = [_observers objectForKey:event.type];
     CEventListener *listener;
     for (listener in message_observers) {
         id target = listener.target;
         SEL action = listener.action;
         
         if ([target respondsToSelector:action]) {
-            [target performSelector:action];
+            [target performSelector:action withObject:event];
         }else{
             [CLogger logWithTarget:self method:@"dispatchEvent:" message:@"Target does not have specified action."];
         }

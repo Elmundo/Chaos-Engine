@@ -10,6 +10,9 @@
 
 @implementation CRenderComponent
 
+#define kAnchorDefaultPointX 0.5f
+#define kAnchorDefaultPointY 0.5f
+
 @synthesize position = _position;
 
 - (void)didAddedToEntity:(CEntity *)owner
@@ -17,10 +20,7 @@
     [super didAddedToEntity:owner];
     
     self.manager = [CSceneManager shared];
-    self.notificationManager = [NSNotificationCenter defaultCenter];
-    self.spriteNode.anchorPoint = CGPointMake(0.5, 0.5);
     
-    [self addEventListener:@selector(didPositionUpdated) message:@"EventPositionChanged"];
     
     if (self.resourceName == nil) {
         [CLogger errorWithTarget:self method:@"didAddedToEntity"
@@ -28,10 +28,17 @@
         return;
     }
     
-    self.spriteNode = [SKSpriteNode spriteNodeWithImageNamed:self.resourceName];
+    self.texture = [SKTexture textureWithImageNamed:self.resourceName];
+    if (self.texture == nil) {
+        [CLogger errorWithTarget:self method:@"didAddedToEntity"
+                         message:cStringWithValue(@"There is no such a resource", self.resourceName)];
+        return;
+    }
+    
+    self.spriteNode = [SKSpriteNode spriteNodeWithTexture:self.texture];
     if (self.spriteNode == nil) {
         [CLogger errorWithTarget:self method:@"didAddedToEntity"
-                                  message:cStringWithValue(@"There is no such a resource", self.resourceName)];
+                                  message:cStringWithValue(@"There is no such a texture", self.resourceName)];
         return;
     }
     
@@ -41,20 +48,24 @@
                                   message:cStringWithValue(@"There is no such a scene", self.sceneName)];
     }
    
+    // Init the sprite position
     self.position = (CPoint *)self.positionRef;
     self.spriteNode.position = [self.position CGPoint];
+    self.spriteNode.anchorPoint = CGPointMake(kAnchorDefaultPointX, kAnchorDefaultPointY);
+    //self.spriteNode.size = CGSizeMake(128, 128);
+    [ self.scene addChild:self.spriteNode];
     
-    [self.scene addChild:self.spriteNode];
+    [self addEventListener:@selector(did_position_updated:) message:[CPositionEvent CE_PositionChanged]];
 }
 
 - (void)didRemovedFromEntity
 {
     [super didRemovedFromEntity];
     
-    [self.notificationManager removeObserver:self name:@"EventPositionUpdated" object:nil];
+    [self removeEventListener:@selector(did_position_updated:) message:[CPositionEvent CE_PositionChanged]];
 }
 
-- (void)didPositionUpdated
+- (void)did_position_updated:(CPositionEvent *)event
 {
     self.spriteNode.position = [self.position CGPoint];
 }

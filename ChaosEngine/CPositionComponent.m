@@ -27,7 +27,8 @@
     _position.x = x;
     _position.y = y;
    
-    [self dispatchEventWithMessage:@"EventPositionChanged"];
+    CPositionEvent *event = [CPositionEvent eventWithType:[CPositionEvent CE_PositionChanged] withBubbles:NO];
+    [self dispatchEventWithEvent:event];
 }
 
 - (void)setWithCGPoint:(CGPoint)point
@@ -37,7 +38,6 @@
     
     [self setPoint:point.x and:point.y];
 }
-
 
 #pragma mark GETTER & SETTER
 - (CPoint *)position { return _position; }

@@ -28,29 +28,71 @@
 {
     self.backgroundColor = [SKColor blackColor];
     
+    /* ALL THESE DATA MUST BE DEFINED IN XML */
+    /* Create the sekeleton entity and its all components*/
     CEntity *skeletonEntity = [[CEntityFactory shared] createEntity];
     
-    positionComponent = [[CPositionComponent alloc] init];
+    CPositionComponent *positionComponent = [[CPositionComponent alloc] init];
     positionComponent.position = [[CPoint alloc] initWithX:CGRectGetMidX(self.frame) and:CGRectGetMidY(self.frame)];
 
     CRenderComponent *rendererComponent = [[CRenderComponent alloc] init];
     rendererComponent.scene = self;
     rendererComponent.sceneName = NSStringFromClass([self class]);
-    rendererComponent.resourceName = @"sword.png";
+    rendererComponent.resourceName = @"character_downstand_01.png";
     rendererComponent.positionRef = positionComponent.position;
+    
+    NSDictionary *list = @{@"topstand": @1,
+                           @"topmove": @8,
+                           @"leftstand": @1,
+                           @"leftmove": @8,
+                           @"downstand": @1,
+                           @"downmove": @8,
+                           @"rightstand": @1,
+                           @"rightmove": @8
+                           };
+    
+    CAnimationComponent *animationComponent = [[CAnimationComponent alloc] init];
+    animationComponent.scene = self;
+    animationComponent.atlasName = @"character";
+    animationComponent.animationList = list;
+    animationComponent.renderRef = rendererComponent;
     
     [skeletonEntity addComponent:positionComponent];
     [skeletonEntity addComponent:rendererComponent];
+    [skeletonEntity addComponent:animationComponent];
     [skeletonEntity initialize:@"skeletion01"];
     
-    [self performSelector:@selector(updatePosition) withObject:nil afterDelay:5.0f];
-    //positionComponent.position = CGPointMake(50, 50);
+    [self performSelector:@selector(updateTest:) withObject:animationComponent afterDelay:1.0f];
 }
 
--(void)updatePosition
+-(void)updateTest:(id)object
 {
-    [positionComponent setPoint:50 and:50];
-    [CLogger logWithTarget:self method:@"updatePosition" message:@"Sword position is updated"];
+    CAnimationComponent *animationComponent = object;
+    [animationComponent playAnimationWithName:@"downmove"];
+    
+    //[self performSelector:@selector(updateTest1:) withObject:animationComponent afterDelay:4.0f];
+}
+
+-(void)updateTest1:(id)object
+{
+    CAnimationComponent *animationComponent = object;
+    [animationComponent playAnimationWithName:@"leftmove"];
+    
+    [self performSelector:@selector(updateTest2:) withObject:animationComponent afterDelay:4.0f];
+}
+
+-(void)updateTest2:(id)object
+{
+    CAnimationComponent *animationComponent = object;
+    [animationComponent playAnimationWithName:@"downmove"];
+    
+    [self performSelector:@selector(updateTest3:) withObject:animationComponent afterDelay:4.0f];
+}
+
+-(void)updateTest3:(id)object
+{
+    CAnimationComponent *animationComponent = object;
+    [animationComponent playAnimationWithName:@"rightmove"];
 }
 
 -(void)update:(CFTimeInterval)currentTime {

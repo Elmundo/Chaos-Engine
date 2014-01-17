@@ -22,7 +22,7 @@ static unsigned entity_id = 0;
         //[self.entityName stringByAppendingFormat:@"%i", _entity_id];
         
         self.componentDic = [[NSMutableDictionary alloc] initWithCapacity:3];
-        self.dispatcher = [[CEntityDispatcher alloc] init];
+        self.dispatcher = [[CEventDispatcher alloc] init];
     }
     
     return self;

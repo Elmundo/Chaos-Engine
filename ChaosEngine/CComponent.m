@@ -50,9 +50,9 @@
     [_owner.dispatcher removeEventListener:self withAction:action withEvent:message];
 }
 
-- (void)dispatchEventWithMessage:(NSString *)message
+- (void)dispatchEventWithEvent:(CEvent *)event
 {
-    [_owner.dispatcher dispatchEvent:message];
+    [_owner.dispatcher dispatchEvent:event];
 }
 
 - (void)destroy

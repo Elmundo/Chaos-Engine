@@ -11,12 +11,12 @@
 
 #import "CEntityFactory.h"
 #import "CComponent.h"
-#import "CPhysicComponent.h"
 #import "CPositionComponent.h"
 #import "CRenderComponent.h"
+#import "CAnimationComponent.h"
 
 @interface MyScene : CScene 
 {
-    CPositionComponent *positionComponent;
+
 }
 @end

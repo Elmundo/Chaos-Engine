@@ -11,7 +11,7 @@
 #import "CEvent.h"
 #import "CLogger.h"
 
-@interface CEntityDispatcher : NSObject
+@interface CEventDispatcher : NSObject
 
 @property (nonatomic, strong) NSMutableDictionary *observers;
 
@@ -19,6 +19,6 @@
 
 - (void)removeEventListener:(id)target withAction:(SEL)action withEvent:(NSString *)message;
 
-- (void)dispatchEvent:(NSString *)message;
+- (void)dispatchEvent:(CEvent *)event;
 
 @end

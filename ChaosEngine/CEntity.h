@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "CEntityDispatcher.h"
+#import "CEventDispatcher.h"
 
 @class CComponent;
 
@@ -15,7 +15,7 @@
 
 @property (nonatomic, strong) NSMutableDictionary *componentDic;
 @property (nonatomic, strong) NSString *entityName;
-@property (nonatomic, strong) CEntityDispatcher *dispatcher;
+@property (nonatomic, strong) CEventDispatcher *dispatcher;
 
 - (void)initialize:(NSString *)entityName;
 - (void)addComponent:(CComponent *)component;

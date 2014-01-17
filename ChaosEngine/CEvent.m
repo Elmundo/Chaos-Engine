@@ -10,4 +10,24 @@
 
 @implementation CEvent
 
++ (id)eventWithType:(NSString *)type withBubbles:(BOOL)bubbles
+{
+    CEvent *event = [[CEvent alloc] initWithType:type withBubbles:bubbles];
+    return event;
+}
+
+- (id)initWithType:(NSString *)type withBubbles:(BOOL)bubbles
+{
+    self = [super init];
+    if (self) {
+        _type    = type;
+        _bubbles = bubbles;
+    }
+    
+    return self;
+}
+
+/* Event Static Messages */
++ (NSString *)CE_Base { return @"CEvent_Base"; }
+
 @end

@@ -22,6 +22,6 @@
 - (CComponent *)getComponent:(NSString *)componentName;
 - (void)addEventListener:(SEL)action message:(NSString *)message;
 - (void)removeEventListener:(SEL)action message:(NSString *)message;
-- (void)dispatchEventWithMessage:(NSString *)message;
+- (void)dispatchEventWithEvent:(CEvent *)event;
 
 @end
