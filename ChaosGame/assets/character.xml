@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TextureAtlas type="Dictionary" imagePath="character.png" width="256" height="256">
+    <animation type="Array" name="DownMove">
+        <texture type="SKTexture" name="character_downmove_01.png" x="0" y="96" w="31" h="49"/>
+        <texture type="SKTexture" name="character_downmove_02.png" x="212" y="146" w="31" h="50"/>
+        <texture type="SKTexture" name="character_downmove_03.png" x="92" y="96" w="30" h="49"/>
+        <texture type="SKTexture" name="character_downmove_04.png" x="30" y="196" w="31" h="50"/>
+        <texture type="SKTexture" name="character_downmove_05.png" x="31" y="96" w="31" h="49"/>
+        <texture type="SKTexture" name="character_downmove_06.png" x="182" y="146" w="30" h="50"/>
+        <texture type="SKTexture" name="character_downmove_07.png" x="62" y="96" w="30" h="49"/>
+        <texture type="SKTexture" name="character_downmove_08.png" x="122" y="146" w="30" h="50"/>
+    </animation>
+    
+    <animation type="Array" name="DownStand">
+        <texture type="SKTexture" name="character_downstand_01.png" x="122" y="96" w="31" h="49"/>
+    </animation>
+    
+    <animation type="Array" name="LeftMove">
+        <texture type="SKTexture" name="character_leftmove_01.png" x="119" y="0" w="26" h="47"/>
+        <texture type="SKTexture" name="character_leftmove_02.png" x="28" y="0" w="28" h="47"/>
+        <texture type="SKTexture" name="character_leftmove_03.png" x="93" y="0" w="26" h="47"/>
+        <texture type="SKTexture" name="character_leftmove_04.png" x="56" y="48" w="36" h="48"/>
+        <texture type="SKTexture" name="character_leftmove_05.png" x="56" y="0" w="37" h="47"/>
+        <texture type="SKTexture" name="character_leftmove_06.png" x="216" y="0" w="35" h="48"/>
+        <texture type="SKTexture" name="character_leftmove_07.png" x="0" y="48" w="29" h="48"/>
+        <texture type="SKTexture" name="character_leftmove_08.png" x="29" y="48" w="27" h="48"/>
+    </animation>
+    
+    <animation type="Array" name="LeftStand">
+        <texture type="SKTexture" name="character_leftstand_01.png" x="185" y="48" w="27" h="48"/>
+    </animation>
+    
+    <animation type="Array" name="RightMove">
+        <texture type="SKTexture" name="character_rightmove_01.png" x="212" y="48" w="21" h="48"/>
+        <texture type="SKTexture" name="character_rightmove_02.png" x="161" y="48" w="24" h="48"/>
+        <texture type="SKTexture" name="character_rightmove_03.png" x="0" y="0" w="28" h="47"/>
+        <texture type="SKTexture" name="character_rightmove_04.png" x="92" y="48" w="24" h="48"/>
+        <texture type="SKTexture" name="character_rightmove_05.png" x="138" y="48" w="23" h="48"/>
+        <texture type="SKTexture" name="character_rightmove_06.png" x="116" y="48" w="22" h="48"/>
+        <texture type="SKTexture" name="character_rightmove_07.png" x="169" y="0" w="22" h="47"/>
+        <texture type="SKTexture" name="character_rightmove_08.png" x="145" y="0" w="24" h="47"/>
+    </animation>
+    
+    <animation type="Array" name="RightStand">
+        <texture type="SKTexture" name="character_rightstand_01.png" x="191" y="0" w="25" h="47"/>
+    </animation>
+    
+    <animation type="Array" name="TopMove">
+        <texture type="SKTexture" name="character_topmove_01.png" x="92" y="146" w="30" h="50"/>
+        <texture type="SKTexture" name="character_topmove_02.png" x="152" y="146" w="30" h="50"/>
+        <texture type="SKTexture" name="character_topmove_03.png" x="62" y="146" w="30" h="50"/>
+        <texture type="SKTexture" name="character_topmove_04.png" x="183" y="96" w="30" h="50"/>
+        <texture type="SKTexture" name="character_topmove_05.png" x="153" y="96" w="30" h="50"/>
+        <texture type="SKTexture" name="character_topmove_06.png" x="213" y="96" w="31" h="50"/>
+        <texture type="SKTexture" name="character_topmove_07.png" x="0" y="146" w="31" h="50"/>
+        <texture type="SKTexture" name="character_topmove_08.png" x="31" y="146" w="31" h="50"/>
+    </animation>
+    
+    <animation type="Array" name="TopStand">
+        <texture type="SKTexture" name="character_topstand_01.png" x="0" y="196" w="30" h="50"/>
+    </animation>
+    
+</TextureAtlas>

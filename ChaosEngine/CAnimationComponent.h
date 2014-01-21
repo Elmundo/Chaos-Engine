@@ -8,7 +8,7 @@
 
 #import "CComponent.h"
 #import "CScene.h"
-
+#import "CTextureAtlas.h"
 #import <SpriteKit/SpriteKit.h>
 
 #define kAppendStr(str1, str2)  [str1 stringByAppendingString:str2]
@@ -16,15 +16,14 @@
 #define kFormat @".png"
 @interface CAnimationComponent : CComponent
 
-@property (nonatomic, strong) CScene *scene;
 @property (nonatomic, strong) id renderRef;
 
-@property (nonatomic, strong) SKTextureAtlas *textureAtlas;
 @property (nonatomic, strong) NSMutableDictionary *animationDic;
 
-@property (nonatomic, strong) NSString *atlasName;
-@property (nonatomic, strong) NSDictionary *animationList;
+@property (nonatomic, strong) NSString *atlasName; //Filled from outside.
+@property (nonatomic, strong) NSDictionary *animationList; //Filled from outside.
 
+@property (nonatomic, strong) CTextureAtlas *textureAtlas;
 @property (nonatomic, strong) SKAction *animationAction;
 
 - (void)playAnimationWithName:(NSString *)animationName;

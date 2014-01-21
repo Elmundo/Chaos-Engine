@@ -52,7 +52,7 @@
     self.position = (CPoint *)self.positionRef;
     self.spriteNode.position = [self.position CGPoint];
     self.spriteNode.anchorPoint = CGPointMake(kAnchorDefaultPointX, kAnchorDefaultPointY);
-    //self.spriteNode.size = CGSizeMake(128, 128);
+
     [ self.scene addChild:self.spriteNode];
     
     [self addEventListener:@selector(did_position_updated:) message:[CPositionEvent CE_PositionChanged]];

@@ -16,16 +16,8 @@
     
     _animationDic = [NSMutableDictionary dictionary];
     
-    // Texture Atlas is not working!
-    /*
-    _textureAtlas = [SKTextureAtlas atlasNamed:_atlasName];
-    if (_textureAtlas == nil) {
-        [CLogger errorWithTarget:self method:@"didAddedToEntity"
-                         message:@"textureAtlas is nil."];
-        return;
-    }
-    */
     
+    /*
     SKTexture *texture;
     for (NSString *animationName in _animationList) {
         
@@ -48,28 +40,35 @@
         //Animation texture list added to animation map - you could call
         [_animationDic setValue:textureList forKey:animationName];
     }
+     */
 }
 
 - (void)playAnimationWithName:(NSString *)animationName
 {
+    
+    SKSpriteNode *sprite = [_renderRef performSelector:@selector(spriteNode)];
+    SKTexture *texture   = sprite.texture;
+    
+    _textureAtlas = [CTextureAtlas atlasWithXmlName:_atlasName andWithResource:texture];
+    
     if([self.renderRef respondsToSelector:@selector(spriteNode)])
     {
+        __block SKSpriteNode *sprite = [_renderRef performSelector:@selector(spriteNode)];
+        
         [CLogger logWithTarget:self method:@"playAnimationWithName" message:kAppendStr(@"animation Name is ", animationName)];
         __block int index = 1;
         NSArray *textureList = [_animationDic objectForKey:animationName];
-
-        __block SKSpriteNode *sprite = [_renderRef performSelector:@selector(spriteNode)];
-        
         SKAction *action = [SKAction runBlock:^{
             sprite.texture = [textureList objectAtIndex:index];
             sprite.size = sprite.texture.size;
+            [sprite setPosition:CGPointMake(sprite.position.x, sprite.position.y - 2)];
             index++;
             if (textureList.count - 1 <= index) {
                 index = 1;
             }
         }];
         
-        SKAction *wait = [SKAction waitForDuration:0.5];
+        SKAction *wait = [SKAction waitForDuration:0.1];
         
         SKAction *sequence = [SKAction sequence:@[action, wait]];
         SKAction *repeat = [SKAction repeatActionForever:sequence];

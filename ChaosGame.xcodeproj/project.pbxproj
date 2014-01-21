@@ -73,6 +73,9 @@
 		626277E11889734400006BBD /* character_topmove_07.png in Resources */ = {isa = PBXBuildFile; fileRef = 626277BD1889734400006BBD /* character_topmove_07.png */; };
 		626277E21889734400006BBD /* character_topmove_08.png in Resources */ = {isa = PBXBuildFile; fileRef = 626277BE1889734400006BBD /* character_topmove_08.png */; };
 		626277E31889734400006BBD /* character_topstand_01.png in Resources */ = {isa = PBXBuildFile; fileRef = 626277BF1889734400006BBD /* character_topstand_01.png */; };
+		6272FF8F188ECC64009B8440 /* CTextureAtlas.m in Sources */ = {isa = PBXBuildFile; fileRef = 6272FF8E188ECC64009B8440 /* CTextureAtlas.m */; };
+		6272FF93188ED421009B8440 /* character.png in Resources */ = {isa = PBXBuildFile; fileRef = 6272FF92188ED421009B8440 /* character.png */; };
+		6272FF95188ED42E009B8440 /* character.xml in Resources */ = {isa = PBXBuildFile; fileRef = 6272FF94188ED42E009B8440 /* character.xml */; };
 		62AA5411188433BB001FA053 /* CEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AA5410188433BB001FA053 /* CEntity.m */; };
 		62AA5414188434C9001FA053 /* CEntityFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AA5413188434C9001FA053 /* CEntityFactory.m */; };
 		62AA5417188434D5001FA053 /* CComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AA5416188434D5001FA053 /* CComponent.m */; };
@@ -175,6 +178,10 @@
 		626277BD1889734400006BBD /* character_topmove_07.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = character_topmove_07.png; path = assets/character_topmove_07.png; sourceTree = "<group>"; };
 		626277BE1889734400006BBD /* character_topmove_08.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = character_topmove_08.png; path = assets/character_topmove_08.png; sourceTree = "<group>"; };
 		626277BF1889734400006BBD /* character_topstand_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = character_topstand_01.png; path = assets/character_topstand_01.png; sourceTree = "<group>"; };
+		6272FF8D188ECC64009B8440 /* CTextureAtlas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTextureAtlas.h; path = ChaosEngine/CTextureAtlas.h; sourceTree = "<group>"; };
+		6272FF8E188ECC64009B8440 /* CTextureAtlas.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTextureAtlas.m; path = ChaosEngine/CTextureAtlas.m; sourceTree = "<group>"; };
+		6272FF92188ED421009B8440 /* character.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = character.png; path = assets/character.png; sourceTree = "<group>"; };
+		6272FF94188ED42E009B8440 /* character.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = character.xml; path = assets/character.xml; sourceTree = "<group>"; };
 		62AA540F188433BB001FA053 /* CEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CEntity.h; path = ChaosEngine/CEntity.h; sourceTree = "<group>"; };
 		62AA5410188433BB001FA053 /* CEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CEntity.m; path = ChaosEngine/CEntity.m; sourceTree = "<group>"; };
 		62AA5412188434C9001FA053 /* CEntityFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CEntityFactory.h; path = ChaosEngine/CEntityFactory.h; sourceTree = "<group>"; };
@@ -328,6 +335,8 @@
 				62627791188926B300006BBD /* CPositionEvent.h */,
 				62627792188926B300006BBD /* CPositionEvent.m */,
 				6262776118852B1F00006BBD /* CViewController.xib */,
+				6272FF8D188ECC64009B8440 /* CTextureAtlas.h */,
+				6272FF8E188ECC64009B8440 /* CTextureAtlas.m */,
 			);
 			name = ChaosEngine;
 			sourceTree = "<group>";
@@ -335,6 +344,8 @@
 		626277721885811300006BBD /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				6272FF91188ED257009B8440 /* atlas */,
+				6272FF90188ED24E009B8440 /* xml */,
 				6262779C1889734400006BBD /* character_downmove_01.png */,
 				6262779D1889734400006BBD /* character_downmove_02.png */,
 				6262779E1889734400006BBD /* character_downmove_03.png */,
@@ -374,6 +385,22 @@
 				6262777E1886A34400006BBD /* sword.png */,
 			);
 			name = assets;
+			sourceTree = "<group>";
+		};
+		6272FF90188ED24E009B8440 /* xml */ = {
+			isa = PBXGroup;
+			children = (
+				6272FF94188ED42E009B8440 /* character.xml */,
+			);
+			name = xml;
+			sourceTree = "<group>";
+		};
+		6272FF91188ED257009B8440 /* atlas */ = {
+			isa = PBXGroup;
+			children = (
+				6272FF92188ED421009B8440 /* character.png */,
+			);
+			name = atlas;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -463,6 +490,8 @@
 				626277E11889734400006BBD /* character_topmove_07.png in Resources */,
 				626277C71889734400006BBD /* character_downmove_08.png in Resources */,
 				626277E21889734400006BBD /* character_topmove_08.png in Resources */,
+				6272FF93188ED421009B8440 /* character.png in Resources */,
+				6272FF95188ED42E009B8440 /* character.xml in Resources */,
 				626277CF1889734400006BBD /* character_leftmove_07.png in Resources */,
 				626277CD1889734400006BBD /* character_leftmove_05.png in Resources */,
 				6253D224188033120017790C /* Images.xcassets in Resources */,
@@ -514,6 +543,7 @@
 				6262776D1885669100006BBD /* CSceneManager.m in Sources */,
 				62AA5411188433BB001FA053 /* CEntity.m in Sources */,
 				626277821886A4BF00006BBD /* CPoint.m in Sources */,
+				6272FF8F188ECC64009B8440 /* CTextureAtlas.m in Sources */,
 				6253D220188033120017790C /* MyScene.m in Sources */,
 				6262777B18868D0B00006BBD /* CUtil.m in Sources */,
 				62627793188926B300006BBD /* CPositionEvent.m in Sources */,

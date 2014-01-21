@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>765FB59E-B6E4-42F5-A063-336E6B2272D8</string>
+	<key>IDESourceControlProjectName</key>
+	<string>ChaosGame</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>AE10805C-69B1-4D3B-977D-6BB42BDBC087</key>
+		<string>ssh://github.com/Elmundo/CEProject.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>ChaosGame.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>AE10805C-69B1-4D3B-977D-6BB42BDBC087</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/Elmundo/CEProject.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>AE10805C-69B1-4D3B-977D-6BB42BDBC087</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>AE10805C-69B1-4D3B-977D-6BB42BDBC087</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ChaosGame</string>
+		</dict>
+	</array>
+</dict>
+</plist>

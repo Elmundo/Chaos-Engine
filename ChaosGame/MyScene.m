@@ -38,7 +38,7 @@
     CRenderComponent *rendererComponent = [[CRenderComponent alloc] init];
     rendererComponent.scene = self;
     rendererComponent.sceneName = NSStringFromClass([self class]);
-    rendererComponent.resourceName = @"character_downstand_01.png";
+    rendererComponent.resourceName = @"character.png";
     rendererComponent.positionRef = positionComponent.position;
     
     NSDictionary *list = @{@"topstand": @1,
@@ -52,7 +52,6 @@
                            };
     
     CAnimationComponent *animationComponent = [[CAnimationComponent alloc] init];
-    animationComponent.scene = self;
     animationComponent.atlasName = @"character";
     animationComponent.animationList = list;
     animationComponent.renderRef = rendererComponent;
