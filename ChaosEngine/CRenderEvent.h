@@ -11,6 +11,11 @@
 
 @interface CRenderEvent : CEvent
 
+@property (nonatomic, strong) id atlas;
+
++ (id)eventWithType:(NSString *)type withObject:(id)object withAtlas:(id)atlas withBubbles:(BOOL)bubbles;
+- (id)initWithType:(NSString *)type withObject:(id)object withAtlas:(id)atlas withBubbles:(BOOL)bubbles;
+
 /* Event Static Messages */
 //+ (NSString *)CE_SpriteReady;
 

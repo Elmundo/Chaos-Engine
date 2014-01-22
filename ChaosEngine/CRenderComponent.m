@@ -30,21 +30,29 @@
     self.sourceTexture = [SKTexture textureWithImageNamed:self.resourceName];
     if (self.sourceTexture == nil) {
         [CLogger errorWithTarget:self method:@"didAddedToEntity"
-                         message:cStringWithValue(@"There is no such a resource", self.resourceName)];
+                         message:cStringWithValue(@"There is no such a resource: %@", self.resourceName)];
         return;
     }
     
-    self.spriteNode = [SKSpriteNode spriteNodeWithTexture:self.sourceTexture];
+    self.atlas = [CTextureAtlas atlasWithXmlName:self.atlasName andWithResource:self.sourceTexture];
+    if (self.atlas == nil) {
+        [CLogger errorWithTarget:self method:@"didAddedToEntity"
+                         message:cStringWithValue(@"There is no such a atlas: %@", self.atlasName)];
+        return;
+    }
+    
+    SKTexture *defaultTexture = [self.atlas getFirstTexture];
+    self.spriteNode = [SKSpriteNode spriteNodeWithTexture:defaultTexture];
     if (self.spriteNode == nil) {
         [CLogger errorWithTarget:self method:@"didAddedToEntity"
-                                  message:cStringWithValue(@"There is no such a texture", self.resourceName)];
+                                  message:cStringWithValue(@"There is no such a texture: %@", self.resourceName)];
         return;
     }
   
     self.scene = [self.manager getSceneWithName:self.sceneName];
     if (self.spriteNode == nil) {
         [CLogger errorWithTarget:self method:@"didAddedToEntity"
-                                  message:cStringWithValue(@"There is no such a scene", self.sceneName)];
+                                  message:cStringWithValue(@"There is no such a scene: %@", self.sceneName)];
     }
    
     // Init the sprite position
@@ -52,11 +60,9 @@
     self.spriteNode.position = [self.position CGPoint];
     self.spriteNode.anchorPoint = CGPointMake(kAnchorDefaultPointX, kAnchorDefaultPointY);
 
-    [ self.scene addChild:self.spriteNode];
-    
-    [self addEventListener:@selector(did_position_updated:) message:[CPositionEvent CE_PositionChanged]];
-    
-    CEvent *event = [CEvent eventWithType:@"SpriteIsReady" withObject:self.spriteNode withBubbles:YES]; //TODO: Need to be changed couse hard-coded string
+    [self.scene addChild:self.spriteNode];
+    [self addEventListener:@selector(did_position_updated:) message:[CPositionEvent CE_PositionChanged] ];
+    CRenderEvent *event = [CRenderEvent eventWithType:@"SpriteIsReady" withObject:self.spriteNode withAtlas:self.atlas withBubbles:YES]; //TODO: Need to be changed couse hard-coded string
     [self dispatchEventWithEvent:event];
 }
 

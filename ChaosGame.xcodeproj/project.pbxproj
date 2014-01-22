@@ -41,6 +41,8 @@
 		6272FF93188ED421009B8440 /* character.png in Resources */ = {isa = PBXBuildFile; fileRef = 6272FF92188ED421009B8440 /* character.png */; };
 		6272FF95188ED42E009B8440 /* character.xml in Resources */ = {isa = PBXBuildFile; fileRef = 6272FF94188ED42E009B8440 /* character.xml */; };
 		6295C57F188FCAD800B45AB9 /* CRenderEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 6295C57E188FCAD800B45AB9 /* CRenderEvent.m */; };
+		6295C587189018DA00B45AB9 /* android.png in Resources */ = {isa = PBXBuildFile; fileRef = 6295C586189018DA00B45AB9 /* android.png */; };
+		6295C589189018E000B45AB9 /* android.xml in Resources */ = {isa = PBXBuildFile; fileRef = 6295C588189018E000B45AB9 /* android.xml */; };
 		62AA5411188433BB001FA053 /* CEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AA5410188433BB001FA053 /* CEntity.m */; };
 		62AA5414188434C9001FA053 /* CEntityFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AA5413188434C9001FA053 /* CEntityFactory.m */; };
 		62AA5417188434D5001FA053 /* CComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AA5416188434D5001FA053 /* CComponent.m */; };
@@ -113,6 +115,8 @@
 		6272FF94188ED42E009B8440 /* character.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = character.xml; path = assets/character.xml; sourceTree = "<group>"; };
 		6295C57D188FCAD800B45AB9 /* CRenderEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CRenderEvent.h; path = ChaosEngine/CRenderEvent.h; sourceTree = "<group>"; };
 		6295C57E188FCAD800B45AB9 /* CRenderEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CRenderEvent.m; path = ChaosEngine/CRenderEvent.m; sourceTree = "<group>"; };
+		6295C586189018DA00B45AB9 /* android.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = android.png; path = assets/android.png; sourceTree = "<group>"; };
+		6295C588189018E000B45AB9 /* android.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = android.xml; path = assets/android.xml; sourceTree = "<group>"; };
 		62AA540F188433BB001FA053 /* CEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CEntity.h; path = ChaosEngine/CEntity.h; sourceTree = "<group>"; };
 		62AA5410188433BB001FA053 /* CEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CEntity.m; path = ChaosEngine/CEntity.m; sourceTree = "<group>"; };
 		62AA5412188434C9001FA053 /* CEntityFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CEntityFactory.h; path = ChaosEngine/CEntityFactory.h; sourceTree = "<group>"; };
@@ -287,6 +291,7 @@
 		6272FF90188ED24E009B8440 /* xml */ = {
 			isa = PBXGroup;
 			children = (
+				6295C588189018E000B45AB9 /* android.xml */,
 				6272FF94188ED42E009B8440 /* character.xml */,
 			);
 			name = xml;
@@ -295,6 +300,7 @@
 		6272FF91188ED257009B8440 /* atlas */ = {
 			isa = PBXGroup;
 			children = (
+				6295C586189018DA00B45AB9 /* android.png */,
 				6272FF92188ED421009B8440 /* character.png */,
 			);
 			name = atlas;
@@ -382,7 +388,9 @@
 				6272FF95188ED42E009B8440 /* character.xml in Resources */,
 				6253D224188033120017790C /* Images.xcassets in Resources */,
 				6262777F1886A34400006BBD /* sword.png in Resources */,
+				6295C589189018E000B45AB9 /* android.xml in Resources */,
 				6253D222188033120017790C /* Spaceship.png in Resources */,
+				6295C587189018DA00B45AB9 /* android.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

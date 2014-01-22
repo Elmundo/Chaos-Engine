@@ -27,5 +27,5 @@
 + (CTextureAtlas *)atlasWithXmlName:(NSString *)xmlName andWithResource:(SKTexture *)resource;
 - (id)initWithXmlName:(NSString *)xmlName andWithResource:(SKTexture *)resource;
 - (NSArray *)animationWithName:(NSString *)animationName;
-
+- (SKTexture *)getFirstTexture;
 @end

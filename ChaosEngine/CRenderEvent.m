@@ -12,5 +12,19 @@
 
 /* Event Static Messages */
 //+ (NSString *)CE_SpriteReady { return @"CRenderEvent_SpriteReady"; }
++ (id)eventWithType:(NSString *)type withObject:(id)object withAtlas:(id)atlas withBubbles:(BOOL)bubbles
+{
+    CRenderEvent *event = [[CRenderEvent alloc] initWithType:type withObject:object  withAtlas:atlas withBubbles:bubbles];
+    return event;
+}
 
+- (id)initWithType:(NSString *)type withObject:(id)object withAtlas:(id)atlas withBubbles:(BOOL)bubbles
+{
+    self = [super initWithType:type withObject:object withBubbles:bubbles];
+    if (self) {
+        self.atlas = atlas;
+    }
+    
+    return self;
+}
 @end

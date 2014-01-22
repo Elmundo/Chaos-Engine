@@ -34,23 +34,23 @@
     
     CPositionComponent *positionComponent = [[CPositionComponent alloc] init];
     positionComponent.position = [[CPoint alloc] initWithX:CGRectGetMidX(self.frame) and:CGRectGetMidY(self.frame)];
-    //positionComponent.position = [[CPoint alloc] initWithX:0 and:0];
 
     CRenderComponent *rendererComponent = [[CRenderComponent alloc] init];
     rendererComponent.sceneName = NSStringFromClass([self class]);
-    rendererComponent.resourceName = @"character.png";
+    rendererComponent.resourceName = @"android.png";
     rendererComponent.positionRef = positionComponent.position;
+    rendererComponent.atlasName = @"android";
     
     CAnimationComponent *animationComponent = [[CAnimationComponent alloc] init];
-    animationComponent.atlasName = @"character";
-    animationComponent.renderRef = rendererComponent.spriteNode; //TODO: CSPriteNode' yaratıp içerisinde spriteNode'un referansı tutulmadığı sürece bu kod anlamsız.
+    animationComponent.renderRef = rendererComponent.spriteNode; //TODO: CSPriteNode' yaratıp içerisinde spriteNode'un referansı tutulmadığı sürece bu kod
+    animationComponent.atlasRef = rendererComponent.atlas; // TODO: Sürekli nil atanıyor.
     
     [skeletonEntity addComponent:positionComponent];
     [skeletonEntity addComponent:rendererComponent];
     [skeletonEntity addComponent:animationComponent];
     [skeletonEntity initialize:@"skeletion01"];
     
-    [self performSelector:@selector(updateTest:) withObject:animationComponent afterDelay:1.0f];
+    [self performSelector:@selector(updateTest:) withObject:animationComponent afterDelay:3.0f];
 }
 
 -(void)updateTest:(id)object
@@ -81,6 +81,8 @@
 {
     CAnimationComponent *animationComponent = object;
     [animationComponent playAnimationWithName:@"RightMove"];
+    
+    [self performSelector:@selector(updateTest:) withObject:animationComponent afterDelay:4.0f];
 }
 
 -(void)update:(CFTimeInterval)currentTime {

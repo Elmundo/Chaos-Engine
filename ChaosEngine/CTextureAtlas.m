@@ -42,6 +42,17 @@
     return list;
 }
 
+- (SKTexture *)getFirstTexture
+{
+    NSArray *list;
+    for (NSString *key in _textureAtlas) {
+        list = [_textureAtlas objectForKey:key];
+        break;
+    }
+    
+    return [list objectAtIndex:0];
+}
+
 /* Deserialize TextureAtlas XML Data */
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict
 {

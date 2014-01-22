@@ -14,36 +14,36 @@
 {
     [super didAddedToEntity:owner];
     
-    _animationDic = [NSMutableDictionary dictionary];
-    if (self.renderRef) {
-        SKSpriteNode *sprite = self.renderRef;
-        SKTexture *texture   = sprite.texture;
-        
-        _textureAtlas = [CTextureAtlas atlasWithXmlName:_atlasName andWithResource:texture];
-    }
+    self.spriteNode   = self.renderRef;
+    self.textureAtlas = self.atlasRef;
     
     [self addEventListener:@selector(did_sprite_ready:) message:@"SpriteIsReady"]; //TODO Refactor this - no more hard-coded.
 }
 
 - (void)playAnimationWithName:(NSString *)animationName
 {
-    __block SKSpriteNode *sprite = self.renderRef;
+    if (!self.spriteNode) {
+        self.spriteNode = self.renderRef;
+    }
+    
     NSArray *animationList = [_textureAtlas animationWithName:animationName];
+    if (!animationList) {
+        return;
+    }
     
     SKAction *actionAnimation = [SKAction animateWithTextures:animationList timePerFrame:kDefaultTimePerFrame resize:YES restore:NO];
     SKAction *repeatAction = [SKAction repeatActionForever:actionAnimation];
     
-    [sprite runAction:repeatAction];
+    [self.spriteNode runAction:repeatAction];
 }
 
 - (void)did_sprite_ready:(CEvent *)event
 {
     self.renderRef = event.object;
+    self.atlasRef  = [event performSelector:NSSelectorFromString(@"atlas")];
     
-    SKSpriteNode *sprite = self.renderRef;
-    SKTexture *texture   = sprite.texture;
-    
-    _textureAtlas = [CTextureAtlas atlasWithXmlName:_atlasName andWithResource:texture];
+    self.spriteNode   = self.renderRef;
+    self.textureAtlas = self.atlasRef;
 }
 
 - (void)didRemovedFromEntity
