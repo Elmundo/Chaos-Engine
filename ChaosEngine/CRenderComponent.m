@@ -10,8 +10,8 @@
 
 @implementation CRenderComponent
 
-#define kAnchorDefaultPointX 0.5f
-#define kAnchorDefaultPointY 0.5f
+#define kAnchorDefaultPointX 0.0f
+#define kAnchorDefaultPointY 0.0f
 
 @synthesize position = _position;
 
@@ -21,28 +21,27 @@
     
     self.manager = [CSceneManager shared];
     
-    
     if (self.resourceName == nil) {
         [CLogger errorWithTarget:self method:@"didAddedToEntity"
                                   message:@"resourceName is nil."];
         return;
     }
     
-    self.texture = [SKTexture textureWithImageNamed:self.resourceName];
-    if (self.texture == nil) {
+    self.sourceTexture = [SKTexture textureWithImageNamed:self.resourceName];
+    if (self.sourceTexture == nil) {
         [CLogger errorWithTarget:self method:@"didAddedToEntity"
                          message:cStringWithValue(@"There is no such a resource", self.resourceName)];
         return;
     }
     
-    self.spriteNode = [SKSpriteNode spriteNodeWithTexture:self.texture];
+    self.spriteNode = [SKSpriteNode spriteNodeWithTexture:self.sourceTexture];
     if (self.spriteNode == nil) {
         [CLogger errorWithTarget:self method:@"didAddedToEntity"
                                   message:cStringWithValue(@"There is no such a texture", self.resourceName)];
         return;
     }
-    
-    self.scene      = [self.manager getSceneWithName:self.sceneName];
+  
+    self.scene = [self.manager getSceneWithName:self.sceneName];
     if (self.spriteNode == nil) {
         [CLogger errorWithTarget:self method:@"didAddedToEntity"
                                   message:cStringWithValue(@"There is no such a scene", self.sceneName)];
@@ -56,6 +55,9 @@
     [ self.scene addChild:self.spriteNode];
     
     [self addEventListener:@selector(did_position_updated:) message:[CPositionEvent CE_PositionChanged]];
+    
+    CEvent *event = [CEvent eventWithType:@"SpriteIsReady" withObject:self.spriteNode withBubbles:YES]; //TODO: Need to be changed couse hard-coded string
+    [self dispatchEventWithEvent:event];
 }
 
 - (void)didRemovedFromEntity

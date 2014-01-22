@@ -32,8 +32,20 @@
     return self;
 }
 
+- (NSArray *)animationWithName:(NSString *)animationName
+{
+    NSArray *list = [_textureAtlas objectForKey:animationName];
+    if (!list) {
+        NSLog(@"There is no %@ animation list", animationName);
+    }
+    
+    return list;
+}
+
+/* Deserialize TextureAtlas XML Data */
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict
 {
+    // Initialize Texture Atlas object
     if ([elementName isEqualToString:@"TextureAtlas"]) {
         
         _textureAtlas = [[NSMutableDictionary alloc] init];
@@ -49,6 +61,7 @@
         }
     }
     
+    // Initialize Animation List and Add Texture Atlas Map
     if ([elementName isEqualToString:@"animation"]) {
         
         _animationList = [[NSMutableArray alloc] init];
@@ -56,6 +69,7 @@
         [_textureAtlas setObject:_animationList forKey:[attributeDict objectForKey:@"name"]];
     }
     
+    // Initialize Animation Texture and Add Animation List
     if ([elementName isEqualToString:@"texture"]) {
         
         NSNumber *x = [attributeDict objectForKey:@"x"];
@@ -63,12 +77,16 @@
         NSNumber *w = [attributeDict objectForKey:@"w"];
         NSNumber *h = [attributeDict objectForKey:@"h"];
         
-        CGRect rect = CGRectMake([x intValue],
+        CGRect eulerRect = CGRectMake([x intValue],
                                  [y intValue],
                                  [w intValue],
                                  [h intValue]);
-        
-        SKTexture *texturePart = [SKTexture textureWithRect:rect inTexture:_atlas];
+        CGRect unitRect = [CUtil eulerToUnit:eulerRect andResourceSize:_atlas.size];
+        if (!_atlas) {
+            NSLog(@"Texture Atlas is null");
+            return;
+        }
+        SKTexture *texturePart = [SKTexture textureWithRect:unitRect inTexture:_atlas];
         [_animationList addObject:texturePart];
         
     }
@@ -77,12 +95,12 @@
 
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
 {
-    NSLog(@"End");
+
 }
 
 - (void)parserDidEndDocument:(NSXMLParser *)parser
 {
-    NSLog(@"Document End");
+
 }
 
 @end

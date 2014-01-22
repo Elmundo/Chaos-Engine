@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "CLogger.h"
 #import "CEvent.h"
+#import "CUtil.h"
 
 @class CEntity;
 

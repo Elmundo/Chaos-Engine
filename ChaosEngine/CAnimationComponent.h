@@ -12,16 +12,16 @@
 #import <SpriteKit/SpriteKit.h>
 
 #define kAppendStr(str1, str2)  [str1 stringByAppendingString:str2]
-
 #define kFormat @".png"
+#define kDefaultTimePerFrame 0.1f
+
 @interface CAnimationComponent : CComponent
 
-@property (nonatomic, strong) id renderRef;
+@property (nonatomic, strong) id renderRef;// Outside
 
 @property (nonatomic, strong) NSMutableDictionary *animationDic;
 
 @property (nonatomic, strong) NSString *atlasName; //Filled from outside.
-@property (nonatomic, strong) NSDictionary *animationList; //Filled from outside.
 
 @property (nonatomic, strong) CTextureAtlas *textureAtlas;
 @property (nonatomic, strong) SKAction *animationAction;

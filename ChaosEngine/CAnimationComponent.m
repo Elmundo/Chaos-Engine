@@ -15,90 +15,35 @@
     [super didAddedToEntity:owner];
     
     _animationDic = [NSMutableDictionary dictionary];
-    
-    
-    /*
-    SKTexture *texture;
-    for (NSString *animationName in _animationList) {
+    if (self.renderRef) {
+        SKSpriteNode *sprite = self.renderRef;
+        SKTexture *texture   = sprite.texture;
         
-        NSMutableArray *textureList = [NSMutableArray array];
-        NSString *finalName;
-        
-        NSNumber *animationNum = [_animationList objectForKey:animationName];
-        for (int i=1; i <= [animationNum intValue]; i++) {
-            
-            NSString *indexInStr = kAppendStr(kAppendStr(@"0", [[NSNumber numberWithInt:i] stringValue]), kFormat);
-            //NSString *indexInStr = kAppendStr(@"0", [[NSNumber numberWithInt:i] stringValue]);
-            finalName = kAppendStr(kAppendStr(kAppendStr(kAppendStr(_atlasName, @"_"), animationName), @"_"),indexInStr);
-            //texture = [_textureAtlas textureNamed:finalName];
-            texture = [SKTexture textureWithImageNamed:finalName];
-            [CLogger logWithTarget:self method:@"didAddedToEntity:" message:kAppendStr(finalName, @" size is ")];
-            NSLog(@"width= %f  height= %f", texture.size.width, texture.size.height);
-            [textureList addObject:texture];
-        }
-        
-        //Animation texture list added to animation map - you could call
-        [_animationDic setValue:textureList forKey:animationName];
+        _textureAtlas = [CTextureAtlas atlasWithXmlName:_atlasName andWithResource:texture];
     }
-     */
+    
+    [self addEventListener:@selector(did_sprite_ready:) message:@"SpriteIsReady"]; //TODO Refactor this - no more hard-coded.
 }
 
 - (void)playAnimationWithName:(NSString *)animationName
 {
+    __block SKSpriteNode *sprite = self.renderRef;
+    NSArray *animationList = [_textureAtlas animationWithName:animationName];
     
-    SKSpriteNode *sprite = [_renderRef performSelector:@selector(spriteNode)];
+    SKAction *actionAnimation = [SKAction animateWithTextures:animationList timePerFrame:kDefaultTimePerFrame resize:YES restore:NO];
+    SKAction *repeatAction = [SKAction repeatActionForever:actionAnimation];
+    
+    [sprite runAction:repeatAction];
+}
+
+- (void)did_sprite_ready:(CEvent *)event
+{
+    self.renderRef = event.object;
+    
+    SKSpriteNode *sprite = self.renderRef;
     SKTexture *texture   = sprite.texture;
     
     _textureAtlas = [CTextureAtlas atlasWithXmlName:_atlasName andWithResource:texture];
-    
-    if([self.renderRef respondsToSelector:@selector(spriteNode)])
-    {
-        __block SKSpriteNode *sprite = [_renderRef performSelector:@selector(spriteNode)];
-        
-        [CLogger logWithTarget:self method:@"playAnimationWithName" message:kAppendStr(@"animation Name is ", animationName)];
-        __block int index = 1;
-        NSArray *textureList = [_animationDic objectForKey:animationName];
-        SKAction *action = [SKAction runBlock:^{
-            sprite.texture = [textureList objectAtIndex:index];
-            sprite.size = sprite.texture.size;
-            [sprite setPosition:CGPointMake(sprite.position.x, sprite.position.y - 2)];
-            index++;
-            if (textureList.count - 1 <= index) {
-                index = 1;
-            }
-        }];
-        
-        SKAction *wait = [SKAction waitForDuration:0.1];
-        
-        SKAction *sequence = [SKAction sequence:@[action, wait]];
-        SKAction *repeat = [SKAction repeatActionForever:sequence];
-        
-        [sprite runAction:repeat completion:^{
-            NSLog(@"Finished.");
-        }];
-        /*
-         SKSpriteNode *sprite = [_renderRef performSelector:@selector(spriteNode)];
-        [CLogger logWithTarget:self method:@"playAnimationWithName" message:kAppendStr(@"animation Name is ", animationName)];
-        NSArray *textureList = [_animationDic objectForKey:animationName];
-        _animationAction = [SKAction animateWithTextures:textureList timePerFrame:0.1];
-        
-        SKAction *repeat = [SKAction repeatAction:_animationAction count:20];
-        
-        SKAction *finalAction = [SKAction customActionWithDuration:10 actionBlock:^(SKNode *node, CGFloat elapsedTime) {
-            SKSpriteNode *sp = (SKSpriteNode *)node;
-            sp.size = sp.texture.size;
-        }];
-        
-        SKAction *group = [SKAction group:@[finalAction, repeat]];
-        
-        [sprite runAction:group completion:^{
-            NSLog(@"Action is over.");
-        }];
-         */
-    }else
-    {
-        [CLogger logWithTarget:self method:@"playAnimationWithName" message:@"SpriteNode is not ready yet!"];
-    }
 }
 
 - (void)didRemovedFromEntity

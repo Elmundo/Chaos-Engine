@@ -12,7 +12,6 @@
 #import "CPositionComponent.h"
 #import "CPoint.h"
 #import "CPositionEvent.h" 
-
 #import <SpriteKit/SpriteKit.h>
 
 @interface CRenderComponent : CComponent
@@ -22,10 +21,11 @@
 @property (nonatomic, strong) CPoint *position;
 @property (nonatomic, strong) id positionRef;
 
-@property (nonatomic, strong) NSString *sceneName;
-@property (nonatomic, strong) NSString *resourceName;
+@property (nonatomic, strong) NSString *sceneName; // Outside
+@property (nonatomic, strong) NSString *resourceName; // Outside
 
 @property (nonatomic, strong) SKSpriteNode *spriteNode;
+@property (nonatomic, strong) SKTexture *sourceTexture;
 @property (nonatomic, strong) SKTexture *texture;
 
 @end

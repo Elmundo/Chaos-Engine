@@ -27,7 +27,7 @@
     _position.x = x;
     _position.y = y;
    
-    CPositionEvent *event = [CPositionEvent eventWithType:[CPositionEvent CE_PositionChanged] withBubbles:NO];
+    CPositionEvent *event = [CPositionEvent eventWithType:[CPositionEvent CE_PositionChanged] withObject:self withBubbles:YES];
     [self dispatchEventWithEvent:event];
 }
 

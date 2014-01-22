@@ -34,27 +34,16 @@
     
     CPositionComponent *positionComponent = [[CPositionComponent alloc] init];
     positionComponent.position = [[CPoint alloc] initWithX:CGRectGetMidX(self.frame) and:CGRectGetMidY(self.frame)];
+    //positionComponent.position = [[CPoint alloc] initWithX:0 and:0];
 
     CRenderComponent *rendererComponent = [[CRenderComponent alloc] init];
-    rendererComponent.scene = self;
     rendererComponent.sceneName = NSStringFromClass([self class]);
     rendererComponent.resourceName = @"character.png";
     rendererComponent.positionRef = positionComponent.position;
     
-    NSDictionary *list = @{@"topstand": @1,
-                           @"topmove": @8,
-                           @"leftstand": @1,
-                           @"leftmove": @8,
-                           @"downstand": @1,
-                           @"downmove": @8,
-                           @"rightstand": @1,
-                           @"rightmove": @8
-                           };
-    
     CAnimationComponent *animationComponent = [[CAnimationComponent alloc] init];
     animationComponent.atlasName = @"character";
-    animationComponent.animationList = list;
-    animationComponent.renderRef = rendererComponent;
+    animationComponent.renderRef = rendererComponent.spriteNode; //TODO: CSPriteNode' yaratıp içerisinde spriteNode'un referansı tutulmadığı sürece bu kod anlamsız.
     
     [skeletonEntity addComponent:positionComponent];
     [skeletonEntity addComponent:rendererComponent];
@@ -67,15 +56,15 @@
 -(void)updateTest:(id)object
 {
     CAnimationComponent *animationComponent = object;
-    [animationComponent playAnimationWithName:@"downmove"];
+    [animationComponent playAnimationWithName:@"DownMove"];
     
-    //[self performSelector:@selector(updateTest1:) withObject:animationComponent afterDelay:4.0f];
+    [self performSelector:@selector(updateTest1:) withObject:animationComponent afterDelay:4.0f];
 }
 
 -(void)updateTest1:(id)object
 {
     CAnimationComponent *animationComponent = object;
-    [animationComponent playAnimationWithName:@"leftmove"];
+    [animationComponent playAnimationWithName:@"LeftMove"];
     
     [self performSelector:@selector(updateTest2:) withObject:animationComponent afterDelay:4.0f];
 }
@@ -83,7 +72,7 @@
 -(void)updateTest2:(id)object
 {
     CAnimationComponent *animationComponent = object;
-    [animationComponent playAnimationWithName:@"downmove"];
+    [animationComponent playAnimationWithName:@"TopMove"];
     
     [self performSelector:@selector(updateTest3:) withObject:animationComponent afterDelay:4.0f];
 }
@@ -91,7 +80,7 @@
 -(void)updateTest3:(id)object
 {
     CAnimationComponent *animationComponent = object;
-    [animationComponent playAnimationWithName:@"rightmove"];
+    [animationComponent playAnimationWithName:@"RightMove"];
 }
 
 -(void)update:(CFTimeInterval)currentTime {

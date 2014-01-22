@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <SpriteKit/SpriteKit.h>
+#import "CUtil.h"
 
 @interface CTextureAtlas : NSObject<NSXMLParserDelegate>
 {
@@ -17,6 +18,7 @@
 }
 
 @property (nonatomic, strong) NSMutableDictionary *textureAtlas;
+
 @property (nonatomic, strong) NSMutableArray *animationList;
 @property (nonatomic, strong) NSString *imagePath;
 @property (nonatomic, assign) unsigned width;
@@ -24,5 +26,6 @@
 
 + (CTextureAtlas *)atlasWithXmlName:(NSString *)xmlName andWithResource:(SKTexture *)resource;
 - (id)initWithXmlName:(NSString *)xmlName andWithResource:(SKTexture *)resource;
+- (NSArray *)animationWithName:(NSString *)animationName;
 
 @end

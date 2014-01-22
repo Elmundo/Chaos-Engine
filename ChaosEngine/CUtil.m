@@ -20,4 +20,24 @@
     return top_bottom_oriented_position;
 }
 
++ (CGRect)eulerToUnit:(CGRect)euler andResourceSize:(CGSize)sourceSize
+{
+    Float32 unitX      = euler.origin.x / sourceSize.width;
+    Float32 unitY      = euler.origin.y / sourceSize.height;
+    Float32 unitWidth  = euler.size.width / sourceSize.width;
+    Float32 unitHeight = euler.size.height / sourceSize.height;
+    
+    // This line arithmetic operations for OpenGL Coordinate system.
+    // In the current system origin(0,0) is Bottom-Left but we want it to behave
+    // as origin(0,0) is Top-Left of the screen. So made this changes to build out magic.
+    // We make extra manipulation only for Y axes.
+    unitY = 1.0 - (unitY + unitHeight);
+    
+    CGRect unitCoordFrame = CGRectMake(unitX,
+                                       unitY,
+                                       unitWidth,
+                                       unitHeight);
+    return unitCoordFrame;
+}
+
 @end

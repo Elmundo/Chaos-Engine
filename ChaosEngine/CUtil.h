@@ -11,5 +11,5 @@
 @interface CUtil : NSObject
 
 + (CGPoint)transformPoint:(CGPoint)position;
-
++ (CGRect)eulerToUnit:(CGRect)euler andResourceSize:(CGSize)sourceSize;
 @end
