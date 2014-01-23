@@ -51,6 +51,7 @@
 		62AA5421188442E8001FA053 /* CPositionComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AA5420188442E8001FA053 /* CPositionComponent.m */; };
 		62AA5424188442F9001FA053 /* CRenderComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AA5423188442F9001FA053 /* CRenderComponent.m */; };
 		62B3BA9D1891433400DD8424 /* CInputSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 62B3BA9C1891433400DD8424 /* CInputSystem.m */; };
+		62FB7BA81891698100A6340F /* CControllerComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 62FB7BA71891698100A6340F /* CControllerComponent.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -136,6 +137,8 @@
 		62AA5423188442F9001FA053 /* CRenderComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CRenderComponent.m; path = ChaosEngine/CRenderComponent.m; sourceTree = "<group>"; };
 		62B3BA9B1891433400DD8424 /* CInputSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CInputSystem.h; path = ChaosEngine/CInputSystem.h; sourceTree = "<group>"; };
 		62B3BA9C1891433400DD8424 /* CInputSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CInputSystem.m; path = ChaosEngine/CInputSystem.m; sourceTree = "<group>"; };
+		62FB7BA61891698100A6340F /* CControllerComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CControllerComponent.h; path = ChaosEngine/CControllerComponent.h; sourceTree = "<group>"; };
+		62FB7BA71891698100A6340F /* CControllerComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CControllerComponent.m; path = ChaosEngine/CControllerComponent.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -246,6 +249,12 @@
 			children = (
 				62627794188935C800006BBD /* CAnimationComponent.h */,
 				62627795188935C800006BBD /* CAnimationComponent.m */,
+				62FB7BA61891698100A6340F /* CControllerComponent.h */,
+				62FB7BA71891698100A6340F /* CControllerComponent.m */,
+				62AA541F188442E8001FA053 /* CPositionComponent.h */,
+				62AA5420188442E8001FA053 /* CPositionComponent.m */,
+				62AA5422188442F9001FA053 /* CRenderComponent.h */,
+				62AA5423188442F9001FA053 /* CRenderComponent.m */,
 				626277681885321600006BBD /* CAppDelegate.h */,
 				626277691885321600006BBD /* CAppDelegate.m */,
 				62AA5415188434D5001FA053 /* CComponent.h */,
@@ -270,12 +279,8 @@
 				6262776F1885732800006BBD /* CLogger.m */,
 				626277801886A4BF00006BBD /* CPoint.h */,
 				626277811886A4BF00006BBD /* CPoint.m */,
-				62AA541F188442E8001FA053 /* CPositionComponent.h */,
-				62AA5420188442E8001FA053 /* CPositionComponent.m */,
 				62627791188926B300006BBD /* CPositionEvent.h */,
 				62627792188926B300006BBD /* CPositionEvent.m */,
-				62AA5422188442F9001FA053 /* CRenderComponent.h */,
-				62AA5423188442F9001FA053 /* CRenderComponent.m */,
 				6295C57D188FCAD800B45AB9 /* CRenderEvent.h */,
 				6295C57E188FCAD800B45AB9 /* CRenderEvent.m */,
 				6262776418852CDE00006BBD /* CScene.h */,
@@ -444,6 +449,7 @@
 				626277901888283E00006BBD /* CEventListener.m in Sources */,
 				6262776A1885321600006BBD /* CAppDelegate.m in Sources */,
 				6262778B1886DE7F00006BBD /* CEvent.m in Sources */,
+				62FB7BA81891698100A6340F /* CControllerComponent.m in Sources */,
 				6253D213188033120017790C /* main.m in Sources */,
 				62AA5424188442F9001FA053 /* CRenderComponent.m in Sources */,
 				626277881886DDC500006BBD /* CEventDispatcher.m in Sources */,

@@ -10,10 +10,10 @@
 #import "CScene.h"
 
 #import "CEntityFactory.h"
-#import "CComponent.h"
 #import "CPositionComponent.h"
 #import "CRenderComponent.h"
 #import "CAnimationComponent.h"
+#import "CControllerComponent.h"
 
 @interface MyScene : CScene 
 {

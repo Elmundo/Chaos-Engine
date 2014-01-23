@@ -45,9 +45,12 @@
     animationComponent.renderRef = rendererComponent.spriteNode; //TODO: CSPriteNode' yaratıp içerisinde spriteNode'un referansı tutulmadığı sürece bu kod
     animationComponent.atlasRef = rendererComponent.atlas; // TODO: Sürekli nil atanıyor.
     
+    CControllerComponent *controllerComponent = [[CControllerComponent alloc] init];
+    
     [skeletonEntity addComponent:positionComponent];
     [skeletonEntity addComponent:rendererComponent];
     [skeletonEntity addComponent:animationComponent];
+    [skeletonEntity addComponent:controllerComponent];
     [skeletonEntity initialize:@"skeletion01"];
     
     [self performSelector:@selector(updateTest:) withObject:animationComponent afterDelay:3.0f];
