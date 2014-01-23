@@ -15,13 +15,28 @@
 {
     self = [super init];
     if (self) {
-        // Some stuff
+        _systemType = kEngineSystemTypeUpdate;
     }
     
     return self;
 }
 
 - (void)update:(NSTimeInterval)dt
+{
+    // Some Stuff
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    // Some Stuff
+}
+
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    // Some Stuff
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
     // Some Stuff
 }

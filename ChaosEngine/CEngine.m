@@ -52,7 +52,7 @@
 {
     for (NSString *key in _systems) {
         CEngineSystem *system =  [_systems objectForKey:key];
-        if ([system respondsToSelector:@selector(update:)]) {
+        if ([system respondsToSelector:@selector(update:)] && system.systemType == kEngineSystemTypeUpdate) {
             [system update:currentTime];
         }
     }
@@ -60,17 +60,32 @@
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    
+    for (NSString *key in _systems) {
+        CEngineSystem *system =  [_systems objectForKey:key];
+        if ([system respondsToSelector:@selector(touchesBegan:withEvent:)] && system.systemType == kEngineSystemTypeInput) {
+            [system touchesBegan:touches withEvent:event];
+        }
+    }
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    
+    for (NSString *key in _systems) {
+        CEngineSystem *system =  [_systems objectForKey:key];
+        if ([system respondsToSelector:@selector(update:)] && system.systemType == kEngineSystemTypeInput) {
+            [system touchesEnded:touches withEvent:event];
+        }
+    }
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    
+    for (NSString *key in _systems) {
+        CEngineSystem *system =  [_systems objectForKey:key];
+        if ([system respondsToSelector:@selector(update:)] && system.systemType == kEngineSystemTypeInput) {
+            [system touchesMoved:touches withEvent:event];
+        }
+    }
 }
 
 @end

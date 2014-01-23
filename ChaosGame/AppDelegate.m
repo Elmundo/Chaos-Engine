@@ -18,6 +18,7 @@
     /** Also this system adding part could be defined in XML for TemplateManager] **/
     [self.engine addSystem:[CSceneManager shared]];
     [self.engine addSystem:[CEntityFactory shared]];
+    [self.engine addSystem:[CInputSystem shared]];
     
     // This part must be defined after system adding operations
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];

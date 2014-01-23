@@ -13,7 +13,11 @@
 @interface CEngineSystem : NSObject
 
 @property (nonatomic, weak) CEngine *engine;
+@property (nonatomic, assign) int systemType;
 
 - (void)update:(NSTimeInterval)dt;
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event;
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event;
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event;
 
 @end

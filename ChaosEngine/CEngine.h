@@ -9,6 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "CSceneManager.h"
 
+typedef NS_ENUM(int, EngineSystemType) {
+    kEngineSystemTypeUpdate = 0,
+    kEngineSystemTypeInput
+};
+
 @interface CEngine : NSObject<CSceneDelegate>
 
 @property (nonatomic, strong) NSMutableDictionary *systems;

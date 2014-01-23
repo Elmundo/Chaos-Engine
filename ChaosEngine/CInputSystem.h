@@ -10,4 +10,12 @@
 
 @interface CInputSystem : CEngineSystem
 
+@property (nonatomic, strong) NSMutableArray *components;
+
++ (id)shared;
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event;
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event;
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event;
+
 @end

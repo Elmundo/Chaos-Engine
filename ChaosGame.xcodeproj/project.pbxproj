@@ -264,6 +264,8 @@
 				626277871886DDC500006BBD /* CEventDispatcher.m */,
 				6262778E1888283E00006BBD /* CEventListener.h */,
 				6262778F1888283E00006BBD /* CEventListener.m */,
+				62B3BA9B1891433400DD8424 /* CInputSystem.h */,
+				62B3BA9C1891433400DD8424 /* CInputSystem.m */,
 				6262776E1885732800006BBD /* CLogger.h */,
 				6262776F1885732800006BBD /* CLogger.m */,
 				626277801886A4BF00006BBD /* CPoint.h */,
@@ -287,8 +289,6 @@
 				6262775F18852B1F00006BBD /* CViewController.h */,
 				6262776018852B1F00006BBD /* CViewController.m */,
 				6262776118852B1F00006BBD /* CViewController.xib */,
-				62B3BA9B1891433400DD8424 /* CInputSystem.h */,
-				62B3BA9C1891433400DD8424 /* CInputSystem.m */,
 			);
 			name = ChaosEngine;
 			sourceTree = "<group>";
