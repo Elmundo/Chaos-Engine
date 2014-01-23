@@ -38,4 +38,14 @@
     return entity;
 }
 
+- (void)update:(NSTimeInterval)dt
+{
+    for (NSString *key in _entityDic) {
+        CEntity *entity = [_entityDic objectForKey:key];
+        if ([entity respondsToSelector:@selector(update:)]) {
+            [entity update:dt];
+        }
+    }
+}
+
 @end

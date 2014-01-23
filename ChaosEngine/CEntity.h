@@ -21,6 +21,7 @@
 - (void)addComponent:(CComponent *)component;
 - (void)removeComponent:(CComponent *)component;
 - (CComponent *)getComponentWithName:(NSString *)componentName;
+- (void)update:(NSTimeInterval)dt;
 + (unsigned)entityID;
 
 @end

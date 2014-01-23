@@ -23,12 +23,6 @@
     return self;
 }
 
-/* Called before each frame is rendered */
--(void)update:(CFTimeInterval)currentTime
-{
-    
-}
-
 - (void)didMoveToView:(SKView *)view
 {
     if (!self.contentCreated) {
@@ -41,6 +35,28 @@
 - (void)createSceneContents
 {
     
+}
+
+/* Called before each frame is rendered */
+-(void)update:(CFTimeInterval)currentTime
+{
+    [self.delegate update:currentTime];
+}
+
+/* Called when user make some touch inputs */
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self.delegate touchesBegan:touches withEvent:event];
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self.delegate touchesEnded:touches withEvent:event];
+}
+
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self.delegate touchesMoved:touches withEvent:event];
 }
 
 @end

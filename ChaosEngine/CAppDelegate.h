@@ -7,12 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CEngine.h"
 #import "CViewController.h"
 
 #define kDefaultNibName @"CViewController"
 
 @interface CAppDelegate : UIResponder<UIApplicationDelegate>
 
+@property (strong, nonatomic) CEngine *engine;
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) CViewController *viewController;
 

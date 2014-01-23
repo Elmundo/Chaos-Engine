@@ -7,9 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CEngineSystem.h"
 #import "CEntity.h"
 
-@interface CEntityFactory : NSObject
+@interface CEntityFactory : CEngineSystem
 
 @property (nonatomic, strong) NSMutableDictionary *entityDic;
 

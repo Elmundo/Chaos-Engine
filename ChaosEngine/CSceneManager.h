@@ -7,11 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CEngineSystem.h"
 #import "CScene.h"
 
-@interface CSceneManager : NSObject
+@interface CSceneManager : CEngineSystem
 
+@property (nonatomic, strong) SKView *rootView;
 @property (nonatomic, strong) NSMutableDictionary *sceneDic;
+@property (nonatomic, assign) BOOL isAnySceneActive;
 
 - (void)addScene:(CScene *)scene;
 - (CScene *)createSceneWithName:(NSString *)sceneName;
@@ -19,6 +22,6 @@
 
 - (NSDictionary *)getScenes;
 
-+ (id)shared;
++ (CSceneManager *)shared;
 
 @end

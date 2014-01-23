@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "CAppDelegate.h"
+
+/* Game Systems*/
+#import "CSceneManager.h"
+#import "CEntityFactory.h"
+#import "CInputSystem.h"
 #import "ViewController.h"
 
 @interface AppDelegate : CAppDelegate

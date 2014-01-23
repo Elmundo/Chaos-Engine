@@ -9,8 +9,18 @@
 #import <SpriteKit/SpriteKit.h>
 #import "CLogger.h"
 
+@protocol CSceneDelegate <NSObject>
+
+- (void)update:(CFTimeInterval)currentTime;
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event;
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event;
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event;
+
+@end
+
 @interface CScene : SKScene
 
+@property (nonatomic, strong) id<CSceneDelegate> delegate;
 @property (nonatomic, assign) BOOL contentCreated;
 @property (nonatomic, strong) NSString *sceneName;
 

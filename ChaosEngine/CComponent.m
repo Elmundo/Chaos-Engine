@@ -40,6 +40,12 @@
     return [self.owner getComponentWithName:componentName];
 }
 
+// Override this method
+- (void)update:(NSTimeInterval)dt
+{
+    
+}
+
 - (void)addEventListener:(SEL)action message:(NSString *)message
 {
     [_owner.dispatcher addEventListener:self withAction:action withEvent:message];

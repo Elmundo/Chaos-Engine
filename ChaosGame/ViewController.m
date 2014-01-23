@@ -15,13 +15,13 @@
 {
     [super viewDidLoad];
     
-    // Create and configure the scene.
+    //Create firt scene
     MyScene * scene =  [[MyScene alloc] initWithSize:self.rootView.bounds.size];
     scene.scaleMode = SKSceneScaleModeAspectFill;
-    [[CSceneManager shared] addScene:scene];
     
-    // Present the scene.
-    [self.rootView presentScene:scene];
+    // Add scene to manager and activate it.
+    [CSceneManager shared].rootView = self.rootView;
+    [[CSceneManager shared] addScene:scene];
 }
 
 - (BOOL)shouldAutorotate

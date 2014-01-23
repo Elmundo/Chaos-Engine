@@ -37,17 +37,20 @@
 		626277901888283E00006BBD /* CEventListener.m in Sources */ = {isa = PBXBuildFile; fileRef = 6262778F1888283E00006BBD /* CEventListener.m */; };
 		62627793188926B300006BBD /* CPositionEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 62627792188926B300006BBD /* CPositionEvent.m */; };
 		62627796188935C800006BBD /* CAnimationComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 62627795188935C800006BBD /* CAnimationComponent.m */; };
+		626F6356189111EA00103C36 /* CEngineSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 626F6355189111EA00103C36 /* CEngineSystem.m */; };
 		6272FF8F188ECC64009B8440 /* CTextureAtlas.m in Sources */ = {isa = PBXBuildFile; fileRef = 6272FF8E188ECC64009B8440 /* CTextureAtlas.m */; };
 		6272FF93188ED421009B8440 /* character.png in Resources */ = {isa = PBXBuildFile; fileRef = 6272FF92188ED421009B8440 /* character.png */; };
 		6272FF95188ED42E009B8440 /* character.xml in Resources */ = {isa = PBXBuildFile; fileRef = 6272FF94188ED42E009B8440 /* character.xml */; };
 		6295C57F188FCAD800B45AB9 /* CRenderEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 6295C57E188FCAD800B45AB9 /* CRenderEvent.m */; };
 		6295C587189018DA00B45AB9 /* android.png in Resources */ = {isa = PBXBuildFile; fileRef = 6295C586189018DA00B45AB9 /* android.png */; };
 		6295C589189018E000B45AB9 /* android.xml in Resources */ = {isa = PBXBuildFile; fileRef = 6295C588189018E000B45AB9 /* android.xml */; };
+		6295C58C18901F0300B45AB9 /* CEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 6295C58B18901F0300B45AB9 /* CEngine.m */; };
 		62AA5411188433BB001FA053 /* CEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AA5410188433BB001FA053 /* CEntity.m */; };
 		62AA5414188434C9001FA053 /* CEntityFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AA5413188434C9001FA053 /* CEntityFactory.m */; };
 		62AA5417188434D5001FA053 /* CComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AA5416188434D5001FA053 /* CComponent.m */; };
 		62AA5421188442E8001FA053 /* CPositionComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AA5420188442E8001FA053 /* CPositionComponent.m */; };
 		62AA5424188442F9001FA053 /* CRenderComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AA5423188442F9001FA053 /* CRenderComponent.m */; };
+		62B3BA9D1891433400DD8424 /* CInputSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 62B3BA9C1891433400DD8424 /* CInputSystem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +112,8 @@
 		62627792188926B300006BBD /* CPositionEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CPositionEvent.m; path = ChaosEngine/CPositionEvent.m; sourceTree = "<group>"; };
 		62627794188935C800006BBD /* CAnimationComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAnimationComponent.h; path = ChaosEngine/CAnimationComponent.h; sourceTree = "<group>"; };
 		62627795188935C800006BBD /* CAnimationComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CAnimationComponent.m; path = ChaosEngine/CAnimationComponent.m; sourceTree = "<group>"; };
+		626F6354189111EA00103C36 /* CEngineSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CEngineSystem.h; path = ChaosEngine/CEngineSystem.h; sourceTree = "<group>"; };
+		626F6355189111EA00103C36 /* CEngineSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CEngineSystem.m; path = ChaosEngine/CEngineSystem.m; sourceTree = "<group>"; };
 		6272FF8D188ECC64009B8440 /* CTextureAtlas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTextureAtlas.h; path = ChaosEngine/CTextureAtlas.h; sourceTree = "<group>"; };
 		6272FF8E188ECC64009B8440 /* CTextureAtlas.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTextureAtlas.m; path = ChaosEngine/CTextureAtlas.m; sourceTree = "<group>"; };
 		6272FF92188ED421009B8440 /* character.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = character.png; path = assets/character.png; sourceTree = "<group>"; };
@@ -117,6 +122,8 @@
 		6295C57E188FCAD800B45AB9 /* CRenderEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CRenderEvent.m; path = ChaosEngine/CRenderEvent.m; sourceTree = "<group>"; };
 		6295C586189018DA00B45AB9 /* android.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = android.png; path = assets/android.png; sourceTree = "<group>"; };
 		6295C588189018E000B45AB9 /* android.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = android.xml; path = assets/android.xml; sourceTree = "<group>"; };
+		6295C58A18901F0300B45AB9 /* CEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CEngine.h; path = ChaosEngine/CEngine.h; sourceTree = "<group>"; };
+		6295C58B18901F0300B45AB9 /* CEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CEngine.m; path = ChaosEngine/CEngine.m; sourceTree = "<group>"; };
 		62AA540F188433BB001FA053 /* CEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CEntity.h; path = ChaosEngine/CEntity.h; sourceTree = "<group>"; };
 		62AA5410188433BB001FA053 /* CEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CEntity.m; path = ChaosEngine/CEntity.m; sourceTree = "<group>"; };
 		62AA5412188434C9001FA053 /* CEntityFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CEntityFactory.h; path = ChaosEngine/CEntityFactory.h; sourceTree = "<group>"; };
@@ -127,6 +134,8 @@
 		62AA5420188442E8001FA053 /* CPositionComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CPositionComponent.m; path = ChaosEngine/CPositionComponent.m; sourceTree = "<group>"; };
 		62AA5422188442F9001FA053 /* CRenderComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CRenderComponent.h; path = ChaosEngine/CRenderComponent.h; sourceTree = "<group>"; };
 		62AA5423188442F9001FA053 /* CRenderComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CRenderComponent.m; path = ChaosEngine/CRenderComponent.m; sourceTree = "<group>"; };
+		62B3BA9B1891433400DD8424 /* CInputSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CInputSystem.h; path = ChaosEngine/CInputSystem.h; sourceTree = "<group>"; };
+		62B3BA9C1891433400DD8424 /* CInputSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CInputSystem.m; path = ChaosEngine/CInputSystem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -235,45 +244,51 @@
 		6253D240188035950017790C /* ChaosEngine */ = {
 			isa = PBXGroup;
 			children = (
+				62627794188935C800006BBD /* CAnimationComponent.h */,
+				62627795188935C800006BBD /* CAnimationComponent.m */,
+				626277681885321600006BBD /* CAppDelegate.h */,
+				626277691885321600006BBD /* CAppDelegate.m */,
+				62AA5415188434D5001FA053 /* CComponent.h */,
+				62AA5416188434D5001FA053 /* CComponent.m */,
+				6295C58A18901F0300B45AB9 /* CEngine.h */,
+				6295C58B18901F0300B45AB9 /* CEngine.m */,
+				626F6354189111EA00103C36 /* CEngineSystem.h */,
+				626F6355189111EA00103C36 /* CEngineSystem.m */,
 				62AA540F188433BB001FA053 /* CEntity.h */,
 				62AA5410188433BB001FA053 /* CEntity.m */,
 				62AA5412188434C9001FA053 /* CEntityFactory.h */,
 				62AA5413188434C9001FA053 /* CEntityFactory.m */,
-				62AA5415188434D5001FA053 /* CComponent.h */,
-				62AA5416188434D5001FA053 /* CComponent.m */,
-				62AA541F188442E8001FA053 /* CPositionComponent.h */,
-				62AA5420188442E8001FA053 /* CPositionComponent.m */,
-				62AA5422188442F9001FA053 /* CRenderComponent.h */,
-				62AA5423188442F9001FA053 /* CRenderComponent.m */,
-				62627794188935C800006BBD /* CAnimationComponent.h */,
-				62627795188935C800006BBD /* CAnimationComponent.m */,
-				6262775F18852B1F00006BBD /* CViewController.h */,
-				6262776018852B1F00006BBD /* CViewController.m */,
-				6262776418852CDE00006BBD /* CScene.h */,
-				6262776518852CDE00006BBD /* CScene.m */,
-				626277681885321600006BBD /* CAppDelegate.h */,
-				626277691885321600006BBD /* CAppDelegate.m */,
-				6262776B1885669100006BBD /* CSceneManager.h */,
-				6262776C1885669100006BBD /* CSceneManager.m */,
-				6262776E1885732800006BBD /* CLogger.h */,
-				6262776F1885732800006BBD /* CLogger.m */,
-				6262777918868D0B00006BBD /* CUtil.h */,
-				6262777A18868D0B00006BBD /* CUtil.m */,
-				626277801886A4BF00006BBD /* CPoint.h */,
-				626277811886A4BF00006BBD /* CPoint.m */,
+				626277891886DE7F00006BBD /* CEvent.h */,
+				6262778A1886DE7F00006BBD /* CEvent.m */,
 				626277861886DDC500006BBD /* CEventDispatcher.h */,
 				626277871886DDC500006BBD /* CEventDispatcher.m */,
 				6262778E1888283E00006BBD /* CEventListener.h */,
 				6262778F1888283E00006BBD /* CEventListener.m */,
-				626277891886DE7F00006BBD /* CEvent.h */,
-				6262778A1886DE7F00006BBD /* CEvent.m */,
+				6262776E1885732800006BBD /* CLogger.h */,
+				6262776F1885732800006BBD /* CLogger.m */,
+				626277801886A4BF00006BBD /* CPoint.h */,
+				626277811886A4BF00006BBD /* CPoint.m */,
+				62AA541F188442E8001FA053 /* CPositionComponent.h */,
+				62AA5420188442E8001FA053 /* CPositionComponent.m */,
 				62627791188926B300006BBD /* CPositionEvent.h */,
 				62627792188926B300006BBD /* CPositionEvent.m */,
+				62AA5422188442F9001FA053 /* CRenderComponent.h */,
+				62AA5423188442F9001FA053 /* CRenderComponent.m */,
 				6295C57D188FCAD800B45AB9 /* CRenderEvent.h */,
 				6295C57E188FCAD800B45AB9 /* CRenderEvent.m */,
+				6262776418852CDE00006BBD /* CScene.h */,
+				6262776518852CDE00006BBD /* CScene.m */,
+				6262776B1885669100006BBD /* CSceneManager.h */,
+				6262776C1885669100006BBD /* CSceneManager.m */,
 				6272FF8D188ECC64009B8440 /* CTextureAtlas.h */,
 				6272FF8E188ECC64009B8440 /* CTextureAtlas.m */,
+				6262777918868D0B00006BBD /* CUtil.h */,
+				6262777A18868D0B00006BBD /* CUtil.m */,
+				6262775F18852B1F00006BBD /* CViewController.h */,
+				6262776018852B1F00006BBD /* CViewController.m */,
 				6262776118852B1F00006BBD /* CViewController.xib */,
+				62B3BA9B1891433400DD8424 /* CInputSystem.h */,
+				62B3BA9C1891433400DD8424 /* CInputSystem.m */,
 			);
 			name = ChaosEngine;
 			sourceTree = "<group>";
@@ -410,10 +425,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				6262776D1885669100006BBD /* CSceneManager.m in Sources */,
+				626F6356189111EA00103C36 /* CEngineSystem.m in Sources */,
 				62AA5411188433BB001FA053 /* CEntity.m in Sources */,
+				62B3BA9D1891433400DD8424 /* CInputSystem.m in Sources */,
 				626277821886A4BF00006BBD /* CPoint.m in Sources */,
 				6272FF8F188ECC64009B8440 /* CTextureAtlas.m in Sources */,
 				6253D220188033120017790C /* MyScene.m in Sources */,
+				6295C58C18901F0300B45AB9 /* CEngine.m in Sources */,
 				6262777B18868D0B00006BBD /* CUtil.m in Sources */,
 				62627793188926B300006BBD /* CPositionEvent.m in Sources */,
 				6262776218852B1F00006BBD /* CViewController.m in Sources */,

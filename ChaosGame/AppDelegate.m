@@ -12,9 +12,18 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [super application:application didFinishLaunchingWithOptions:launchOptions];
+    
+    // Init the Chaos Engine
+    /** Also this system adding part could be defined in XML for TemplateManager] **/
+    [self.engine addSystem:[CSceneManager shared]];
+    [self.engine addSystem:[CEntityFactory shared]];
+    
+    // This part must be defined after system adding operations
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.viewController = [[ViewController alloc] initWithNibName:kDefaultNibName bundle:nil];
     self.window.rootViewController = self.viewController;
+    
     [self.window makeKeyAndVisible];
     
     return YES;

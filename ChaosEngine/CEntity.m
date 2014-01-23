@@ -18,9 +18,7 @@ static unsigned entity_id = 0;
     self = [super init];
     if (self) {
         entity_id++;
-        //self.entityName = [NSMutableString stringWithString:@"UnnamedEntityWithID+"];
-        //[self.entityName stringByAppendingFormat:@"%i", _entity_id];
-        
+
         self.componentDic = [[NSMutableDictionary alloc] initWithCapacity:3];
         self.dispatcher = [[CEventDispatcher alloc] init];
     }
@@ -61,6 +59,17 @@ static unsigned entity_id = 0;
     }
     
     return component;
+}
+
+- (void)update:(NSTimeInterval)dt
+{
+    //Call all component's update method
+    for (NSString *key in _componentDic) {
+        CComponent *component = [_componentDic objectForKey:key];
+        if ([component respondsToSelector:@selector(update:)]) {
+            [component update:dt];
+        }
+    }
 }
 
 + (unsigned)entityID

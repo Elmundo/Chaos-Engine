@@ -25,6 +25,7 @@
     self = [super init];
     if (self) {
         self.sceneDic = [[NSMutableDictionary alloc] init];
+        self.isAnySceneActive = NO;
     }
     
     return self;
@@ -32,8 +33,7 @@
 
 - (CScene *)createSceneWithName:(NSString *)sceneName
 {
-    CScene *newScene = [[CScene alloc]
-                        initWithSize:CGSizeMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
+    CScene *newScene = [[CScene alloc] initWithSize:CGSizeMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
     newScene.sceneName = sceneName;
     [self.sceneDic setObject:newScene forKey:sceneName];
     
@@ -42,7 +42,17 @@
 
 - (void)addScene:(CScene *)scene
 {
+    scene.delegate = (id)self.engine;
     [self.sceneDic setObject:scene forKey:scene.sceneName];
+    if (!_isAnySceneActive) {
+        _isAnySceneActive = YES;
+        [self activateScene:scene];
+    }
+}
+
+- (void)activateScene:(CScene *)scene
+{
+    [self.rootView presentScene:scene];
 }
 
 - (CScene *)getSceneWithName:(NSString *)sceneName

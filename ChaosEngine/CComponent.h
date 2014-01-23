@@ -21,6 +21,7 @@
 - (void)didAddedToEntity:(CEntity *)owner;
 - (void)didRemovedFromEntity;
 - (CComponent *)getComponent:(NSString *)componentName;
+- (void)update:(NSTimeInterval)dt;
 - (void)addEventListener:(SEL)action message:(NSString *)message;
 - (void)removeEventListener:(SEL)action message:(NSString *)message;
 - (void)dispatchEventWithEvent:(CEvent *)event;
