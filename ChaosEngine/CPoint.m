@@ -21,7 +21,7 @@
     return  self;
 }
 
-- (id)initWithCGRect:(CGPoint)point
+- (id)initWithCGPoint:(CGPoint)point
 {
     self = [super init];
     if (self) {

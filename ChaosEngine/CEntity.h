@@ -7,11 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CSerializable.h"
 #import "CEventDispatcher.h"
 
 @class CComponent;
 
-@interface CEntity : NSObject
+@interface CEntity : CSerializable
 
 @property (nonatomic, strong) NSMutableDictionary *componentDic;
 @property (nonatomic, strong) NSString *entityName;
@@ -23,6 +24,5 @@
 - (void)removeComponent:(CComponent *)component;
 - (CComponent *)getComponentWithName:(NSString *)componentName;
 - (void)update:(NSTimeInterval)dt;
-+ (unsigned)entityID;
 
 @end

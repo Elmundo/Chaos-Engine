@@ -7,13 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CSerializable.h"
 #import "CLogger.h"
 #import "CEvent.h"
 #import "CUtil.h"
 
 @class CEntity;
 
-@interface CComponent : NSObject
+@interface CComponent : CSerializable
 
 @property (nonatomic, weak) CEntity *owner;
 @property (nonatomic, strong) NSString *componentName;

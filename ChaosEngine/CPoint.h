@@ -7,15 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CSerializable.h"
 
-@interface CPoint : NSObject
+@interface CPoint : CSerializable
 
 @property (nonatomic, assign) int x;
 @property (nonatomic, assign) int y;
 
 - (id)initWithX:(int)x and:(int)y;
 
-- (id)initWithCGRect:(CGPoint)point;
+- (id)initWithCGPoint:(CGPoint)point;
 
 - (CGPoint)CGPoint;
 
