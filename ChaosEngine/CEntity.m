@@ -11,14 +11,10 @@
 
 @implementation CEntity
 
-static unsigned entity_id = 0;
-
 - (id)init
 {
     self = [super init];
     if (self) {
-        entity_id++;
-
         self.componentDic = [[NSMutableDictionary alloc] initWithCapacity:3];
         self.dispatcher = [[CEventDispatcher alloc] init];
     }
@@ -70,11 +66,6 @@ static unsigned entity_id = 0;
             [component update:dt];
         }
     }
-}
-
-+ (unsigned)entityID
-{
-    return entity_id;
 }
 
 @end

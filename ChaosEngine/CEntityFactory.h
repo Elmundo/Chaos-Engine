@@ -12,7 +12,9 @@
 
 @interface CEntityFactory : CEngineSystem
 
-@property (nonatomic, strong) NSMutableDictionary *entityDic;
+@property (nonatomic, strong) NSMutableArray *entities;
+@property (nonatomic, strong) NSMutableArray *entityIdList;
+@property (nonatomic, assign) uint32_t lowestUnassignedEid;
 
 - (CEntity *)createEntity;
 

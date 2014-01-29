@@ -24,7 +24,10 @@
 {
     self = [super init];
     if (self) {
-        self.entityDic = [[NSMutableDictionary alloc] init];
+        self.entities = [[NSMutableArray alloc] init];
+        self.entityIdList = [[NSMutableArray alloc] init];
+
+        _lowestUnassignedEid = 1;
     }
     
     return self;
@@ -33,15 +36,38 @@
 - (CEntity *)createEntity
 {
     CEntity *entity = [[CEntity alloc] init];
-    [self.entityDic setObject:entity forKey:[NSString stringWithFormat:@"%i", [CEntity entityID]]];
+    entity.eid = [self generateNewEid];
+    
+    [self.entities addObject:entity];
+    [self.entityIdList addObject:@(entity.eid)];
     
     return entity;
 }
 
+- (void)removeEntity:(CEntity *)entity
+{
+    [self.entities removeObject:entity];
+    [self.entityIdList removeObject:@(entity.eid)];
+}
+
+- (uint32_t)generateNewEid
+{
+    if (_lowestUnassignedEid < UINT32_MAX) {
+        return _lowestUnassignedEid++;
+    }else{
+        for (uint32_t i=1; i < UINT32_MAX; ++i) {
+            if (![self.entityIdList containsObject:@(i)]) {
+                return i;
+            }
+        }
+    }
+    
+    return 0;
+}
+
 - (void)update:(NSTimeInterval)dt
 {
-    for (NSString *key in _entityDic) {
-        CEntity *entity = [_entityDic objectForKey:key];
+    for (CEntity *entity in _entities) {
         if ([entity respondsToSelector:@selector(update:)]) {
             [entity update:dt];
         }
