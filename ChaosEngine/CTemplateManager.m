@@ -63,15 +63,6 @@
     // Some Stuff
 }
 
-- (void)addXML:(NSString *)xml identifier:(NSString *)identifier
-{
-    
-}
-
-- (void)removeXML:(NSString *)xml
-{
-    
-}
 
 /* Deserialize TextureAtlas XML Data */
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict

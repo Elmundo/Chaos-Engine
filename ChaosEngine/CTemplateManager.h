@@ -18,7 +18,4 @@
     int _depthLevel;
 }
 
-- (void)addTemplateXML:(NSString *)templateName;
-- (void)removeTemplateXML:(NSString *)templateName;
-
 @end

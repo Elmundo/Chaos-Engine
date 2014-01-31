@@ -54,9 +54,9 @@
 		62CF0D49189BACCF006CD912 /* CTemplateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 62CF0D48189BACCF006CD912 /* CTemplateManager.m */; };
 		62CF0D4C189BCF2A006CD912 /* CSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 62CF0D4B189BCF2A006CD912 /* CSerializer.m */; };
 		62CF0D83189BE443006CD912 /* TBXML+Compression.m in Sources */ = {isa = PBXBuildFile; fileRef = 62CF0D80189BE443006CD912 /* TBXML+Compression.m */; };
-		62CF0D84189BE443006CD912 /* TBXML+HTTP.m in Sources */ = {isa = PBXBuildFile; fileRef = 62CF0D81189BE443006CD912 /* TBXML+HTTP.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		62CF0D84189BE443006CD912 /* TBXML+HTTP.m in Sources */ = {isa = PBXBuildFile; fileRef = 62CF0D81189BE443006CD912 /* TBXML+HTTP.m */; };
 		62CF0D86189BE4BD006CD912 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 62CF0D85189BE4BD006CD912 /* libz.dylib */; };
-		62CF0D87189BE56E006CD912 /* TBXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 62CF0D7F189BE443006CD912 /* TBXML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		62CF0D87189BE56E006CD912 /* TBXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 62CF0D7F189BE443006CD912 /* TBXML.m */; };
 		62CF0D89189BE855006CD912 /* test_level.clevel in Resources */ = {isa = PBXBuildFile; fileRef = 62CF0D88189BE855006CD912 /* test_level.clevel */; };
 		62FB7BA81891698100A6340F /* CControllerComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 62FB7BA71891698100A6340F /* CControllerComponent.m */; };
 /* End PBXBuildFile section */
