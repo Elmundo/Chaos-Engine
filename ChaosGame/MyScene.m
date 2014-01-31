@@ -28,8 +28,13 @@
 {
     self.backgroundColor = [SKColor blackColor];
     
+    CTemplateManager *templateManager = [[CTemplateManager alloc] init];
+    
     /* ALL THESE DATA MUST BE DEFINED IN XML */
     /* Create the sekeleton entity and its all components*/
+    /*
+     [CTemplateManager shared] initLevel:@"Level1"];
+     */
     CEntity *skeletonEntity = [[CEntityFactory shared] createEntity];
     
     CPositionComponent *positionComponent = [[CPositionComponent alloc] init];

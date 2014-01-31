@@ -51,6 +51,13 @@
 		62AA5421188442E8001FA053 /* CPositionComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AA5420188442E8001FA053 /* CPositionComponent.m */; };
 		62AA5424188442F9001FA053 /* CRenderComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AA5423188442F9001FA053 /* CRenderComponent.m */; };
 		62B3BA9D1891433400DD8424 /* CInputSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 62B3BA9C1891433400DD8424 /* CInputSystem.m */; };
+		62CF0D49189BACCF006CD912 /* CTemplateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 62CF0D48189BACCF006CD912 /* CTemplateManager.m */; };
+		62CF0D4C189BCF2A006CD912 /* CSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 62CF0D4B189BCF2A006CD912 /* CSerializer.m */; };
+		62CF0D83189BE443006CD912 /* TBXML+Compression.m in Sources */ = {isa = PBXBuildFile; fileRef = 62CF0D80189BE443006CD912 /* TBXML+Compression.m */; };
+		62CF0D84189BE443006CD912 /* TBXML+HTTP.m in Sources */ = {isa = PBXBuildFile; fileRef = 62CF0D81189BE443006CD912 /* TBXML+HTTP.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		62CF0D86189BE4BD006CD912 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 62CF0D85189BE4BD006CD912 /* libz.dylib */; };
+		62CF0D87189BE56E006CD912 /* TBXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 62CF0D7F189BE443006CD912 /* TBXML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		62CF0D89189BE855006CD912 /* test_level.clevel in Resources */ = {isa = PBXBuildFile; fileRef = 62CF0D88189BE855006CD912 /* test_level.clevel */; };
 		62FB7BA81891698100A6340F /* CControllerComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 62FB7BA71891698100A6340F /* CControllerComponent.m */; };
 /* End PBXBuildFile section */
 
@@ -137,6 +144,18 @@
 		62AA5423188442F9001FA053 /* CRenderComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CRenderComponent.m; path = ChaosEngine/CRenderComponent.m; sourceTree = "<group>"; };
 		62B3BA9B1891433400DD8424 /* CInputSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CInputSystem.h; path = ChaosEngine/CInputSystem.h; sourceTree = "<group>"; };
 		62B3BA9C1891433400DD8424 /* CInputSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CInputSystem.m; path = ChaosEngine/CInputSystem.m; sourceTree = "<group>"; };
+		62CF0D47189BACCF006CD912 /* CTemplateManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTemplateManager.h; path = ChaosEngine/CTemplateManager.h; sourceTree = "<group>"; };
+		62CF0D48189BACCF006CD912 /* CTemplateManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTemplateManager.m; path = ChaosEngine/CTemplateManager.m; sourceTree = "<group>"; };
+		62CF0D4A189BCF2A006CD912 /* CSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CSerializer.h; path = ChaosEngine/CSerializer.h; sourceTree = "<group>"; };
+		62CF0D4B189BCF2A006CD912 /* CSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CSerializer.m; path = ChaosEngine/CSerializer.m; sourceTree = "<group>"; };
+		62CF0D7C189BE438006CD912 /* TBXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TBXML.h; path = "TBXML/TBXML-Headers/TBXML.h"; sourceTree = "<group>"; };
+		62CF0D7D189BE438006CD912 /* TBXML+Compression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "TBXML+Compression.h"; path = "TBXML/TBXML-Headers/TBXML+Compression.h"; sourceTree = "<group>"; };
+		62CF0D7E189BE438006CD912 /* TBXML+HTTP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "TBXML+HTTP.h"; path = "TBXML/TBXML-Headers/TBXML+HTTP.h"; sourceTree = "<group>"; };
+		62CF0D7F189BE443006CD912 /* TBXML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TBXML.m; path = "TBXML/TBXML-Code/TBXML.m"; sourceTree = "<group>"; };
+		62CF0D80189BE443006CD912 /* TBXML+Compression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "TBXML+Compression.m"; path = "TBXML/TBXML-Code/TBXML+Compression.m"; sourceTree = "<group>"; };
+		62CF0D81189BE443006CD912 /* TBXML+HTTP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "TBXML+HTTP.m"; path = "TBXML/TBXML-Code/TBXML+HTTP.m"; sourceTree = "<group>"; };
+		62CF0D85189BE4BD006CD912 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		62CF0D88189BE855006CD912 /* test_level.clevel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = test_level.clevel; path = assets/test_level.clevel; sourceTree = "<group>"; };
 		62FB7BA61891698100A6340F /* CControllerComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CControllerComponent.h; path = ChaosEngine/CControllerComponent.h; sourceTree = "<group>"; };
 		62FB7BA71891698100A6340F /* CControllerComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CControllerComponent.m; path = ChaosEngine/CControllerComponent.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -146,6 +165,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62CF0D86189BE4BD006CD912 /* libz.dylib in Frameworks */,
 				6253D207188033120017790C /* CoreGraphics.framework in Frameworks */,
 				6253D209188033120017790C /* UIKit.framework in Frameworks */,
 				6253D20B188033120017790C /* SpriteKit.framework in Frameworks */,
@@ -169,6 +189,7 @@
 		6253D1F8188033120017790C = {
 			isa = PBXGroup;
 			children = (
+				62CF0D7B189BE3E1006CD912 /* TBXML */,
 				6253D240188035950017790C /* ChaosEngine */,
 				6253D20C188033120017790C /* ChaosGame */,
 				6253D230188033130017790C /* ChaosGameTests */,
@@ -189,6 +210,7 @@
 		6253D203188033120017790C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				62CF0D85189BE4BD006CD912 /* libz.dylib */,
 				6253D204188033120017790C /* Foundation.framework */,
 				6253D206188033120017790C /* CoreGraphics.framework */,
 				6253D208188033120017790C /* UIKit.framework */,
@@ -293,6 +315,10 @@
 				6262777A18868D0B00006BBD /* CUtil.m */,
 				6262775F18852B1F00006BBD /* CViewController.h */,
 				6262776018852B1F00006BBD /* CViewController.m */,
+				62CF0D47189BACCF006CD912 /* CTemplateManager.h */,
+				62CF0D48189BACCF006CD912 /* CTemplateManager.m */,
+				62CF0D4A189BCF2A006CD912 /* CSerializer.h */,
+				62CF0D4B189BCF2A006CD912 /* CSerializer.m */,
 				6262776118852B1F00006BBD /* CViewController.xib */,
 			);
 			name = ChaosEngine;
@@ -301,6 +327,7 @@
 		626277721885811300006BBD /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				62CF0D4D189BD378006CD912 /* levels */,
 				6272FF91188ED257009B8440 /* atlas */,
 				6272FF90188ED24E009B8440 /* xml */,
 				6262777E1886A34400006BBD /* sword.png */,
@@ -324,6 +351,27 @@
 				6272FF92188ED421009B8440 /* character.png */,
 			);
 			name = atlas;
+			sourceTree = "<group>";
+		};
+		62CF0D4D189BD378006CD912 /* levels */ = {
+			isa = PBXGroup;
+			children = (
+				62CF0D88189BE855006CD912 /* test_level.clevel */,
+			);
+			name = levels;
+			sourceTree = "<group>";
+		};
+		62CF0D7B189BE3E1006CD912 /* TBXML */ = {
+			isa = PBXGroup;
+			children = (
+				62CF0D7F189BE443006CD912 /* TBXML.m */,
+				62CF0D80189BE443006CD912 /* TBXML+Compression.m */,
+				62CF0D81189BE443006CD912 /* TBXML+HTTP.m */,
+				62CF0D7C189BE438006CD912 /* TBXML.h */,
+				62CF0D7D189BE438006CD912 /* TBXML+Compression.h */,
+				62CF0D7E189BE438006CD912 /* TBXML+HTTP.h */,
+			);
+			name = TBXML;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -403,6 +451,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6262776318852B1F00006BBD /* CViewController.xib in Resources */,
+				62CF0D89189BE855006CD912 /* test_level.clevel in Resources */,
 				6253D211188033120017790C /* InfoPlist.strings in Resources */,
 				6272FF93188ED421009B8440 /* character.png in Resources */,
 				6272FF95188ED42E009B8440 /* character.xml in Resources */,
@@ -432,17 +481,20 @@
 				6262776D1885669100006BBD /* CSceneManager.m in Sources */,
 				626F6356189111EA00103C36 /* CEngineSystem.m in Sources */,
 				62AA5411188433BB001FA053 /* CEntity.m in Sources */,
+				62CF0D49189BACCF006CD912 /* CTemplateManager.m in Sources */,
 				62B3BA9D1891433400DD8424 /* CInputSystem.m in Sources */,
 				626277821886A4BF00006BBD /* CPoint.m in Sources */,
 				6272FF8F188ECC64009B8440 /* CTextureAtlas.m in Sources */,
 				6253D220188033120017790C /* MyScene.m in Sources */,
 				6295C58C18901F0300B45AB9 /* CEngine.m in Sources */,
+				62CF0D87189BE56E006CD912 /* TBXML.m in Sources */,
 				6262777B18868D0B00006BBD /* CUtil.m in Sources */,
 				62627793188926B300006BBD /* CPositionEvent.m in Sources */,
 				6262776218852B1F00006BBD /* CViewController.m in Sources */,
 				62AA5421188442E8001FA053 /* CPositionComponent.m in Sources */,
 				62627796188935C800006BBD /* CAnimationComponent.m in Sources */,
 				626277701885732800006BBD /* CLogger.m in Sources */,
+				62CF0D83189BE443006CD912 /* TBXML+Compression.m in Sources */,
 				6253D21D188033120017790C /* ViewController.m in Sources */,
 				6295C57F188FCAD800B45AB9 /* CRenderEvent.m in Sources */,
 				6253D217188033120017790C /* AppDelegate.m in Sources */,
@@ -451,9 +503,11 @@
 				6262778B1886DE7F00006BBD /* CEvent.m in Sources */,
 				62FB7BA81891698100A6340F /* CControllerComponent.m in Sources */,
 				6253D213188033120017790C /* main.m in Sources */,
+				62CF0D84189BE443006CD912 /* TBXML+HTTP.m in Sources */,
 				62AA5424188442F9001FA053 /* CRenderComponent.m in Sources */,
 				626277881886DDC500006BBD /* CEventDispatcher.m in Sources */,
 				62AA5414188434C9001FA053 /* CEntityFactory.m in Sources */,
+				62CF0D4C189BCF2A006CD912 /* CSerializer.m in Sources */,
 				6262776618852CDE00006BBD /* CScene.m in Sources */,
 				62AA5417188434D5001FA053 /* CComponent.m in Sources */,
 			);
@@ -577,6 +631,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ChaosGame/ChaosGame-Prefix.pch";
 				INFOPLIST_FILE = "ChaosGame/ChaosGame-Info.plist";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
 				WRAPPER_EXTENSION = app;
@@ -591,6 +646,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ChaosGame/ChaosGame-Prefix.pch";
 				INFOPLIST_FILE = "ChaosGame/ChaosGame-Info.plist";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
 				WRAPPER_EXTENSION = app;

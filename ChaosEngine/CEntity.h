@@ -11,7 +11,7 @@
 
 @class CComponent;
 
-@interface CEntity : NSObject
+@interface CEntity : NSObject<NSXMLParserDelegate>
 
 @property (nonatomic, strong) NSMutableDictionary *componentDic;
 @property (nonatomic, strong) NSString *entityName;

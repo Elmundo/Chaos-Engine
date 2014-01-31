@@ -29,7 +29,6 @@
 
 @property (nonatomic, strong) SKSpriteNode *spriteNode;
 @property (nonatomic, strong) SKTexture *sourceTexture;
-@property (nonatomic, strong) SKTexture *texture;
 @property (nonatomic, strong) CTextureAtlas *atlas;
 
 @end

@@ -13,7 +13,7 @@
 
 @class CEntity;
 
-@interface CComponent : NSObject
+@interface CComponent : NSObject<NSXMLParserDelegate>
 
 @property (nonatomic, weak) CEntity *owner;
 @property (nonatomic, strong) NSString *componentName;
