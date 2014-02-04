@@ -8,9 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import <SpriteKit/SpriteKit.h>
+#import "CSerializable.h"
 #import "CUtil.h"
 
-@interface CTextureAtlas : NSObject<NSXMLParserDelegate>
+@interface CTextureAtlas : CSerializable
 {
     NSURL *_xmlURL;
     NSXMLParser *_parser;
