@@ -54,10 +54,10 @@
 		62CF0D49189BACCF006CD912 /* CTemplateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 62CF0D48189BACCF006CD912 /* CTemplateManager.m */; };
 		62CF0D4C189BCF2A006CD912 /* CSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 62CF0D4B189BCF2A006CD912 /* CSerializer.m */; };
 		62CF0D83189BE443006CD912 /* TBXML+Compression.m in Sources */ = {isa = PBXBuildFile; fileRef = 62CF0D80189BE443006CD912 /* TBXML+Compression.m */; };
-		62CF0D84189BE443006CD912 /* TBXML+HTTP.m in Sources */ = {isa = PBXBuildFile; fileRef = 62CF0D81189BE443006CD912 /* TBXML+HTTP.m */; };
+		62CF0D84189BE443006CD912 /* TBXML+HTTP.m in Sources */ = {isa = PBXBuildFile; fileRef = 62CF0D81189BE443006CD912 /* TBXML+HTTP.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		62CF0D86189BE4BD006CD912 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 62CF0D85189BE4BD006CD912 /* libz.dylib */; };
-		62CF0D87189BE56E006CD912 /* TBXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 62CF0D7F189BE443006CD912 /* TBXML.m */; };
-		62CF0D89189BE855006CD912 /* test_level.clevel in Resources */ = {isa = PBXBuildFile; fileRef = 62CF0D88189BE855006CD912 /* test_level.clevel */; };
+		62CF0D87189BE56E006CD912 /* TBXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 62CF0D7F189BE443006CD912 /* TBXML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		62CF0D89189BE855006CD912 /* test_level.xml in Resources */ = {isa = PBXBuildFile; fileRef = 62CF0D88189BE855006CD912 /* test_level.xml */; };
 		62FB7BA81891698100A6340F /* CControllerComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 62FB7BA71891698100A6340F /* CControllerComponent.m */; };
 /* End PBXBuildFile section */
 
@@ -155,7 +155,7 @@
 		62CF0D80189BE443006CD912 /* TBXML+Compression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "TBXML+Compression.m"; path = "TBXML/TBXML-Code/TBXML+Compression.m"; sourceTree = "<group>"; };
 		62CF0D81189BE443006CD912 /* TBXML+HTTP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "TBXML+HTTP.m"; path = "TBXML/TBXML-Code/TBXML+HTTP.m"; sourceTree = "<group>"; };
 		62CF0D85189BE4BD006CD912 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
-		62CF0D88189BE855006CD912 /* test_level.clevel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = test_level.clevel; path = assets/test_level.clevel; sourceTree = "<group>"; };
+		62CF0D88189BE855006CD912 /* test_level.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = test_level.xml; path = assets/test_level.xml; sourceTree = "<group>"; };
 		62FB7BA61891698100A6340F /* CControllerComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CControllerComponent.h; path = ChaosEngine/CControllerComponent.h; sourceTree = "<group>"; };
 		62FB7BA71891698100A6340F /* CControllerComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CControllerComponent.m; path = ChaosEngine/CControllerComponent.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -356,7 +356,7 @@
 		62CF0D4D189BD378006CD912 /* levels */ = {
 			isa = PBXGroup;
 			children = (
-				62CF0D88189BE855006CD912 /* test_level.clevel */,
+				62CF0D88189BE855006CD912 /* test_level.xml */,
 			);
 			name = levels;
 			sourceTree = "<group>";
@@ -451,7 +451,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6262776318852B1F00006BBD /* CViewController.xib in Resources */,
-				62CF0D89189BE855006CD912 /* test_level.clevel in Resources */,
+				62CF0D89189BE855006CD912 /* test_level.xml in Resources */,
 				6253D211188033120017790C /* InfoPlist.strings in Resources */,
 				6272FF93188ED421009B8440 /* character.png in Resources */,
 				6272FF95188ED42E009B8440 /* character.xml in Resources */,

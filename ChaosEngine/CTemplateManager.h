@@ -9,11 +9,14 @@
 #import "CEngineSystem.h"
 #import "TBXML.h"
 
+#import "CEntity.h"
+#import "CComponent.h"
+
 @interface CTemplateManager : CEngineSystem<NSXMLParserDelegate>
 {
-    NSURL *_xmlURL;
-    NSXMLParser *_parser;
-    NSMutableDictionary *_xmlList;
+    NSMutableDictionary *_templateDic;
+    NSMutableDictionary *_entityDic; // Entity in TBXML format.
+    NSMutableDictionary *_groupDic;
     
     int _depthLevel;
 }
