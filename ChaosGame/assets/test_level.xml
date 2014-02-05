@@ -1,62 +1,28 @@
 <!-- Level1 Entity List-->
 <data>
     <Entity type="CEntity" name="SkeletonEntity1">
-        <Component type="CAnimationComponent" name="Animation">
-        Life is Life
-        </Component>
         
         <Component type="CPositionComponent" name="Position">
+            <position>
+                <x></x>
+                <y></y>
+            </position>
         </Component>
         
         <Component type="CRenderComponent" name="Render">
+            <sceneName>MyScene</sceneName>
+            <resourceName>android.png</resourceName>
+            <positionRef>@Position.position</positionRef>
+            <atlasName>android</atlasName>
+        </Component>
+        
+        <Component type="CAnimationComponent" name="Animation">
+            <renderRef></renderRef>
+            <atlasRef></atlasRef>
         </Component>
         
         <Component type="CControllerComponent" name="Controller">
         </Component>
-        
-    </Entity>
-
-    <Entity type="CEntity" name="SkeletonEntity2">
-        <Component type="CAnimationComponent" name="Animation">
-        Life is wife
-        </Component>
-        
-        <Component type="CPositionComponent" name="Position">
-        </Component>
-        
-        <Component type="CRenderComponent" name="Render">
-        </Component>
-        
-        <Component type="CControllerComponent" name="Controller">
-        </Component>
-    </Entity>
-
-    <Entity type="CEntity" name="SkeletonEntity3">
-        <Component type="CAnimationComponent" name="Animation">
-        Holy f**** s***
-        </Component>
-        
-        <Component type="CPositionComponent" name="Position">
-        </Component>
-        
-        <Component type="CRenderComponent" name="Render">
-        </Component>
-        
-        <Component type="CControllerComponent" name="Controller">
-        </Component>
-    </Entity>
-
-    <Entity type="CEntity" name="SkeletonEntity4">
-        <Component type="CAnimationComponent" name="Animation">
-        </Component>
-        
-        <Component type="CPositionComponent" name="Position">
-        </Component>
-        
-        <Component type="CRenderComponent" name="Render">
-        </Component>
-        
-        <Component type="CControllerComponent" name="Controller">
-        </Component>
+    
     </Entity>
 </data>

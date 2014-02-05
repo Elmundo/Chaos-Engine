@@ -17,8 +17,6 @@
         _templateDic = [NSMutableDictionary dictionaryWithCapacity:10];
         _entityDic   = [NSMutableDictionary dictionaryWithCapacity:10];
         _groupDic    = [NSMutableDictionary dictionaryWithCapacity:10];
-        
-        _depthLevel = -1;
     }
     
     [self testTBXML];
@@ -26,6 +24,7 @@
     return self;
 }
 
+/* Test Method */
 - (void)testTBXML
 {
     NSError *error;
@@ -34,6 +33,13 @@
     
     [self traverseElement:rootElement];
     [self textCreateEntity:@"SkeletonEntity1"];
+}
+
+/* Load a level file and adds its contents to the template manager. */
+
+- (void)loadFile:(NSString *)fileName
+{
+    
 }
 
 - (void)traverseElement:(TBXMLElement *)element
