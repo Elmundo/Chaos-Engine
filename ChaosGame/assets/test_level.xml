@@ -1,8 +1,23 @@
 <!-- Level1 Entity List-->
 <data>
-    <Entity type="CEntity" name="SkeletonEntity1">
-        
+    <!-- There could be only three types of object of data tag;
+        Entitiy
+        Template
+        Group
+     
+        Other tags will be INVALID in data tag scope
+    -->
+    
+    <!-- Template Sample -->
+    <Template name="Skeleton">
         <Component type="CPositionComponent" name="Position">
+        </Component>
+    </Template>
+    
+    <!-- Entity Samples -->
+    <Entity type="CEntity" name="skeletonEntity">
+        
+        <Component type="CPositionComponent" na">
             <position>
                 <x></x>
                 <y></y>
@@ -14,6 +29,7 @@
             <resourceName>android.png</resourceName>
             <positionRef>@Position.position</positionRef>
             <atlasName>android</atlasName>
+            <color>white</color>
         </Component>
         
         <Component type="CAnimationComponent" name="Animation">
@@ -23,6 +39,16 @@
         
         <Component type="CControllerComponent" name="Controller">
         </Component>
-    
+        
     </Entity>
+    
+    <Entity type="CEntity" name="EmptyEntity">
+    </Entity>
+    
+    <!-- Group Sample -->
+    <Group name="Things">
+        <ObjectReference name="Skeleton"/>
+        <ObjectReference name="skeletonEntity"/>
+        <ObjectReference name="EmptyEntity"/>
+    </Group>
 </data>

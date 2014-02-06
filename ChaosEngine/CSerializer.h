@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TBXML.h"
 
 @interface CSerializer : NSObject
 

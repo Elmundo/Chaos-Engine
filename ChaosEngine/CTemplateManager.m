@@ -10,6 +10,16 @@
 
 @implementation CTemplateManager
 
++ (CTemplateManager *)shared
+{
+    static CTemplateManager * instance = nil;
+    if (!instance) {
+        instance = [[CTemplateManager alloc] init];
+    }
+    
+    return instance;
+}
+
 - (id)init
 {
     self = [super init];
@@ -19,78 +29,69 @@
         _groupDic    = [NSMutableDictionary dictionaryWithCapacity:10];
     }
     
-    [self testTBXML];
-    
     return self;
 }
 
-/* Test Method */
-- (void)testTBXML
-{
-    NSError *error;
-    TBXML *tbxml = [TBXML newTBXMLWithXMLFile:@"test_level.xml" error:&error];
-    TBXMLElement *rootElement = tbxml.rootXMLElement;
-    
-    [self traverseElement:rootElement];
-    [self textCreateEntity:@"SkeletonEntity1"];
-}
-
-/* Load a level file and adds its contents to the template manager. */
-
+/* Load a level file and adds its contents to the template manager. 
+   Root tag is data. As data tag's child there are only three available tags: Entity, Template, Group
+   CTemplateManager only store the XML description of this structures as type of TBXElement.
+   Not instantiating objects from these descriptions. To create objects from this information
+   - it means to deserialize TBXElement to Objective-C objects - CSerializer singleton class must be used.
+ */
 - (void)loadFile:(NSString *)fileName
 {
+    NSError *error;
+    TBXML *tbxml = [TBXML newTBXMLWithXMLFile:fileName error:&error];
+    TBXMLElement *rootElement = [tbxml rootXMLElement];
     
+    if (error) {
+        NSLog(@"There is no such a file: %@", fileName);
+        return;
+    }
+    
+    //NO sibling for rootElement so send firstChild argument instead of root element.
+    NSLog(@"Loading started for file: %@", fileName);
+    [self traverseElement:rootElement->firstChild];
 }
 
 - (void)traverseElement:(TBXMLElement *)element
 {
+    /* Just traverse data tag's children, does NOT their childs or attributes*/
     TBXMLElement *currentElemenet = element;
     while (currentElemenet) {
         
-        TBXMLAttribute *currentAttribute = element->firstAttribute;
-        
-        while (currentAttribute) {
-            currentAttribute = currentAttribute->next;
-        }
-        
         if (strcmp(currentElemenet->name, "Template") == 0){
-            NSLog(@"Template");
+            NSLog(@"Loading Template: %@", [TBXML valueOfAttributeNamed:@"name" forElement:currentElemenet]);
+            NSValue *template      = [NSValue valueWithPointer:currentElemenet];
+            NSString *templateName = [TBXML valueOfAttributeNamed:@"name" forElement:currentElemenet];
+            
+            [_templateDic setValue:template forKey:templateName];
         }
         
-        if (strcmp(currentElemenet->name, "Entity") == 0){
-            NSLog(@"Entity: %s", currentElemenet->firstAttribute->name);
-            NSValue *entity = [NSValue valueWithPointer:currentElemenet];
-            NSString *entityName = [NSString stringWithUTF8String:currentElemenet->firstAttribute->next->value];
+        else if (strcmp(currentElemenet->name, "Entity") == 0){
+            NSLog(@"Loading Entity: %@", [TBXML valueOfAttributeNamed:@"name" forElement:currentElemenet]);
+            NSValue *entity      = [NSValue valueWithPointer:currentElemenet];
+            NSString *entityName = [TBXML elementName:currentElemenet];
+            
             [_entityDic setValue:entity forKey:entityName];
         }
         
-        if (strcmp(currentElemenet->name, "Group") == 0){
-            NSLog(@"Group");
+        else if (strcmp(currentElemenet->name, "Group") == 0){
+            NSLog(@"Loading Group: %@", [TBXML valueOfAttributeNamed:@"name" forElement:currentElemenet]);
+            NSValue *group      = [NSValue valueWithPointer:currentElemenet];
+            NSString *groupName = [TBXML elementName:currentElemenet];
+            
+            [_entityDic setValue:group forKey:groupName];
         }
-        
-        if (currentElemenet->currentChild) {
-            [self traverseElement:currentElemenet->firstChild];
+        else {
+            NSLog(@"Error! Invalid tag to read: %s", currentElemenet->name);
+            NSLog(@"This tag will be ignored by TempalteManager and will not be cached.");
         }
         
         currentElemenet = currentElemenet->nextSibling;
     }
-}
-
-- (void)textCreateEntity:(NSString *)name
-{
-    NSValue *value = [_entityDic objectForKey:name];
-    TBXMLElement *element = (TBXMLElement *)[value pointerValue];
     
-    Class _C = NSClassFromString([NSString stringWithUTF8String:element->firstAttribute->value]);
-    id entity= [_C new];
-    
-    TBXMLElement *component = element->firstChild;
-    
-}
-
-- (void)update:(NSTimeInterval)dt
-{
-    // Some Stuff
+    NSLog(@"All XML descriptors are cached.");
 }
 
 @end

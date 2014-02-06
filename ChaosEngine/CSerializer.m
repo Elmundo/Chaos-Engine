@@ -20,13 +20,17 @@
     return instance;
 }
 
-- (NSString *)serialize:(id)object
+// Serialize an object to TBXML.
+- (TBXML *)serialize:(id)object
 {
     return nil;
 }
 
-- (id)deserialize:(NSString *)xml
+// Deserializes an object from an TBXML description.
+- (id)deserialize:(TBXML *)xml
 {
+    
+    
     return nil;
 }
 

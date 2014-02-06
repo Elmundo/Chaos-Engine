@@ -9,16 +9,15 @@
 #import "CEngineSystem.h"
 #import "TBXML.h"
 
-#import "CEntity.h"
-#import "CComponent.h"
-
 @interface CTemplateManager : CEngineSystem<NSXMLParserDelegate>
 {
-    NSMutableDictionary *_templateDic;
-    NSMutableDictionary *_entityDic; // Entity in TBXML format.
-    NSMutableDictionary *_groupDic;
+    NSMutableDictionary *_templateDic; // Template in TBXML format.
+    NSMutableDictionary *_entityDic;   // Entity in TBXML format.
+    NSMutableDictionary *_groupDic;    // Group in TBXML format.
     
     int _depthLevel;
 }
 
++ (CTemplateManager *)shared;
+- (void)loadFile:(NSString *)fileName;
 @end
