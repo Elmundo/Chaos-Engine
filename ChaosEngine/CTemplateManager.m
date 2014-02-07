@@ -65,13 +65,15 @@
             NSValue *template      = [NSValue valueWithPointer:currentElemenet];
             NSString *templateName = [TBXML valueOfAttributeNamed:@"name" forElement:currentElemenet];
             
+            TBXMLElement *element = (TBXMLElement *)[template pointerValue];
+            
             [_templateDic setValue:template forKey:templateName];
         }
         
         else if (strcmp(currentElemenet->name, "Entity") == 0){
             NSLog(@"Loading Entity: %@", [TBXML valueOfAttributeNamed:@"name" forElement:currentElemenet]);
             NSValue *entity      = [NSValue valueWithPointer:currentElemenet];
-            NSString *entityName = [TBXML elementName:currentElemenet];
+            NSString *entityName = [TBXML valueOfAttributeNamed:@"name" forElement:currentElemenet];
             
             [_entityDic setValue:entity forKey:entityName];
         }
@@ -79,9 +81,9 @@
         else if (strcmp(currentElemenet->name, "Group") == 0){
             NSLog(@"Loading Group: %@", [TBXML valueOfAttributeNamed:@"name" forElement:currentElemenet]);
             NSValue *group      = [NSValue valueWithPointer:currentElemenet];
-            NSString *groupName = [TBXML elementName:currentElemenet];
+            NSString *groupName = [TBXML valueOfAttributeNamed:@"name" forElement:currentElemenet];
             
-            [_entityDic setValue:group forKey:groupName];
+            [_groupDic setValue:group forKey:groupName];
         }
         else {
             NSLog(@"Error! Invalid tag to read: %s", currentElemenet->name);
@@ -92,6 +94,21 @@
     }
     
     NSLog(@"All XML descriptors are cached.");
+}
+
+- (id)instantiateEntity:(NSString *)entityName
+{
+    NSValue *entityXMLWrapper = [_entityDic objectForKey:entityName];
+    TBXMLElement *elementXML = [entityXMLWrapper pointerValue];
+    NSString *entityXMLName = [TBXML valueOfAttributeNamed:@"name" forElement:elementXML];
+    
+    // Initiate shell entity
+    CEntity *newEntity = [[CEntityFactory shared] createEntity];
+    newEntity.name = entityXMLName;
+    
+    [[CSerializer shared] deserialize:elementXML->firstChild];
+    
+    return nil;
 }
 
 @end

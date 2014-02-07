@@ -8,9 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "TBXML.h"
+#import <objc/objc-runtime.h>
 
 @interface CSerializer : NSObject
 
+
 + (CSerializer *)shared;
+- (TBXMLElement *)serialize:(id)object;
+- (id)deserialize:(TBXMLElement *)xml;
 
 @end

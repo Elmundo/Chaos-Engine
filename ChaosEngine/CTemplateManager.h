@@ -8,6 +8,8 @@
 
 #import "CEngineSystem.h"
 #import "TBXML.h"
+#import "CSerializer.h"
+#import "CEntityFactory.h"
 
 @interface CTemplateManager : CEngineSystem<NSXMLParserDelegate>
 {
@@ -20,4 +22,6 @@
 
 + (CTemplateManager *)shared;
 - (void)loadFile:(NSString *)fileName;
+- (id)instantiateEntity:(NSString *)entityName;
+
 @end

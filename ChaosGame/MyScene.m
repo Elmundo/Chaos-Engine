@@ -30,7 +30,8 @@
     
     /* TEST LEVEL IS LOADING : Implementing data-driven paradigm */
     [[CTemplateManager shared] loadFile:@"test_level.xml"];
-    
+    [[CTemplateManager shared] instantiateEntity:@"TestEntity"];
+
     /* ALL THESE DATA MUST BE DEFINED IN XML */
     /* Create the sekeleton entity and its all components*/
 

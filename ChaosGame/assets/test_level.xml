@@ -9,15 +9,17 @@
     -->
     
     <!-- Template Sample -->
-    <Template name="Skeleton">
+    <Template name="Human">
         <Component type="CPositionComponent" name="Position">
+            <name>Baris</name>
+            <surename>Yilmaz</surename>
         </Component>
     </Template>
     
     <!-- Entity Samples -->
     <Entity type="CEntity" name="skeletonEntity">
         
-        <Component type="CPositionComponent" na">
+        <Component type="CPositionComponent" name"">
             <position>
                 <x></x>
                 <y></y>
@@ -42,7 +44,18 @@
         
     </Entity>
     
-    <Entity type="CEntity" name="EmptyEntity">
+    <Entity type="CEntity" name="TestEntity">
+        <Component type="CTestComponent" name="Test">
+            <position>
+                <x>10</x>
+                <y>10</y>
+            </position>
+            <name>Baris</name>
+            <surename>Yilmaz</surename>
+        </Component>
+        
+        <Component type="CFSMComponent" name="FSM">
+        </Component>
     </Entity>
     
     <!-- Group Sample -->

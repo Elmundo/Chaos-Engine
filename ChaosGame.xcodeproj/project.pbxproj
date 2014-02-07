@@ -51,6 +51,7 @@
 		62AA5421188442E8001FA053 /* CPositionComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AA5420188442E8001FA053 /* CPositionComponent.m */; };
 		62AA5424188442F9001FA053 /* CRenderComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AA5423188442F9001FA053 /* CRenderComponent.m */; };
 		62B3BA9D1891433400DD8424 /* CInputSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 62B3BA9C1891433400DD8424 /* CInputSystem.m */; };
+		62C26CFB18A4E69C0091E709 /* CTestComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 62C26CFA18A4E69C0091E709 /* CTestComponent.m */; };
 		62CF0D49189BACCF006CD912 /* CTemplateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 62CF0D48189BACCF006CD912 /* CTemplateManager.m */; };
 		62CF0D4C189BCF2A006CD912 /* CSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 62CF0D4B189BCF2A006CD912 /* CSerializer.m */; };
 		62CF0D83189BE443006CD912 /* TBXML+Compression.m in Sources */ = {isa = PBXBuildFile; fileRef = 62CF0D80189BE443006CD912 /* TBXML+Compression.m */; };
@@ -144,6 +145,8 @@
 		62AA5423188442F9001FA053 /* CRenderComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CRenderComponent.m; path = ChaosEngine/CRenderComponent.m; sourceTree = "<group>"; };
 		62B3BA9B1891433400DD8424 /* CInputSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CInputSystem.h; path = ChaosEngine/CInputSystem.h; sourceTree = "<group>"; };
 		62B3BA9C1891433400DD8424 /* CInputSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CInputSystem.m; path = ChaosEngine/CInputSystem.m; sourceTree = "<group>"; };
+		62C26CF918A4E69C0091E709 /* CTestComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTestComponent.h; path = ChaosEngine/CTestComponent.h; sourceTree = "<group>"; };
+		62C26CFA18A4E69C0091E709 /* CTestComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTestComponent.m; path = ChaosEngine/CTestComponent.m; sourceTree = "<group>"; };
 		62CF0D47189BACCF006CD912 /* CTemplateManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTemplateManager.h; path = ChaosEngine/CTemplateManager.h; sourceTree = "<group>"; };
 		62CF0D48189BACCF006CD912 /* CTemplateManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTemplateManager.m; path = ChaosEngine/CTemplateManager.m; sourceTree = "<group>"; };
 		62CF0D4A189BCF2A006CD912 /* CSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CSerializer.h; path = ChaosEngine/CSerializer.h; sourceTree = "<group>"; };
@@ -319,6 +322,8 @@
 				62CF0D48189BACCF006CD912 /* CTemplateManager.m */,
 				62CF0D4A189BCF2A006CD912 /* CSerializer.h */,
 				62CF0D4B189BCF2A006CD912 /* CSerializer.m */,
+				62C26CF918A4E69C0091E709 /* CTestComponent.h */,
+				62C26CFA18A4E69C0091E709 /* CTestComponent.m */,
 				6262776118852B1F00006BBD /* CViewController.xib */,
 			);
 			name = ChaosEngine;
@@ -500,6 +505,7 @@
 				6253D217188033120017790C /* AppDelegate.m in Sources */,
 				626277901888283E00006BBD /* CEventListener.m in Sources */,
 				6262776A1885321600006BBD /* CAppDelegate.m in Sources */,
+				62C26CFB18A4E69C0091E709 /* CTestComponent.m in Sources */,
 				6262778B1886DE7F00006BBD /* CEvent.m in Sources */,
 				62FB7BA81891698100A6340F /* CControllerComponent.m in Sources */,
 				6253D213188033120017790C /* main.m in Sources */,

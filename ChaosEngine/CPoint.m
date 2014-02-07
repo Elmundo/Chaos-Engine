@@ -10,6 +10,17 @@
 
 @implementation CPoint
 
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        _x = 0;
+        _y = 0;
+    }
+    
+    return self;
+}
+
 - (id)initWithX:(int)x and:(int)y
 {
     self = [super init];
@@ -39,5 +50,21 @@
 
 #pragma mark GETTER & SETTER
 
+
+- (void)setValue:(id)value forKey:(NSString *)key
+{
+    if([key isEqualToString:@"x"])
+    {
+        _x = [value intValue];
+    }else if ([key isEqualToString:@"y"])
+    {
+        _y = [value intValue];
+    }
+}
+
+- (void)setValue:(id)value forUndefinedKey:(NSString *)key
+{
+    
+}
 
 @end
