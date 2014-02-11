@@ -17,10 +17,9 @@
 @property (nonatomic, strong) NSString *surename;
 @property (nonatomic, strong) NSArray *list;
 @property (nonatomic, strong) NSDictionary *dic;
-@property (nonatomic, strong) NSDate *date;
+//@property (nonatomic, strong) NSDate *date; - NOT NOW!
 @property (nonatomic, strong) NSDecimalNumber *decimalNumber;
 @property (nonatomic, strong) NSNumber *number;
-@property (nonatomic, strong) id object;
 
 //Scalar and Structure Type
 @property (nonatomic, assign) int x;

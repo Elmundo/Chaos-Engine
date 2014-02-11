@@ -18,8 +18,7 @@
     
     <!-- Entity Samples -->
     <Entity type="CEntity" name="skeletonEntity">
-        
-        <Component type="CPositionComponent" name"">
+        <Component type="CPositionComponent" name"hebele">
             <position>
                 <x></x>
                 <y></y>
@@ -41,7 +40,6 @@
         
         <Component type="CControllerComponent" name="Controller">
         </Component>
-        
     </Entity>
     
     <Entity type="CEntity" name="TestEntity">
@@ -52,10 +50,35 @@
             </position>
             <name>Baris</name>
             <surename>Yilmaz</surename>
+            <list>
+                <_>10</_>
+                <_>20</_>
+                <_>30</_>
+                <_>40</_>
+                <_>50</_>
+            </list>
+            
+            <dic>
+                <white>white</white>
+                <black>black</black>
+                <green>green</green>
+                <blue>blue</blue>
+            </dic>
+            
+            <decimalNumber>20.5</decimalNumber>
+            
+            <number>128</number>
+                
+            <x>20</x>
+            <y>158.7</y>
+            <l>255588775</l>
+            <c>a</c>
+            
         </Component>
         
         <Component type="CFSMComponent" name="FSM">
         </Component>
+        
     </Entity>
     
     <!-- Group Sample -->

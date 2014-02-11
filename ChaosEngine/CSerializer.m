@@ -52,6 +52,13 @@
     return nil;
 }
 
+/******************************************************************/
+/******************************************************************/
+/* Data Structures are not ready for implementing - Coming soon.. */
+
+/******************************************************************
+/******************************************************************/
+// Working as branch-first traversing in nested struct
 - (id)traverseObject:(TBXMLElement *)xml object:(id)object
 {
     TBXMLElement *currentElement = xml;
@@ -82,9 +89,16 @@
         enum PropertyType outType;
         
         if (propName) {
+            if (!childElement->name) {
+                @throw @"XML Element is corrupted!";
+            }
+            
             NSString *propType = [self propertyTypeStringOfProperty:property propertyType:&outType];
             NSString *propertyName = [NSString stringWithUTF8String:propName];
             NSString *propertyType = [NSString stringWithString:propType];
+            NSLog(@"PropertyName = %@", propertyName);
+            NSLog(@"PropertyType = %@", propertyType);
+            NSLog(@"XMLElement Name = %s", childElement->name);
             
             /* Class */
             if (outType == PropertyTypeClass) {
@@ -114,28 +128,63 @@
         [object setValue:stringValue forKey:name];
     }else if([type isEqualToString:@"NSArray"]){
         NSArray *list = [NSArray array];
-        [object setValue:list forKey:type];
+        [object setValue:list forKey:name];
     }else if([type isEqualToString:@"NSDictionary"]){
         NSDictionary *dic = [NSDictionary dictionary];
-        [object setValue:dic forKey:type];
+        [object setValue:dic forKey:name];
     }
 }
 
 - (void)setScalarValue:(id)object xml:(TBXMLElement *)element propertyName:(NSString *)name propertyType:(NSString *)type
 {
-    // Still do not know what to do
-    //Scalar types
-    if ([type isEqualToString:@"c"]) {
-        
-    }else if([type isEqualToString:@"i"])
-    {
-        NSString *stringValue = [TBXML textForElement:element];
-        int temp = [stringValue intValue];
-        [object valueForKey:name];
-        
-    }else if([type isEqualToString:@"f"]){
-        
-    }
+// Little tricky macro - Only available in this scope
+#define isEqual(t) [type isEqualToString:t]
+    
+    NSString *stringValue = [TBXML textForElement:element];
+    NSNumber *scalarValue;
+    
+    //Wrapping and Unwrapping Scalar Types
+    //BOOL
+    if (isEqual(@"B"))
+        scalarValue = [NSNumber numberWithBool:[stringValue boolValue]];
+    //char
+    else if (isEqual(@"c"))
+        scalarValue = [NSNumber numberWithChar:[stringValue characterAtIndex:0]];
+    //double
+    else if (isEqual(@"d"))
+        scalarValue = [NSNumber numberWithDouble:[stringValue doubleValue]];
+    //float
+    else if (isEqual(@"f"))
+        scalarValue = [NSNumber numberWithFloat:[stringValue floatValue]];
+    //int
+    else if (isEqual(@"i"))
+        scalarValue = [NSNumber numberWithInt:[stringValue intValue]];
+    //long - Attention! l is treated as a 32-bit quantity on 64-bit programs.
+    else if (isEqual(@"l"))
+        scalarValue = [NSNumber numberWithLong:[stringValue longLongValue]];
+    //long long
+    else if (isEqual(@"q"))
+        scalarValue = [NSNumber numberWithLongLong:[stringValue longLongValue]];
+    //short
+    else if (isEqual(@"s"))
+        scalarValue = [NSNumber numberWithShort:[stringValue intValue]];
+    //unsigned char
+    else if (isEqual(@"C"))
+        scalarValue = [NSNumber numberWithUnsignedChar:[stringValue characterAtIndex:0]];
+    //unsigned int
+    else if (isEqual(@"I"))
+        scalarValue = [NSNumber numberWithUnsignedInt:[stringValue intValue]];
+    //unsigned long
+    else if (isEqual(@"L"))
+        scalarValue = [NSNumber numberWithUnsignedLong:[stringValue longLongValue]];
+    //unsigned long long
+    else if (isEqual(@"Q"))
+        scalarValue = [NSNumber numberWithUnsignedLongLong:[stringValue longLongValue]];
+    //unsigned short
+    else if (isEqual(@"S"))
+        scalarValue = [NSNumber numberWithUnsignedShort:[stringValue intValue]];
+    
+    [object setValue:scalarValue forKey:name];
 }
 
 - (NSString *)propertyTypeStringOfProperty:(objc_property_t) property propertyType:(enum PropertyType *)outType
