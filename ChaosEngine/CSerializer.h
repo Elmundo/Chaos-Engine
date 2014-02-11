@@ -9,9 +9,14 @@
 #import <Foundation/Foundation.h>
 #import "TBXML.h"
 #import <objc/objc-runtime.h>
+NS_ENUM(int, PropertyType)
+{
+    PropertyTypeClass = 0,
+    PropertyTypeObject = 1,
+    PropertyTypeScalar = 2
+};
 
 @interface CSerializer : NSObject
-
 
 + (CSerializer *)shared;
 - (TBXMLElement *)serialize:(id)object;
