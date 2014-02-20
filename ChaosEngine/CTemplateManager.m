@@ -64,9 +64,7 @@
             NSLog(@"Loading Template: %@", [TBXML valueOfAttributeNamed:@"name" forElement:currentElemenet]);
             NSValue *template      = [NSValue valueWithPointer:currentElemenet];
             NSString *templateName = [TBXML valueOfAttributeNamed:@"name" forElement:currentElemenet];
-            
-            TBXMLElement *element = (TBXMLElement *)[template pointerValue];
-            
+
             [_templateDic setValue:template forKey:templateName];
         }
         
@@ -102,7 +100,7 @@
     TBXMLElement *elementXML = [entityXMLWrapper pointerValue];
     NSString *entityXMLName = [TBXML valueOfAttributeNamed:@"name" forElement:elementXML];
     
-    // Initiate shell entity
+    // Instantiate shell entity
     CEntity *newEntity = [[CEntityFactory shared] createEntity];
     newEntity.name = entityXMLName;
     

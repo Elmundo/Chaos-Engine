@@ -29,7 +29,6 @@
 // Deserializes an object from an TBXML description.
 - (id)deserialize:(TBXMLElement *)xml
 {
-    /* TBXElement could be three type: Entity, Template, Group */
     TBXMLElement *currentElement = xml;
     NSMutableArray *componentList = [NSMutableArray array];
     /* Creates the components of Entity */
@@ -58,29 +57,72 @@
 /*                                                                */
 /******************************************************************/
 // Working as branch-first traversing in nested struct
-- (id)traverseObject:(TBXMLElement *)xml object:(id)object
-{
-    TBXMLElement *currentElement = xml;
-    [self setProperties: object xml:currentElement];
-    
-    TBXMLElement *childElement = currentElement->firstChild;
-    while (childElement) {
 
-        NSString *propertyName = [NSString stringWithUTF8String:childElement->name];
-        id propertyObject = [object valueForKey:propertyName];
-        [self traverseObject:childElement object:propertyObject];
+- (id)traverseObject:(TBXMLElement *)parentXMLElement object:(id)parentObject
+{
+    //[self setProperties: parentObject xml:currentElement];
+    
+    unsigned int outPropertyCount, i = 0;
+    enum PropertyType outType;
+    objc_property_t *properties = class_copyPropertyList([parentObject class], &outPropertyCount);
+
+    for (; i < outPropertyCount; ++i) {
+        objc_property_t property = properties[i];
         
-        childElement = childElement->nextSibling;
+        // Get ParentObject's property's type and name values
+        NSString *propertyName    = [NSString stringWithUTF8String:property_getName(property)];
+        NSString *propertyType    = [self propertyTypeStringOfProperty:property propertyType:&outType];
+        TBXMLElement *propertyXMLElement = [TBXML childElementNamed:propertyName parentElement:parentXMLElement];
+        
+        // Instantiate the related property with type
+        /* Class */
+        if (outType == PropertyTypeClass) {
+            Class classObj = NSClassFromString(propertyType);
+            id propertyObject = [[classObj alloc] init];
+            
+            [self traverseObject:propertyXMLElement object:propertyObject];
+            
+            if (!propertyXMLElement) {
+                NSLog(@"XML ELEMENT MISSING!: There is no match in XML with property name: %@", propertyName);
+                continue;
+            }
+        
+            [parentObject setValue:propertyObject forKey:propertyName];
+            
+        }/* Collection */
+        else if(outType == PropertyTypeCollection) {
+            TBXMLElement *childXMLElement = 
+            
+            while () {
+                
+            }
+            
+            [self setObjectValue:parentObject xml:parentXMLElement propertyName:propertyName propertyType:propertyType];
+        }/* Scalar */
+        else if(outType == PropertyTypeScalar) {
+            [self setScalarValue:parentObject xml:parentXMLElement propertyName:propertyName propertyType:propertyType];
+            
+        }
+    }
+    
+    TBXMLElement *childXMLElement = parentXMLElement->firstChild;
+    while (childXMLElement) {
+
+        NSString *propertyName = [NSString stringWithUTF8String:childXMLElement->name];
+        id propertyObject = [parentObject valueForKey:propertyName];
+        [self traverseObject:childXMLElement object:propertyObject];
+        
+        childXMLElement = childXMLElement->nextSibling;
     }
     
     return nil;
 }
 
-- (void)setProperties:(id)object xml:(TBXMLElement *)element
+- (void)setProperties:(id)parentOject xml:(TBXMLElement *)element
 {
     TBXMLElement *childElement = element->firstChild;
     unsigned int outCount, i;
-    objc_property_t *properties = class_copyPropertyList([object class], &outCount);
+    objc_property_t *properties = class_copyPropertyList([parentOject class], &outCount);
     
     for (i=0; i < outCount; ++i) {
         objc_property_t property = properties[i];
@@ -103,13 +145,13 @@
             if (outType == PropertyTypeClass) {
                 Class classObj = NSClassFromString(propertyType);
                 id obj = [[classObj alloc] init];
-                [object setValue:obj forKey:propertyName];
+                [parentOject setValue:obj forKey:propertyName];
             }/* Object */
             else if(outType == PropertyTypeObject) {
-                [self setObjectValue:object xml:childElement propertyName:propertyName propertyType:propType];
+                [self setObjectValue:parentOject xml:childElement propertyName:propertyName propertyType:propType];
             }/* Scalar */
             else if(outType == PropertyTypeScalar) {
-                [self setScalarValue:object xml:childElement propertyName:propertyName propertyType:propType];
+                [self setScalarValue:parentOject xml:childElement propertyName:propertyName propertyType:propType];
 
             }
         }
@@ -219,7 +261,8 @@
             NSString *name = [[NSString alloc] initWithBytes:attribute + 3 length:strlen(attribute) - 4 encoding:NSASCIIStringEncoding];
             if ([name isEqualToString:@"NSString"] || [name isEqualToString:@"NSArray"] || [name isEqualToString:@"NSDictionary"]
                 || [name isEqualToString:@"NSNumber"] || [name isEqualToString:@"NSDecimalNumber"] || [name isEqualToString:@"NSDate"]) {
-                pt = PropertyTypeObject;
+                //pt = PropertyTypeObject;
+                pt = PropertyTypeClass;
             }
             else
                 pt = PropertyTypeClass;

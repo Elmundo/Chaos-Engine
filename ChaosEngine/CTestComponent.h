@@ -11,6 +11,10 @@
 
 @interface CTestComponent : CComponent
 
+/*Should store CPoint objects*/
+@property NSArray *list;
+
+/*
 // Object Type
 @property (nonatomic, strong) CPoint *position;
 @property (nonatomic, strong) NSString *name;
@@ -26,5 +30,5 @@
 @property (nonatomic, assign) float y;
 @property (nonatomic, assign) long l;
 @property (nonatomic, assign) char c;
-
+*/
 @end

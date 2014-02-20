@@ -12,7 +12,7 @@
 NS_ENUM(int, PropertyType)
 {
     PropertyTypeClass = 0,
-    PropertyTypeObject = 1,
+    PropertyTypeCollection = 1,
     PropertyTypeScalar = 2
 };
 
