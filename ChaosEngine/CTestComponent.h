@@ -12,7 +12,7 @@
 @interface CTestComponent : CComponent
 
 /*Should store CPoint objects*/
-@property NSArray *list;
+@property NSMutableArray *list;
 
 /*
 // Object Type

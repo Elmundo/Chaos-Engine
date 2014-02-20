@@ -60,8 +60,6 @@
 
 - (id)traverseObject:(TBXMLElement *)parentXMLElement object:(id)parentObject
 {
-    //[self setProperties: parentObject xml:currentElement];
-    
     unsigned int outPropertyCount, i = 0;
     enum PropertyType outType;
     objc_property_t *properties = class_copyPropertyList([parentObject class], &outPropertyCount);
@@ -80,39 +78,50 @@
             Class classObj = NSClassFromString(propertyType);
             id propertyObject = [[classObj alloc] init];
             
-            [self traverseObject:propertyXMLElement object:propertyObject];
-            
             if (!propertyXMLElement) {
                 NSLog(@"XML ELEMENT MISSING!: There is no match in XML with property name: %@", propertyName);
                 continue;
             }
-        
+            
+            [self traverseObject:propertyXMLElement object:propertyObject];
+            
             [parentObject setValue:propertyObject forKey:propertyName];
             
         }/* Collection */
         else if(outType == PropertyTypeCollection) {
-            TBXMLElement *childXMLElement = 
             
-            while () {
+            Class classObj = NSClassFromString(propertyType);
+            id collectionObject = [[classObj alloc] init];
+            
+            NSString *propertyType = [TBXML valueOfAttributeNamed:@"type" forElement:propertyXMLElement];
+            TBXMLElement *childXMLElement = propertyXMLElement->firstChild;
+            
+            while (childXMLElement) {
                 
+                Class classObj = NSClassFromString(propertyType);
+                id propertyObject = [[classObj alloc] init];
+                
+                if (!propertyXMLElement) {
+                    NSLog(@"XML ELEMENT MISSING!: There is no match in XML with property name: %@", propertyName);
+                    continue;
+                }
+                
+                [self traverseObject:childXMLElement object:propertyObject];
+                
+                if ([collectionObject isKindOfClass:[NSMutableArray class]]) {
+                    [(NSMutableArray*)collectionObject addObject:propertyObject];
+                }else if ([collectionObject isKindOfClass:[NSMutableDictionary class]]) {
+                    NSString *propertyName = [TBXML elementName:childXMLElement];
+                    [collectionObject setObject:propertyObject forKey:propertyName];
+                }
+                
+                childXMLElement = childXMLElement->nextSibling;
             }
-            
-            [self setObjectValue:parentObject xml:parentXMLElement propertyName:propertyName propertyType:propertyType];
         }/* Scalar */
         else if(outType == PropertyTypeScalar) {
             [self setScalarValue:parentObject xml:parentXMLElement propertyName:propertyName propertyType:propertyType];
             
         }
-    }
-    
-    TBXMLElement *childXMLElement = parentXMLElement->firstChild;
-    while (childXMLElement) {
-
-        NSString *propertyName = [NSString stringWithUTF8String:childXMLElement->name];
-        id propertyObject = [parentObject valueForKey:propertyName];
-        [self traverseObject:childXMLElement object:propertyObject];
-        
-        childXMLElement = childXMLElement->nextSibling;
     }
     
     return nil;
@@ -147,7 +156,7 @@
                 id obj = [[classObj alloc] init];
                 [parentOject setValue:obj forKey:propertyName];
             }/* Object */
-            else if(outType == PropertyTypeObject) {
+            else if(outType == PropertyTypeCollection) {
                 [self setObjectValue:parentOject xml:childElement propertyName:propertyName propertyType:propType];
             }/* Scalar */
             else if(outType == PropertyTypeScalar) {
@@ -259,10 +268,9 @@
             
             enum PropertyType pt;
             NSString *name = [[NSString alloc] initWithBytes:attribute + 3 length:strlen(attribute) - 4 encoding:NSASCIIStringEncoding];
-            if ([name isEqualToString:@"NSString"] || [name isEqualToString:@"NSArray"] || [name isEqualToString:@"NSDictionary"]
-                || [name isEqualToString:@"NSNumber"] || [name isEqualToString:@"NSDecimalNumber"] || [name isEqualToString:@"NSDate"]) {
-                //pt = PropertyTypeObject;
-                pt = PropertyTypeClass;
+            if ([name isEqualToString:@"NSMutableArray"] || [name isEqualToString:@"NSMutableDictionary"] ||
+                [name isEqualToString:@"NSArray"] || [name isEqualToString:@"NSDictionary"]) {
+                pt = PropertyTypeCollection;
             }
             else
                 pt = PropertyTypeClass;
