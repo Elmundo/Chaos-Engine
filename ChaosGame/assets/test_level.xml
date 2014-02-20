@@ -7,7 +7,6 @@
      
         Other tags will be INVALID in data tag scope
     -->
-    
     <!-- Template Sample -->
     <Template name="Human">
         <Component type="CPositionComponent" name="Position">

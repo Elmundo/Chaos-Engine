@@ -53,10 +53,9 @@
 }
 
 /******************************************************************/
-/******************************************************************/
+/*                                                                */
 /* Data Structures are not ready for implementing - Coming soon.. */
-
-/******************************************************************
+/*                                                                */
 /******************************************************************/
 // Working as branch-first traversing in nested struct
 - (id)traverseObject:(TBXMLElement *)xml object:(id)object

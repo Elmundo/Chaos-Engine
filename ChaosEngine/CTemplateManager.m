@@ -56,7 +56,7 @@
 
 - (void)traverseElement:(TBXMLElement *)element
 {
-    /* Just traverse data tag's children, does NOT their childs or attributes*/
+    /* Just traverse data tag's children, NOT their childs or attributes*/
     TBXMLElement *currentElemenet = element;
     while (currentElemenet) {
         
@@ -108,7 +108,7 @@
     
     [[CSerializer shared] deserialize:elementXML->firstChild];
     
-    return nil;
+    return newEntity;
 }
 
 @end
