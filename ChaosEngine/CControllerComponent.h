@@ -11,5 +11,6 @@
 @interface CControllerComponent : CComponent
 
 @property (nonatomic, strong) id renderRef; // Outside
+@property (nonatomic, strong) id positionRef; // Outside
 
 @end

@@ -11,7 +11,7 @@
 #import "CSerializable.h"
 #import "CUtil.h"
 
-@interface CTextureAtlas : CSerializable
+@interface CTextureAtlas : NSObject<NSXMLParserDelegate>
 {
     NSURL *_xmlURL;
     NSXMLParser *_parser;

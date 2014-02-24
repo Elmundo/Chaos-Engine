@@ -22,3 +22,7 @@ DerivedData
 # CocoaPods
 Pods
 
+# TBXML
+TBXML/
+TBXML
+TBXML/*.*

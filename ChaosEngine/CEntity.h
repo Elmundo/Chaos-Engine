@@ -12,7 +12,7 @@
 
 @class CComponent;
 
-@interface CEntity : CSerializable
+@interface CEntity : NSObject
 
 @property (nonatomic, strong) NSMutableDictionary *componentDic;
 @property (nonatomic, strong) NSString *name;

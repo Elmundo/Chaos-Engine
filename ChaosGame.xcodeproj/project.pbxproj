@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6242553B18BB3F6D003E6324 /* libobjc.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6242553A18BB3F6D003E6324 /* libobjc.dylib */; };
 		6253D205188033120017790C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6253D204188033120017790C /* Foundation.framework */; };
 		6253D207188033120017790C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6253D206188033120017790C /* CoreGraphics.framework */; };
 		6253D209188033120017790C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6253D208188033120017790C /* UIKit.framework */; };
@@ -51,9 +52,9 @@
 		62AA5421188442E8001FA053 /* CPositionComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AA5420188442E8001FA053 /* CPositionComponent.m */; };
 		62AA5424188442F9001FA053 /* CRenderComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AA5423188442F9001FA053 /* CRenderComponent.m */; };
 		62B3BA9D1891433400DD8424 /* CInputSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 62B3BA9C1891433400DD8424 /* CInputSystem.m */; };
-		62CE609B189948F100F4C876 /* CSerializable.m in Sources */ = {isa = PBXBuildFile; fileRef = 62CE609A189948F100F4C876 /* CSerializable.m */; };
-		62CE609E1899497300F4C876 /* CRect.m in Sources */ = {isa = PBXBuildFile; fileRef = 62CE609D1899497300F4C876 /* CRect.m */; };
 		62C26CFB18A4E69C0091E709 /* CTestComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 62C26CFA18A4E69C0091E709 /* CTestComponent.m */; };
+		62CE609B189948F100F4C876 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		62CE609E1899497300F4C876 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		62CF0D49189BACCF006CD912 /* CTemplateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 62CF0D48189BACCF006CD912 /* CTemplateManager.m */; };
 		62CF0D4C189BCF2A006CD912 /* CSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 62CF0D4B189BCF2A006CD912 /* CSerializer.m */; };
 		62CF0D83189BE443006CD912 /* TBXML+Compression.m in Sources */ = {isa = PBXBuildFile; fileRef = 62CF0D80189BE443006CD912 /* TBXML+Compression.m */; };
@@ -75,6 +76,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6242553A18BB3F6D003E6324 /* libobjc.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libobjc.dylib; path = usr/lib/libobjc.dylib; sourceTree = SDKROOT; };
 		6253D201188033120017790C /* ChaosGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChaosGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6253D204188033120017790C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6253D206188033120017790C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -170,6 +172,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6242553B18BB3F6D003E6324 /* libobjc.dylib in Frameworks */,
 				62CF0D86189BE4BD006CD912 /* libz.dylib in Frameworks */,
 				6253D207188033120017790C /* CoreGraphics.framework in Frameworks */,
 				6253D209188033120017790C /* UIKit.framework in Frameworks */,
@@ -215,6 +218,7 @@
 		6253D203188033120017790C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6242553A18BB3F6D003E6324 /* libobjc.dylib */,
 				62CF0D85189BE4BD006CD912 /* libz.dylib */,
 				6253D204188033120017790C /* Foundation.framework */,
 				6253D206188033120017790C /* CoreGraphics.framework */,
@@ -327,8 +331,6 @@
 				6262776118852B1F00006BBD /* CViewController.xib */,
 				626277801886A4BF00006BBD /* CPoint.h */,
 				626277811886A4BF00006BBD /* CPoint.m */,
-				62CE609C1899497300F4C876 /* CRect.h */,
-				62CE609D1899497300F4C876 /* CRect.m */,
 			);
 			name = ChaosEngine;
 			sourceTree = "<group>";
@@ -505,7 +507,7 @@
 				626277701885732800006BBD /* CLogger.m in Sources */,
 				62CF0D83189BE443006CD912 /* TBXML+Compression.m in Sources */,
 				6253D21D188033120017790C /* ViewController.m in Sources */,
-				62CE609E1899497300F4C876 /* CRect.m in Sources */,
+				62CE609E1899497300F4C876 /* (null) in Sources */,
 				6295C57F188FCAD800B45AB9 /* CRenderEvent.m in Sources */,
 				6253D217188033120017790C /* AppDelegate.m in Sources */,
 				626277901888283E00006BBD /* CEventListener.m in Sources */,
@@ -517,7 +519,7 @@
 				62CF0D84189BE443006CD912 /* TBXML+HTTP.m in Sources */,
 				62AA5424188442F9001FA053 /* CRenderComponent.m in Sources */,
 				626277881886DDC500006BBD /* CEventDispatcher.m in Sources */,
-				62CE609B189948F100F4C876 /* CSerializable.m in Sources */,
+				62CE609B189948F100F4C876 /* (null) in Sources */,
 				62AA5414188434C9001FA053 /* CEntityFactory.m in Sources */,
 				62CF0D4C189BCF2A006CD912 /* CSerializer.m in Sources */,
 				6262776618852CDE00006BBD /* CScene.m in Sources */,

@@ -14,7 +14,7 @@
 
 @class CEntity;
 
-@interface CComponent : CSerializable
+@interface CComponent : NSObject
 
 @property (nonatomic, weak) CEntity *owner;
 @property (nonatomic, strong) NSString *componentName;

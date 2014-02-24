@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "CSerializable.h"
 
-@interface CPoint : CSerializable
+@interface CPoint : NSObject
 
 @property (nonatomic, assign) int x;
 @property (nonatomic, assign) int y;

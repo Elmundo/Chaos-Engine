@@ -11,7 +11,7 @@
 #import "CSerializer.h"
 #import "CEntityFactory.h"
 
-@interface CTemplateManager : CEngineSystem<NSXMLParserDelegate>
+@interface CTemplateManager : CEngineSystem
 {
     NSMutableDictionary *_templateDic; // Template in TBXML format.
     NSMutableDictionary *_entityDic;   // Entity in TBXML format.
