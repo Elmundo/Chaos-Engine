@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6242553D18BB41A4003E6324 /* libobjc.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6242553C18BB41A4003E6324 /* libobjc.dylib */; };
 		6253D205188033120017790C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6253D204188033120017790C /* Foundation.framework */; };
 		6253D207188033120017790C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6253D206188033120017790C /* CoreGraphics.framework */; };
 		6253D209188033120017790C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6253D208188033120017790C /* UIKit.framework */; };
@@ -73,6 +74,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6242553C18BB41A4003E6324 /* libobjc.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libobjc.dylib; path = usr/lib/libobjc.dylib; sourceTree = SDKROOT; };
 		6253D201188033120017790C /* ChaosGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChaosGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6253D204188033120017790C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6253D206188033120017790C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -168,6 +170,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6242553D18BB41A4003E6324 /* libobjc.dylib in Frameworks */,
 				62CF0D86189BE4BD006CD912 /* libz.dylib in Frameworks */,
 				6253D207188033120017790C /* CoreGraphics.framework in Frameworks */,
 				6253D209188033120017790C /* UIKit.framework in Frameworks */,
@@ -213,6 +216,7 @@
 		6253D203188033120017790C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6242553C18BB41A4003E6324 /* libobjc.dylib */,
 				62CF0D85189BE4BD006CD912 /* libz.dylib */,
 				6253D204188033120017790C /* Foundation.framework */,
 				6253D206188033120017790C /* CoreGraphics.framework */,

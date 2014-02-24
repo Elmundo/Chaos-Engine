@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "TBXML.h"
-#import <objc/objc-runtime.h>
+#import <objc/runtime.h>
 NS_ENUM(int, PropertyType)
 {
     PropertyTypeClass = 0,
