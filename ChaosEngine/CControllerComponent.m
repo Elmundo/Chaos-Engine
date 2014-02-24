@@ -20,7 +20,6 @@
     [super didRemovedFromEntity];
 }
 
-
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     

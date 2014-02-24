@@ -28,8 +28,13 @@
 {
     self.backgroundColor = [SKColor blackColor];
     
+    /* TEST LEVEL IS LOADING : Implementing data-driven paradigm */
+    [[CTemplateManager shared] loadFile:@"test_level.xml"];
+    [[CTemplateManager shared] instantiateEntity:@"TestEntity"];
+
     /* ALL THESE DATA MUST BE DEFINED IN XML */
     /* Create the sekeleton entity and its all components*/
+
     CEntity *skeletonEntity = [[CEntityFactory shared] createEntity];
     
     CPositionComponent *positionComponent = [[CPositionComponent alloc] init];
@@ -46,13 +51,12 @@
     animationComponent.atlasRef = rendererComponent.atlas; // TODO: Sürekli nil atanıyor.
     
     CControllerComponent *controllerComponent = [[CControllerComponent alloc] init];
-    
     [skeletonEntity addComponent:positionComponent];
     [skeletonEntity addComponent:rendererComponent];
     [skeletonEntity addComponent:animationComponent];
     [skeletonEntity addComponent:controllerComponent];
     [skeletonEntity initialize:@"skeletion01"];
-    
+
     [self performSelector:@selector(updateTest:) withObject:animationComponent afterDelay:3.0f];
 }
 

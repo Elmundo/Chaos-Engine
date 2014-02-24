@@ -26,7 +26,6 @@
         
         [_parser setDelegate:self];
         [_parser setShouldResolveExternalEntities:YES];
-        [_parser parse];
     }
 
     return self;

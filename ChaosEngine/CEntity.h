@@ -15,7 +15,7 @@
 @interface CEntity : CSerializable
 
 @property (nonatomic, strong) NSMutableDictionary *componentDic;
-@property (nonatomic, strong) NSString *entityName;
+@property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) CEventDispatcher *dispatcher;
 @property (nonatomic, assign) uint32_t eid;
 
@@ -24,5 +24,6 @@
 - (void)removeComponent:(CComponent *)component;
 - (CComponent *)getComponentWithName:(NSString *)componentName;
 - (void)update:(NSTimeInterval)dt;
++ (unsigned)entityID;
 
 @end

@@ -15,6 +15,8 @@
 #import "CAnimationComponent.h"
 #import "CControllerComponent.h"
 
+#import "CTemplateManager.h"
+
 @interface MyScene : CScene 
 {
 
