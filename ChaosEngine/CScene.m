@@ -8,9 +8,9 @@
 
 #import "CScene.h"
 
+#define kDefaultSceneAnchorPoint CGPointMake(0.0f, 1.0f)
+
 @implementation CScene
-
-
 
 -(id)initWithSize:(CGSize)size
 {
@@ -18,6 +18,7 @@
     if (self) {
         self.contentCreated = NO;
         self.sceneName = NSStringFromClass([self class]);
+        self.anchorPoint = kDefaultSceneAnchorPoint;
     }
     
     return self;

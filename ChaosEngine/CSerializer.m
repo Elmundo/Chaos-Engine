@@ -30,7 +30,6 @@
 - (id)deserialize:(TBXMLElement *)xml
 {
     TBXMLElement *currentElement = xml;
-    NSMutableArray *componentList = [NSMutableArray array];
     /* Creates the components of Entity */
     while (currentElement) {
         

@@ -10,8 +10,7 @@
 
 @implementation CRenderComponent
 
-#define kAnchorDefaultPointX 0.0f
-#define kAnchorDefaultPointY 0.0f
+#define kDefaultRenderAnchorPoint CGPointMake(0.0f, 1.0f)
 
 @synthesize position = _position;
 
@@ -81,7 +80,7 @@
     
     CGPoint pos = [self.position CGPoint];
     self.spriteNode.position = pos;
-    self.spriteNode.anchorPoint = CGPointMake(kAnchorDefaultPointX, kAnchorDefaultPointY);
+    self.spriteNode.anchorPoint = kDefaultRenderAnchorPoint;
 
     [self.scene addChild:self.spriteNode];
     [self addEventListener:@selector(did_position_updated:) message:[CPositionEvent CE_PositionChanged] ];
