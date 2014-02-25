@@ -45,15 +45,18 @@
     rendererComponent.sceneName = NSStringFromClass([self class]);
     rendererComponent.resourceName = @"bg.png";
     rendererComponent.positionRef = positionComponent.position;
-    rendererComponent.textureSize = [[CSize alloc] initWithWidth:self.size.width andHeight:self.size.height];
+    rendererComponent.textureSize = [[CSize alloc] initWithWidth:320 andHeight:382];
     //rendererComponent.atlasName = @"android";
     
     CBackgroundComponent *bgComponent = [[CBackgroundComponent alloc] init];
     bgComponent.renderRef = rendererComponent.spriteNode;
     bgComponent.positionRef = positionComponent.position;
+    bgComponent.sceneName = NSStringFromClass([self class]);
     
     [bgEntity addComponent:positionComponent];
     [bgEntity addComponent:rendererComponent];
+    [bgEntity addComponent:bgComponent];
+    
     [bgEntity initialize:@"bg"];
 }
 

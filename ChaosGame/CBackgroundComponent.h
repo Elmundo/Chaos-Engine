@@ -7,10 +7,28 @@
 //
 
 #import "CComponent.h"
+#import "CScene.h"
+#import "CPoint.h"
+#import "CSceneManager.h"
+#import "CRenderEvent.h"
+#import <SpriteKit/SpriteKit.h>
 
 @interface CBackgroundComponent : CComponent
 
-@property (nonatomic, strong) id positionRef;
-@property (nonatomic, strong) id renderRef;
+@property (nonatomic, weak) CSceneManager *manager;
 
+@property (nonatomic, strong) id positionRef; // Outside
+@property (nonatomic, strong) id renderRef; // Outside
+
+@property (nonatomic, strong) SKSpriteNode *sprite;
+@property (nonatomic, strong) NSString *sceneName;
+@property (nonatomic, strong) CScene *scene;
+@property (nonatomic, strong) CPoint *position;
+
+/*Scroll Slide Sprite*/
+@property (nonatomic, strong) SKSpriteNode *groundSprite1;
+@property (nonatomic, strong) SKSpriteNode *groundSprite2;
+@property (nonatomic, strong) SKTexture    *groundTexture;
+
+@property (nonatomic, assign) CGVector speed;
 @end

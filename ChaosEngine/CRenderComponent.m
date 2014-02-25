@@ -84,7 +84,7 @@
 
     [self.scene addChild:self.spriteNode];
     [self addEventListener:@selector(did_position_updated:) message:[CPositionEvent CE_PositionChanged] ];
-    CRenderEvent *event = [CRenderEvent eventWithType:@"SpriteIsReady" withObject:self.spriteNode withAtlas:self.atlas withBubbles:YES]; //TODO: Need to be changed couse hard-coded string
+    CRenderEvent *event = [CRenderEvent eventWithType:[CRenderEvent CE_SpriteReady] withObject:self.spriteNode withAtlas:self.atlas withSprite:self.spriteNode withBubbles:YES]; //TODO: Need to be changed couse hard-coded string
     [self dispatchEventWithEvent:event];
 }
 
