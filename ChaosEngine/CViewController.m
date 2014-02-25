@@ -25,8 +25,14 @@
 
 - (void)viewDidLoad
 {
+    /* If Nib file will not be used, this code blog shall be uncommented */
+    /*
+    CGRect bounds = [[UIScreen mainScreen] bounds];
+    self.view = [[SKView alloc] initWithFrame:CGRectMake(bounds.origin.x, bounds.origin.y,
+                                                         bounds.size.width, bounds.size.height)];
+    */
     [super viewDidLoad];
-
+    
     // Configure the view.
     self.rootView = (SKView *)self.view;
     self.rootView.showsFPS = YES;

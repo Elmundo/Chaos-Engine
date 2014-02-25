@@ -22,7 +22,8 @@
     
     // This part must be defined after system adding operations
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.viewController = [[ViewController alloc] initWithNibName:kDefaultNibName bundle:nil];
+    self.viewController = [[ViewController alloc] initWithNibName:kDefaultNibName bundle:[NSBundle mainBundle]];
+    //self.viewController = [[ViewController alloc] init];
     self.window.rootViewController = self.viewController;
     
     [self.window makeKeyAndVisible];

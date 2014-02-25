@@ -17,6 +17,8 @@
 
 #import "CTemplateManager.h"
 
+/*in Game Part*/
+#import "CBackgroundComponent.h"
 @interface MyScene : CScene 
 {
 

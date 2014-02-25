@@ -14,6 +14,7 @@
     if (self = [super initWithSize:size]) {
         /* Setup your scene here */
         [CLogger logWithTarget:self method:@"initWithSize:" message:@"My scene is init."];
+        NSLog(@"ViewController size = Width:%f Height:%f", size.width, size.height);
     }
 
     return self;
@@ -26,20 +27,50 @@
 
 - (void)createSceneContents
 {
-    self.backgroundColor = [SKColor blackColor];
+    self.backgroundColor = [SKColor redColor];
     
+    //[self createTestEntitites];
+    [self createBirdiotEntitites];
+}
+
+- (void)createBirdiotEntitites
+{
+    /* Create background entity */
+    CEntity *bgEntity = [[CEntityFactory shared] createEntity];
+    
+    CPositionComponent *positionComponent = [[CPositionComponent alloc] init];
+    positionComponent.position = [[CPoint alloc] initWithX:0.0f and:0.0f];
+    
+    CRenderComponent *rendererComponent = [[CRenderComponent alloc] init];
+    rendererComponent.sceneName = NSStringFromClass([self class]);
+    rendererComponent.resourceName = @"bg.png";
+    rendererComponent.positionRef = positionComponent.position;
+    rendererComponent.textureSize = [[CSize alloc] initWithWidth:self.size.width andHeight:self.size.height];
+    //rendererComponent.atlasName = @"android";
+    
+    CBackgroundComponent *bgComponent = [[CBackgroundComponent alloc] init];
+    bgComponent.renderRef = rendererComponent.spriteNode;
+    bgComponent.positionRef = positionComponent.position;
+    
+    [bgEntity addComponent:positionComponent];
+    [bgEntity addComponent:rendererComponent];
+    [bgEntity initialize:@"bg"];
+}
+
+- (void)createTestEntitites
+{
     /* TEST LEVEL IS LOADING : Implementing data-driven paradigm */
     [[CTemplateManager shared] loadFile:@"test_level.xml"];
     [[CTemplateManager shared] instantiateEntity:@"TestEntity"];
-
+    
     /* ALL THESE DATA MUST BE DEFINED IN XML */
     /* Create the sekeleton entity and its all components*/
-
+    
     CEntity *skeletonEntity = [[CEntityFactory shared] createEntity];
     
     CPositionComponent *positionComponent = [[CPositionComponent alloc] init];
     positionComponent.position = [[CPoint alloc] initWithX:CGRectGetMidX(self.frame) and:CGRectGetMidY(self.frame)];
-
+    
     CRenderComponent *rendererComponent = [[CRenderComponent alloc] init];
     rendererComponent.sceneName = NSStringFromClass([self class]);
     rendererComponent.resourceName = @"android.png";
@@ -56,7 +87,7 @@
     [skeletonEntity addComponent:animationComponent];
     [skeletonEntity addComponent:controllerComponent];
     [skeletonEntity initialize:@"skeletion01"];
-
+    
     [self performSelector:@selector(updateTest:) withObject:animationComponent afterDelay:3.0f];
 }
 

@@ -17,7 +17,7 @@
     
     //Create firt scene
     MyScene * scene =  [[MyScene alloc] initWithSize:self.rootView.bounds.size];
-    scene.scaleMode = SKSceneScaleModeAspectFill;
+    scene.scaleMode = SKSceneScaleModeAspectFit;
     
     // Add scene to manager and activate it.
     [CSceneManager shared].rootView = self.rootView;

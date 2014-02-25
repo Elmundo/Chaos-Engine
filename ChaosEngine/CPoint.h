@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "CSerializable.h"
 
 @interface CPoint : NSObject
 

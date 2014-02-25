@@ -34,15 +34,36 @@
         return;
     }
     
-    self.atlas = [CTextureAtlas atlasWithXmlName:self.atlasName andWithResource:self.sourceTexture];
-    if (self.atlas == nil) {
+    if (self.atlasName == nil) {
         [CLogger errorWithTarget:self method:@"didAddedToEntity"
-                         message:cStringWithValue(@"There is no such a atlas: %@", self.atlasName)];
-        return;
+                         message:@"atlasName is nil."];
+        
+    }else{
+        self.atlas = [CTextureAtlas atlasWithXmlName:self.atlasName andWithResource:self.sourceTexture];
+        if (self.atlas == nil) {
+            [CLogger errorWithTarget:self method:@"didAddedToEntity"
+                             message:cStringWithValue(@"There is no such a atlas: %@", self.atlasName)];
+            return;
+        }
     }
     
-    SKTexture *defaultTexture = [self.atlas getFirstTexture];
-    self.spriteNode = [SKSpriteNode spriteNodeWithTexture:defaultTexture];
+    SKTexture *defaultTexture;
+    if (self.atlas) // If there is an texture atlas, then get first texture of it.
+        defaultTexture = [self.atlas getFirstTexture];
+    else // If not, get the whole source resource as texture.
+        defaultTexture = self.sourceTexture;
+    
+    /* If texture size is given, the sprite is initialized using the texture,
+       but the texture’s dimensions are not used.
+       Instead, the size passed into the constructor method is used. 
+    */
+    if (self.textureSize) {
+        self.spriteNode = [SKSpriteNode spriteNodeWithTexture:defaultTexture size:[self.textureSize CGSize]];
+    }
+    else{
+        self.spriteNode = [SKSpriteNode spriteNodeWithTexture:defaultTexture];
+    }
+
     if (self.spriteNode == nil) {
         [CLogger errorWithTarget:self method:@"didAddedToEntity"
                                   message:cStringWithValue(@"There is no such a texture: %@", self.resourceName)];
@@ -57,7 +78,9 @@
    
     // Init the sprite position
     self.position = (CPoint *)self.positionRef;
-    self.spriteNode.position = [self.position CGPoint];
+    
+    CGPoint pos = [self.position CGPoint];
+    self.spriteNode.position = pos;
     self.spriteNode.anchorPoint = CGPointMake(kAnchorDefaultPointX, kAnchorDefaultPointY);
 
     [self.scene addChild:self.spriteNode];

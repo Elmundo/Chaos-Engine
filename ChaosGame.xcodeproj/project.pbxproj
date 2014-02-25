@@ -8,6 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		6242553B18BB3F6D003E6324 /* libobjc.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6242553A18BB3F6D003E6324 /* libobjc.dylib */; };
+		6242554018BB4435003E6324 /* CBackgroundComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 6242553F18BB4435003E6324 /* CBackgroundComponent.m */; };
+		6242555018BB456A003E6324 /* bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6242554218BB456A003E6324 /* bg@2x.png */; };
+		6242555118BB456A003E6324 /* 1-.png in Resources */ = {isa = PBXBuildFile; fileRef = 6242554418BB456A003E6324 /* 1-.png */; };
+		6242555218BB456A003E6324 /* 2--.png in Resources */ = {isa = PBXBuildFile; fileRef = 6242554518BB456A003E6324 /* 2--.png */; };
+		6242555318BB456A003E6324 /* 3--.png in Resources */ = {isa = PBXBuildFile; fileRef = 6242554618BB456A003E6324 /* 3--.png */; };
+		6242555418BB456A003E6324 /* btn_ok.png in Resources */ = {isa = PBXBuildFile; fileRef = 6242554718BB456A003E6324 /* btn_ok.png */; };
+		6242555518BB456A003E6324 /* btn_play.png in Resources */ = {isa = PBXBuildFile; fileRef = 6242554818BB456A003E6324 /* btn_play.png */; };
+		6242555618BB456A003E6324 /* btn_score.png in Resources */ = {isa = PBXBuildFile; fileRef = 6242554918BB456A003E6324 /* btn_score.png */; };
+		6242555718BB456A003E6324 /* btn_share.png in Resources */ = {isa = PBXBuildFile; fileRef = 6242554A18BB456A003E6324 /* btn_share.png */; };
+		6242555818BB456A003E6324 /* game_table.png in Resources */ = {isa = PBXBuildFile; fileRef = 6242554B18BB456A003E6324 /* game_table.png */; };
+		6242555918BB456A003E6324 /* ground.png in Resources */ = {isa = PBXBuildFile; fileRef = 6242554C18BB456A003E6324 /* ground.png */; };
+		6242555A18BB456A003E6324 /* tube-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 6242554D18BB456A003E6324 /* tube-2.png */; };
+		6242555B18BB456A003E6324 /* tube.png in Resources */ = {isa = PBXBuildFile; fileRef = 6242554E18BB456A003E6324 /* tube.png */; };
+		6242555C18BB456A003E6324 /* tube1.png in Resources */ = {isa = PBXBuildFile; fileRef = 6242554F18BB456A003E6324 /* tube1.png */; };
+		6242555F18BB4E8B003E6324 /* CSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 6242555E18BB4E8B003E6324 /* CSize.m */; };
 		6253D205188033120017790C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6253D204188033120017790C /* Foundation.framework */; };
 		6253D207188033120017790C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6253D206188033120017790C /* CoreGraphics.framework */; };
 		6253D209188033120017790C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6253D208188033120017790C /* UIKit.framework */; };
@@ -52,7 +67,6 @@
 		62AA5421188442E8001FA053 /* CPositionComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AA5420188442E8001FA053 /* CPositionComponent.m */; };
 		62AA5424188442F9001FA053 /* CRenderComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AA5423188442F9001FA053 /* CRenderComponent.m */; };
 		62B3BA9D1891433400DD8424 /* CInputSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 62B3BA9C1891433400DD8424 /* CInputSystem.m */; };
-		62C26CFB18A4E69C0091E709 /* CTestComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 62C26CFA18A4E69C0091E709 /* CTestComponent.m */; };
 		62CE609B189948F100F4C876 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		62CE609E1899497300F4C876 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		62CF0D49189BACCF006CD912 /* CTemplateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 62CF0D48189BACCF006CD912 /* CTemplateManager.m */; };
@@ -77,6 +91,23 @@
 
 /* Begin PBXFileReference section */
 		6242553A18BB3F6D003E6324 /* libobjc.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libobjc.dylib; path = usr/lib/libobjc.dylib; sourceTree = SDKROOT; };
+		6242553E18BB4435003E6324 /* CBackgroundComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBackgroundComponent.h; sourceTree = "<group>"; };
+		6242553F18BB4435003E6324 /* CBackgroundComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBackgroundComponent.m; sourceTree = "<group>"; };
+		6242554218BB456A003E6324 /* bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg@2x.png"; sourceTree = "<group>"; };
+		6242554418BB456A003E6324 /* 1-.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1-.png"; sourceTree = "<group>"; };
+		6242554518BB456A003E6324 /* 2--.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2--.png"; sourceTree = "<group>"; };
+		6242554618BB456A003E6324 /* 3--.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "3--.png"; sourceTree = "<group>"; };
+		6242554718BB456A003E6324 /* btn_ok.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_ok.png; sourceTree = "<group>"; };
+		6242554818BB456A003E6324 /* btn_play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_play.png; sourceTree = "<group>"; };
+		6242554918BB456A003E6324 /* btn_score.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_score.png; sourceTree = "<group>"; };
+		6242554A18BB456A003E6324 /* btn_share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_share.png; sourceTree = "<group>"; };
+		6242554B18BB456A003E6324 /* game_table.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = game_table.png; sourceTree = "<group>"; };
+		6242554C18BB456A003E6324 /* ground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ground.png; sourceTree = "<group>"; };
+		6242554D18BB456A003E6324 /* tube-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tube-2.png"; sourceTree = "<group>"; };
+		6242554E18BB456A003E6324 /* tube.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tube.png; sourceTree = "<group>"; };
+		6242554F18BB456A003E6324 /* tube1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tube1.png; sourceTree = "<group>"; };
+		6242555D18BB4E8B003E6324 /* CSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CSize.h; path = ChaosEngine/CSize.h; sourceTree = "<group>"; };
+		6242555E18BB4E8B003E6324 /* CSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CSize.m; path = ChaosEngine/CSize.m; sourceTree = "<group>"; };
 		6253D201188033120017790C /* ChaosGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChaosGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6253D204188033120017790C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6253D206188033120017790C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -149,8 +180,6 @@
 		62AA5423188442F9001FA053 /* CRenderComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CRenderComponent.m; path = ChaosEngine/CRenderComponent.m; sourceTree = "<group>"; };
 		62B3BA9B1891433400DD8424 /* CInputSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CInputSystem.h; path = ChaosEngine/CInputSystem.h; sourceTree = "<group>"; };
 		62B3BA9C1891433400DD8424 /* CInputSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CInputSystem.m; path = ChaosEngine/CInputSystem.m; sourceTree = "<group>"; };
-		62C26CF918A4E69C0091E709 /* CTestComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTestComponent.h; path = ChaosEngine/CTestComponent.h; sourceTree = "<group>"; };
-		62C26CFA18A4E69C0091E709 /* CTestComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTestComponent.m; path = ChaosEngine/CTestComponent.m; sourceTree = "<group>"; };
 		62CF0D47189BACCF006CD912 /* CTemplateManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTemplateManager.h; path = ChaosEngine/CTemplateManager.h; sourceTree = "<group>"; };
 		62CF0D48189BACCF006CD912 /* CTemplateManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTemplateManager.m; path = ChaosEngine/CTemplateManager.m; sourceTree = "<group>"; };
 		62CF0D4A189BCF2A006CD912 /* CSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CSerializer.h; path = ChaosEngine/CSerializer.h; sourceTree = "<group>"; };
@@ -194,6 +223,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6242554118BB456A003E6324 /* birdiot_elements */ = {
+			isa = PBXGroup;
+			children = (
+				6242554318BB456A003E6324 /* bird */,
+				6242554218BB456A003E6324 /* bg@2x.png */,
+				6242554718BB456A003E6324 /* btn_ok.png */,
+				6242554818BB456A003E6324 /* btn_play.png */,
+				6242554918BB456A003E6324 /* btn_score.png */,
+				6242554A18BB456A003E6324 /* btn_share.png */,
+				6242554B18BB456A003E6324 /* game_table.png */,
+				6242554C18BB456A003E6324 /* ground.png */,
+				6242554D18BB456A003E6324 /* tube-2.png */,
+				6242554E18BB456A003E6324 /* tube.png */,
+				6242554F18BB456A003E6324 /* tube1.png */,
+			);
+			name = birdiot_elements;
+			path = assets/birdiot_elements;
+			sourceTree = "<group>";
+		};
+		6242554318BB456A003E6324 /* bird */ = {
+			isa = PBXGroup;
+			children = (
+				6242554418BB456A003E6324 /* 1-.png */,
+				6242554518BB456A003E6324 /* 2--.png */,
+				6242554618BB456A003E6324 /* 3--.png */,
+			);
+			path = bird;
+			sourceTree = "<group>";
+		};
 		6253D1F8188033120017790C = {
 			isa = PBXGroup;
 			children = (
@@ -239,6 +297,8 @@
 				6253D21C188033120017790C /* ViewController.m */,
 				6253D21E188033120017790C /* MyScene.h */,
 				6253D21F188033120017790C /* MyScene.m */,
+				6242553E18BB4435003E6324 /* CBackgroundComponent.h */,
+				6242553F18BB4435003E6324 /* CBackgroundComponent.m */,
 				6253D221188033120017790C /* Spaceship.png */,
 				6253D223188033120017790C /* Images.xcassets */,
 				6253D20D188033120017790C /* Supporting Files */,
@@ -326,11 +386,11 @@
 				62CF0D48189BACCF006CD912 /* CTemplateManager.m */,
 				62CF0D4A189BCF2A006CD912 /* CSerializer.h */,
 				62CF0D4B189BCF2A006CD912 /* CSerializer.m */,
-				62C26CF918A4E69C0091E709 /* CTestComponent.h */,
-				62C26CFA18A4E69C0091E709 /* CTestComponent.m */,
-				6262776118852B1F00006BBD /* CViewController.xib */,
 				626277801886A4BF00006BBD /* CPoint.h */,
 				626277811886A4BF00006BBD /* CPoint.m */,
+				6242555D18BB4E8B003E6324 /* CSize.h */,
+				6242555E18BB4E8B003E6324 /* CSize.m */,
+				6262776118852B1F00006BBD /* CViewController.xib */,
 			);
 			name = ChaosEngine;
 			sourceTree = "<group>";
@@ -338,6 +398,7 @@
 		626277721885811300006BBD /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				6242554118BB456A003E6324 /* birdiot_elements */,
 				62CF0D4D189BD378006CD912 /* levels */,
 				6272FF91188ED257009B8440 /* atlas */,
 				6272FF90188ED24E009B8440 /* xml */,
@@ -463,14 +524,27 @@
 			files = (
 				6262776318852B1F00006BBD /* CViewController.xib in Resources */,
 				62CF0D89189BE855006CD912 /* test_level.xml in Resources */,
+				6242555818BB456A003E6324 /* game_table.png in Resources */,
+				6242555218BB456A003E6324 /* 2--.png in Resources */,
+				6242555918BB456A003E6324 /* ground.png in Resources */,
+				6242555418BB456A003E6324 /* btn_ok.png in Resources */,
+				6242555318BB456A003E6324 /* 3--.png in Resources */,
 				6253D211188033120017790C /* InfoPlist.strings in Resources */,
+				6242555618BB456A003E6324 /* btn_score.png in Resources */,
 				6272FF93188ED421009B8440 /* character.png in Resources */,
+				6242555C18BB456A003E6324 /* tube1.png in Resources */,
 				6272FF95188ED42E009B8440 /* character.xml in Resources */,
+				6242555B18BB456A003E6324 /* tube.png in Resources */,
+				6242555518BB456A003E6324 /* btn_play.png in Resources */,
 				6253D224188033120017790C /* Images.xcassets in Resources */,
 				6262777F1886A34400006BBD /* sword.png in Resources */,
+				6242555718BB456A003E6324 /* btn_share.png in Resources */,
 				6295C589189018E000B45AB9 /* android.xml in Resources */,
 				6253D222188033120017790C /* Spaceship.png in Resources */,
+				6242555018BB456A003E6324 /* bg@2x.png in Resources */,
+				6242555A18BB456A003E6324 /* tube-2.png in Resources */,
 				6295C587189018DA00B45AB9 /* android.png in Resources */,
+				6242555118BB456A003E6324 /* 1-.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -502,6 +576,7 @@
 				6262777B18868D0B00006BBD /* CUtil.m in Sources */,
 				62627793188926B300006BBD /* CPositionEvent.m in Sources */,
 				6262776218852B1F00006BBD /* CViewController.m in Sources */,
+				6242554018BB4435003E6324 /* CBackgroundComponent.m in Sources */,
 				62AA5421188442E8001FA053 /* CPositionComponent.m in Sources */,
 				62627796188935C800006BBD /* CAnimationComponent.m in Sources */,
 				626277701885732800006BBD /* CLogger.m in Sources */,
@@ -512,7 +587,7 @@
 				6253D217188033120017790C /* AppDelegate.m in Sources */,
 				626277901888283E00006BBD /* CEventListener.m in Sources */,
 				6262776A1885321600006BBD /* CAppDelegate.m in Sources */,
-				62C26CFB18A4E69C0091E709 /* CTestComponent.m in Sources */,
+				6242555F18BB4E8B003E6324 /* CSize.m in Sources */,
 				6262778B1886DE7F00006BBD /* CEvent.m in Sources */,
 				62FB7BA81891698100A6340F /* CControllerComponent.m in Sources */,
 				6253D213188033120017790C /* main.m in Sources */,

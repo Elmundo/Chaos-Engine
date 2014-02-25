@@ -14,6 +14,7 @@
 #import "CPositionEvent.h" 
 #import "CTextureAtlas.h"
 #import "CRenderEvent.h"
+#import "CSize.h"
 #import <SpriteKit/SpriteKit.h>
 
 @interface CRenderComponent : CComponent
@@ -26,6 +27,7 @@
 @property (nonatomic, strong) NSString *sceneName; // Outside
 @property (nonatomic, strong) NSString *resourceName; // Outside
 @property (nonatomic, strong) NSString *atlasName; // Outside
+@property (nonatomic, strong) CSize *textureSize; // Outside
 
 @property (nonatomic, strong) SKSpriteNode *spriteNode;
 @property (nonatomic, strong) SKTexture *sourceTexture;
