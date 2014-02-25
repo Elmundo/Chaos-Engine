@@ -30,7 +30,6 @@
 - (id)deserialize:(TBXMLElement *)xml
 {
     TBXMLElement *currentElement = xml;
-    NSMutableArray *componentList = [NSMutableArray array];
     /* Creates the components of Entity */
     while (currentElement) {
         
@@ -63,11 +62,12 @@
     unsigned int outPropertyCount, i = 0;
     enum PropertyType outType;
     objc_property_t *properties = class_copyPropertyList([parentObject class], &outPropertyCount);
+    id propertyObject;
 
     for (; i < outPropertyCount; ++i) {
         objc_property_t property = properties[i];
         
-        // Get ParentObject's property's type and name values
+        // Get ParentObject's property type and name values
         NSString *propertyName    = [NSString stringWithUTF8String:property_getName(property)];
         NSString *propertyType    = [self propertyTypeStringOfProperty:property propertyType:&outType];
         TBXMLElement *propertyXMLElement = [TBXML childElementNamed:propertyName parentElement:parentXMLElement];
@@ -93,33 +93,41 @@
             Class classObj = NSClassFromString(propertyType);
             id collectionObject = [[classObj alloc] init];
             
-            NSString *propertyType = [TBXML valueOfAttributeNamed:@"type" forElement:propertyXMLElement];
+            [self traverseCollection:propertyXMLElement object:collectionObject];
+            /*
+            Class classObj = NSClassFromString(propertyType);
+            id collectionObject = [[classObj alloc] init];
+            
+            // Parent object's child type is unknown in Class Definition, so wee need to get this information from XML definition
+            // We get the value of type attribute so we could determine the type of object which will be created.
+            NSString *childType = [TBXML valueOfAttributeNamed:@"type" forElement:propertyXMLElement];
             TBXMLElement *childXMLElement = propertyXMLElement->firstChild;
             
             while (childXMLElement) {
                 
-                Class classObj = NSClassFromString(propertyType);
-                id propertyObject = [[classObj alloc] init];
+                Class classObj = NSClassFromString(childType);
+                id childObject = [[classObj alloc] init];
                 
                 if (!propertyXMLElement) {
                     NSLog(@"XML ELEMENT MISSING!: There is no match in XML with property name: %@", propertyName);
                     continue;
                 }
                 
-                [self traverseObject:childXMLElement object:propertyObject];
+                [self traverseObject:childXMLElement object:childObject];
                 
                 if ([collectionObject isKindOfClass:[NSMutableArray class]]) {
-                    [(NSMutableArray*)collectionObject addObject:propertyObject];
+                    [(NSMutableArray*)collectionObject addObject:childObject];
                 }else if ([collectionObject isKindOfClass:[NSMutableDictionary class]]) {
                     NSString *propertyName = [TBXML elementName:childXMLElement];
-                    [collectionObject setObject:propertyObject forKey:propertyName];
+                    [collectionObject setObject:childObject forKey:propertyName];
                 }
                 
                 childXMLElement = childXMLElement->nextSibling;
             }
+             */
         }/* Scalar */
         else if(outType == PropertyTypeScalar) {
-            [self setScalarValue:parentObject xml:parentXMLElement propertyName:propertyName propertyType:propertyType];
+            [self setScalarValue:parentObject xml:propertyXMLElement propertyName:propertyName propertyType:propertyType];
             
         }
     }
@@ -127,63 +135,48 @@
     return nil;
 }
 
-- (void)setProperties:(id)parentOject xml:(TBXMLElement *)element
+- (void)traverseCollection:(TBXMLElement *)parentXMLElement object:(id)collectionObject
 {
-    TBXMLElement *childElement = element->firstChild;
-    unsigned int outCount, i;
-    objc_property_t *properties = class_copyPropertyList([parentOject class], &outCount);
+    // Parent object's child type is unknown in Class Definition, so wee need to get this information from XML definition
+    // We get the value of type attribute so we could determine the type of object which will be created.
+    NSString *childType = [TBXML valueOfAttributeNamed:@"type" forElement:parentXMLElement];
+    TBXMLElement *childXMLElement = parentXMLElement->firstChild;
     
-    for (i=0; i < outCount; ++i) {
-        objc_property_t property = properties[i];
-        const char * propName = property_getName(property);
-        enum PropertyType outType;
+    while (childXMLElement) {
         
-        if (propName) {
-            if (!childElement->name) {
-                @throw @"XML Element is corrupted!";
-            }
-            
-            NSString *propType = [self propertyTypeStringOfProperty:property propertyType:&outType];
-            NSString *propertyName = [NSString stringWithUTF8String:propName];
-            NSString *propertyType = [NSString stringWithString:propType];
-            NSLog(@"PropertyName = %@", propertyName);
-            NSLog(@"PropertyType = %@", propertyType);
-            NSLog(@"XMLElement Name = %s", childElement->name);
-            
-            /* Class */
-            if (outType == PropertyTypeClass) {
-                Class classObj = NSClassFromString(propertyType);
-                id obj = [[classObj alloc] init];
-                [parentOject setValue:obj forKey:propertyName];
-            }/* Object */
-            else if(outType == PropertyTypeCollection) {
-                [self setObjectValue:parentOject xml:childElement propertyName:propertyName propertyType:propType];
-            }/* Scalar */
-            else if(outType == PropertyTypeScalar) {
-                [self setScalarValue:parentOject xml:childElement propertyName:propertyName propertyType:propType];
-
-            }
+        NSString *childName = [TBXML elementName:childXMLElement];
+        Class classObj = NSClassFromString(childType);
+        id childObject = [[classObj alloc] init];
+        
+        if (!childXMLElement) {
+            NSLog(@"XML ELEMENT MISSING!: There is no match in XML with property name: %@", childType);
+            continue;
         }
         
-        childElement = childElement->nextSibling;
+        if ([childType isEqualToString:@"NSMutableArray"]) {
+            //Avoid "_" element, pass child of it instead; "_" is not a property to add directly
+            [self traverseCollection:childXMLElement->firstChild object:childObject];
+        }else if ([childType isEqualToString:@"NSMutableDictionary"])
+        {
+            //Avoid "KeyValue" element, pass child of it instead; "KeyValue" is not a property to add directly
+            [self traverseCollection:childXMLElement->firstChild object:childObject];
+        }else{
+            [self traverseObject:childXMLElement object:childObject];
+        }
+        
+        if ([collectionObject isKindOfClass:[NSMutableArray class]]) {
+            [(NSMutableArray*)collectionObject addObject:childObject];
+        }else if ([collectionObject isKindOfClass:[NSMutableDictionary class]]) {
+            [collectionObject setObject:childObject forKey:childName];
+        }else{
+            [collectionObject setObject:childObject forKey:childName];
+        }
+
+        childXMLElement = childXMLElement->nextSibling;
     }
-    
-    free(properties);
+
 }
-- (void)setObjectValue:(id)object xml:(TBXMLElement *)element propertyName:(NSString *)name propertyType:(NSString *)type
-{
-    //Objective-C types
-    if ([type isEqualToString:@"NSString"]) {
-        NSString *stringValue = [TBXML textForElement:element];
-        [object setValue:stringValue forKey:name];
-    }else if([type isEqualToString:@"NSArray"]){
-        NSArray *list = [NSArray array];
-        [object setValue:list forKey:name];
-    }else if([type isEqualToString:@"NSDictionary"]){
-        NSDictionary *dic = [NSDictionary dictionary];
-        [object setValue:dic forKey:name];
-    }
-}
+
 
 - (void)setScalarValue:(id)object xml:(TBXMLElement *)element propertyName:(NSString *)name propertyType:(NSString *)type
 {
