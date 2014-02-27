@@ -10,10 +10,10 @@
 
 @interface CPoint : NSObject
 
-@property (nonatomic, assign) int x;
-@property (nonatomic, assign) int y;
+@property (nonatomic, assign) float x;
+@property (nonatomic, assign) float y;
 
-- (id)initWithX:(int)x and:(int)y;
+- (id)initWithX:(float)x and:(float)y;
 
 - (id)initWithCGPoint:(CGPoint)point;
 

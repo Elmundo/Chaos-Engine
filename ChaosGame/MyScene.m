@@ -35,7 +35,14 @@
 
 - (void)createBirdiotEntitites
 {
-    /* Create background entity */
+    [self createBackground];
+    [self createBirdiot];
+    [self createPipe];
+}
+
+/* Create background entity */
+- (void)createBackground
+{
     CEntity *bgEntity = [[CEntityFactory shared] createEntity];
     
     CPositionComponent *positionComponent = [[CPositionComponent alloc] init];
@@ -46,7 +53,6 @@
     rendererComponent.resourceName = @"bg.png";
     rendererComponent.positionRef = positionComponent.position;
     rendererComponent.textureSize = [[CSize alloc] initWithWidth:320 andHeight:382];
-    //rendererComponent.atlasName = @"android";
     
     CBackgroundComponent *bgComponent = [[CBackgroundComponent alloc] init];
     bgComponent.renderRef = rendererComponent.spriteNode;
@@ -58,6 +64,56 @@
     [bgEntity addComponent:bgComponent];
     
     [bgEntity initialize:@"bg"];
+
+}
+
+/* Create birdiod entity */
+- (void)createBirdiot
+{
+    CEntity *birdEntity = [[CEntityFactory shared] createEntity];
+    
+    CPositionComponent *positionComponent = [[CPositionComponent alloc] init];
+    positionComponent.position = [[CPoint alloc] initWithX:74.0f and:-240.0f];
+    
+    CRenderComponent *rendererComponent = [[CRenderComponent alloc] init];
+    rendererComponent.sceneName = NSStringFromClass([self class]);
+    rendererComponent.resourceName = @"bird-1.png";
+    rendererComponent.positionRef = positionComponent.position;
+    rendererComponent.textureSize = [[CSize alloc] initWithWidth:32 andHeight:22];
+    rendererComponent.anchorPoint = [[CPoint alloc] initWithCGPoint:self.anchorPoint];
+    
+    CBirdComponent *birdComponent = [[CBirdComponent alloc] init];
+    birdComponent.positionRef = positionComponent;
+    
+    [birdEntity addComponent:positionComponent];
+    [birdEntity addComponent:rendererComponent];
+    [birdEntity addComponent:birdComponent];
+    
+    [birdEntity initialize:@"bird"];
+}
+
+/* Create pipe entity */
+- (void)createPipe
+{
+    CEntity *pipeEntity = [[CEntityFactory shared] createEntity];
+    
+    CPositionComponent *positionComponent = [[CPositionComponent alloc] init];
+    positionComponent.position = [[CPoint alloc] initWithX:100.0f and:-100.0f];
+    
+    CRenderComponent *rendererComponent = [[CRenderComponent alloc] init];
+    rendererComponent.sceneName = NSStringFromClass([self class]);
+    rendererComponent.resourceName = @"tube-inner.png";
+    rendererComponent.positionRef = positionComponent.position;
+    rendererComponent.textureSize = [[CSize alloc] initWithWidth:83 andHeight:1];
+    
+    CPipeComponent *pipeComponent = [[CPipeComponent alloc] init];
+    pipeComponent.sceneName = NSStringFromClass([self class]);
+    
+    [pipeEntity addComponent:positionComponent];
+    [pipeEntity addComponent:rendererComponent];
+    [pipeEntity addComponent:pipeComponent];
+    
+    [pipeEntity initialize:@"pipe"];
 }
 
 - (void)createTestEntitites

@@ -22,7 +22,7 @@
     [super didRemovedFromEntity];
 }
 
-- (void)setPoint:(int)x and:(int)y
+- (void)setPoint:(float)x and:(float)y
 {
     _position.x = x;
     _position.y = y;
@@ -37,6 +37,8 @@
     _position.y = point.y;
     
     [self setPoint:point.x and:point.y];
+    CPositionEvent *event = [CPositionEvent eventWithType:[CPositionEvent CE_PositionChanged] withObject:self withBubbles:YES];
+    [self dispatchEventWithEvent:event];
 }
 
 #pragma mark GETTER & SETTER

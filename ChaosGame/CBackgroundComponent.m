@@ -17,7 +17,7 @@
     self.manager  = [CSceneManager shared];
     self.scene    = [self.manager getSceneWithName:self.sceneName];
     
-    self.speed = CGVectorMake(-4.0f, 0.0f);
+    self.speed = CGVectorMake(-120.0f, 0.0f);
     
     [self addEventListener:@selector(render_init:) message:[CRenderEvent CE_SpriteReady]];
 }
@@ -29,13 +29,11 @@
 
 -(void)update:(NSTimeInterval)dt
 {
-    NSLog(@"TimeInterval: %f", dt);
+    self.groundSprite1.position = CGPointMake(self.groundSprite1.position.x + (self.speed.dx * dt),
+                                              self.groundSprite1.position.y + self.speed.dy * dt);
     
-    self.groundSprite1.position = CGPointMake(self.groundSprite1.position.x + self.speed.dx,
-                                              self.groundSprite1.position.y + self.speed.dy);
-    
-    self.groundSprite2.position = CGPointMake(self.groundSprite2.position.x + self.speed.dx,
-                                              self.groundSprite2.position.y + self.speed.dy);
+    self.groundSprite2.position = CGPointMake(self.groundSprite2.position.x + self.speed.dx * dt,
+                                              self.groundSprite2.position.y + self.speed.dy * dt);
     
     if (self.groundSprite1.position.x <= -320) {
         self.groundSprite1.position = CGPointMake(320, self.groundSprite1.position.y);

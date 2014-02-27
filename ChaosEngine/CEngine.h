@@ -18,6 +18,10 @@ typedef NS_ENUM(int, EngineSystemType) {
 
 @property (nonatomic, strong) NSMutableDictionary *systems;
 
+@property (nonatomic, assign) NSTimeInterval systemTime;
+@property (nonatomic, assign) NSTimeInterval prevTime;
+@property (nonatomic, assign) NSTimeInterval elapsedTime;
+
 + (CEngine *)shared;
 + (CEngine *)initChaosEngine;
 

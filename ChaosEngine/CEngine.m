@@ -30,6 +30,7 @@
     self = [super init];
     if (self) {
         _systems = [[NSMutableDictionary alloc] init];
+        
     }
     
     return self;
@@ -50,12 +51,24 @@
 #pragma mark CSceneDelegate
 - (void)update:(CFTimeInterval)currentTime
 {
+    _systemTime = currentTime;
+    _elapsedTime = currentTime - _prevTime;
+    _prevTime = currentTime;
+    
+    static bool firsTime = true;
+    if (firsTime) {
+        _elapsedTime = 0.16;
+        firsTime = false;
+    }
+    
     for (NSString *key in _systems) {
         CEngineSystem *system =  [_systems objectForKey:key];
         if ([system respondsToSelector:@selector(update:)] && system.systemType == kEngineSystemTypeUpdate) {
-            [system update:currentTime];
+            [system update:_elapsedTime];
         }
     }
+    
+    
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event

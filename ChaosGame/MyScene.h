@@ -14,6 +14,8 @@
 #import "CRenderComponent.h"
 #import "CAnimationComponent.h"
 #import "CControllerComponent.h"
+#import "CBirdComponent.h"
+#import "CPipeComponent.h"
 
 #import "CTemplateManager.h"
 

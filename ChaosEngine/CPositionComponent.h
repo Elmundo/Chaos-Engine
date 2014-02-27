@@ -15,7 +15,7 @@
 
 @property (nonatomic, strong) CPoint *position;
 
-- (void)setPoint:(int)x and:(int)y;
+- (void)setPoint:(float)x and:(float)y;
 - (void)setWithCGPoint:(CGPoint)point;
 
 @end

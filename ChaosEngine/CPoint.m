@@ -14,14 +14,14 @@
 {
     self = [super init];
     if (self) {
-        _x = 0;
-        _y = 0;
+        _x = 0.0f;
+        _y = 0.0f;
     }
     
     return self;
 }
 
-- (id)initWithX:(int)x and:(int)y
+- (id)initWithX:(float)x and:(float)y
 {
     self = [super init];
     if (self) {

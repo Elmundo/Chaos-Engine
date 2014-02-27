@@ -28,6 +28,7 @@
 @property (nonatomic, strong) NSString *resourceName; // Outside
 @property (nonatomic, strong) NSString *atlasName; // Outside
 @property (nonatomic, strong) CSize *textureSize; // Outside
+@property (nonatomic, strong) CPoint *anchorPoint; // Outside
 
 @property (nonatomic, strong) SKSpriteNode *spriteNode;
 @property (nonatomic, strong) SKTexture *sourceTexture;
