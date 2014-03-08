@@ -10,7 +10,7 @@
 
 @implementation CRenderComponent
 
-#define kDefaultRenderAnchorPoint CGPointMake(0.0f, 1.0f)
+#define kDefaultRenderAnchorPoint CGPointMake(0.0f, 0.0f)
 
 @synthesize position = _position;
 
@@ -85,16 +85,26 @@
         self.spriteNode.anchorPoint = _anchorPoint.CGPoint;
     else
         self.spriteNode.anchorPoint = kDefaultRenderAnchorPoint;
-        
+    
+    if (self.rotateValue > 0) {
+        self.spriteNode.zRotation = [CUtil angleToRadian:self.rotateValue];
+    }
+    
+    if (self.scaleFactor) {
+        self.spriteNode.xScale = self.spriteNode.yScale = _scaleFactor;
+    }
+    
     [self.scene addChild:self.spriteNode];
     [self addEventListener:@selector(did_position_updated:) message:[CPositionEvent CE_PositionChanged] ];
-    CRenderEvent *event = [CRenderEvent eventWithType:[CRenderEvent CE_SpriteReady] withObject:self.spriteNode withAtlas:self.atlas withSprite:self.spriteNode withBubbles:YES]; //TODO: Need to be changed couse hard-coded string
+    CRenderEvent *event = [CRenderEvent eventWithType:[CRenderEvent CE_SpriteReady] withObject:self.spriteNode withAtlas:self.atlas withSprite:self.spriteNode withBubbles:YES];
     [self dispatchEventWithEvent:event];
 }
 
 - (void)didRemovedFromEntity
 {
     [super didRemovedFromEntity];
+    
+    [self.spriteNode removeFromParent];
     
     [self removeEventListener:@selector(did_position_updated:) message:[CPositionEvent CE_PositionChanged]];
 }

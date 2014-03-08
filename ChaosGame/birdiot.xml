@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TextureAtlas type="Dictionary" imagePath="bird.png" width="256" height="256">
+    <animation type="Array" name="Fly">
+        <texture type="SKTexture" name="bird-1.png" x="0" y="110" w="76" h="55"/>
+        <texture type="SKTexture" name="bird-2.png" x="0" y="55" w="76" h="55"/>
+        <texture type="SKTexture" name="bird-3.png" x="0" y="0" w="76" h="55"/>
+    </animation>
+</TextureAtlas>

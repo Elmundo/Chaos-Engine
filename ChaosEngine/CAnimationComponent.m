@@ -14,16 +14,16 @@
 {
     [super didAddedToEntity:owner];
     
-    self.spriteNode   = self.renderRef;
-    self.textureAtlas = self.atlasRef;
+    self.spriteNode   = (SKSpriteNode*)[self.rendererComponent performSelector:NSSelectorFromString(@"spriteNode")];
+    self.textureAtlas = (CTextureAtlas*)[self.rendererComponent performSelector:NSSelectorFromString(@"atlas")];
     
-    [self addEventListener:@selector(did_sprite_ready:) message:@"SpriteIsReady"]; //TODO Refactor this - no more hard-coded.
+    [self addEventListener:@selector(did_sprite_ready:) message:[CRenderEvent CE_SpriteReady]]; //TODO Refactor this - no more hard-coded.
 }
 
 - (void)playAnimationWithName:(NSString *)animationName
 {
     if (!self.spriteNode) {
-        self.spriteNode = self.renderRef;
+        @throw @"playAnimationWithName method: self.spriteNode is nil.";
     }
     
     NSArray *animationList = [_textureAtlas animationWithName:animationName];
@@ -39,11 +39,8 @@
 
 - (void)did_sprite_ready:(CEvent *)event
 {
-    self.renderRef = event.object;
-    self.atlasRef  = [event performSelector:NSSelectorFromString(@"atlas")];
-    
-    self.spriteNode   = self.renderRef;
-    self.textureAtlas = self.atlasRef;
+    self.spriteNode   = event.object;
+    self.textureAtlas = [event performSelector:NSSelectorFromString(@"atlas")];;
 }
 
 - (void)didRemovedFromEntity

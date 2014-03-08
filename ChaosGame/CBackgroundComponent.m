@@ -29,11 +29,9 @@
 
 -(void)update:(NSTimeInterval)dt
 {
-    self.groundSprite1.position = CGPointMake(self.groundSprite1.position.x + (self.speed.dx * dt),
-                                              self.groundSprite1.position.y + self.speed.dy * dt);
     
-    self.groundSprite2.position = CGPointMake(self.groundSprite2.position.x + self.speed.dx * dt,
-                                              self.groundSprite2.position.y + self.speed.dy * dt);
+    if (!self.groundSprite1 || !self.groundSprite2)
+        return;
     
     if (self.groundSprite1.position.x <= -320) {
         self.groundSprite1.position = CGPointMake(320, self.groundSprite1.position.y);
@@ -42,6 +40,14 @@
         self.groundSprite2.position = CGPointMake(320, self.groundSprite1.position.y);
         self.groundSprite1.position = CGPointMake(0, self.groundSprite1.position.y);
     }
+    
+    self.groundSprite1.position = CGPointMake(_groundSprite1.position.x + (_speed.dx * dt),
+                                              _groundSprite1.position.y);
+    
+    self.groundSprite2.position = CGPointMake(_groundSprite2.position.x + (_speed.dx * dt),
+                                              _groundSprite2.position.y);
+    
+    
 }
 
 -(void)render_init:(CRenderEvent *)event
@@ -50,15 +56,15 @@
     
     CGSize size = CGSizeMake(320, 98);
     
-    CGPoint position1 = CGPointMake(0, -382);
-    CGPoint position2 = CGPointMake(320, -382);
+    CGPoint position1 = CGPointMake(0, 0);
+    CGPoint position2 = CGPointMake(320, 0);
     
     self.groundSprite1 = [SKSpriteNode spriteNodeWithTexture:self.groundTexture size:size];
-    self.groundSprite1.anchorPoint = CGPointMake(0.0f, 1.0f);
+    self.groundSprite1.anchorPoint = CGPointMake(0.0f, 0.0f);
     self.groundSprite1.position = position1;
     
     self.groundSprite2 = [SKSpriteNode spriteNodeWithTexture:self.groundTexture size:size];
-    self.groundSprite2.anchorPoint = CGPointMake(0.0f, 1.0f);
+    self.groundSprite2.anchorPoint = CGPointMake(0.0f, 0.0f);
     self.groundSprite2.position = position2;
     
     [self.scene addChild:self.groundSprite1];

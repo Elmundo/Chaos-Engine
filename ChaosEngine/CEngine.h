@@ -15,7 +15,9 @@ typedef NS_ENUM(int, EngineSystemType) {
 };
 
 @interface CEngine : NSObject<CSceneDelegate>
-
+{
+    NSTimer *_timer;
+}
 @property (nonatomic, strong) NSMutableDictionary *systems;
 
 @property (nonatomic, assign) NSTimeInterval systemTime;

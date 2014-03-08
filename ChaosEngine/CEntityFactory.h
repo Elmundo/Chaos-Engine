@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "CEngineSystem.h"
 #import "CEntity.h"
+#import "CComponent.h"
 
 @interface CEntityFactory : CEngineSystem
 
@@ -17,6 +18,7 @@
 @property (nonatomic, assign) uint32_t lowestUnassignedEid;
 
 - (CEntity *)createEntity;
+- (void)removeEntity:(CEntity *)entity;
 
 + (id)shared;
 

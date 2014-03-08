@@ -7,6 +7,7 @@
 //
 
 #import "CEngineSystem.h"
+@class CControllerComponent;
 
 @interface CInputSystem : CEngineSystem
 
@@ -17,5 +18,8 @@
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event;
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event;
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event;
+
+- (void)addController:(CControllerComponent *)controller;
+- (void)removeController:(CControllerComponent *)controller;
 
 @end

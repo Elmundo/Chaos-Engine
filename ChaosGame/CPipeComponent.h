@@ -12,6 +12,10 @@
 #import "CRenderEvent.h"
 #import "CSceneManager.h"
 
+/*Dependency Time*/
+#import "CPositionComponent.h"
+#import "CRenderComponent.h"
+
 typedef NS_ENUM(NSInteger, kPipeDireciton)
 {
     kPipeDirecitonTop = 0,
@@ -23,9 +27,14 @@ typedef NS_ENUM(NSInteger, kPipeDireciton)
 @property (nonatomic, strong) NSString *sceneName; // Outside
 
 @property (nonatomic, weak) CScene *scene;
-@property (nonatomic, strong) SKSpriteNode *innerPipeSprite;
-@property (nonatomic, assign) int pipeInnerHeight;
+@property (nonatomic, strong) SKSpriteNode *pipeSprite;
+@property (nonatomic, strong) CPositionComponent *pos;
+@property (nonatomic, strong) CRenderComponent *render;
+
+@property (nonatomic, assign) int pipeHeight;
 @property (nonatomic, assign) int pipeDirection;
 @property (nonatomic, assign) CGRect unitCenterRect;
+
+@property (nonatomic, assign) CGVector speed;
 
 @end

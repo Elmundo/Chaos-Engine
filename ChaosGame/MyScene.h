@@ -16,11 +16,13 @@
 #import "CControllerComponent.h"
 #import "CBirdComponent.h"
 #import "CPipeComponent.h"
+#import "CControllerComponent.h"
 
 #import "CTemplateManager.h"
 
 /*in Game Part*/
 #import "CBackgroundComponent.h"
+#import "PipeSpawnerSystem.h"
 @interface MyScene : CScene 
 {
 

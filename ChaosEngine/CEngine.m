@@ -31,9 +31,16 @@
     if (self) {
         _systems = [[NSMutableDictionary alloc] init];
         
+        //For experimantal, update or timer, make your choice.
+        //_timer = [NSTimer scheduledTimerWithTimeInterval:0.016f target:self selector:@selector(main_update:) userInfo:nil repeats:YES];
     }
     
     return self;
+}
+
+-(void)main_update:(NSTimer *)timer
+{
+    NSLog(@"main_update: %f", timer.timeInterval);
 }
 
 - (void)addSystem:(CEngineSystem *)system
@@ -86,7 +93,7 @@
     for (NSString *key in _systems) {
         CEngineSystem *system =  [_systems objectForKey:key];
         if ([system respondsToSelector:@selector(update:)] && system.systemType == kEngineSystemTypeInput) {
-            [system touchesEnded:touches withEvent:event];
+            [system touchesMoved:touches withEvent:event];
         }
     }
 }
@@ -96,7 +103,7 @@
     for (NSString *key in _systems) {
         CEngineSystem *system =  [_systems objectForKey:key];
         if ([system respondsToSelector:@selector(update:)] && system.systemType == kEngineSystemTypeInput) {
-            [system touchesMoved:touches withEvent:event];
+            [system touchesEnded:touches withEvent:event];
         }
     }
 }

@@ -15,9 +15,7 @@
     [super didAddedToEntity:owner];
     
     _scene = [[CSceneManager shared] getSceneWithName:_sceneName];
-    _innerPipeSprite = [SKSpriteNode spriteNodeWithImageNamed:@"tube-inner.png"];
-    CGRect centerRect    = CGRectMake(0, 0, 83, 1);
-    _unitCenterRect  = [CUtil eulerToUnit:centerRect andResourceSize:CGSizeMake(83, 1)];
+    _speed = CGVectorMake(-120.0f, 0.0f);
     
     [self addEventListener:@selector(render_init:) message:[CRenderEvent CE_SpriteReady]];
     
@@ -30,17 +28,21 @@
 
 -(void)update:(NSTimeInterval)dt
 {
-    
+    [_pos setPoint:(_pos.position.x + (_speed.dx * dt)) and:_pos.position.y];
 }
 
 - (void)render_init:(CRenderEvent *)event
 {
-    _innerPipeSprite = event.sprite;
-
-    _innerPipeSprite.centerRect = _unitCenterRect;
-    _innerPipeSprite.yScale = _pipeInnerHeight;
+    self.render = (CRenderComponent*)[self getComponent:@"CRenderComponent"];
+    self.pos = (CPositionComponent*)[self getComponent:@"CPositionComponent"];
     
     [self removeEventListener:@selector(render_init:) message:[CRenderEvent CE_SpriteReady]];
+}
+
+#pragma mark PipeHead
+- (void)createPipeHeadSprite
+{
+    
 }
 
 @end

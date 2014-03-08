@@ -25,12 +25,12 @@
 
 -(void)update:(NSTimeInterval)dt
 {
+    /*
     float sinValueBasenOnTimeValue = cosf([CEngine shared].systemTime * 8.5f);
     float newYPos = _fixedYPos + (sinValueBasenOnTimeValue * 4);
     
-    NSLog(@"newYPos= %f  SinValue= %f", newYPos, sinValueBasenOnTimeValue);
-    
     [_positionComp setPoint:_positionComp.position.x and:newYPos];
+     */
 }
 
 @end

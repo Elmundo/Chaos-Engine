@@ -40,4 +40,17 @@
     return unitCoordFrame;
 }
 
++ (CGFloat)angleToRadian:(CGFloat)value
+{
+    CGFloat radian = kPI * (value / 180.0f);
+    
+    return radian;
+}
+
++ (CGFloat)radianToAngle:(CGFloat)value
+{
+    CGFloat angle = 180 * (value / kPI);
+    
+    return angle;
+}
 @end

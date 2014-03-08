@@ -31,13 +31,17 @@
     
     //[self createTestEntitites];
     [self createBirdiotEntitites];
+    
+    CEngineSystem *spawner = [[PipeSpawnerSystem alloc] init];
+    [[CEngine shared] addSystem:spawner];
 }
 
 - (void)createBirdiotEntitites
 {
     [self createBackground];
     [self createBirdiot];
-    [self createPipe];
+    //[self createPipeBottom];
+    //[self createPipeTop];
 }
 
 /* Create background entity */
@@ -46,13 +50,13 @@
     CEntity *bgEntity = [[CEntityFactory shared] createEntity];
     
     CPositionComponent *positionComponent = [[CPositionComponent alloc] init];
-    positionComponent.position = [[CPoint alloc] initWithX:0.0f and:0.0f];
+    positionComponent.position = [[CPoint alloc] initWithX:0.0f and:98.0f];
     
     CRenderComponent *rendererComponent = [[CRenderComponent alloc] init];
     rendererComponent.sceneName = NSStringFromClass([self class]);
     rendererComponent.resourceName = @"bg.png";
     rendererComponent.positionRef = positionComponent.position;
-    rendererComponent.textureSize = [[CSize alloc] initWithWidth:320 andHeight:382];
+    //rendererComponent.textureSize = [[CSize alloc] initWithWidth:320 andHeight:441];
     
     CBackgroundComponent *bgComponent = [[CBackgroundComponent alloc] init];
     bgComponent.renderRef = rendererComponent.spriteNode;
@@ -73,47 +77,31 @@
     CEntity *birdEntity = [[CEntityFactory shared] createEntity];
     
     CPositionComponent *positionComponent = [[CPositionComponent alloc] init];
-    positionComponent.position = [[CPoint alloc] initWithX:74.0f and:-240.0f];
+    positionComponent.position = [[CPoint alloc] initWithX:74.0f and:240.0f];
     
     CRenderComponent *rendererComponent = [[CRenderComponent alloc] init];
     rendererComponent.sceneName = NSStringFromClass([self class]);
-    rendererComponent.resourceName = @"bird-1.png";
+    rendererComponent.resourceName = @"bird.png";
+    rendererComponent.atlasName = @"birdiot";
     rendererComponent.positionRef = positionComponent.position;
-    rendererComponent.textureSize = [[CSize alloc] initWithWidth:32 andHeight:22];
     rendererComponent.anchorPoint = [[CPoint alloc] initWithCGPoint:self.anchorPoint];
+    rendererComponent.scaleFactor = 0.5f;
+    
+    CAnimationComponent *animationComponent = [[CAnimationComponent alloc] init];
+    animationComponent.rendererComponent = rendererComponent;
+    
+    CControllerComponent *birdController = [[CControllerComponent alloc] init];
     
     CBirdComponent *birdComponent = [[CBirdComponent alloc] init];
     birdComponent.positionRef = positionComponent;
     
     [birdEntity addComponent:positionComponent];
     [birdEntity addComponent:rendererComponent];
+    [birdEntity addComponent:animationComponent];
+    [birdEntity addComponent:birdController];
     [birdEntity addComponent:birdComponent];
     
     [birdEntity initialize:@"bird"];
-}
-
-/* Create pipe entity */
-- (void)createPipe
-{
-    CEntity *pipeEntity = [[CEntityFactory shared] createEntity];
-    
-    CPositionComponent *positionComponent = [[CPositionComponent alloc] init];
-    positionComponent.position = [[CPoint alloc] initWithX:100.0f and:-100.0f];
-    
-    CRenderComponent *rendererComponent = [[CRenderComponent alloc] init];
-    rendererComponent.sceneName = NSStringFromClass([self class]);
-    rendererComponent.resourceName = @"tube-inner.png";
-    rendererComponent.positionRef = positionComponent.position;
-    rendererComponent.textureSize = [[CSize alloc] initWithWidth:83 andHeight:1];
-    
-    CPipeComponent *pipeComponent = [[CPipeComponent alloc] init];
-    pipeComponent.sceneName = NSStringFromClass([self class]);
-    
-    [pipeEntity addComponent:positionComponent];
-    [pipeEntity addComponent:rendererComponent];
-    [pipeEntity addComponent:pipeComponent];
-    
-    [pipeEntity initialize:@"pipe"];
 }
 
 - (void)createTestEntitites
@@ -137,8 +125,7 @@
     rendererComponent.atlasName = @"android";
     
     CAnimationComponent *animationComponent = [[CAnimationComponent alloc] init];
-    animationComponent.renderRef = rendererComponent.spriteNode; //TODO: CSPriteNode' yaratıp içerisinde spriteNode'un referansı tutulmadığı sürece bu kod
-    animationComponent.atlasRef = rendererComponent.atlas; // TODO: Sürekli nil atanıyor.
+    animationComponent.rendererComponent = rendererComponent;
     
     CControllerComponent *controllerComponent = [[CControllerComponent alloc] init];
     [skeletonEntity addComponent:positionComponent];

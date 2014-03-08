@@ -9,6 +9,7 @@
 #import "CComponent.h"
 #import "CScene.h"
 #import "CTextureAtlas.h"
+#import "CRenderEvent.h"
 #import <SpriteKit/SpriteKit.h>
 
 #define kAppendStr(str1, str2)  [str1 stringByAppendingString:str2]
@@ -17,8 +18,7 @@
 
 @interface CAnimationComponent : CComponent
 
-@property (nonatomic, strong) id renderRef; // Outside
-@property (nonatomic, strong) id atlasRef; // Outside
+@property (nonatomic, strong) id rendererComponent;
 
 @property (nonatomic, strong) SKSpriteNode *spriteNode;
 @property (nonatomic, strong) CTextureAtlas *textureAtlas;

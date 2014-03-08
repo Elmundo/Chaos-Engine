@@ -8,8 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
+#define kPI 3.14f
+
 @interface CUtil : NSObject
 
 + (CGPoint)transformPoint:(CGPoint)position;
 + (CGRect)eulerToUnit:(CGRect)euler andResourceSize:(CGSize)sourceSize;
++ (CGFloat)radianToAngle:(CGFloat)value;
++ (CGFloat)angleToRadian:(CGFloat)value;
+
 @end

@@ -8,6 +8,7 @@
 
 #import "CInputSystem.h"
 #import "CEngine.h"
+#import "CControllerComponent.h"
 
 @implementation CInputSystem
 
@@ -22,6 +23,16 @@
     return instance;
 }
 
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        _components = [NSMutableArray arrayWithCapacity:10];
+    }
+    
+    return self;
+}
+
 - (void)update:(NSTimeInterval)dt
 {
     
@@ -29,17 +40,33 @@
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    
+    for (CControllerComponent *controller in _components) {
+        [controller touchesBegan:touches withEvent:event];
+    }
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    
+    for (CControllerComponent *controller in _components) {
+        [controller touchesMoved:touches withEvent:event];
+    }
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    
+    for (CControllerComponent *controller in _components) {
+        [controller touchesEnded:touches withEvent:event];
+    }
+}
+
+- (void)addController:(CControllerComponent *)controller
+{
+    [_components addObject:controller];
+}
+
+- (void)removeController:(CControllerComponent *)controller
+{
+    [_components removeObject:controller];
 }
 
 @end

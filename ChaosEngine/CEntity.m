@@ -17,6 +17,7 @@
     if (self) {
         self.componentDic = [[NSMutableDictionary alloc] initWithCapacity:3];
         self.dispatcher = [[CEventDispatcher alloc] init];
+       
     }
     
     return self;
