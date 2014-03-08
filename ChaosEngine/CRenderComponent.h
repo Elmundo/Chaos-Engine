@@ -20,9 +20,9 @@
 @interface CRenderComponent : CComponent
 
 @property (nonatomic, weak) CSceneManager *manager;
-@property (nonatomic, strong) CScene *scene;
-@property (nonatomic, strong) CPoint *position;
-@property (nonatomic, strong) id positionRef;
+@property (nonatomic, weak) CScene *scene;
+@property (nonatomic, weak) CPoint *position;
+@property (nonatomic, weak) id positionRef;
 
 @property (nonatomic, strong) NSString *sceneName; // Outside
 @property (nonatomic, strong) NSString *resourceName; // Outside

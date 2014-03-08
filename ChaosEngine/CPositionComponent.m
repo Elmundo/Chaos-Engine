@@ -20,6 +20,8 @@
 - (void)didRemovedFromEntity
 {
     [super didRemovedFromEntity];
+    
+    _position = nil;
 }
 
 - (void)setPoint:(float)x and:(float)y

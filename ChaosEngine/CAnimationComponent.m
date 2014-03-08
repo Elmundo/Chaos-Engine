@@ -46,6 +46,11 @@
 - (void)didRemovedFromEntity
 {
     [self didRemovedFromEntity];
+    
+    [self.spriteNode removeAllActions];
+    self.spriteNode = nil;
+    self.textureAtlas = nil;
+    
 }
 
 @end

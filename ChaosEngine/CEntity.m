@@ -8,6 +8,7 @@
 
 #import "CEntity.h"
 #import "CComponent.h"
+#import "CEntityFactory.h"
 
 @implementation CEntity
 
@@ -17,7 +18,7 @@
     if (self) {
         self.componentDic = [[NSMutableDictionary alloc] initWithCapacity:3];
         self.dispatcher = [[CEventDispatcher alloc] init];
-       
+        self.factory = [CEntityFactory shared];
     }
     
     return self;
@@ -67,6 +68,31 @@
             [component update:dt];
         }
     }
+}
+
+- (void)removeFromEntityFactory
+{
+    [self.factory removeEntity:self];
+}
+
+- (void)destroy
+{
+    for (NSString *key in _componentDic) {
+        CComponent *component = [_componentDic objectForKey:key];
+        [component didRemovedFromEntity];
+    }
+    
+    [self removeFromEntityFactory];
+    [self.componentDic removeAllObjects];
+    
+    self.componentDic = nil;
+    self.factory = nil;
+    self.dispatcher = nil;
+    self.name = nil;
+    self.eid = -1;
+    
+    
+
 }
 
 @end

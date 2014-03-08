@@ -24,6 +24,13 @@
 -(void)didRemovedFromEntity
 {
     [super didRemovedFromEntity];
+    
+    [self removeEventListener:@selector(render_init:) message:[CRenderEvent CE_SpriteReady]];
+    
+    _scene = nil;
+    _pipeSprite = nil;
+    _pos = nil;
+    _render = nil;
 }
 
 -(void)update:(NSTimeInterval)dt
@@ -37,12 +44,6 @@
     self.pos = (CPositionComponent*)[self getComponent:@"CPositionComponent"];
     
     [self removeEventListener:@selector(render_init:) message:[CRenderEvent CE_SpriteReady]];
-}
-
-#pragma mark PipeHead
-- (void)createPipeHeadSprite
-{
-    
 }
 
 @end

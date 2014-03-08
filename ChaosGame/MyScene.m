@@ -85,7 +85,7 @@
     rendererComponent.atlasName = @"birdiot";
     rendererComponent.positionRef = positionComponent.position;
     rendererComponent.anchorPoint = [[CPoint alloc] initWithCGPoint:self.anchorPoint];
-    rendererComponent.scaleFactor = 0.5f;
+    //rendererComponent.scaleFactor = 0.5f;
     
     CAnimationComponent *animationComponent = [[CAnimationComponent alloc] init];
     animationComponent.rendererComponent = rendererComponent;
@@ -135,38 +135,6 @@
     [skeletonEntity initialize:@"skeletion01"];
     
     [self performSelector:@selector(updateTest:) withObject:animationComponent afterDelay:3.0f];
-}
-
--(void)updateTest:(id)object
-{
-    CAnimationComponent *animationComponent = object;
-    [animationComponent playAnimationWithName:@"DownMove"];
-    
-    [self performSelector:@selector(updateTest1:) withObject:animationComponent afterDelay:4.0f];
-}
-
--(void)updateTest1:(id)object
-{
-    CAnimationComponent *animationComponent = object;
-    [animationComponent playAnimationWithName:@"LeftMove"];
-    
-    [self performSelector:@selector(updateTest2:) withObject:animationComponent afterDelay:4.0f];
-}
-
--(void)updateTest2:(id)object
-{
-    CAnimationComponent *animationComponent = object;
-    [animationComponent playAnimationWithName:@"TopMove"];
-    
-    [self performSelector:@selector(updateTest3:) withObject:animationComponent afterDelay:4.0f];
-}
-
--(void)updateTest3:(id)object
-{
-    CAnimationComponent *animationComponent = object;
-    [animationComponent playAnimationWithName:@"RightMove"];
-    
-    [self performSelector:@selector(updateTest:) withObject:animationComponent afterDelay:4.0f];
 }
 
 -(void)update:(CFTimeInterval)currentTime {

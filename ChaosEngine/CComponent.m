@@ -43,7 +43,7 @@
 // Override this method
 - (void)update:(NSTimeInterval)dt
 {
-    
+    // Stuff
 }
 
 - (void)addEventListener:(SEL)action message:(NSString *)message
@@ -59,11 +59,6 @@
 - (void)dispatchEventWithEvent:(CEvent *)event
 {
     [_owner.dispatcher dispatchEvent:event];
-}
-
-- (void)destroy
-{
-    [self didRemovedFromEntity];
 }
 
 @end

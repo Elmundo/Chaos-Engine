@@ -105,8 +105,17 @@
     [super didRemovedFromEntity];
     
     [self.spriteNode removeFromParent];
-    
+    [self.spriteNode removeAllChildren];
     [self removeEventListener:@selector(did_position_updated:) message:[CPositionEvent CE_PositionChanged]];
+    
+    self.spriteNode = nil;
+    self.sceneName = nil;
+    self.resourceName = nil;
+    self.atlasName = nil;
+    self.textureSize = nil;
+    self.anchorPoint = nil;
+    self.sourceTexture = nil;
+    self.atlas = nil;
 }
 
 - (void)did_position_updated:(CPositionEvent *)event

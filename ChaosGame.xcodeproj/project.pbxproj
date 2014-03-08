@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		6226108618CAFFB200AC9675 /* PipeSpawnerSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 6226108518CAFFB200AC9675 /* PipeSpawnerSystem.m */; };
 		6226108918CB4C5200AC9675 /* birdiot.xml in Resources */ = {isa = PBXBuildFile; fileRef = 6226108818CB4C5200AC9675 /* birdiot.xml */; };
-		6226108D18CB584E00AC9675 /* bird.png in Resources */ = {isa = PBXBuildFile; fileRef = 6226108C18CB584E00AC9675 /* bird.png */; };
+		6226108D18CB584E00AC9675 /* bird@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6226108C18CB584E00AC9675 /* bird@2x.png */; };
 		6242553B18BB3F6D003E6324 /* libobjc.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6242553A18BB3F6D003E6324 /* libobjc.dylib */; };
 		6242554018BB4435003E6324 /* CBackgroundComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 6242553F18BB4435003E6324 /* CBackgroundComponent.m */; };
 		6242555018BB456A003E6324 /* bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6242554218BB456A003E6324 /* bg@2x.png */; };
@@ -93,7 +93,7 @@
 		6226108418CAFFB200AC9675 /* PipeSpawnerSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PipeSpawnerSystem.h; sourceTree = "<group>"; };
 		6226108518CAFFB200AC9675 /* PipeSpawnerSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PipeSpawnerSystem.m; sourceTree = "<group>"; };
 		6226108818CB4C5200AC9675 /* birdiot.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = birdiot.xml; sourceTree = "<group>"; };
-		6226108C18CB584E00AC9675 /* bird.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bird.png; sourceTree = "<group>"; };
+		6226108C18CB584E00AC9675 /* bird@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bird@2x.png"; sourceTree = "<group>"; };
 		6242553A18BB3F6D003E6324 /* libobjc.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libobjc.dylib; path = usr/lib/libobjc.dylib; sourceTree = SDKROOT; };
 		6242553E18BB4435003E6324 /* CBackgroundComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBackgroundComponent.h; sourceTree = "<group>"; };
 		6242553F18BB4435003E6324 /* CBackgroundComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBackgroundComponent.m; sourceTree = "<group>"; };
@@ -248,7 +248,7 @@
 		6242554318BB456A003E6324 /* bird */ = {
 			isa = PBXGroup;
 			children = (
-				6226108C18CB584E00AC9675 /* bird.png */,
+				6226108C18CB584E00AC9675 /* bird@2x.png */,
 			);
 			path = bird;
 			sourceTree = "<group>";
@@ -544,7 +544,7 @@
 				6242555718BB456A003E6324 /* btn_share.png in Resources */,
 				6295C589189018E000B45AB9 /* android.xml in Resources */,
 				6242555018BB456A003E6324 /* bg@2x.png in Resources */,
-				6226108D18CB584E00AC9675 /* bird.png in Resources */,
+				6226108D18CB584E00AC9675 /* bird@2x.png in Resources */,
 				6226108918CB4C5200AC9675 /* birdiot.xml in Resources */,
 				6242555A18BB456A003E6324 /* tube-inner@2x.png in Resources */,
 				6295C587189018DA00B45AB9 /* android.png in Resources */,
@@ -730,6 +730,7 @@
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
+				WARNING_CFLAGS = "-Wno-arc-performSelector-leaks";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -746,6 +747,7 @@
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
+				WARNING_CFLAGS = "-Wno-arc-performSelector-leaks";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

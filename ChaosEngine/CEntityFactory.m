@@ -46,11 +46,6 @@
 
 - (void)removeEntity:(CEntity *)entity
 {
-    for (NSString *key in entity.componentDic) {
-        CComponent *component = [entity.componentDic objectForKey:key];
-        [component didRemovedFromEntity];
-    }
-    
     [self.entities removeObject:entity];
     [self.entityIdList removeObject:@(entity.eid)];
 }

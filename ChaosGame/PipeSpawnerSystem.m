@@ -31,7 +31,7 @@
     // Some Stuff
     _elapsedTime += dt;
     if (_elapsedTime >= _spawnInterval) {
-        NSLog(@"elapsedTime >= spawnInterval      %f >= %f", _elapsedTime, _spawnInterval);
+        //NSLog(@"elapsedTime >= spawnInterval      %f >= %f", _elapsedTime, _spawnInterval);
         _elapsedTime = _elapsedTime - _spawnInterval;
         
         
@@ -52,7 +52,8 @@
         CPositionComponent *pos = (CPositionComponent*)[entity getComponentWithName:@"CPositionComponent"];
         if(pos.position.x <= 0)
         {
-            [[CEntityFactory shared] removeEntity:entity];
+            [entity destroy];
+            [_pipeList removeObject:entity];
         }
     }
 }

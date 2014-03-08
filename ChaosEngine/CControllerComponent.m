@@ -35,12 +35,14 @@ static BOOL firstTouch = FALSE;
     
     [_inputManager removeController:self];
     _inputManager = nil;
-    
+    _renderRef = nil;
+    _positionRef = nil;
+    _pos = nil;
 }
 
 - (void)update:(NSTimeInterval)dt
 {
-    NSLog(@"delta time: %f", dt);
+    //NSLog(@"delta time: %f", dt);
     
     if (firstTouch) {
         if (_tappedScreen) {
@@ -52,7 +54,7 @@ static BOOL firstTouch = FALSE;
         [_pos setPoint:_pos.position.x and:posY];
         
         _vertSpeed -= (_fallingConstant * dt);
-        NSLog(@"posY: %f vertSpeed: %f",posY, _vertSpeed * dt);
+        //NSLog(@"posY: %f vertSpeed: %f",posY, _vertSpeed * dt);
     }
     
 }

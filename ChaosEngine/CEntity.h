@@ -11,9 +11,11 @@
 #import "CEventDispatcher.h"
 
 @class CComponent;
+@class CEntityFactory;
 
 @interface CEntity : NSObject
 
+@property (nonatomic, weak) CEntityFactory *factory;
 @property (nonatomic, strong) NSMutableDictionary *componentDic;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) CEventDispatcher *dispatcher;
@@ -24,6 +26,6 @@
 - (void)removeComponent:(CComponent *)component;
 - (CComponent *)getComponentWithName:(NSString *)componentName;
 - (void)update:(NSTimeInterval)dt;
-+ (unsigned)entityID;
+- (void)destroy;
 
 @end

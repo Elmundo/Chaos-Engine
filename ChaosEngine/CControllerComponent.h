@@ -20,13 +20,13 @@
     float _fallingConstant;
     float _tappedScreen;
 }
-@property (nonatomic, strong) id inputManager;
+@property (nonatomic, weak) id inputManager;
 
-@property (nonatomic, strong) id renderRef; // Outside
-@property (nonatomic, strong) id positionRef; // Outside
+@property (nonatomic, weak) id renderRef; // Outside
+@property (nonatomic, weak) id positionRef; // Outside
 
 /*Custom code - delete later*/
-@property (nonatomic, strong) CPositionComponent *pos;
+@property (nonatomic, weak) CPositionComponent *pos;
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event;
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event;

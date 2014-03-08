@@ -27,9 +27,9 @@ typedef NS_ENUM(NSInteger, kPipeDireciton)
 @property (nonatomic, strong) NSString *sceneName; // Outside
 
 @property (nonatomic, weak) CScene *scene;
-@property (nonatomic, strong) SKSpriteNode *pipeSprite;
-@property (nonatomic, strong) CPositionComponent *pos;
-@property (nonatomic, strong) CRenderComponent *render;
+@property (nonatomic, weak) SKSpriteNode *pipeSprite;
+@property (nonatomic, weak) CPositionComponent *pos;
+@property (nonatomic, weak) CRenderComponent *render;
 
 @property (nonatomic, assign) int pipeHeight;
 @property (nonatomic, assign) int pipeDirection;
