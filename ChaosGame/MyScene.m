@@ -134,7 +134,7 @@
     [skeletonEntity addComponent:controllerComponent];
     [skeletonEntity initialize:@"skeletion01"];
     
-    [self performSelector:@selector(updateTest:) withObject:animationComponent afterDelay:3.0f];
+    //[self performSelector:@selector(updateTest:) withObject:animationComponent afterDelay:3.0f];
 }
 
 -(void)update:(CFTimeInterval)currentTime {

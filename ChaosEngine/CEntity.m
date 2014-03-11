@@ -90,9 +90,6 @@
     self.dispatcher = nil;
     self.name = nil;
     self.eid = -1;
-    
-    
-
 }
 
 @end
