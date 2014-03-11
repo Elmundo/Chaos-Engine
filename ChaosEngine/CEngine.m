@@ -31,6 +31,7 @@
     if (self) {
         _systems = [[NSMutableDictionary alloc] init];
         
+        clog(@"Chaos game engine is initiated.");
         //For experimantal, update or timer, make your choice.
         //_timer = [NSTimer scheduledTimerWithTimeInterval:0.016f target:self selector:@selector(main_update:) userInfo:nil repeats:YES];
     }

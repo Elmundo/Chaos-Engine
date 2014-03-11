@@ -71,7 +71,7 @@
     [self.scene addChild:self.groundSprite2];
     
     self.position = (CPoint *)self.positionRef;
-    self.sprite   = (SKSpriteNode *)event.sprite;
+    self.sprite   = (SKSpriteNode *)event.object;
 }
 
 @end

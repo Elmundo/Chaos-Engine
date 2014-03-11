@@ -20,7 +20,7 @@ static BOOL firstTouch = FALSE;
     _inputManager = [CInputSystem shared];
     [_inputManager addController:self];
     
-    _pos = [self getComponent:@"CPositionComponent"];
+    _pos = (CPositionComponent*)[self getComponent:@"CPositionComponent"];
     
     _tappedScreen = FALSE;
     _vertSpeed = 0;
@@ -42,8 +42,6 @@ static BOOL firstTouch = FALSE;
 
 - (void)update:(NSTimeInterval)dt
 {
-    //NSLog(@"delta time: %f", dt);
-    
     if (firstTouch) {
         if (_tappedScreen) {
             _vertSpeed = _jumpSpeed;
@@ -54,7 +52,6 @@ static BOOL firstTouch = FALSE;
         [_pos setPoint:_pos.position.x and:posY];
         
         _vertSpeed -= (_fallingConstant * dt);
-        //NSLog(@"posY: %f vertSpeed: %f",posY, _vertSpeed * dt);
     }
     
 }
@@ -64,7 +61,7 @@ static BOOL firstTouch = FALSE;
 {
     if (!firstTouch) {
         firstTouch = YES;
-        CAnimationComponent *animation = [self getComponent:@"CAnimationComponent"];
+        CAnimationComponent *animation = (CAnimationComponent*)[self getComponent:@"CAnimationComponent"];
         [animation playAnimationWithName:@"Fly"];
     }
     

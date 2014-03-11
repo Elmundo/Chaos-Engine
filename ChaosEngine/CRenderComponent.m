@@ -96,7 +96,7 @@
     
     [self.scene addChild:self.spriteNode];
     [self addEventListener:@selector(did_position_updated:) message:[CPositionEvent CE_PositionChanged] ];
-    CRenderEvent *event = [CRenderEvent eventWithType:[CRenderEvent CE_SpriteReady] withObject:self.spriteNode withAtlas:self.atlas withSprite:self.spriteNode withBubbles:YES];
+    CRenderEvent *event = [CRenderEvent eventWithType:[CRenderEvent CE_SpriteReady] withObject:self.spriteNode withAtlas:self.atlas withBubbles:YES];
     [self dispatchEventWithEvent:event];
 }
 
