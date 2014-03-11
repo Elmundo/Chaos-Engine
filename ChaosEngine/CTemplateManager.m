@@ -7,6 +7,7 @@
 //
 
 #import "CTemplateManager.h"
+#import "CComponent.h"
 
 @implementation CTemplateManager
 
@@ -104,7 +105,10 @@
     CEntity *newEntity = [[CEntityFactory shared] createEntity];
     newEntity.name = entityXMLName;
     
-    [[CSerializer shared] deserialize:elementXML->firstChild];
+    NSArray *components = [[CSerializer shared] deserialize:elementXML->firstChild];
+    for (CComponent *component in components) {
+        [newEntity addComponent:component];
+    }
     
     return newEntity;
 }

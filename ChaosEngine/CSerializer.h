@@ -20,6 +20,6 @@ NS_ENUM(int, PropertyType)
 
 + (CSerializer *)shared;
 - (TBXMLElement *)serialize:(id)object;
-- (id)deserialize:(TBXMLElement *)xml;
+- (NSArray *)deserialize:(TBXMLElement *)xml;
 
 @end
