@@ -66,7 +66,6 @@
     unsigned int outPropertyCount, i = 0;
     enum PropertyType outType;
     objc_property_t *properties = class_copyPropertyList([parentObject class], &outPropertyCount);
-    id propertyObject;
 
     for (; i < outPropertyCount; ++i) {
         objc_property_t property = properties[i];
@@ -120,7 +119,6 @@
         
         NSString *supportName = [TBXML elementName:supportXMLElement];
         TBXMLElement *childXMLElement = supportXMLElement->firstChild;
-        NSString *childName = [TBXML elementName:childXMLElement];
         Class classObj = NSClassFromString(childType);
         id childObject = [[classObj alloc] init];
         
@@ -180,7 +178,7 @@
         scalarValue = [NSNumber numberWithInt:[stringValue intValue]];
     //long - Attention! l is treated as a 32-bit quantity on 64-bit programs.
     else if (isEqual(@"l"))
-        scalarValue = [NSNumber numberWithLong:[stringValue longLongValue]];
+        scalarValue = [NSNumber numberWithLongLong:[stringValue longLongValue]];
     //long long
     else if (isEqual(@"q"))
         scalarValue = [NSNumber numberWithLongLong:[stringValue longLongValue]];
@@ -195,7 +193,7 @@
         scalarValue = [NSNumber numberWithUnsignedInt:[stringValue intValue]];
     //unsigned long
     else if (isEqual(@"L"))
-        scalarValue = [NSNumber numberWithUnsignedLong:[stringValue longLongValue]];
+        scalarValue = [NSNumber numberWithUnsignedLongLong:[stringValue longLongValue]];
     //unsigned long long
     else if (isEqual(@"Q"))
         scalarValue = [NSNumber numberWithUnsignedLongLong:[stringValue longLongValue]];
