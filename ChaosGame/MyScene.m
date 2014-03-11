@@ -35,6 +35,7 @@
     /* ALL THESE DATA MUST BE DEFINED IN XML */
     /* Create the sekeleton entity and its all components*/
 
+    /*
     CEntity *skeletonEntity = [[CEntityFactory shared] createEntity];
     
     CPositionComponent *positionComponent = [[CPositionComponent alloc] init];
@@ -58,6 +59,7 @@
     [skeletonEntity initialize:@"skeletion01"];
 
     [self performSelector:@selector(updateTest:) withObject:animationComponent afterDelay:3.0f];
+     */
 }
 
 -(void)updateTest:(id)object
