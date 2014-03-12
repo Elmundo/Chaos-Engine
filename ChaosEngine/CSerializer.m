@@ -75,6 +75,12 @@
         NSString *propertyType    = [self propertyTypeStringOfProperty:property propertyType:&outType];
         TBXMLElement *propertyXMLElement = [TBXML childElementNamed:propertyName parentElement:parentXMLElement];
         
+        //There is no match in XML for propertyName so skip that!
+        if (propertyXMLElement == Nil) {
+            clog(@"There is no match for property ['%@'] in XML which is declared in class %s", propertyName, class_getName([parentObject class]));
+            continue;
+        }
+        
         // Instantiate the related property with type
         /* Class */
         if (outType == PropertyTypeClass) {
@@ -102,7 +108,7 @@
           
         }/* Scalar */
         else if(outType == PropertyTypeScalar) {
-            [self setScalarValue:parentObject xml:parentXMLElement propertyName:propertyName propertyType:propertyType];
+            [self setScalarValue:parentObject xml:propertyXMLElement propertyName:propertyName propertyType:propertyType];
             
         }
     }

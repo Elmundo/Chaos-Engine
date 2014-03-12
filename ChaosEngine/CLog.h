@@ -10,12 +10,20 @@
 
 #ifdef DEBUG
     #define clog(args...) _clog(__FILE__, __LINE__, __PRETTY_FUNCTION__, args)
-    #define cwarning(args...) _cwarning(__FILE__, __LINE__, __PRETTY_FUNCTION__, args)
-    #define cerror(args...) _cerror(__FILE__, __LINE__, __PRETTY_FUNCTION__, args)
 #else
     #define clog(x...)
-    #define cwarning(x...)
-    #define cerror(x...)
+#endif
+
+#ifdef WARNING
+    #define cwarning(args...) _cwarning(__FILE__, __LINE__, __PRETTY_FUNCTION__, args)
+#else
+    //#define cwarning(x...)
+#endif
+
+#ifdef ERROR
+    #define cerror(args...) _cerror(__FILE__, __LINE__, __PRETTY_FUNCTION__, args)
+#else
+    //#define cerror(x...)
 #endif
 
 @interface CLog : NSObject

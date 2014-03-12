@@ -29,19 +29,17 @@
 {
     self.backgroundColor = [SKColor redColor];
     
-    //[self createTestEntitites];
-    [self createBirdiotEntitites];
+    [self createTestEntitites];
+    //[self createBirdiotEntitites];
     
-    CEngineSystem *spawner = [[PipeSpawnerSystem alloc] init];
-    [[CEngine shared] addSystem:spawner];
+    //CEngineSystem *spawner = [[PipeSpawnerSystem alloc] init];
+    //[[CEngine shared] addSystem:spawner];
 }
 
 - (void)createBirdiotEntitites
 {
     [self createBackground];
     [self createBirdiot];
-    //[self createPipeBottom];
-    //[self createPipeTop];
 }
 
 /* Create background entity */
@@ -112,7 +110,7 @@
     
     /* ALL THESE DATA MUST BE DEFINED IN XML */
     /* Create the sekeleton entity and its all components*/
-    
+    /*
     CEntity *skeletonEntity = [[CEntityFactory shared] createEntity];
     
     CPositionComponent *positionComponent = [[CPositionComponent alloc] init];
@@ -133,7 +131,7 @@
     [skeletonEntity addComponent:animationComponent];
     [skeletonEntity addComponent:controllerComponent];
     [skeletonEntity initialize:@"skeletion01"];
-    
+    */
     //[self performSelector:@selector(updateTest:) withObject:animationComponent afterDelay:3.0f];
 }
 

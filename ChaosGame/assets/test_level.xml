@@ -19,8 +19,8 @@
     <Entity type="CEntity" name="skeletonEntity">
         <Component type="CPositionComponent" name"hebele">
             <position>
-                <x></x>
-                <y></y>
+                <x>10</x>
+                <y>12</y>
             </position>
         </Component>
         
@@ -42,6 +42,7 @@
     </Entity>
     
     <Entity type="CEntity" name="TestEntity">
+        <!--
         <Component type="CTestComponent" name="Test">
             <list type="NSMutableDictionary">
                 <_>
@@ -82,11 +83,11 @@
                 </_>
             </list>
         </Component>
-        
+        -->
         <Component type="CPositionComponent" name"hebele">
             <position>
-                <x></x>
-                <y></y>
+                <x>12</x>
+                <y>10</y>
             </position>
         </Component>
         
