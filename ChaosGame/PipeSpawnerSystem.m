@@ -26,6 +26,22 @@
     return self;
 }
 
+- (id)initWithLayer:(CLayer *)layer
+{
+    self = [super init];
+    if (self) {
+        
+        _layer = layer;
+        
+        _elapsedTime = 0.0;
+        _spawnInterval = 1.0;
+        
+        _pipeList = [NSMutableArray array];
+    }
+    
+    return self;
+}
+
 - (void)update:(NSTimeInterval)dt
 {
     // Some Stuff
@@ -50,7 +66,7 @@
     for (int i = 0; i < _pipeList.count; ++i) {
         CEntity *entity = _pipeList[i];
         CPositionComponent *pos = (CPositionComponent*)[entity getComponentWithName:@"CPositionComponent"];
-        if(pos.position.x <= 0)
+        if(pos.position.x <= -50)
         {
             [entity destroy];
             [_pipeList removeObject:entity];
@@ -79,6 +95,7 @@
     positionComponent.position = [[CPoint alloc] initWithX:400.0 and:_bottomYPos];
     
     CRenderComponent *rendererComponent = [[CRenderComponent alloc] init];
+    rendererComponent.layer = _layer;
     rendererComponent.sceneName = @"MyScene";
     rendererComponent.resourceName = @"tube.png";
     rendererComponent.positionRef = positionComponent.position;
@@ -104,6 +121,7 @@
     
     CRenderComponent *rendererComponent = [[CRenderComponent alloc] init];
     rendererComponent.sceneName = @"MyScene";
+    rendererComponent.layer = _layer;
     rendererComponent.resourceName = @"tube.png";
     rendererComponent.positionRef = positionComponent.position;
     rendererComponent.rotateValue = 180.0f;

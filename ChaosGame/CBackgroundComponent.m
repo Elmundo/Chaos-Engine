@@ -67,8 +67,8 @@
     self.groundSprite2.anchorPoint = CGPointMake(0.0f, 0.0f);
     self.groundSprite2.position = position2;
     
-    [self.scene addChild:self.groundSprite1];
-    [self.scene addChild:self.groundSprite2];
+    [self.layer addChild:self.groundSprite1];
+    [self.layer addChild:self.groundSprite2];
     
     self.position = (CPoint *)self.positionRef;
     self.sprite   = (SKSpriteNode *)event.object;

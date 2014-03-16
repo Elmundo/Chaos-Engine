@@ -29,11 +29,25 @@
 {
     self.backgroundColor = [SKColor redColor];
     
-    [self createTestEntitites];
+    //[self createTestEntitites];
+    [self createLayers];
     [self createBirdiotEntitites];
     
-    CEngineSystem *spawner = [[PipeSpawnerSystem alloc] init];
+    CEngineSystem *spawner = [[PipeSpawnerSystem alloc] initWithLayer:pipeLayer];
     [[CEngine shared] addSystem:spawner];
+}
+
+- (void)createLayers
+{
+    birdLayer   = [[BirdLayer   alloc] init];
+    groundLayer = [[GroundLayer alloc] init];
+    pipeLayer   = [[PipeLayer   alloc] init];
+    bgLayer     = [[BGLayer     alloc] init];
+    
+    [self addChild:bgLayer];
+    [self addChild:pipeLayer];
+    [self addChild:groundLayer];
+    [self addChild:birdLayer];
 }
 
 - (void)createBirdiotEntitites
@@ -51,12 +65,14 @@
     positionComponent.position = [[CPoint alloc] initWithX:0.0f and:98.0f];
     
     CRenderComponent *rendererComponent = [[CRenderComponent alloc] init];
+    rendererComponent.layer = bgLayer;
     rendererComponent.sceneName = NSStringFromClass([self class]);
     rendererComponent.resourceName = @"bg.png";
     rendererComponent.positionRef = positionComponent.position;
     //rendererComponent.textureSize = [[CSize alloc] initWithWidth:320 andHeight:441];
     
     CBackgroundComponent *bgComponent = [[CBackgroundComponent alloc] init];
+    bgComponent.layer = groundLayer;
     bgComponent.renderRef = rendererComponent.spriteNode;
     bgComponent.positionRef = positionComponent.position;
     bgComponent.sceneName = NSStringFromClass([self class]);
@@ -66,7 +82,6 @@
     [bgEntity addComponent:bgComponent];
     
     [bgEntity initialize:@"bg"];
-
 }
 
 /* Create birdiod entity */
@@ -79,6 +94,7 @@
     
     CRenderComponent *rendererComponent = [[CRenderComponent alloc] init];
     rendererComponent.sceneName = NSStringFromClass([self class]);
+    rendererComponent.layer = birdLayer;
     rendererComponent.resourceName = @"bird.png";
     rendererComponent.atlasName = @"birdiot";
     rendererComponent.positionRef = positionComponent.position;

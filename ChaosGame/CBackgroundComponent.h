@@ -11,6 +11,7 @@
 #import "CPoint.h"
 #import "CSceneManager.h"
 #import "CRenderEvent.h"
+#import "CLayer.h"
 #import <SpriteKit/SpriteKit.h>
 
 @interface CBackgroundComponent : CComponent
@@ -20,6 +21,7 @@
 @property (nonatomic, strong) id positionRef; // Outside
 @property (nonatomic, strong) id renderRef; // Outside
 
+@property (nonatomic, strong) CLayer *layer;
 @property (nonatomic, strong) SKSpriteNode *sprite;
 @property (nonatomic, strong) NSString *sceneName;
 @property (nonatomic, strong) CScene *scene;

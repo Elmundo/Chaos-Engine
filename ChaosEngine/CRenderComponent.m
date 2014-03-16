@@ -94,7 +94,10 @@
         self.spriteNode.xScale = self.spriteNode.yScale = _scaleFactor;
     }
     
-    [self.scene addChild:self.spriteNode];
+    //Add to layer, not to scene directly
+    
+    [self.layer addChild:self.spriteNode];
+    //[self.scene addChild:self.spriteNode];
     [self addEventListener:@selector(did_position_updated:) message:[CPositionEvent CE_PositionChanged] ];
     CRenderEvent *event = [CRenderEvent eventWithType:[CRenderEvent CE_SpriteReady] withObject:self.spriteNode withAtlas:self.atlas withBubbles:YES];
     [self dispatchEventWithEvent:event];
