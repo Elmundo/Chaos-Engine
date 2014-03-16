@@ -30,10 +30,10 @@
     self.backgroundColor = [SKColor redColor];
     
     [self createTestEntitites];
-    //[self createBirdiotEntitites];
+    [self createBirdiotEntitites];
     
-    //CEngineSystem *spawner = [[PipeSpawnerSystem alloc] init];
-    //[[CEngine shared] addSystem:spawner];
+    CEngineSystem *spawner = [[PipeSpawnerSystem alloc] init];
+    [[CEngine shared] addSystem:spawner];
 }
 
 - (void)createBirdiotEntitites

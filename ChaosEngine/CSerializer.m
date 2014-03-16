@@ -92,7 +92,13 @@
                 continue;
             }
             
-            [self traverseObject:propertyXMLElement object:propertyObject];
+            // NSString is a unique class which does not need to be traversed.
+            // If type is NSString, do not traverse, just assign the string value
+            if ([propertyType isEqualToString:@"NSString"]) {
+                propertyObject = [NSString stringWithFormat:@"%s", propertyXMLElement->text];
+            }else{
+                [self traverseObject:propertyXMLElement object:propertyObject];
+            }
             
             [parentObject setValue:propertyObject forKey:propertyName];
             
