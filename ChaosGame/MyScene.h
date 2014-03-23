@@ -23,16 +23,12 @@
 /*in Game Part*/
 #import "CBackgroundComponent.h"
 #import "PipeSpawnerSystem.h"
-#import "BirdLayer.h"
-#import "GroundLayer.h"
-#import "PipeLayer.h"
-#import "BGLayer.h"
 
 @interface MyScene : CScene 
 {
-    BirdLayer     *birdLayer;
-    GroundLayer *groundLayer;
-    PipeLayer     *pipeLayer;
-    BGLayer         *bgLayer;
+    CLayer     *birdLayer;
+    CLayer *groundLayer;
+    CLayer     *pipeLayer;
+    CLayer         *bgLayer;
 }
 @end

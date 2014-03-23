@@ -39,10 +39,10 @@
 
 - (void)createLayers
 {
-    birdLayer   = [[BirdLayer   alloc] init];
-    groundLayer = [[GroundLayer alloc] init];
-    pipeLayer   = [[PipeLayer   alloc] init];
-    bgLayer     = [[BGLayer     alloc] init];
+    birdLayer   = [[CLayer alloc] init];
+    groundLayer = [[CLayer alloc] init];
+    pipeLayer   = [[CLayer alloc] init];
+    bgLayer     = [[CLayer alloc] init];
     
     [self addChild:bgLayer];
     [self addChild:pipeLayer];

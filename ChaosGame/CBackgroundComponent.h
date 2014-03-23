@@ -12,6 +12,7 @@
 #import "CSceneManager.h"
 #import "CRenderEvent.h"
 #import "CLayer.h"
+#import "CRenderComponent.h"
 #import <SpriteKit/SpriteKit.h>
 
 @interface CBackgroundComponent : CComponent
@@ -26,6 +27,7 @@
 @property (nonatomic, strong) NSString *sceneName;
 @property (nonatomic, strong) CScene *scene;
 @property (nonatomic, strong) CPoint *position;
+@property (nonatomic, strong) CRenderComponent *renderer;
 
 /*Scroll Slide Sprite*/
 @property (nonatomic, strong) SKSpriteNode *groundSprite1;

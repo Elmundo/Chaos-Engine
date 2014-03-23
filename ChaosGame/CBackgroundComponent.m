@@ -16,6 +16,10 @@
     
     self.manager  = [CSceneManager shared];
     self.scene    = [self.manager getSceneWithName:self.sceneName];
+    self.renderer = (CRenderComponent *)[self getComponent:@"CRenderComponent"];
+    if (self.renderer.spriteNode) {
+        [self render_init:nil];
+    }
     
     self.speed = CGVectorMake(-120.0f, 0.0f);
     
