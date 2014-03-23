@@ -41,4 +41,14 @@
     // Some Stuff
 }
 
+- (void)didBeginContact:(SKPhysicsContact *)contact
+{
+    // Some Stuff
+}
+
+- (void)didEndContact:(SKPhysicsContact *)contact
+{
+    // Some Stuff
+}
+
 @end

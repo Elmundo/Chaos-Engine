@@ -19,16 +19,21 @@
 #import "CControllerComponent.h"
 #import "CLayer.h"
 #import "CTemplateManager.h"
+#import "CPhysicComponent.h"
 
 /*in Game Part*/
 #import "CBackgroundComponent.h"
 #import "PipeSpawnerSystem.h"
 
-@interface MyScene : CScene 
+static const uint32_t pipeCategory   =  0x1 << 0;
+static const uint32_t birdCategory   =  0x1 << 1;
+static const uint32_t groundCategory =  0x1 << 2;
+
+@interface MyScene : CScene
 {
-    CLayer     *birdLayer;
+    CLayer *birdLayer;
     CLayer *groundLayer;
-    CLayer     *pipeLayer;
-    CLayer         *bgLayer;
+    CLayer *pipeLayer;
+    CLayer *bgLayer;
 }
 @end

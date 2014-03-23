@@ -11,6 +11,10 @@
 #define kMinGap 148.0;
 #define kMaxGap 380.0;
 
+static const uint32_t pipeCategory   =  0x1 << 0;
+static const uint32_t birdCategory   =  0x1 << 1;
+static const uint32_t groundCategory =  0x1 << 2;
+
 @implementation PipeSpawnerSystem
 
 - (id)init
@@ -103,9 +107,15 @@
     CPipeComponent *pipeComponent = [[CPipeComponent alloc] init];
     pipeComponent.sceneName = NSStringFromClass([self class]);
     
+    CPhysicComponent *physicComponent = [[CPhysicComponent alloc] init];
+    physicComponent.category  = pipeCategory;
+    physicComponent.collision = groundCategory | birdCategory;
+    physicComponent.contact   = groundCategory | birdCategory;
+    
     [pipeEntity addComponent:positionComponent];
     [pipeEntity addComponent:rendererComponent];
     [pipeEntity addComponent:pipeComponent];
+    [pipeEntity addComponent:physicComponent];
     
     [pipeEntity initialize:@"pipeBottom"];
     
@@ -130,9 +140,15 @@
     CPipeComponent *pipeComponent = [[CPipeComponent alloc] init];
     pipeComponent.sceneName = NSStringFromClass([self class]);
     
+    CPhysicComponent *physicComponent = [[CPhysicComponent alloc] init];
+    physicComponent.category  = pipeCategory;
+    physicComponent.collision = groundCategory | birdCategory;
+    physicComponent.contact   = groundCategory | birdCategory;
+
     [pipeEntity addComponent:positionComponent];
     [pipeEntity addComponent:rendererComponent];
     [pipeEntity addComponent:pipeComponent];
+    [pipeEntity addComponent:physicComponent];
     
     [pipeEntity initialize:@"pipeTop"];
     

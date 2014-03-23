@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		6217A19018CFB69400CC1EF5 /* CLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 6217A18F18CFB69400CC1EF5 /* CLog.m */; };
+		6221170618DEC9A30016F271 /* CPhysicComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 6221170518DEC9A30016F271 /* CPhysicComponent.m */; };
+		6221170918DEE9F00016F271 /* CPhysicSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 6221170818DEE9F00016F271 /* CPhysicSystem.m */; };
 		6226108618CAFFB200AC9675 /* PipeSpawnerSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 6226108518CAFFB200AC9675 /* PipeSpawnerSystem.m */; };
 		6226108918CB4C5200AC9675 /* birdiot.xml in Resources */ = {isa = PBXBuildFile; fileRef = 6226108818CB4C5200AC9675 /* birdiot.xml */; };
 		6226108D18CB584E00AC9675 /* bird@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6226108C18CB584E00AC9675 /* bird@2x.png */; };
@@ -95,6 +97,10 @@
 /* Begin PBXFileReference section */
 		6217A18E18CFB69400CC1EF5 /* CLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CLog.h; path = ChaosEngine/CLog.h; sourceTree = "<group>"; };
 		6217A18F18CFB69400CC1EF5 /* CLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CLog.m; path = ChaosEngine/CLog.m; sourceTree = "<group>"; };
+		6221170418DEC9A30016F271 /* CPhysicComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CPhysicComponent.h; path = ChaosEngine/CPhysicComponent.h; sourceTree = "<group>"; };
+		6221170518DEC9A30016F271 /* CPhysicComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CPhysicComponent.m; path = ChaosEngine/CPhysicComponent.m; sourceTree = "<group>"; };
+		6221170718DEE9F00016F271 /* CPhysicSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CPhysicSystem.h; path = ChaosEngine/CPhysicSystem.h; sourceTree = "<group>"; };
+		6221170818DEE9F00016F271 /* CPhysicSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CPhysicSystem.m; path = ChaosEngine/CPhysicSystem.m; sourceTree = "<group>"; };
 		6226108418CAFFB200AC9675 /* PipeSpawnerSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PipeSpawnerSystem.h; sourceTree = "<group>"; };
 		6226108518CAFFB200AC9675 /* PipeSpawnerSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PipeSpawnerSystem.m; sourceTree = "<group>"; };
 		6226108818CB4C5200AC9675 /* birdiot.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = birdiot.xml; sourceTree = "<group>"; };
@@ -411,6 +417,10 @@
 				626277811886A4BF00006BBD /* CPoint.m */,
 				6242555D18BB4E8B003E6324 /* CSize.h */,
 				6242555E18BB4E8B003E6324 /* CSize.m */,
+				6221170418DEC9A30016F271 /* CPhysicComponent.h */,
+				6221170518DEC9A30016F271 /* CPhysicComponent.m */,
+				6221170718DEE9F00016F271 /* CPhysicSystem.h */,
+				6221170818DEE9F00016F271 /* CPhysicSystem.m */,
 				6262776118852B1F00006BBD /* CViewController.xib */,
 			);
 			name = ChaosEngine;
@@ -598,6 +608,7 @@
 				62627793188926B300006BBD /* CPositionEvent.m in Sources */,
 				6262776218852B1F00006BBD /* CViewController.m in Sources */,
 				6242554018BB4435003E6324 /* CBackgroundComponent.m in Sources */,
+				6221170618DEC9A30016F271 /* CPhysicComponent.m in Sources */,
 				62AA5421188442E8001FA053 /* CPositionComponent.m in Sources */,
 				62627796188935C800006BBD /* CAnimationComponent.m in Sources */,
 				626277701885732800006BBD /* CLogger.m in Sources */,
@@ -622,6 +633,7 @@
 				62AA5414188434C9001FA053 /* CEntityFactory.m in Sources */,
 				62CF0D4C189BCF2A006CD912 /* CSerializer.m in Sources */,
 				6262776618852CDE00006BBD /* CScene.m in Sources */,
+				6221170918DEE9F00016F271 /* CPhysicSystem.m in Sources */,
 				62AA5417188434D5001FA053 /* CComponent.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -75,8 +75,6 @@
             [system update:_elapsedTime];
         }
     }
-    
-    
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
@@ -105,6 +103,26 @@
         CEngineSystem *system =  [_systems objectForKey:key];
         if ([system respondsToSelector:@selector(update:)] && system.systemType == kEngineSystemTypeInput) {
             [system touchesEnded:touches withEvent:event];
+        }
+    }
+}
+
+-(void)didBeginContact:(SKPhysicsContact *)contact
+{
+    for (NSString *key in _systems) {
+        CEngineSystem *system =  [_systems objectForKey:key];
+        if ([system respondsToSelector:@selector(update:)] && system.systemType == KEngineSystemTypePhysic) {
+            [system didBeginContact:contact];
+        }
+    }
+}
+
+- (void)didEndContact:(SKPhysicsContact *)contact
+{
+    for (NSString *key in _systems) {
+        CEngineSystem *system =  [_systems objectForKey:key];
+        if ([system respondsToSelector:@selector(update:)] && system.systemType == KEngineSystemTypePhysic) {
+            [system didEndContact:contact];
         }
     }
 }

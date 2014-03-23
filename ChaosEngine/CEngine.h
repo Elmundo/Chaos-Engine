@@ -7,11 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <SpriteKit/SpriteKit.h>
 #import "CSceneManager.h"
 
 typedef NS_ENUM(int, EngineSystemType) {
     kEngineSystemTypeUpdate = 0,
-    kEngineSystemTypeInput
+    kEngineSystemTypeInput = 1,
+    KEngineSystemTypePhysic = 2,
 };
 
 @interface CEngine : NSObject<CSceneDelegate>

@@ -19,6 +19,7 @@
     [self.engine addSystem:[CSceneManager shared]];
     [self.engine addSystem:[CEntityFactory shared]];
     [self.engine addSystem:[CInputSystem shared]];
+    [self.engine addSystem:[CPhysicSystem shared]];
     
     // This part must be defined after system adding operations
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];

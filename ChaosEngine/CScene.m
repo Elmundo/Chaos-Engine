@@ -60,4 +60,15 @@
     [self.delegate touchesMoved:touches withEvent:event];
 }
 
+/* Physic Operations*/
+-(void)didBeginContact:(SKPhysicsContact *)contact
+{
+    [self.delegate didBeginContact:contact];
+}
+
+-(void)didEndContact:(SKPhysicsContact *)contact
+{
+    [self.delegate didEndContact:contact];
+}
+
 @end

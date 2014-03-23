@@ -15,10 +15,12 @@
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event;
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event;
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event;
+- (void)didBeginContact:(SKPhysicsContact *)contact;
+- (void)didEndContact:(SKPhysicsContact *)contact;
 
 @end
 
-@interface CScene : SKScene
+@interface CScene : SKScene<SKPhysicsContactDelegate>
 
 @property (nonatomic, strong) id<CSceneDelegate> delegate;
 @property (nonatomic, assign) BOOL contentCreated;

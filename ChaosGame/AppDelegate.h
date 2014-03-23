@@ -13,6 +13,7 @@
 #import "CSceneManager.h"
 #import "CEntityFactory.h"
 #import "CInputSystem.h"
+#import "CPhysicSystem.h"
 #import "ViewController.h"
 
 @interface AppDelegate : CAppDelegate

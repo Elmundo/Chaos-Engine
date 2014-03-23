@@ -15,6 +15,8 @@
         /* Setup your scene here */
         [CLogger logWithTarget:self method:@"initWithSize:" message:@"My scene is init."];
         NSLog(@"ViewController size = Width:%f Height:%f", size.width, size.height);
+        self.physicsWorld.contactDelegate = self;
+        self.physicsWorld.gravity = CGVectorMake(0, 0);
     }
 
     return self;
@@ -109,11 +111,17 @@
     CBirdComponent *birdComponent = [[CBirdComponent alloc] init];
     birdComponent.positionRef = positionComponent;
     
+    CPhysicComponent *physicComponent = [[CPhysicComponent alloc] init];
+    physicComponent.category  = birdCategory;
+    physicComponent.collision = groundCategory | pipeCategory;
+    physicComponent.contact   = groundCategory | pipeCategory;
+    
     [birdEntity addComponent:positionComponent];
     [birdEntity addComponent:rendererComponent];
     [birdEntity addComponent:animationComponent];
     [birdEntity addComponent:birdController];
     [birdEntity addComponent:birdComponent];
+    [birdEntity addComponent:physicComponent];
     
     [birdEntity initialize:@"bird"];
 }

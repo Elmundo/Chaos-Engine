@@ -13,6 +13,7 @@
 #import "CEntity.h"
 #import "CEntityFactory.h"
 #import "CLayer.h"
+#import "CPhysicComponent.h"
 
 @interface PipeSpawnerSystem : CEngineSystem
 {

@@ -56,7 +56,6 @@ static BOOL firstTouch = FALSE;
     
 }
 
-
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     if (!firstTouch) {
