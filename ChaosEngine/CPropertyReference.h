@@ -1,5 +1,5 @@
 //
-//  CSerializable.h
+//  CPropertyReference.h
 //  ChaosGame
 //
 //  Created by Baris YILMAZ on 4/14/14.
@@ -7,11 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "TBXML.h"
+#import "CEntity.h"
+#import "CSerializable.h"
 
-@class CEntity;
+@interface CPropertyReference : CSerializable
 
-@interface CSerializable : NSObject
+@property (nonatomic, strong) NSString *word;
+@property (nonatomic, strong) NSString *format;
 
 - (void)deserialize:(TBXMLElement *)element;
 - (id)getPropertyWithEntity:(CEntity *)owner;

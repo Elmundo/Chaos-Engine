@@ -104,19 +104,20 @@
         @throw [NSException exceptionWithName:@"XMLParsingException"
                                        reason:[NSString stringWithFormat:(@"Entity: %@ could not be found!"), entityName]
                                      userInfo:nil];
-            }
+    }
     
     NSString *entityXMLName = [TBXML valueOfAttributeNamed:@"name" forElement:elementXML];
     
     // Instantiate shell entity
     CEntity *newEntity = [[CEntityFactory shared] createEntity];
-    newEntity.name = entityXMLName;
     
     // Fill the entity with components according to the information from XML description
     NSArray *components = [[CSerializer shared] deserialize:elementXML->firstChild];
     for (CComponent *component in components) {
         [newEntity addComponent:component];
     }
+    
+    [newEntity initialize:entityXMLName];
     
     return newEntity;
 }

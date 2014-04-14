@@ -59,6 +59,11 @@
     return component;
 }
 
+- (id)getProperty:(CSerializable *)serializable
+{
+    return [serializable getPropertyWithEntity:self];
+}
+
 - (void)update:(NSTimeInterval)dt
 {
     //Call all component's update method

@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "TBXML.h"
 #import <objc/runtime.h>
+#import "CSerializable.h"
+
 NS_ENUM(int, PropertyType)
 {
     PropertyTypeClass = 0,

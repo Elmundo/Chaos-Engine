@@ -10,6 +10,7 @@
 #import "TBXML.h"
 #import "CSerializer.h"
 #import "CEntityFactory.h"
+#import "CSerializable.h"
 
 @interface CTemplateManager : CEngineSystem
 {

@@ -81,14 +81,21 @@
             continue;
         }
         
+        /* CSerializable object */
+        if ([NSClassFromString(propertyType) isSubclassOfClass:[CSerializable class]]) {
+            Class classObj = NSClassFromString(propertyType);
+            CSerializable *propertyObject = [[classObj alloc] init];
+            [propertyObject deserialize:propertyXMLElement];
+            [parentObject setValue:propertyObject forKey:propertyName];
+        }
         // Instantiate the related property with type
         /* String*/
-        if (outType == PropertyTypeString) {
+        else if (outType == PropertyTypeString) {
             NSString *stringValue = [TBXML textForElement:propertyXMLElement];
             [parentObject setValue:stringValue forKey:propertyName];
         }
         /* Class */
-        if (outType == PropertyTypeClass) {
+        else if (outType == PropertyTypeClass) {
             Class classObj = NSClassFromString(propertyType);
             id propertyObject = [[classObj alloc] init];
             

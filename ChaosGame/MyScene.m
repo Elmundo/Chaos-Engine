@@ -27,16 +27,21 @@
 {
     self.backgroundColor = [SKColor redColor];
     
-    [self createTestEntitites];
-    [self createBirdiotEntitites];
-    
+    //[self createTestEntitites];
+    [self createBirdiotWithTemplate];
+    //[self createBirdiotEntitites];
+    //[self createSpawner];
+}
+
+- (void)createSpawner
+{
     CEngineSystem *spawner = [[PipeSpawnerSystem alloc] init];
     [[CEngine shared] addSystem:spawner];
 }
 
 - (void)createBirdiotEntitites
 {
-    [self createBackground];
+    //[self createBackground];
     [self createBirdiot];
 }
 
@@ -81,7 +86,6 @@
     rendererComponent.atlasName = @"birdiot";
     rendererComponent.positionRef = positionComponent.position;
     rendererComponent.anchorPoint = [[CPoint alloc] initWithCGPoint:self.anchorPoint];
-    //rendererComponent.scaleFactor = 0.5f;
     
     CAnimationComponent *animationComponent = [[CAnimationComponent alloc] init];
     animationComponent.rendererComponent = rendererComponent;
@@ -98,6 +102,12 @@
     [birdEntity addComponent:birdComponent];
     
     [birdEntity initialize:@"bird"];
+}
+
+- (void)createBirdiotWithTemplate
+{
+    [[CTemplateManager shared] loadFile:@"birdiot_level.xml"];
+    [[CTemplateManager shared] instantiateEntity:@"Birdiot"];
 }
 
 - (void)createTestEntitites
