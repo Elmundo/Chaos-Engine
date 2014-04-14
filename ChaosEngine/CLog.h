@@ -17,13 +17,13 @@
 #ifdef WARNING
     #define cwarning(args...) _cwarning(__FILE__, __LINE__, __PRETTY_FUNCTION__, args)
 #else
-    //#define cwarning(x...)
+    #define cwarning(x...)
 #endif
 
 #ifdef ERROR
     #define cerror(args...) _cerror(__FILE__, __LINE__, __PRETTY_FUNCTION__, args)
 #else
-    //#define cerror(x...)
+    #define cerror(x...)
 #endif
 
 @interface CLog : NSObject

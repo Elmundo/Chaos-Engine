@@ -59,7 +59,7 @@
 {
     CScene *scene = [self.sceneDic objectForKey:sceneName];
     if (scene == nil) {
-        NSLog(@"[CSceneManager: Error= There is no such a scene %@]", sceneName);
+        cerror(@"[CSceneManager: Error= There is no such a scene %@]", sceneName);
     }
     
     return scene;

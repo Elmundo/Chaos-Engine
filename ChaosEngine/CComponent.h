@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "CSerializable.h"
-#import "CLogger.h"
 #import "CEvent.h"
 #import "CUtil.h"
 

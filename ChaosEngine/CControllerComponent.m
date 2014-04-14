@@ -66,18 +66,16 @@ static BOOL firstTouch = FALSE;
     }
     
     _tappedScreen = YES;
-    
-    NSLog(@"Touch Began..");
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    NSLog(@"Touch Moved..");
+
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    NSLog(@"Touch Ended..");
+
 }
 
 @end

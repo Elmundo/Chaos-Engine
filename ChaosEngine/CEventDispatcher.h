@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "CEventListener.h"
 #import "CEvent.h"
-#import "CLogger.h"
 
 @interface CEventDispatcher : NSObject
 

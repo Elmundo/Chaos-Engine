@@ -7,7 +7,6 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
-#import "CLogger.h"
 
 @protocol CSceneDelegate <NSObject>
 

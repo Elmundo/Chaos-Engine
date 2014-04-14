@@ -13,8 +13,6 @@
 -(id)initWithSize:(CGSize)size {    
     if (self = [super initWithSize:size]) {
         /* Setup your scene here */
-        [CLogger logWithTarget:self method:@"initWithSize:" message:@"My scene is init."];
-        NSLog(@"ViewController size = Width:%f Height:%f", size.width, size.height);
     }
 
     return self;

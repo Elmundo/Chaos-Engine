@@ -24,7 +24,7 @@
 /* Override this method in subclass */
 - (void)didAddedToEntity:(CEntity *)owner
 {
-    [CLogger logWithTarget:self method:@"Component is created" message:self.componentName];
+    clog(@"Component is created %@", self.componentName);
 }
 
 /* Override this method in subclass */

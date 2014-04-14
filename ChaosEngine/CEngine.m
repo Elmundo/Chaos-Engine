@@ -41,7 +41,7 @@
 
 -(void)main_update:(NSTimer *)timer
 {
-    NSLog(@"main_update: %f", timer.timeInterval);
+
 }
 
 - (void)addSystem:(CEngineSystem *)system

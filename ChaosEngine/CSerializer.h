@@ -13,7 +13,8 @@ NS_ENUM(int, PropertyType)
 {
     PropertyTypeClass = 0,
     PropertyTypeCollection = 1,
-    PropertyTypeScalar = 2
+    PropertyTypeScalar = 2,
+    PropertyTypeString = 3
 };
 
 @interface CSerializer : NSObject
