@@ -22,17 +22,30 @@
 
 - (void)deserialize:(TBXMLElement *)element
 {
+    
     NSString *expression = [TBXML textForElement:element];
-    _format = [expression substringToIndex:1];
-    _word   = [expression substringFromIndex:1];
+    NSArray *list = (NSMutableArray*)[expression componentsSeparatedByString:@"."];
+    
+    _format = [list[0] substringToIndex:1];
+    _word   = [list[0] substringFromIndex:1];
+    
+    NSRange range;
+    range.location = 1;
+    range.length = list.count - 1;
+    
+    _propertyList = [list subarrayWithRange:range];
 }
 
 - (id)getPropertyWithEntity:(CEntity *)owner
 {
     if ([_format isEqual: @"@"]) //Component Lookup
     {
-        
         id element = [owner getComponentWithName:_word];
+        for (int i=0; i < _propertyList.count; ++i) {
+            element = [element valueForKey:_propertyList[i]];
+            //element = [element valueForKeyPath:_propertyList[i]];
+        }
+        
         return element;
         
     }else if ([_format isEqualToString:@"#"]) //Global Entity Lookup

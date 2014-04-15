@@ -18,6 +18,9 @@
 #define kDefaultTimePerFrame 0.125f
 
 @interface CAnimationComponent : CComponent
+{
+    NSString *acking;
+}
 
 @property (nonatomic, strong) id rendererComponent;
 
@@ -26,6 +29,7 @@
 @property (nonatomic, strong) SKAction *animationAction;
 @property (nonatomic, strong) CPropertyReference *renderProperty;
 @property (nonatomic, strong) CComponent *renderComponent;
+
 - (void)playAnimationWithName:(NSString *)animationName;
 
 @end

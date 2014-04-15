@@ -29,7 +29,7 @@
         </Component>
         
         <Component type="CAnimationComponent" name="Animation">
-            <renderProperty>@CRenderComponent</renderProperty>
+            <renderProperty>@CRenderComponent.position.x</renderProperty>
         </Component>
         
         <Component type="CControllerComponent" name="Controller">

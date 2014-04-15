@@ -50,7 +50,6 @@
 
 #pragma mark GETTER & SETTER
 
-
 - (void)setValue:(id)value forKey:(NSString *)key
 {
     if([key isEqualToString:@"x"])
@@ -64,7 +63,7 @@
 
 - (void)setValue:(id)value forUndefinedKey:(NSString *)key
 {
-    
+    //
 }
 
 @end

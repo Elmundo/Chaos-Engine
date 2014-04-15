@@ -13,6 +13,7 @@
 @interface CPropertyReference : CSerializable
 
 @property (nonatomic, strong) NSString *word;
+@property (nonatomic, strong) NSArray *propertyList;
 @property (nonatomic, strong) NSString *format;
 
 - (void)deserialize:(TBXMLElement *)element;
