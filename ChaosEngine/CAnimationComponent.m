@@ -41,7 +41,7 @@
 - (void)did_sprite_ready:(CEvent *)event
 {
     self.spriteNode   = event.object;
-    self.textureAtlas = [event performSelector:NSSelectorFromString(@"atlas")];;
+    self.textureAtlas = [event performSelector:NSSelectorFromString(@"atlas")];
 }
 
 - (void)didRemovedFromEntity

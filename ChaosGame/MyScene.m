@@ -106,42 +106,13 @@
 
 - (void)createBirdiotWithTemplate
 {
+    // Load the level xml description file
     [[CTemplateManager shared] loadFile:@"birdiot_level.xml"];
+    
+    // Instantiate the entities which will be visible in game
     [[CTemplateManager shared] instantiateEntity:@"Birdiot"];
 }
 
-- (void)createTestEntitites
-{
-    /* TEST LEVEL IS LOADING : Implementing data-driven paradigm */
-    [[CTemplateManager shared] loadFile:@"test_level.xml"];
-    [[CTemplateManager shared] instantiateEntity:@"TestEntity"];
-    
-    /* ALL THESE DATA MUST BE DEFINED IN XML */
-    /* Create the sekeleton entity and its all components*/
-    /*
-    CEntity *skeletonEntity = [[CEntityFactory shared] createEntity];
-    
-    CPositionComponent *positionComponent = [[CPositionComponent alloc] init];
-    positionComponent.position = [[CPoint alloc] initWithX:CGRectGetMidX(self.frame) and:CGRectGetMidY(self.frame)];
-    
-    CRenderComponent *rendererComponent = [[CRenderComponent alloc] init];
-    rendererComponent.sceneName = NSStringFromClass([self class]);
-    rendererComponent.resourceName = @"android.png";
-    rendererComponent.positionRef = positionComponent.position;
-    rendererComponent.atlasName = @"android";
-    
-    CAnimationComponent *animationComponent = [[CAnimationComponent alloc] init];
-    animationComponent.rendererComponent = rendererComponent;
-    
-    CControllerComponent *controllerComponent = [[CControllerComponent alloc] init];
-    [skeletonEntity addComponent:positionComponent];
-    [skeletonEntity addComponent:rendererComponent];
-    [skeletonEntity addComponent:animationComponent];
-    [skeletonEntity addComponent:controllerComponent];
-    [skeletonEntity initialize:@"skeletion01"];
-    */
-    //[self performSelector:@selector(updateTest:) withObject:animationComponent afterDelay:3.0f];
-}
 
 -(void)update:(CFTimeInterval)currentTime {
     /* Called before each frame is rendered */

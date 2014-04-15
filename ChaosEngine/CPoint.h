@@ -14,9 +14,7 @@
 @property (nonatomic, assign) float y;
 
 - (id)initWithX:(float)x and:(float)y;
-
 - (id)initWithCGPoint:(CGPoint)point;
-
 - (CGPoint)CGPoint;
 
 @end
