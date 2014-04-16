@@ -18,7 +18,9 @@
 {
     [super didAddedToEntity:owner];
     
-    self.manager = [CSceneManager shared];
+    _manager = [CSceneManager shared];
+    
+    _layer = [_manager getLayerWithName:_layerName];
     
     if (self.resourceName == nil) {
         clog(@"resourceName property is nil.");
@@ -63,14 +65,9 @@
         clog(@"There is no such a texture: %@", self.resourceName);
         return;
     }
-  
-    self.scene = [self.manager getSceneWithName:self.sceneName];
-    if (self.spriteNode == nil) {
-        clog(@"There is no such a scene: %@", self.sceneName);
-    }
    
     // Init the sprite position
-    self.position = (CPoint *)self.positionRef;
+    _position = [owner getProperty:_positionProperty];
     
     CGPoint pos = [self.position CGPoint];
     self.spriteNode.position = pos;
@@ -88,7 +85,10 @@
         self.spriteNode.xScale = self.spriteNode.yScale = _scaleFactor;
     }
     
-    [self.scene addChild:self.spriteNode];
+    //Add to layer, not to scene directly
+    
+    [self.layer addChild:self.spriteNode];
+    //[self.scene addChild:self.spriteNode];
     [self addEventListener:@selector(did_position_updated:) message:[CPositionEvent CE_PositionChanged] ];
     CRenderEvent *event = [CRenderEvent eventWithType:[CRenderEvent CE_SpriteReady] withObject:self.spriteNode withAtlas:self.atlas withBubbles:YES];
     [self dispatchEventWithEvent:event];
@@ -103,7 +103,7 @@
     [self removeEventListener:@selector(did_position_updated:) message:[CPositionEvent CE_PositionChanged]];
     
     self.spriteNode = nil;
-    self.sceneName = nil;
+    self.layerName = nil;
     self.resourceName = nil;
     self.atlasName = nil;
     self.textureSize = nil;

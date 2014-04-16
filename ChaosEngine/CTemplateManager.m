@@ -71,9 +71,10 @@
         
         else if (strcmp(currentElemenet->name, "Entity") == 0){
             clog(@"Loading Entity: %@", [TBXML valueOfAttributeNamed:@"name" forElement:currentElemenet]);
-            NSValue *entity      = [NSValue valueWithPointer:currentElemenet];
+            //NSValue *entity      = [NSValue valueWithPointer:currentElemenet];
+            NSData *entity = [NSData dataWithBytes:&currentElemenet length:sizeof(currentElemenet)];
             NSString *entityName = [TBXML valueOfAttributeNamed:@"name" forElement:currentElemenet];
-            
+
             [_entityDic setValue:entity forKey:entityName];
         }
         
@@ -97,24 +98,39 @@
 
 - (id)instantiateEntity:(NSString *)entityName
 {
-    NSValue *entityXMLWrapper = [_entityDic objectForKey:entityName];
-    TBXMLElement *elementXML = [entityXMLWrapper pointerValue];
-    if (elementXML == Nil) {
+    
+    
+    //NSValue *entityXMLWrapper = [_entityDic objectForKey:entityName];
+    //TBXMLElement *entityXML = [entityXMLWrapper pointerValue];
+    NSData *entityXMLWrapper = [_entityDic objectForKey:entityName];
+    TBXMLElement *entityXML;
+    [entityXMLWrapper getBytes:&entityXML];
+    if (entityXML == Nil) {
         clog(@"elementXml is null!");
         @throw [NSException exceptionWithName:@"XMLParsingException"
                                        reason:[NSString stringWithFormat:(@"Entity: %@ could not be found!"), entityName]
                                      userInfo:nil];
     }
     
-    NSString *entityXMLName = [TBXML valueOfAttributeNamed:@"name" forElement:elementXML];
+    NSString *entityXMLName = [TBXML valueOfAttributeNamed:@"name" forElement:entityXML];
+    //clog(@"TEST2: Entity Name is %@", entityXMLName);
     
+    NSString *componentName = [TBXML valueOfAttributeNamed:@"type" forElement:entityXML->firstChild];
+    clog(@"TEST2: Component Name is %@", componentName);
+    //NSLog(@"Component reference %p", entityXML->firstChild);
     // Instantiate shell entity
     CEntity *newEntity = [[CEntityFactory shared] createEntity];
     
+    TBXMLElement *componentXML = entityXML->firstChild;
+    
     // Fill the entity with components according to the information from XML description
-    NSArray *components = [[CSerializer shared] deserialize:elementXML->firstChild];
+    NSArray *components = [[CSerializer shared] deserialize:entityXML->firstChild];
     for (CComponent *component in components) {
         [newEntity addComponent:component];
+    }
+    
+    for (NSString *key in newEntity.componentDic) {
+        NSLog(@"Component Dic Key: %@", key);
     }
     
     [newEntity initialize:entityXMLName];

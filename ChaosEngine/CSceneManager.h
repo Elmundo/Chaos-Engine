@@ -10,17 +10,27 @@
 #import "CEngineSystem.h"
 #import "CScene.h"
 
+@class CLayer;
+
+@protocol CSceneManager <NSObject>
+
+- (CScene *)getSceneWithName:(NSString *)sceneName;
+
+@end
+
 @interface CSceneManager : CEngineSystem
 
 @property (nonatomic, strong) SKView *rootView;
 @property (nonatomic, strong) NSMutableDictionary *sceneDic;
 @property (nonatomic, assign) BOOL isAnySceneActive;
+@property (nonatomic, strong) CScene *activeScene;
 
 - (void)addScene:(CScene *)scene;
 - (CScene *)createSceneWithName:(NSString *)sceneName;
 - (CScene *)getSceneWithName:(NSString *)sceneName;
 
 - (NSDictionary *)getScenes;
+- (CLayer *)getLayerWithName:(NSString *)layerName;
 
 + (CSceneManager *)shared;
 

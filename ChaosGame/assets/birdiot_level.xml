@@ -12,7 +12,7 @@
     <Entity type="CEntity" name="Birdiot">
         
         <!-- POSITION -->
-        <Component type="CPositionComponent" name"Position">
+        <Component type="CPositionComponent" name="Position">
             <position>
                 <x>74</x>
                 <y>240</y>
@@ -21,10 +21,10 @@
         
         <!-- RENDER -->
         <Component type="CRenderComponent" name="Render">
-            <sceneName>MyScene</sceneName>
+            <layerName>birdLayer</layerName>
             <resourceName>bird.png</resourceName>
             <atlasName>android</atlasName>
-            <!-- <positionRef>@CPositionComponent.position</positionRef>-->
+            <positionProperty>@Position.position</positionProperty>
             <anchorPoint>
                 <x>0.5</x>
                 <y>0.5</y>
@@ -33,7 +33,7 @@
         
         <!-- ANIMATION -->
         <Component type="CAnimationComponent" name="Animation">
-            <renderProperty>@CRenderComponent</renderProperty>
+            <renderProperty>@Render</renderProperty>
         </Component>
         
         <!-- CONTROLLER -->

@@ -53,7 +53,8 @@
 {
     CComponent *component = [self.componentDic objectForKey:componentName];
     if (component == nil) {
-        cerror(@"[EntityName: %@] There is no sucj a component [%@]", self.name, componentName);
+        cerror(@"[EntityName: %@] There is no such a component [%@]", self.name, componentName);
+        @throw [NSException exceptionWithName:@"ComponentException" reason:@"Component could not be found!" userInfo:nil];
     }
     
     return component;

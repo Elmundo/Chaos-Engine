@@ -17,14 +17,19 @@
 #import "CBirdComponent.h"
 #import "CPipeComponent.h"
 #import "CControllerComponent.h"
-
+#import "CLayer.h"
 #import "CTemplateManager.h"
+#import "CPropertyReference.h"
 
 /*in Game Part*/
 #import "CBackgroundComponent.h"
 #import "PipeSpawnerSystem.h"
-@interface MyScene : CScene 
-{
 
+@interface MyScene : CScene
+{
+    CLayer *birdLayer;
+    CLayer *groundLayer;
+    CLayer *pipeLayer;
+    CLayer *bgLayer;
 }
 @end

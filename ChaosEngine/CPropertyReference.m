@@ -7,14 +7,24 @@
 //
 
 #import "CPropertyReference.h"
+#import "CEntityFactory.h"
 
 @implementation CPropertyReference
 
-- (id)init
+- (id)initWithExpression:(NSString *)expression
 {
     self = [super init];
     if (self) {
-        //
+        NSArray *list = (NSMutableArray*)[expression componentsSeparatedByString:@"."];
+        
+        _format = [list[0] substringToIndex:1];
+        _word   = [list[0] substringFromIndex:1];
+        
+        NSRange range;
+        range.location = 1;
+        range.length = list.count - 1;
+        
+        _propertyList = [list subarrayWithRange:range];
     }
     
     return self;
@@ -51,9 +61,18 @@
     }else if ([_format isEqualToString:@"#"]) //Global Entity Lookup
     {
         
+        CEntityFactory *factory = [CEntityFactory shared];
+        id element = [factory getEntity:_word];
+        for (int i=0; i < _propertyList.count; ++i) {
+            element = [element valueForKey:_propertyList[i]];
+            //element = [element valueForKeyPath:_propertyList[i]];
+        }
+        
+        return element;
+        
     }else if ([_format isEqualToString:@"!"]) //XML Lookup
     {
-        
+        //
     }
     
     return nil;

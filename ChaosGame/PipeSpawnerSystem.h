@@ -12,15 +12,19 @@
 #import "CPipeComponent.h"
 #import "CEntity.h"
 #import "CEntityFactory.h"
+#import "CLayer.h"
 
 @interface PipeSpawnerSystem : CEngineSystem
 {
     NSMutableArray *_pipeList;
+    CLayer *_layer;
     CGFloat _spawnInterval; //in sec
     CGFloat _elapsedTime; //in sec;
     
     CGFloat _bottomYPos;
     CGFloat _topYPos;
 }
+
+- (id)initWithLayer:(CLayer *)layer;
 
 @end

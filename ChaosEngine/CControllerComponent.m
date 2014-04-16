@@ -20,7 +20,7 @@ static BOOL firstTouch = FALSE;
     _inputManager = [CInputSystem shared];
     [_inputManager addController:self];
     
-    _pos = (CPositionComponent*)[self getComponent:@"CPositionComponent"];
+    _pos = (CPositionComponent*)[self getComponent:@"Position"];
     
     _tappedScreen = FALSE;
     _vertSpeed = 0;

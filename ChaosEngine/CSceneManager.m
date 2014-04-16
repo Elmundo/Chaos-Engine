@@ -7,6 +7,7 @@
 //
 
 #import "CSceneManager.h"
+#import "CLayer.h"
 
 @implementation CSceneManager
 
@@ -52,6 +53,7 @@
 
 - (void)activateScene:(CScene *)scene
 {
+    _activeScene = scene;
     [self.rootView presentScene:scene];
 }
 
@@ -68,6 +70,19 @@
 - (NSDictionary *)getScenes
 {
     return self.sceneDic;
+}
+
+- (CLayer *)getLayerWithName:(NSString *)layerName
+{
+    NSArray *layers = [_activeScene children];
+    for (CLayer *layer in layers) {
+        if ([layer.name isEqualToString:layerName] ) {
+            return layer;
+        }
+    }
+    
+    cerror(@"['%@'] layer could not be found!", layerName);
+    return nil;
 }
 
 @end
