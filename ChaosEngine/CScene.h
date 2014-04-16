@@ -8,6 +8,7 @@
 
 #import <SpriteKit/SpriteKit.h>
 #import "CLogger.h"
+#import "CPhysicSystem.h"
 
 @protocol CSceneDelegate <NSObject>
 
@@ -15,12 +16,10 @@
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event;
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event;
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event;
-- (void)didBeginContact:(SKPhysicsContact *)contact;
-- (void)didEndContact:(SKPhysicsContact *)contact;
 
 @end
 
-@interface CScene : SKScene<SKPhysicsContactDelegate>
+@interface CScene : SKScene
 
 @property (nonatomic, strong) id<CSceneDelegate> delegate;
 @property (nonatomic, assign) BOOL contentCreated;

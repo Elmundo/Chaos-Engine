@@ -57,11 +57,12 @@
        Instead, the size passed into the constructor method is used. 
     */
     if (self.textureSize) {
-        self.spriteNode = [SKSpriteNode spriteNodeWithTexture:defaultTexture size:[self.textureSize CGSize]];
+        self.spriteNode = [CSpriteNode spriteNodeWithTexture:defaultTexture size:[self.textureSize CGSize]];
     }
     else{
-        self.spriteNode = [SKSpriteNode spriteNodeWithTexture:defaultTexture];
+        self.spriteNode = [CSpriteNode spriteNodeWithTexture:defaultTexture];
     }
+    self.spriteNode.userInteractionEnabled = self.userInteractionEnabled;
 
     if (self.spriteNode == nil) {
         [CLogger errorWithTarget:self method:@"didAddedToEntity"

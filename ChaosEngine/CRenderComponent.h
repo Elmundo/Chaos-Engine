@@ -16,6 +16,7 @@
 #import "CRenderEvent.h"
 #import "CSize.h"
 #import "CLayer.h"
+#import "CSpriteNode.h"
 #import <SpriteKit/SpriteKit.h>
 
 @interface CRenderComponent : CComponent
@@ -34,8 +35,9 @@
 @property (nonatomic, strong) CPoint *anchorPoint; // Outside
 @property (nonatomic, assign) CGFloat rotateValue; // Outside
 @property (nonatomic, assign) CGFloat scaleFactor; // Outside
+@property (nonatomic, assign) BOOL userInteractionEnabled;
 
-@property (nonatomic, strong) SKSpriteNode *spriteNode;
+@property (nonatomic, strong) CSpriteNode *spriteNode;
 @property (nonatomic, strong) SKTexture *sourceTexture;
 @property (nonatomic, strong) CTextureAtlas *atlas;
 

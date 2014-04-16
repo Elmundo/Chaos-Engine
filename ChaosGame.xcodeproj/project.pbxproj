@@ -27,6 +27,10 @@
 		6242555C18BB456A003E6324 /* tube1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6242554F18BB456A003E6324 /* tube1@2x.png */; };
 		6242555F18BB4E8B003E6324 /* CSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 6242555E18BB4E8B003E6324 /* CSize.m */; };
 		624819E318D6377700877225 /* CLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 624819E218D6377700877225 /* CLayer.m */; };
+		62496A3C18F1A11C00238B95 /* CSpriteNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 62496A3B18F1A11B00238B95 /* CSpriteNode.m */; };
+		62496A4318F1D32300238B95 /* map.png in Resources */ = {isa = PBXBuildFile; fileRef = 62496A4218F1D32300238B95 /* map.png */; };
+		62496A4718F1D3C500238B95 /* dirtj.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 62496A4618F1D3C500238B95 /* dirtj.jpg */; };
+		62496A4A18F1EB5B00238B95 /* CContactEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 62496A4918F1EB5B00238B95 /* CContactEvent.m */; };
 		6253D205188033120017790C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6253D204188033120017790C /* Foundation.framework */; };
 		6253D207188033120017790C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6253D206188033120017790C /* CoreGraphics.framework */; };
 		6253D209188033120017790C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6253D208188033120017790C /* UIKit.framework */; };
@@ -123,6 +127,12 @@
 		6242555E18BB4E8B003E6324 /* CSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CSize.m; path = ChaosEngine/CSize.m; sourceTree = "<group>"; };
 		624819E118D6377700877225 /* CLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CLayer.h; path = ChaosEngine/CLayer.h; sourceTree = "<group>"; };
 		624819E218D6377700877225 /* CLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CLayer.m; path = ChaosEngine/CLayer.m; sourceTree = "<group>"; };
+		62496A3A18F1A11B00238B95 /* CSpriteNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CSpriteNode.h; path = ChaosEngine/CSpriteNode.h; sourceTree = "<group>"; };
+		62496A3B18F1A11B00238B95 /* CSpriteNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CSpriteNode.m; path = ChaosEngine/CSpriteNode.m; sourceTree = "<group>"; };
+		62496A4218F1D32300238B95 /* map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = map.png; path = assets/myassets/map.png; sourceTree = "<group>"; };
+		62496A4618F1D3C500238B95 /* dirtj.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = dirtj.jpg; path = assets/myassets/dirtj.jpg; sourceTree = "<group>"; };
+		62496A4818F1EB5B00238B95 /* CContactEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CContactEvent.h; path = ChaosEngine/CContactEvent.h; sourceTree = "<group>"; };
+		62496A4918F1EB5B00238B95 /* CContactEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CContactEvent.m; path = ChaosEngine/CContactEvent.m; sourceTree = "<group>"; };
 		6253D201188033120017790C /* ChaosGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChaosGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6253D204188033120017790C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6253D206188033120017790C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -266,6 +276,15 @@
 				6226108C18CB584E00AC9675 /* bird@2x.png */,
 			);
 			path = bird;
+			sourceTree = "<group>";
+		};
+		62496A3D18F1AFFF00238B95 /* myassets */ = {
+			isa = PBXGroup;
+			children = (
+				62496A4618F1D3C500238B95 /* dirtj.jpg */,
+				62496A4218F1D32300238B95 /* map.png */,
+			);
+			name = myassets;
 			sourceTree = "<group>";
 		};
 		6253D1F8188033120017790C = {
@@ -421,7 +440,11 @@
 				6221170518DEC9A30016F271 /* CPhysicComponent.m */,
 				6221170718DEE9F00016F271 /* CPhysicSystem.h */,
 				6221170818DEE9F00016F271 /* CPhysicSystem.m */,
+				62496A3A18F1A11B00238B95 /* CSpriteNode.h */,
+				62496A3B18F1A11B00238B95 /* CSpriteNode.m */,
 				6262776118852B1F00006BBD /* CViewController.xib */,
+				62496A4818F1EB5B00238B95 /* CContactEvent.h */,
+				62496A4918F1EB5B00238B95 /* CContactEvent.m */,
 			);
 			name = ChaosEngine;
 			sourceTree = "<group>";
@@ -429,6 +452,7 @@
 		626277721885811300006BBD /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				62496A3D18F1AFFF00238B95 /* myassets */,
 				6242554118BB456A003E6324 /* birdiot_elements */,
 				62CF0D4D189BD378006CD912 /* levels */,
 				6272FF91188ED257009B8440 /* atlas */,
@@ -569,6 +593,8 @@
 				6242555718BB456A003E6324 /* btn_share.png in Resources */,
 				6295C589189018E000B45AB9 /* android.xml in Resources */,
 				6242555018BB456A003E6324 /* bg@2x.png in Resources */,
+				62496A4318F1D32300238B95 /* map.png in Resources */,
+				62496A4718F1D3C500238B95 /* dirtj.jpg in Resources */,
 				6226108D18CB584E00AC9675 /* bird@2x.png in Resources */,
 				6226108918CB4C5200AC9675 /* birdiot.xml in Resources */,
 				6242555A18BB456A003E6324 /* tube-inner@2x.png in Resources */,
@@ -606,6 +632,7 @@
 				62CF0D87189BE56E006CD912 /* TBXML.m in Sources */,
 				6262777B18868D0B00006BBD /* CUtil.m in Sources */,
 				62627793188926B300006BBD /* CPositionEvent.m in Sources */,
+				62496A3C18F1A11C00238B95 /* CSpriteNode.m in Sources */,
 				6262776218852B1F00006BBD /* CViewController.m in Sources */,
 				6242554018BB4435003E6324 /* CBackgroundComponent.m in Sources */,
 				6221170618DEC9A30016F271 /* CPhysicComponent.m in Sources */,
@@ -619,6 +646,7 @@
 				6295C57F188FCAD800B45AB9 /* CRenderEvent.m in Sources */,
 				6253D217188033120017790C /* AppDelegate.m in Sources */,
 				626277901888283E00006BBD /* CEventListener.m in Sources */,
+				62496A4A18F1EB5B00238B95 /* CContactEvent.m in Sources */,
 				6262776A1885321600006BBD /* CAppDelegate.m in Sources */,
 				6242555F18BB4E8B003E6324 /* CSize.m in Sources */,
 				6262778B1886DE7F00006BBD /* CEvent.m in Sources */,

@@ -43,14 +43,29 @@
     [_components removeObject:collider];
 }
 
+/* Physic Operations*/
 -(void)didBeginContact:(SKPhysicsContact *)contact
 {
-   
+    for (CPhysicComponent *comp in _components) {
+        
+        if (contact.bodyA == comp.physicBody || contact.bodyB == comp.physicBody) {
+            [comp didBeginContact:contact];
+            break;
+        }
+        
+    }
 }
 
 - (void)didEndContact:(SKPhysicsContact *)contact
 {
-   
+    for (CPhysicComponent *comp in _components) {
+        
+        if (contact.bodyA == comp.physicBody) {
+            [comp didEndContact:contact];
+            break;
+        }
+        
+    }
 }
 
 @end

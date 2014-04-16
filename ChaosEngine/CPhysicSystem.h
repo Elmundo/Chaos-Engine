@@ -10,13 +10,13 @@
 
 @class CPhysicComponent;
 
-@interface CPhysicSystem : CEngineSystem
+@interface CPhysicSystem : CEngineSystem<SKPhysicsContactDelegate>
 
 @property (nonatomic, strong) NSMutableArray *components;
 
 + (id)shared;
 
--(void)didBeginContact:(SKPhysicsContact *)contact;
+-  (void)didBeginContact:(SKPhysicsContact *)contact;
 - (void)didEndContact:(SKPhysicsContact *)contact;
 
 - (void)add:(CPhysicComponent *)collider;

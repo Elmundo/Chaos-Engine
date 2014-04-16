@@ -19,6 +19,9 @@
         self.contentCreated = NO;
         self.sceneName = NSStringFromClass([self class]);
         self.anchorPoint = kDefaultSceneAnchorPoint;
+        //Physic
+        self.physicsWorld.contactDelegate = [CPhysicSystem shared];
+        self.physicsWorld.gravity = CGVectorMake(0, 0);
     }
     
     return self;
@@ -60,15 +63,5 @@
     [self.delegate touchesMoved:touches withEvent:event];
 }
 
-/* Physic Operations*/
--(void)didBeginContact:(SKPhysicsContact *)contact
-{
-    [self.delegate didBeginContact:contact];
-}
-
--(void)didEndContact:(SKPhysicsContact *)contact
-{
-    [self.delegate didEndContact:contact];
-}
 
 @end

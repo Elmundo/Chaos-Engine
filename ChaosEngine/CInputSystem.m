@@ -40,23 +40,29 @@
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
+    /*
     for (CControllerComponent *controller in _components) {
         [controller touchesBegan:touches withEvent:event];
     }
+     */
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
+    /*
     for (CControllerComponent *controller in _components) {
         [controller touchesMoved:touches withEvent:event];
     }
+     */
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
+    /*
     for (CControllerComponent *controller in _components) {
         [controller touchesEnded:touches withEvent:event];
     }
+     */
 }
 
 - (void)addController:(CControllerComponent *)controller

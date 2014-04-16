@@ -9,6 +9,7 @@
 #import "CComponent.h"
 #import "CRenderComponent.h"
 #import <SpriteKit/SpriteKit.h>
+#import "CContactEvent.h"
 
 @class CPhysicSystem;
 
@@ -19,8 +20,12 @@
 @property (nonatomic, assign) uint32_t category;
 @property (nonatomic, assign) uint32_t collision;
 @property (nonatomic, assign) uint32_t contact;
+@property (nonatomic, assign) bool dynamic;
 
 @property (nonatomic, strong) SKPhysicsBody *physicBody;
 @property (nonatomic, strong) CRenderComponent *render;
+
+- (void)didBeginContact:(SKPhysicsContact *)contact;
+- (void)didEndContact:(SKPhysicsContact *)contact;
 
 @end

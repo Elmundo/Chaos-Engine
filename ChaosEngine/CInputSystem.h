@@ -9,6 +9,10 @@
 #import "CEngineSystem.h"
 @class CControllerComponent;
 
+
+/*
+    Listen to all touch events of the scene
+ */
 @interface CInputSystem : CEngineSystem
 
 @property (nonatomic, strong) NSMutableArray *components;
