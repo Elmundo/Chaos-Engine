@@ -51,9 +51,7 @@ static const uint32_t groundCategory =  0x1 << 2;
     // Some Stuff
     _elapsedTime += dt;
     if (_elapsedTime >= _spawnInterval) {
-        //NSLog(@"elapsedTime >= spawnInterval      %f >= %f", _elapsedTime, _spawnInterval);
         _elapsedTime = _elapsedTime - _spawnInterval;
-        
         
         float gap = [self calculateGapYPos:dt];
         

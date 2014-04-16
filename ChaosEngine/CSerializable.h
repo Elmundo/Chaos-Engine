@@ -2,12 +2,18 @@
 //  CSerializable.h
 //  ChaosGame
 //
-//  Created by Baris YILMAZ on 1/29/14.
+//  Created by Baris YILMAZ on 4/14/14.
 //  Copyright (c) 2014 Baris YILMAZ. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
+#import "TBXML.h"
 
-@interface CSerializable : NSObject<NSXMLParserDelegate>
+@class CEntity;
+
+@interface CSerializable : NSObject
+
+- (void)deserialize:(TBXMLElement *)element;
+- (id)getPropertyWithEntity:(CEntity *)owner;
 
 @end

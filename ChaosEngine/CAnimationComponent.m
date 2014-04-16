@@ -14,8 +14,9 @@
 {
     [super didAddedToEntity:owner];
     
-    self.spriteNode   = (SKSpriteNode*)[self.rendererComponent performSelector:NSSelectorFromString(@"spriteNode")];
-    self.textureAtlas = (CTextureAtlas*)[self.rendererComponent performSelector:NSSelectorFromString(@"atlas")];
+    self.renderComponent = [owner getProperty:self.renderProperty];
+    self.spriteNode   = (SKSpriteNode*)[self.renderComponent performSelector:NSSelectorFromString(@"spriteNode")];
+    self.textureAtlas = (CTextureAtlas*)[self.renderComponent performSelector:NSSelectorFromString(@"atlas")];
     
     [self addEventListener:@selector(did_sprite_ready:) message:[CRenderEvent CE_SpriteReady]]; //TODO Refactor this - no more hard-coded.
 }

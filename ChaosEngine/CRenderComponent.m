@@ -21,27 +21,23 @@
     self.manager = [CSceneManager shared];
     
     if (self.resourceName == nil) {
-        [CLogger errorWithTarget:self method:@"didAddedToEntity"
-                                  message:@"resourceName is nil."];
+        clog(@"resourceName property is nil.");
         return;
     }
     
     self.sourceTexture = [SKTexture textureWithImageNamed:self.resourceName];
     if (self.sourceTexture == nil) {
-        [CLogger errorWithTarget:self method:@"didAddedToEntity"
-                         message:cStringWithValue(@"There is no such a resource: %@", self.resourceName)];
+        clog(@"There is no such a resource: %@", self.resourceName);
         return;
     }
     
     if (self.atlasName == nil) {
-        [CLogger errorWithTarget:self method:@"didAddedToEntity"
-                         message:@"atlasName is nil."];
+        clog(@"atlasName property is nil.");
         
     }else{
         self.atlas = [CTextureAtlas atlasWithXmlName:self.atlasName andWithResource:self.sourceTexture];
         if (self.atlas == nil) {
-            [CLogger errorWithTarget:self method:@"didAddedToEntity"
-                             message:cStringWithValue(@"There is no such a atlas: %@", self.atlasName)];
+            clog(@"There is no such a atlas: %@", self.atlasName);
             return;
         }
     }
@@ -65,15 +61,13 @@
     self.spriteNode.userInteractionEnabled = self.userInteractionEnabled;
 
     if (self.spriteNode == nil) {
-        [CLogger errorWithTarget:self method:@"didAddedToEntity"
-                                  message:cStringWithValue(@"There is no such a texture: %@", self.resourceName)];
+        clog(@"There is no such a texture: %@", self.resourceName);
         return;
     }
   
     self.scene = [self.manager getSceneWithName:self.sceneName];
     if (self.spriteNode == nil) {
-        [CLogger errorWithTarget:self method:@"didAddedToEntity"
-                                  message:cStringWithValue(@"There is no such a scene: %@", self.sceneName)];
+        clog(@"There is no such a scene: %@", self.sceneName);
     }
    
     // Init the sprite position

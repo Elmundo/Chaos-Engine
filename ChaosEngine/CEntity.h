@@ -25,6 +25,7 @@
 - (void)addComponent:(CComponent *)component;
 - (void)removeComponent:(CComponent *)component;
 - (CComponent *)getComponentWithName:(NSString *)componentName;
+- (id)getProperty:(CSerializable *)serializable;
 - (void)update:(NSTimeInterval)dt;
 - (void)destroy;
 

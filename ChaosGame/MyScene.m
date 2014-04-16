@@ -13,8 +13,6 @@
 -(id)initWithSize:(CGSize)size {    
     if (self = [super initWithSize:size]) {
         /* Setup your scene here */
-        [CLogger logWithTarget:self method:@"initWithSize:" message:@"My scene is init."];
-        NSLog(@"ViewController size = Width:%f Height:%f", size.width, size.height);
     }
 
     return self;
@@ -32,10 +30,21 @@
     self.backgroundColor = [SKColor redColor];
     
     //[self createTestEntitites];
+<<<<<<< HEAD
     //[self AllEntities];
     [self createBirdiotEntitites];
     
     CEngineSystem *spawner = [[PipeSpawnerSystem alloc] initWithLayer:pipeLayer];
+=======
+    [self createBirdiotWithTemplate];
+    //[self createBirdiotEntitites];
+    //[self createSpawner];
+}
+
+- (void)createSpawner
+{
+    CEngineSystem *spawner = [[PipeSpawnerSystem alloc] init];
+>>>>>>> 57541721ef0e77bbabb8d8dc6d9f13b4932439b7
     [[CEngine shared] addSystem:spawner];
 }
 
@@ -132,7 +141,7 @@
 
 - (void)createBirdiotEntitites
 {
-    [self createBackground];
+    //[self createBackground];
     [self createBirdiot];
 }
 
@@ -180,7 +189,6 @@
     rendererComponent.atlasName = @"birdiot";
     rendererComponent.positionRef = positionComponent.position;
     rendererComponent.anchorPoint = [[CPoint alloc] initWithCGPoint:self.anchorPoint];
-    //rendererComponent.scaleFactor = 0.5f;
     
     CAnimationComponent *animationComponent = [[CAnimationComponent alloc] init];
     animationComponent.rendererComponent = rendererComponent;
@@ -204,6 +212,12 @@
     [birdEntity addComponent:physicComponent];
     
     [birdEntity initialize:@"bird"];
+}
+
+- (void)createBirdiotWithTemplate
+{
+    [[CTemplateManager shared] loadFile:@"birdiot_level.xml"];
+    [[CTemplateManager shared] instantiateEntity:@"Birdiot"];
 }
 
 - (void)createTestEntitites

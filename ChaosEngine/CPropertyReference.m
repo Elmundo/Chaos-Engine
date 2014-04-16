@@ -1,0 +1,62 @@
+//
+//  CPropertyReference.m
+//  ChaosGame
+//
+//  Created by Baris YILMAZ on 4/14/14.
+//  Copyright (c) 2014 Baris YILMAZ. All rights reserved.
+//
+
+#import "CPropertyReference.h"
+
+@implementation CPropertyReference
+
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        //
+    }
+    
+    return self;
+}
+
+- (void)deserialize:(TBXMLElement *)element
+{
+    
+    NSString *expression = [TBXML textForElement:element];
+    NSArray *list = (NSMutableArray*)[expression componentsSeparatedByString:@"."];
+    
+    _format = [list[0] substringToIndex:1];
+    _word   = [list[0] substringFromIndex:1];
+    
+    NSRange range;
+    range.location = 1;
+    range.length = list.count - 1;
+    
+    _propertyList = [list subarrayWithRange:range];
+}
+
+- (id)getPropertyWithEntity:(CEntity *)owner
+{
+    if ([_format isEqual: @"@"]) //Component Lookup
+    {
+        id element = [owner getComponentWithName:_word];
+        for (int i=0; i < _propertyList.count; ++i) {
+            element = [element valueForKey:_propertyList[i]];
+            //element = [element valueForKeyPath:_propertyList[i]];
+        }
+        
+        return element;
+        
+    }else if ([_format isEqualToString:@"#"]) //Global Entity Lookup
+    {
+        
+    }else if ([_format isEqualToString:@"!"]) //XML Lookup
+    {
+        
+    }
+    
+    return nil;
+}
+
+@end

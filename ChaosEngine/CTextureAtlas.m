@@ -36,7 +36,7 @@
 {
     NSArray *list = [_textureAtlas objectForKey:animationName];
     if (!list) {
-        NSLog(@"There is no %@ animation list", animationName);
+        cerror(@"There is no %@ animation list", animationName);
     }
     
     return list;
@@ -68,7 +68,7 @@
             if ([self respondsToSelector:NSSelectorFromString(key)])
                 [self setValue:[attributeDict objectForKey:key] forKey:key];
             else
-                NSLog(@"There is no such a property: %@", key);
+                cerror(@"There is no such a property: %@", key);
         }
     }
     
@@ -94,7 +94,7 @@
                                  [h intValue]);
         CGRect unitRect = [CUtil eulerToUnit:eulerRect andResourceSize:_atlas.size];
         if (!_atlas) {
-            NSLog(@"Texture Atlas is null");
+            cerror(@"Texture Atlas is null");
             return;
         }
         SKTexture *texturePart = [SKTexture textureWithRect:unitRect inTexture:_atlas];

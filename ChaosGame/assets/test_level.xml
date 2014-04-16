@@ -42,7 +42,13 @@
     </Entity>
     
     <Entity type="CEntity" name="TestEntity">
-        <!--
+        <Component type="CPositionComponent" name"Position">
+            <position>
+                <x>12</x>
+                <y>10</y>
+            </position>
+        </Component>
+    
         <Component type="CTestComponent" name="Test">
             <list type="NSMutableDictionary">
                 <_>
@@ -69,27 +75,9 @@
                         </CatPosition>
                     </dic>
                 </_>
-                <_>
-                    <dic type="CPoint">
-                        <BunnyPosition>
-                            <x>13</x>
-                            <y>76</y>
-                        </BunnyPosition>
-                        <CatPosition>
-                            <x>24</x>
-                            <y>55</y>
-                        </CatPosition>
-                    </dic>
-                </_>
             </list>
         </Component>
-        -->
-        <Component type="CPositionComponent" name"hebele">
-            <position>
-                <x>12</x>
-                <y>10</y>
-            </position>
-        </Component>
+     
         
         <Component type="CRenderComponent" name="Render">
             <sceneName>MyScene</sceneName>
@@ -97,14 +85,6 @@
             <positionRef>@Position.position</positionRef>
             <atlasName>android</atlasName>
             <color>white</color>
-        </Component>
-        
-        <Component type="CAnimationComponent" name="Animation">
-            <renderRef></renderRef>
-            <atlasRef></atlasRef>
-        </Component>
-        
-        <Component type="CControllerComponent" name="Controller">
         </Component>
         
     </Entity>

@@ -27,7 +27,7 @@
 - (void)initialize:(NSString *)entityName
 {
     self.name = entityName;
-    [CLogger logWithTarget:self method:@"Entity is created" message:self.name];
+    clog(@"Entity is created %@ ", self.name);
     for (NSString *componentName in self.componentDic) {
         
         CComponent *component = [self.componentDic objectForKey:componentName];
@@ -53,10 +53,15 @@
 {
     CComponent *component = [self.componentDic objectForKey:componentName];
     if (component == nil) {
-        NSLog(@"[CEntity: EntityName: %@] Error= There is no such a component %@", self.name, componentName);
+        cerror(@"[EntityName: %@] There is no sucj a component [%@]", self.name, componentName);
     }
     
     return component;
+}
+
+- (id)getProperty:(CSerializable *)serializable
+{
+    return [serializable getPropertyWithEntity:self];
 }
 
 - (void)update:(NSTimeInterval)dt

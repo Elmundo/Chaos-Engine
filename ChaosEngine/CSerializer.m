@@ -35,8 +35,16 @@
     while (currentElement) {
         
         if (strcmp(currentElement->name, "Component") == 0) {
-            
-            NSString *componentType = [TBXML valueOfAttributeNamed:@"type" forElement:currentElement];
+            NSString *componentType;
+            @try {
+                componentType = [TBXML valueOfAttributeNamed:@"type" forElement:currentElement];
+            }
+            @catch (NSException *exception) {
+                cerror(@"Throw error: %@", exception.description);
+            }
+            @finally {
+                
+            }
             Class classObj = NSClassFromString(componentType);
             id obj = [[classObj alloc] init];
             //TODO: Obje nil ise hata bas.
@@ -70,25 +78,37 @@
     for (; i < outPropertyCount; ++i) {
         objc_property_t property = properties[i];
         
-        // Get ParentObject's property type and name values
+        // Get Objective-C ParentObject's property type and name values
         NSString *propertyName    = [NSString stringWithUTF8String:property_getName(property)];
         NSString *propertyType    = [self propertyTypeStringOfProperty:property propertyType:&outType];
         TBXMLElement *propertyXMLElement = [TBXML childElementNamed:propertyName parentElement:parentXMLElement];
         
         //There is no match in XML for propertyName so skip that!
         if (propertyXMLElement == Nil) {
-            clog(@"There is no match for property ['%@'] in XML which is declared in class %s", propertyName, class_getName([parentObject class]));
+            clog(@"['%@']property is defined in ['%s']Objective-C class, not in XML definition", propertyName, class_getName([parentObject class]));
             continue;
         }
         
+        /* CSerializable object */
+        if ([NSClassFromString(propertyType) isSubclassOfClass:[CSerializable class]]) {
+            Class classObj = NSClassFromString(propertyType);
+            CSerializable *propertyObject = [[classObj alloc] init];
+            [propertyObject deserialize:propertyXMLElement];
+            [parentObject setValue:propertyObject forKey:propertyName];
+        }
         // Instantiate the related property with type
+        /* String*/
+        else if (outType == PropertyTypeString) {
+            NSString *stringValue = [TBXML textForElement:propertyXMLElement];
+            [parentObject setValue:stringValue forKey:propertyName];
+        }
         /* Class */
-        if (outType == PropertyTypeClass) {
+        else if (outType == PropertyTypeClass) {
             Class classObj = NSClassFromString(propertyType);
             id propertyObject = [[classObj alloc] init];
             
             if (!propertyXMLElement) {
-                NSLog(@"XML ELEMENT MISSING!: There is no match in XML with property name: %@", propertyName);
+                cerror(@"XML ELEMENT MISSING!: There is no match in XML with property name: %@", propertyName);
                 continue;
             }
             
@@ -135,7 +155,7 @@
         id childObject = [[classObj alloc] init];
         
         if (!childXMLElement) {
-            NSLog(@"XML ELEMENT MISSING!: There is no match in XML with property name: %@", childType);
+            cerror(@"XML ELEMENT MISSING!: There is no match in XML with property name: %@", childType);
             continue;
         }
         
@@ -147,7 +167,7 @@
             //Avoid "KeyValue" element, pass child of it instead; "KeyValue" is not a property to add directly
             [self traverseCollection:childXMLElement object:childObject];
         }else{
-            [self traverseObject:childXMLElement object:childObject];
+            [self traverseObject:supportXMLElement object:childObject];
         }
         
         if ([collectionObject isKindOfClass:[NSMutableArray class]]) {
@@ -251,6 +271,8 @@
                 [name isEqualToString:@"NSArray"] || [name isEqualToString:@"NSDictionary"]) {
                 pt = PropertyTypeCollection;
             }
+            else if([name isEqualToString:@"NSString"])
+                pt = PropertyTypeString;
             else
                 pt = PropertyTypeClass;
             

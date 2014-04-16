@@ -2,27 +2,36 @@
 //  CSerializable.m
 //  ChaosGame
 //
-//  Created by Baris YILMAZ on 1/29/14.
+//  Created by Baris YILMAZ on 4/14/14.
 //  Copyright (c) 2014 Baris YILMAZ. All rights reserved.
 //
 
 #import "CSerializable.h"
 
-@implementation CSerializable : NSObject 
+@implementation CSerializable
 
-- (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict
+- (id)init
 {
+    self = [super init];
+    if (self) {
+        
+    }
     
+    return self;
 }
 
-- (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
+
+- (void)deserialize:(TBXMLElement *)element
 {
-    
+    // Override this method in subclass
+    @throw [NSException exceptionWithName:@"CSerializableAbstractClassException" reason:@"deserialize method must be overrided!" userInfo:nil];
 }
 
-- (void)parserDidEndDocument:(NSXMLParser *)parser
+- (id)getPropertyWithEntity:(CEntity *)owner
 {
-    
+    // Override this method in subclass
+    @throw [NSException exceptionWithName:@"CSerializableAbstractClassException" reason:@"getPropertyWithEntity method must be overrided!" userInfo:nil];
+    return nil;
 }
 
 @end

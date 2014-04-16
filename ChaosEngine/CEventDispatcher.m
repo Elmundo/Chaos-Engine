@@ -67,7 +67,7 @@
         if ([target respondsToSelector:action]) {
             [target performSelector:action withObject:event];
         }else{
-            [CLogger logWithTarget:self method:@"dispatchEvent:" message:@"Target does not have specified action."];
+            clog(@"Target does not have specified action.");
         }
         
     }
