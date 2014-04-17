@@ -24,7 +24,7 @@
 /* Override this method in subclass */
 - (void)didAddedToEntity:(CEntity *)owner
 {
-    clog(@"Component is created %@", self.componentName);
+    clog(@"['%@']['%@'] component is created", owner.name, self.componentName);
 }
 
 /* Override this method in subclass */

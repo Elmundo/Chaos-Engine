@@ -81,6 +81,7 @@
 		62CF0D86189BE4BD006CD912 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 62CF0D85189BE4BD006CD912 /* libz.dylib */; };
 		62CF0D87189BE56E006CD912 /* TBXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 62CF0D7F189BE443006CD912 /* TBXML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		62CF0D89189BE855006CD912 /* test_level.xml in Resources */ = {isa = PBXBuildFile; fileRef = 62CF0D88189BE855006CD912 /* test_level.xml */; };
+		62ED0E4C18FFC98400D8E3CF /* CXMLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 62ED0E4B18FFC98400D8E3CF /* CXMLElement.m */; };
 		62FB7BA81891698100A6340F /* CControllerComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 62FB7BA71891698100A6340F /* CControllerComponent.m */; };
 /* End PBXBuildFile section */
 
@@ -209,6 +210,8 @@
 		62CF0D81189BE443006CD912 /* TBXML+HTTP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "TBXML+HTTP.m"; path = "TBXML/TBXML-Code/TBXML+HTTP.m"; sourceTree = "<group>"; };
 		62CF0D85189BE4BD006CD912 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		62CF0D88189BE855006CD912 /* test_level.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = test_level.xml; path = assets/test_level.xml; sourceTree = "<group>"; };
+		62ED0E4A18FFC98400D8E3CF /* CXMLElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CXMLElement.h; path = ChaosEngine/CXMLElement.h; sourceTree = "<group>"; };
+		62ED0E4B18FFC98400D8E3CF /* CXMLElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CXMLElement.m; path = ChaosEngine/CXMLElement.m; sourceTree = "<group>"; };
 		62FB7BA61891698100A6340F /* CControllerComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CControllerComponent.h; path = ChaosEngine/CControllerComponent.h; sourceTree = "<group>"; };
 		62FB7BA71891698100A6340F /* CControllerComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CControllerComponent.m; path = ChaosEngine/CControllerComponent.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -439,6 +442,8 @@
 				6217A18E18CFB69400CC1EF5 /* CLog.h */,
 				6217A18F18CFB69400CC1EF5 /* CLog.m */,
 				6262776118852B1F00006BBD /* CViewController.xib */,
+				62ED0E4A18FFC98400D8E3CF /* CXMLElement.h */,
+				62ED0E4B18FFC98400D8E3CF /* CXMLElement.m */,
 			);
 			name = ChaosEngine;
 			sourceTree = "<group>";
@@ -612,6 +617,7 @@
 			files = (
 				6262776D1885669100006BBD /* CSceneManager.m in Sources */,
 				626F6356189111EA00103C36 /* CEngineSystem.m in Sources */,
+				62ED0E4C18FFC98400D8E3CF /* CXMLElement.m in Sources */,
 				62AA5411188433BB001FA053 /* CEntity.m in Sources */,
 				62C8AFCA18FC2D9900B4C4A9 /* CPropertyReference.m in Sources */,
 				626A5B5B18BFED2600FBEE58 /* CBirdComponent.m in Sources */,

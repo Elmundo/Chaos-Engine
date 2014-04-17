@@ -63,18 +63,33 @@
         
         CEntityFactory *factory = [CEntityFactory shared];
         id element = [factory getEntity:_word];
+        id component = [element getComponent:_propertyList[0]];
+        for (int i=1; i < _propertyList.count; ++i) {
+            component = [component valueForKey:_propertyList[i]];
+            //element = [element valueForKeyPath:_propertyList[i]];
+        }
+        
+        return element;
+        
+    }else if ([_format isEqualToString:@"$"]) //Global Entity Lookup
+    {
+        /*
+        id system = [CEngine shared].systems[_word];
         for (int i=0; i < _propertyList.count; ++i) {
             element = [element valueForKey:_propertyList[i]];
             //element = [element valueForKeyPath:_propertyList[i]];
         }
         
         return element;
-        
-    }else if ([_format isEqualToString:@"!"]) //XML Lookup
+        */
+    }
+    
+    /*
+    else if ([_format isEqualToString:@"!"]) //XML Lookup
     {
         //
     }
-    
+    */
     return nil;
 }
 
