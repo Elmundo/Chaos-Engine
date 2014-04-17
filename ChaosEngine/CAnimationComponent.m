@@ -37,10 +37,10 @@
     [_spriteNode runAction:repeatAction];
 }
 
-- (void)did_sprite_ready:(CEvent *)event
+- (void)did_sprite_ready:(CRenderEvent *)event
 {
     _spriteNode   = event.object;
-    _textureAtlas = [event performSelector:NSSelectorFromString(@"atlas")];
+    _textureAtlas = event.atlas;
 }
 
 - (void)didRemovedFromEntity
@@ -48,9 +48,8 @@
     [self didRemovedFromEntity];
     
     [_spriteNode removeAllActions];
-    _spriteNode = nil;
+    _spriteNode   = nil;
     _textureAtlas = nil;
-    
 }
 
 @end
