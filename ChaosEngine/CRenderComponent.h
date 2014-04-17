@@ -9,7 +9,6 @@
 #import "CComponent.h"
 #import "CScene.h"
 #import "CSceneManager.h"
-#import "CPositionComponent.h"
 #import "CPoint.h"
 #import "CPositionEvent.h" 
 #import "CTextureAtlas.h"
@@ -24,19 +23,22 @@
 @property (nonatomic, weak) CSceneManager *manager;
 
 @property (nonatomic, weak) CLayer *layer;
-@property (nonatomic, weak) CPoint *position;
 @property (nonatomic, strong) CPropertyReference *positionProperty;
 
-@property (nonatomic, strong) NSString *layerName; //
-@property (nonatomic, strong) NSString *resourceName; // Outside
-@property (nonatomic, strong) NSString *atlasName; // Outside
-@property (nonatomic, strong) CSize *textureSize; // Outside
-@property (nonatomic, strong) CPoint *anchorPoint; // Outside
-@property (nonatomic, assign) CGFloat rotateValue; // Outside
-@property (nonatomic, assign) CGFloat scaleFactor; // Outside
+/* OUTSIDE PROPERTIES*/
+@property (nonatomic, strong) NSString *layerName; //Required
+@property (nonatomic, strong) NSString *resourceName; // Required
 
+@property (nonatomic, strong) NSString *atlasName; // Optional
+@property (nonatomic, strong) CSize *textureSize; // Optional
+@property (nonatomic, strong) CPoint *anchorPoint; // Optional
+@property (nonatomic, assign) CGFloat rotateValue; // Optional
+@property (nonatomic, assign) CGFloat scaleFactor; // Optional
+
+/* INNER PROPERTIES */
 @property (nonatomic, strong) SKSpriteNode *spriteNode;
 @property (nonatomic, strong) SKTexture *sourceTexture;
 @property (nonatomic, strong) CTextureAtlas *atlas;
+@property (nonatomic, weak) CPoint *position;
 
 @end

@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "CEntity.h"
 #import "CSerializable.h"
+#import "CEngine.h"
 
 @interface CPropertyReference : CSerializable
 

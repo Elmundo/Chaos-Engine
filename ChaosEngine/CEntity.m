@@ -27,7 +27,7 @@
 - (void)initialize:(NSString *)entityName
 {
     self.name = entityName;
-    clog(@"Entity is created %@ ", self.name);
+    clog(@"['%@'] entity is created.", self.name);
     for (NSString *componentName in self.componentDic) {
         
         CComponent *component = [self.componentDic objectForKey:componentName];

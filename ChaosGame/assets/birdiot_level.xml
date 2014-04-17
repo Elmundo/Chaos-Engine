@@ -24,7 +24,11 @@
             <layerName>birdLayer</layerName>
             <resourceName>bird.png</resourceName>
             <atlasName>android</atlasName>
+            
             <positionProperty>@Position.position</positionProperty>
+            <entityProperty>#Hero.render</entityProperty>
+            <managerProperty></managerProperty>
+            
             <anchorPoint>
                 <x>0.5</x>
                 <y>0.5</y>

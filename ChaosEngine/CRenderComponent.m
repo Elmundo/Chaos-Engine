@@ -18,7 +18,15 @@
 {
     [super didAddedToEntity:owner];
     
-    _manager = [CSceneManager shared];
+    /***********************************************************************************************
+        CSceneManager system generate a dependency which is strictly tied to CSceneManager class.
+        Must be more flexible so developer would want to use another 3rd pary system or the system 
+        which is created by himself. We need to define a new concept like in CPropertyReference
+        like CComponent and CEntity that PropertyReference class will know how to handle when
+        it is defined EngineSystem in xml description and get the related object from Engine itself.
+     ***********************************************************************************************/
+    _manager = [CSceneManager shared]; // i wanna run away from this approach
+    //_manager = owner.getProperty(managerProperty);
     
     _layer = [_manager getLayerWithName:_layerName];
     
@@ -88,7 +96,6 @@
     //Add to layer, not to scene directly
     
     [self.layer addChild:self.spriteNode];
-    //[self.scene addChild:self.spriteNode];
     [self addEventListener:@selector(did_position_updated:) message:[CPositionEvent CE_PositionChanged] ];
     CRenderEvent *event = [CRenderEvent eventWithType:[CRenderEvent CE_SpriteReady] withObject:self.spriteNode withAtlas:self.atlas withBubbles:YES];
     [self dispatchEventWithEvent:event];

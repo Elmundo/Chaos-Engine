@@ -11,9 +11,11 @@
 #import "CSerializer.h"
 #import "CEntityFactory.h"
 #import "CSerializable.h"
+#import "CXMLElement.h"
 
 @interface CTemplateManager : CEngineSystem
 {
+    TBXML *_sourceXML;
     NSMutableDictionary *_templateDic; // Template in TBXML format.
     NSMutableDictionary *_entityDic;   // Entity in TBXML format.
     NSMutableDictionary *_groupDic;    // Group in TBXML format.
