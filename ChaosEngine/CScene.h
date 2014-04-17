@@ -7,11 +7,7 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
-<<<<<<< HEAD
-#import "CLogger.h"
 #import "CPhysicSystem.h"
-=======
->>>>>>> 57541721ef0e77bbabb8d8dc6d9f13b4932439b7
 
 @protocol CSceneDelegate <NSObject>
 

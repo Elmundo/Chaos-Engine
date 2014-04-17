@@ -35,6 +35,7 @@
 @property (nonatomic, strong) CPoint *anchorPoint; // Optional
 @property (nonatomic, assign) CGFloat rotateValue; // Optional
 @property (nonatomic, assign) CGFloat scaleFactor; // Optional
+@property (nonatomic, assign) BOOL userInteractionEnabled; // Optional
 
 /* INNER PROPERTIES */
 @property (nonatomic, strong) SKSpriteNode *spriteNode;

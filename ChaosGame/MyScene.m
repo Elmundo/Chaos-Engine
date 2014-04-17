@@ -59,84 +59,6 @@
     [self addChild:birdLayer];
 }
 
-/* My custom assets and physic test*/
-- (void)AllEntities
-{
-    //[self createBoxPlayer];
-    [self createBg];
-    [self createTiles];
-}
-
-- (void)createBoxPlayer
-{
-    CEntity *player = [[CEntityFactory shared] createEntity];
-    
-    CPositionComponent *positionComponent = [[CPositionComponent alloc] init];
-    positionComponent.position = [[CPoint alloc] initWithX:74.0f and:240.0f];
-    
-    CRenderComponent *rendererComponent = [[CRenderComponent alloc] init];
-    rendererComponent.layer = birdLayer;
-    rendererComponent.resourceName = @"player.png";
-    rendererComponent.positionRef = positionComponent.position;
-    
-    CControllerComponent *controller = [[CControllerComponent alloc] init];
-    
-    [player addComponent:positionComponent];
-    [player addComponent:rendererComponent];
-    [player addComponent:controller];
-    
-    [player initialize:@"Player"];
-}
-
-- (void)createBg
-{
-    CEntity *bg = [[CEntityFactory shared] createEntity];
-    
-    CPositionComponent *positionComponent = [[CPositionComponent alloc] init];
-    positionComponent.position = [[CPoint alloc] initWithX:0.0f and:0.0f];
-    
-    CRenderComponent *rendererComponent = [[CRenderComponent alloc] init];
-    rendererComponent.layer = bgLayer;
-    rendererComponent.resourceName = @"map.png";
-    rendererComponent.positionRef = positionComponent.position;
-    rendererComponent.sceneName = NSStringFromClass([self class]);
-    
-    CBackgroundComponent *bgComponent = [[CBackgroundComponent alloc] init];
-    bgComponent.layer = groundLayer;
-    bgComponent.renderRef = rendererComponent.spriteNode;
-    bgComponent.positionRef = positionComponent.position;
-    
-    [bg addComponent:positionComponent];
-    [bg addComponent:rendererComponent];
-    //[bg addComponent:bgComponent];
-    [bg initialize:@"Map"];
-}
-
-- (void)createTiles
-{
-    for (int i=0; i < 15; ++i) {
-        for (int j=0; j < 10; ++j) {
-            
-            CEntity *tile = [[CEntityFactory shared] createEntity];
-            
-            CPositionComponent *positionComponent = [[CPositionComponent alloc] init];
-            positionComponent.position = [[CPoint alloc] initWithX:(i*32) and:(j*32)];
-            
-            CRenderComponent *rendererComponent = [[CRenderComponent alloc] init];
-            rendererComponent.layer = bgLayer;
-            rendererComponent.resourceName = @"dirtj.jpg";
-            rendererComponent.positionRef = positionComponent.position;
-            rendererComponent.sceneName = NSStringFromClass([self class]);
-
-            [tile addComponent:positionComponent];
-            [tile addComponent:rendererComponent];
-            
-            NSString *str = [NSString stringWithFormat:@"tile %d", (i*10 + j)];
-            [tile initialize:str];
-        }
-    }
-}
-
 - (void)createBirdiotEntitites
 {
     //[self createBackground];
@@ -197,9 +119,9 @@
     birdComponent.positionRef = positionComponent;
     
     CPhysicComponent *physicComponent = [[CPhysicComponent alloc] init];
-    physicComponent.category  = birdCategory;
-    physicComponent.collision = groundCategory | pipeCategory;
-    physicComponent.contact   = groundCategory | pipeCategory;
+    //physicComponent.category  = birdCategory;
+    //physicComponent.collision = groundCategory | pipeCategory;
+    //physicComponent.contact   = groundCategory | pipeCategory;
     physicComponent.dynamic = YES;
     
     [birdEntity addComponent:positionComponent];
