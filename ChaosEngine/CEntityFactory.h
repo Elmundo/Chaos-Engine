@@ -19,6 +19,7 @@
 
 - (CEntity *)createEntity;
 - (void)removeEntity:(CEntity *)entity;
+- (CEntity *)getEntity:(NSString *)name;
 
 + (id)shared;
 

@@ -65,6 +65,20 @@
     return 0;
 }
 
+- (CEntity *)getEntity:(NSString *)name
+{
+    CEntity *entity;
+    for (int i=0; i<_entities.count; i++) {
+        
+        entity = _entities[i];
+        if ([entity.name isEqualToString:name]) {
+            return entity;
+        }
+        
+    }
+    
+    return nil;
+}
 - (void)update:(NSTimeInterval)dt
 {
     for (CEntity *entity in _entities) {

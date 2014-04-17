@@ -18,7 +18,16 @@
 {
     [super didAddedToEntity:owner];
     
-    self.manager = [CSceneManager shared];
+    /***********************************************************************************************
+        CSceneManager system generate a dependency which is strictly tied to CSceneManager class.
+        Must be more flexible so developer would want to use another 3rd pary system or the system 
+        which is created by himself. We need to define a new concept like in CPropertyReference
+        like CComponent and CEntity that PropertyReference class will know how to handle when
+        it is defined EngineSystem in xml description and get the related object from Engine itself.
+     ***********************************************************************************************/
+    //_manager = owner.getProperty(managerProperty);
+    _manager = [CSceneManager shared]; // i wanna run away from this approach
+    _layer = [_manager getLayerWithName:_layerName];
     
     if (self.resourceName == nil) {
         clog(@"resourceName property is nil.");
@@ -64,14 +73,9 @@
         clog(@"There is no such a texture: %@", self.resourceName);
         return;
     }
-  
-    self.scene = [self.manager getSceneWithName:self.sceneName];
-    if (self.spriteNode == nil) {
-        clog(@"There is no such a scene: %@", self.sceneName);
-    }
    
     // Init the sprite position
-    self.position = (CPoint *)self.positionRef;
+    _position = [owner getProperty:_positionProperty];
     
     CGPoint pos = [self.position CGPoint];
     self.spriteNode.position = pos;
@@ -92,7 +96,6 @@
     //Add to layer, not to scene directly
     
     [self.layer addChild:self.spriteNode];
-    //[self.scene addChild:self.spriteNode];
     [self addEventListener:@selector(did_position_updated:) message:[CPositionEvent CE_PositionChanged] ];
     CRenderEvent *event = [CRenderEvent eventWithType:[CRenderEvent CE_SpriteReady] withObject:self.spriteNode withAtlas:self.atlas withBubbles:YES];
     [self dispatchEventWithEvent:event];
@@ -107,7 +110,7 @@
     [self removeEventListener:@selector(did_position_updated:) message:[CPositionEvent CE_PositionChanged]];
     
     self.spriteNode = nil;
-    self.sceneName = nil;
+    self.layerName = nil;
     self.resourceName = nil;
     self.atlasName = nil;
     self.textureSize = nil;

@@ -29,13 +29,8 @@
     [self createLayers];
     self.backgroundColor = [SKColor redColor];
     
+    [self createLayers];
     //[self createTestEntitites];
-<<<<<<< HEAD
-    //[self AllEntities];
-    [self createBirdiotEntitites];
-    
-    CEngineSystem *spawner = [[PipeSpawnerSystem alloc] initWithLayer:pipeLayer];
-=======
     [self createBirdiotWithTemplate];
     //[self createBirdiotEntitites];
     //[self createSpawner];
@@ -43,17 +38,20 @@
 
 - (void)createSpawner
 {
-    CEngineSystem *spawner = [[PipeSpawnerSystem alloc] init];
->>>>>>> 57541721ef0e77bbabb8d8dc6d9f13b4932439b7
-    [[CEngine shared] addSystem:spawner];
+    //CEngineSystem *spawner = [[PipeSpawnerSystem alloc] init];
+    //[[CEngine shared] addSystem:spawner];
 }
 
 - (void)createLayers
 {
     birdLayer   = [[CLayer alloc] init];
+    birdLayer.name = @"birdLayer";
     groundLayer = [[CLayer alloc] init];
-    pipeLayer   = [[CLayer alloc] init];
-    bgLayer     = [[CLayer alloc] init];
+    groundLayer.name = @"groundLayer";
+    pipeLayer = [[CLayer alloc] init];
+    pipeLayer.name = @"pipeLayer";
+    bgLayer = [[CLayer alloc] init];
+    bgLayer.name = @"bgLayer";
     
     [self addChild:bgLayer];
     [self addChild:pipeLayer];
@@ -146,6 +144,7 @@
 }
 
 /* Create background entity */
+/*
 - (void)createBackground
 {
     CEntity *bgEntity = [[CEntityFactory shared] createEntity];
@@ -154,11 +153,9 @@
     positionComponent.position = [[CPoint alloc] initWithX:0.0f and:98.0f];
     
     CRenderComponent *rendererComponent = [[CRenderComponent alloc] init];
-    rendererComponent.layer = bgLayer;
-    rendererComponent.sceneName = NSStringFromClass([self class]);
+    rendererComponent.layer = bgLayer.name;
     rendererComponent.resourceName = @"bg.png";
-    rendererComponent.positionRef = positionComponent.position;
-    rendererComponent.sceneName = NSStringFromClass([self class]);
+    rendererComponent.positionProperty = [CPropertyReference alloc]
     //rendererComponent.textureSize = [[CSize alloc] initWithWidth:320 andHeight:441];
     
     CBackgroundComponent *bgComponent = [[CBackgroundComponent alloc] init];
@@ -173,25 +170,26 @@
     
     [bgEntity initialize:@"bg"];
 }
+*/
 
 /* Create birdiod entity */
 - (void)createBirdiot
 {
     CEntity *birdEntity = [[CEntityFactory shared] createEntity];
     
-    CPositionComponent *positionComponent = [[CPositionComponent alloc] init];
-    positionComponent.position = [[CPoint alloc] initWithX:74.0f and:240.0f];
+    CPositionComponent *positionComponent   = [[CPositionComponent alloc] init];
+    positionComponent.position              = [[CPoint alloc] initWithX:74.0f and:240.0f];
     
-    CRenderComponent *rendererComponent = [[CRenderComponent alloc] init];
-    rendererComponent.sceneName = NSStringFromClass([self class]);
-    rendererComponent.layer = birdLayer;
-    rendererComponent.resourceName = @"bird.png";
-    rendererComponent.atlasName = @"birdiot";
-    rendererComponent.positionRef = positionComponent.position;
-    rendererComponent.anchorPoint = [[CPoint alloc] initWithCGPoint:self.anchorPoint];
+    CRenderComponent *rendererComponent = [[CRenderComponent alloc] init];;
+    rendererComponent.layerName         = birdLayer.name;
+    rendererComponent.resourceName      = @"bird.png";
+    rendererComponent.atlasName         = @"birdiot";
+    rendererComponent.positionProperty  = [[CPropertyReference alloc] initWithExpression:@"@Position.position"];
+    rendererComponent.anchorPoint       = [[CPoint alloc] initWithCGPoint:self.anchorPoint];
     
     CAnimationComponent *animationComponent = [[CAnimationComponent alloc] init];
-    animationComponent.rendererComponent = rendererComponent;
+    animationComponent.spriteProperty       = [[CPropertyReference alloc] initWithExpression:@"@Render.spriteNode"];
+    animationComponent.atlasProperty        = [[CPropertyReference alloc] initWithExpression:@"@Render.atlas"];
     
     CControllerComponent *birdController = [[CControllerComponent alloc] init];
     
@@ -216,42 +214,13 @@
 
 - (void)createBirdiotWithTemplate
 {
+    // Load the level xml description file
     [[CTemplateManager shared] loadFile:@"birdiot_level.xml"];
+    
+    // Instantiate the entities which will be visible in game
     [[CTemplateManager shared] instantiateEntity:@"Birdiot"];
 }
 
-- (void)createTestEntitites
-{
-    /* TEST LEVEL IS LOADING : Implementing data-driven paradigm */
-    [[CTemplateManager shared] loadFile:@"test_level.xml"];
-    [[CTemplateManager shared] instantiateEntity:@"TestEntity"];
-    
-    /* ALL THESE DATA MUST BE DEFINED IN XML */
-    /* Create the sekeleton entity and its all components*/
-    /*
-    CEntity *skeletonEntity = [[CEntityFactory shared] createEntity];
-    
-    CPositionComponent *positionComponent = [[CPositionComponent alloc] init];
-    positionComponent.position = [[CPoint alloc] initWithX:CGRectGetMidX(self.frame) and:CGRectGetMidY(self.frame)];
-    
-    CRenderComponent *rendererComponent = [[CRenderComponent alloc] init];
-    rendererComponent.sceneName = NSStringFromClass([self class]);
-    rendererComponent.resourceName = @"android.png";
-    rendererComponent.positionRef = positionComponent.position;
-    rendererComponent.atlasName = @"android";
-    
-    CAnimationComponent *animationComponent = [[CAnimationComponent alloc] init];
-    animationComponent.rendererComponent = rendererComponent;
-    
-    CControllerComponent *controllerComponent = [[CControllerComponent alloc] init];
-    [skeletonEntity addComponent:positionComponent];
-    [skeletonEntity addComponent:rendererComponent];
-    [skeletonEntity addComponent:animationComponent];
-    [skeletonEntity addComponent:controllerComponent];
-    [skeletonEntity initialize:@"skeletion01"];
-    */
-    //[self performSelector:@selector(updateTest:) withObject:animationComponent afterDelay:3.0f];
-}
 
 -(void)update:(CFTimeInterval)currentTime {
     /* Called before each frame is rendered */

@@ -31,5 +31,6 @@ typedef NS_ENUM(int, EngineSystemType) {
 
 - (void)addSystem:(CEngineSystem *)system;
 - (void)removeSystem:(CEngineSystem *)system;
+- (CEngineSystem *)getSystem:(NSString *)name;
 
 @end

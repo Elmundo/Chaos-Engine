@@ -27,7 +27,7 @@
 - (void)initialize:(NSString *)entityName
 {
     self.name = entityName;
-    clog(@"Entity is created %@ ", self.name);
+    clog(@"['%@'] entity is created.", self.name);
     for (NSString *componentName in self.componentDic) {
         
         CComponent *component = [self.componentDic objectForKey:componentName];
@@ -53,7 +53,8 @@
 {
     CComponent *component = [self.componentDic objectForKey:componentName];
     if (component == nil) {
-        cerror(@"[EntityName: %@] There is no sucj a component [%@]", self.name, componentName);
+        cerror(@"[EntityName: %@] There is no such a component [%@]", self.name, componentName);
+        @throw [NSException exceptionWithName:@"ComponentException" reason:@"Component could not be found!" userInfo:nil];
     }
     
     return component;

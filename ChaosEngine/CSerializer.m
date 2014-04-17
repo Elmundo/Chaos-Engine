@@ -35,18 +35,11 @@
     while (currentElement) {
         
         if (strcmp(currentElement->name, "Component") == 0) {
-            NSString *componentType;
-            @try {
-                componentType = [TBXML valueOfAttributeNamed:@"type" forElement:currentElement];
-            }
-            @catch (NSException *exception) {
-                cerror(@"Throw error: %@", exception.description);
-            }
-            @finally {
-                
-            }
+            NSString *componentType = [TBXML valueOfAttributeNamed:@"type" forElement:currentElement];
+            NSString *componentName = [TBXML valueOfAttributeNamed:@"name" forElement:currentElement];
             Class classObj = NSClassFromString(componentType);
             id obj = [[classObj alloc] init];
+            [obj setValue:componentName forKey:@"componentName"];
             //TODO: Obje nil ise hata bas.
             
             if (currentElement) {

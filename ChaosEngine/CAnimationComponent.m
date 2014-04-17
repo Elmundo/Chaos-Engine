@@ -14,16 +14,15 @@
 {
     [super didAddedToEntity:owner];
     
-    self.renderComponent = [owner getProperty:self.renderProperty];
-    self.spriteNode   = (SKSpriteNode*)[self.renderComponent performSelector:NSSelectorFromString(@"spriteNode")];
-    self.textureAtlas = (CTextureAtlas*)[self.renderComponent performSelector:NSSelectorFromString(@"atlas")];
+    _spriteNode   = [owner getProperty:_spriteProperty];
+    _textureAtlas = [owner getProperty:_atlasProperty];
     
-    [self addEventListener:@selector(did_sprite_ready:) message:[CRenderEvent CE_SpriteReady]]; //TODO Refactor this - no more hard-coded.
+    [self addEventListener:@selector(did_sprite_ready:) message:[CRenderEvent CE_SpriteReady]];
 }
 
 - (void)playAnimationWithName:(NSString *)animationName
 {
-    if (!self.spriteNode) {
+    if (!_spriteNode) {
         @throw @"playAnimationWithName method: self.spriteNode is nil.";
     }
     
@@ -35,23 +34,22 @@
     SKAction *actionAnimation = [SKAction animateWithTextures:animationList timePerFrame:kDefaultTimePerFrame resize:YES restore:NO];
     SKAction *repeatAction = [SKAction repeatActionForever:actionAnimation];
     
-    [self.spriteNode runAction:repeatAction];
+    [_spriteNode runAction:repeatAction];
 }
 
-- (void)did_sprite_ready:(CEvent *)event
+- (void)did_sprite_ready:(CRenderEvent *)event
 {
-    self.spriteNode   = event.object;
-    self.textureAtlas = [event performSelector:NSSelectorFromString(@"atlas")];;
+    _spriteNode   = event.object;
+    _textureAtlas = event.atlas;
 }
 
 - (void)didRemovedFromEntity
 {
     [self didRemovedFromEntity];
     
-    [self.spriteNode removeAllActions];
-    self.spriteNode = nil;
-    self.textureAtlas = nil;
-    
+    [_spriteNode removeAllActions];
+    _spriteNode   = nil;
+    _textureAtlas = nil;
 }
 
 @end

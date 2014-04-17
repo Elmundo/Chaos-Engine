@@ -10,33 +10,41 @@
 
     <!-- Birdiot Entity -->
     <Entity type="CEntity" name="Birdiot">
-        <Component type="CPositionComponent" name"hebele">
+        
+        <!-- POSITION -->
+        <Component type="CPositionComponent" name="Position">
             <position>
                 <x>74</x>
                 <y>240</y>
             </position>
         </Component>
         
+        <!-- RENDER -->
         <Component type="CRenderComponent" name="Render">
-            <sceneName>MyScene</sceneName>
-            <resourceName>bird.png</resourceName>
-            <atlasName>android</atlasName>
-            <!-- <positionRef>@CPositionComponent.position</positionRef> CAN NOT BE USED YET! -->
+            <layerName>birdLayer</layerName>
+            <resourceName>btn_play.png</resourceName>
+            <positionProperty>@Position.position</positionProperty>
+            
             <anchorPoint>
                 <x>0.5</x>
                 <y>0.5</y>
             </anchorPoint>
         </Component>
         
+        <!-- ANIMATION -->
         <Component type="CAnimationComponent" name="Animation">
-            <renderProperty>@CRenderComponent.position.x</renderProperty>
+            <spriteProperty>@Render.spriteNode</spriteProperty>
+            <atlasProperty>@Render.atlas</atlasProperty>
         </Component>
         
+        <!-- CONTROLLER -->
         <Component type="CControllerComponent" name="Controller">
         </Component>
         
+        <!-- BIRD -->
         <Component type="CBirdComponent" name="Bird">
         </Component>
+        
     </Entity>
     
     <!-- Group Sample -->

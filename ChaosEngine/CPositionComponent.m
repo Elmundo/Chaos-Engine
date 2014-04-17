@@ -15,6 +15,9 @@
 - (void)didAddedToEntity:(CEntity *)owner
 {
     [super didAddedToEntity:owner];
+    
+    CPositionEvent *event = [CPositionEvent eventWithType:[CPositionEvent CE_PositionChanged] withObject:self withBubbles:YES];
+    [self dispatchEventWithEvent:event];
 }
 
 - (void)didRemovedFromEntity
@@ -28,25 +31,17 @@
 {
     _position.x = x;
     _position.y = y;
-   
-    CPositionEvent *event = [CPositionEvent eventWithType:[CPositionEvent CE_PositionChanged] withObject:self withBubbles:YES];
+    CPositionEvent *event = [CPositionEvent eventWithType:[CPositionEvent CE_PositionChanged] withObject:_position withBubbles:YES];
     [self dispatchEventWithEvent:event];
 }
 
 - (void)setWithCGPoint:(CGPoint)point
 {
-    _position.x = point.x;
-    _position.y = point.y;
-    
     [self setPoint:point.x and:point.y];
-    CPositionEvent *event = [CPositionEvent eventWithType:[CPositionEvent CE_PositionChanged] withObject:self withBubbles:YES];
-    [self dispatchEventWithEvent:event];
 }
 
 #pragma mark GETTER & SETTER
 - (CPoint *)position { return _position; }
-- (void)setPosition:(CPoint *)position {
-    _position = position;
-}
+- (void)setPosition:(CPoint *)position { _position = position; }
 
 @end

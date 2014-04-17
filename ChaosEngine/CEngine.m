@@ -39,11 +39,6 @@
     return self;
 }
 
--(void)main_update:(NSTimer *)timer
-{
-
-}
-
 - (void)addSystem:(CEngineSystem *)system
 {
     system.engine = self;
@@ -54,6 +49,12 @@
 {
     system.engine = nil;
     [_systems removeObjectForKey:NSStringFromClass([system class])];
+}
+
+- (CEngineSystem *)getSystem:(NSString *)name
+{
+    // NOT IMPLEMENTED YET!
+    return nil;
 }
 
 #pragma mark CSceneDelegate

@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "CEntity.h"
 #import "CSerializable.h"
+#import "CEngine.h"
 
 @interface CPropertyReference : CSerializable
 
@@ -16,6 +17,7 @@
 @property (nonatomic, strong) NSArray *propertyList;
 @property (nonatomic, strong) NSString *format;
 
+- (id)initWithExpression:(NSString *)expression;
 - (void)deserialize:(TBXMLElement *)element;
 - (id)getPropertyWithEntity:(CEntity *)owner;
 

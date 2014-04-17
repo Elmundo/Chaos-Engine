@@ -25,10 +25,6 @@
 #import "CBackgroundComponent.h"
 #import "PipeSpawnerSystem.h"
 
-static const uint32_t pipeCategory   =  0x1 << 0;
-static const uint32_t birdCategory   =  0x1 << 1;
-static const uint32_t groundCategory =  0x1 << 2;
-
 @interface MyScene : CScene
 {
     CLayer *birdLayer;

@@ -85,12 +85,13 @@ static const uint32_t groundCategory =  0x1 << 2;
 - (void)spawnPipes
 {
     [self createPipeBottom];
-    [self createPipeTop];
+    //[self createPipeTop];
 }
 
 /* Create pipe entity */
 - (void)createPipeBottom
 {
+    /*
     CEntity *pipeEntity = [[CEntityFactory shared] createEntity];
     
     CPositionComponent *positionComponent = [[CPositionComponent alloc] init];
@@ -98,7 +99,6 @@ static const uint32_t groundCategory =  0x1 << 2;
     
     CRenderComponent *rendererComponent = [[CRenderComponent alloc] init];
     rendererComponent.layer = _layer;
-    rendererComponent.sceneName = @"MyScene";
     rendererComponent.resourceName = @"tube.png";
     rendererComponent.positionRef = positionComponent.position;
     
@@ -151,6 +151,7 @@ static const uint32_t groundCategory =  0x1 << 2;
     [pipeEntity initialize:@"pipeTop"];
     
     [_pipeList addObject:pipeEntity];
+     */
 }
 
 @end

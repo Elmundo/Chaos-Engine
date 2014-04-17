@@ -7,14 +7,24 @@
 //
 
 #import "CPropertyReference.h"
+#import "CEntityFactory.h"
 
 @implementation CPropertyReference
 
-- (id)init
+- (id)initWithExpression:(NSString *)expression
 {
     self = [super init];
     if (self) {
-        //
+        NSArray *list = (NSMutableArray*)[expression componentsSeparatedByString:@"."];
+        
+        _format = [list[0] substringToIndex:1];
+        _word   = [list[0] substringFromIndex:1];
+        
+        NSRange range;
+        range.location = 1;
+        range.length = list.count - 1;
+        
+        _propertyList = [list subarrayWithRange:range];
     }
     
     return self;
@@ -51,11 +61,35 @@
     }else if ([_format isEqualToString:@"#"]) //Global Entity Lookup
     {
         
-    }else if ([_format isEqualToString:@"!"]) //XML Lookup
-    {
+        CEntityFactory *factory = [CEntityFactory shared];
+        id element = [factory getEntity:_word];
+        id component = [element getComponent:_propertyList[0]];
+        for (int i=1; i < _propertyList.count; ++i) {
+            component = [component valueForKey:_propertyList[i]];
+            //element = [element valueForKeyPath:_propertyList[i]];
+        }
         
+        return element;
+        
+    }else if ([_format isEqualToString:@"$"]) //Global Entity Lookup
+    {
+        /*
+        id system = [CEngine shared].systems[_word];
+        for (int i=0; i < _propertyList.count; ++i) {
+            element = [element valueForKey:_propertyList[i]];
+            //element = [element valueForKeyPath:_propertyList[i]];
+        }
+        
+        return element;
+        */
     }
     
+    /*
+    else if ([_format isEqualToString:@"!"]) //XML Lookup
+    {
+        //
+    }
+    */
     return nil;
 }
 

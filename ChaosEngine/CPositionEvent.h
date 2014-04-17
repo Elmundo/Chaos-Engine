@@ -8,6 +8,11 @@
 
 #import "CEvent.h"
 
+enum kPosition {
+    kPositionInit = 0,
+    kPositionChanged = 1,
+};
+
 @interface CPositionEvent : CEvent
 
 /* Event Static Messages */

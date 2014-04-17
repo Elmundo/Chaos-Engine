@@ -42,8 +42,9 @@
 - (void)loadFile:(NSString *)fileName
 {
     NSError *error;
-    TBXML *tbxml = [TBXML newTBXMLWithXMLFile:fileName error:&error];
-    TBXMLElement *rootElement = [tbxml rootXMLElement];
+    _sourceXML = [TBXML newTBXMLWithXMLFile:fileName error:&error];
+    
+    TBXMLElement *rootElement = [_sourceXML rootXMLElement];
     
     if (error) {
         cerror(@"There is no such a file: %@", fileName);
@@ -71,21 +72,20 @@
         
         else if (strcmp(currentElemenet->name, "Entity") == 0){
             clog(@"Loading Entity: %@", [TBXML valueOfAttributeNamed:@"name" forElement:currentElemenet]);
-            NSValue *entity      = [NSValue valueWithPointer:currentElemenet];
+            NSValue *entity = [NSValue valueWithPointer:currentElemenet];
             NSString *entityName = [TBXML valueOfAttributeNamed:@"name" forElement:currentElemenet];
             
-            [_entityDic setValue:entity forKey:entityName];
+            [_entityDic setObject:entity forKey:entityName];
         }
         
         else if (strcmp(currentElemenet->name, "Group") == 0){
             clog(@"Loading Group: %@", [TBXML valueOfAttributeNamed:@"name" forElement:currentElemenet]);
             NSValue *group      = [NSValue valueWithPointer:currentElemenet];
             NSString *groupName = [TBXML valueOfAttributeNamed:@"name" forElement:currentElemenet];
-            
             [_groupDic setValue:group forKey:groupName];
         }
         else {
-            cerror(@"Error! Invalid tag to read: %s", currentElemenet->name);
+            cerror(@"Error! Invalid tag to3 read: %s", currentElemenet->name);
             cerror(@"This tag will be ignored by TempalteManager and will not be cached.");
         }
         
@@ -98,25 +98,25 @@
 - (id)instantiateEntity:(NSString *)entityName
 {
     NSValue *entityXMLWrapper = [_entityDic objectForKey:entityName];
-    TBXMLElement *elementXML = [entityXMLWrapper pointerValue];
-    if (elementXML == Nil) {
+    TBXMLElement *entityXML = [entityXMLWrapper pointerValue];
+    
+    if (!entityXML) {
         clog(@"elementXml is null!");
         @throw [NSException exceptionWithName:@"XMLParsingException"
                                        reason:[NSString stringWithFormat:(@"Entity: %@ could not be found!"), entityName]
                                      userInfo:nil];
     }
     
-    NSString *entityXMLName = [TBXML valueOfAttributeNamed:@"name" forElement:elementXML];
-    
-    // Instantiate shell entity
     CEntity *newEntity = [[CEntityFactory shared] createEntity];
+    NSString *entityXMLName = [TBXML valueOfAttributeNamed:@"name" forElement:entityXML];
+    TBXMLElement *firstComponentXML = entityXML->firstChild;
     
     // Fill the entity with components according to the information from XML description
-    NSArray *components = [[CSerializer shared] deserialize:elementXML->firstChild];
+    NSArray *components = [[CSerializer shared] deserialize:firstComponentXML];
     for (CComponent *component in components) {
         [newEntity addComponent:component];
     }
-    
+
     [newEntity initialize:entityXMLName];
     
     return newEntity;
