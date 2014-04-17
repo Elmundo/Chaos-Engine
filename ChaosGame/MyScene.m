@@ -97,18 +97,19 @@
 {
     CEntity *birdEntity = [[CEntityFactory shared] createEntity];
     
-    CPositionComponent *positionComponent = [[CPositionComponent alloc] init];
-    positionComponent.position = [[CPoint alloc] initWithX:74.0f and:240.0f];
+    CPositionComponent *positionComponent   = [[CPositionComponent alloc] init];
+    positionComponent.position              = [[CPoint alloc] initWithX:74.0f and:240.0f];
     
     CRenderComponent *rendererComponent = [[CRenderComponent alloc] init];;
-    rendererComponent.layerName = birdLayer.name;
-    rendererComponent.resourceName = @"bird.png";
-    rendererComponent.atlasName = @"birdiot";
-    rendererComponent.positionProperty = [[CPropertyReference alloc] initWithExpression:@"@Position.position"];
-    rendererComponent.anchorPoint = [[CPoint alloc] initWithCGPoint:self.anchorPoint];
+    rendererComponent.layerName         = birdLayer.name;
+    rendererComponent.resourceName      = @"bird.png";
+    rendererComponent.atlasName         = @"birdiot";
+    rendererComponent.positionProperty  = [[CPropertyReference alloc] initWithExpression:@"@Position.position"];
+    rendererComponent.anchorPoint       = [[CPoint alloc] initWithCGPoint:self.anchorPoint];
     
     CAnimationComponent *animationComponent = [[CAnimationComponent alloc] init];
-    animationComponent.rendererComponent = rendererComponent;
+    animationComponent.spriteProperty       = [[CPropertyReference alloc] initWithExpression:@"@Render.spriteNode"];
+    animationComponent.atlasProperty        = [[CPropertyReference alloc] initWithExpression:@"@Render.atlas"];
     
     CControllerComponent *birdController = [[CControllerComponent alloc] init];
     
