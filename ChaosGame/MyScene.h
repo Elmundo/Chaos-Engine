@@ -27,9 +27,7 @@
 
 @interface MyScene : CScene
 {
-    CLayer *birdLayer;
-    CLayer *groundLayer;
-    CLayer *pipeLayer;
     CLayer *bgLayer;
+    CLayer *gameLayer;
 }
 @end

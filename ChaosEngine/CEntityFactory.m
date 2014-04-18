@@ -15,6 +15,7 @@
     static CEntityFactory *instance = nil;
     if (instance == nil) {
         instance = [[CEntityFactory alloc] init];
+        instance.name = @"EntityFactory";
     }
     
     return instance;

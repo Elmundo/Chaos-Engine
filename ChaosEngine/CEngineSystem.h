@@ -15,6 +15,7 @@
 
 @property (nonatomic, weak) CEngine *engine;
 @property (nonatomic, assign) int systemType;
+@property (nonatomic, strong) NSString *name;
 
 - (void)update:(NSTimeInterval)dt;
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event;

@@ -18,6 +18,7 @@
     if (instance == nil) {
         instance = [[CInputSystem alloc] init];
         instance.systemType = kEngineSystemTypeInput;
+        instance.name = @"InputSystem";
     }
     
     return instance;

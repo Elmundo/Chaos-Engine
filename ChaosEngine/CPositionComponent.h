@@ -13,7 +13,7 @@
 
 @interface CPositionComponent : CComponent
 
-@property (nonatomic, strong) CPoint *position;
+@property (nonatomic, strong) CPoint *position; // Required
 
 - (void)setPoint:(float)x and:(float)y;
 - (void)setWithCGPoint:(CGPoint)point;

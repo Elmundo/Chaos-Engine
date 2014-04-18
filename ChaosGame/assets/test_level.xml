@@ -1,98 +1,75 @@
 <!-- Level1 Entity List-->
 <data>
     <!-- There could be only three types of object of data tag;
-        Entitiy
-        Template
-        Group
+     Entitiy
+     Template
+     Group
      
-        Other tags will be INVALID in data tag scope
-    -->
-    <!-- Template Sample -->
-    <Template name="Human">
+     Other tags will be INVALID in data tag scope
+     -->
+    <!-- GAME ENTITIES -->
+    <Entity type="CEntity" name="Background">
         <Component type="CPositionComponent" name="Position">
-            <name>Baris</name>
-            <surename>Yilmaz</surename>
-        </Component>
-    </Template>
-    
-    <!-- Entity Samples -->
-    <Entity type="CEntity" name="skeletonEntity">
-        <Component type="CPositionComponent" name"hebele">
             <position>
-                <x>10</x>
-                <y>12</y>
+                <x>0</x>
+                <y>0</y>
             </position>
         </Component>
         
         <Component type="CRenderComponent" name="Render">
-            <sceneName>MyScene</sceneName>
-            <resourceName>android.png</resourceName>
-            <positionRef>@Position.position</positionRef>
-            <atlasName>android</atlasName>
-            <color>white</color>
-        </Component>
-        
-        <Component type="CAnimationComponent" name="Animation">
-            <renderRef></renderRef>
-            <atlasRef></atlasRef>
-        </Component>
-        
-        <Component type="CControllerComponent" name="Controller">
+            <positionProperty>@Position.position</positionProperty>
+            <layerName>bgLayer</layerName>
+            <resourceName>Background.png</resourceName>
+            <userInteractionEnabled>true</userInteractionEnabled>
         </Component>
     </Entity>
     
-    <Entity type="CEntity" name="TestEntity">
-        <Component type="CPositionComponent" name"Position">
+    <Entity type="CEntity" name="Character">
+        <Component type="CPositionComponent" name="Position">
             <position>
-                <x>12</x>
-                <y>10</y>
+                <x>208</x>
+                <y>128</y>
             </position>
         </Component>
-    
-        <Component type="CTestComponent" name="Test">
-            <list type="NSMutableDictionary">
-                <_>
-                    <dic type="CPoint">
-                        <BunnyPosition>
-                            <x>13</x>
-                            <y>76</y>
-                        </BunnyPosition>
-                        <CatPosition>
-                            <x>24</x>
-                            <y>55</y>
-                        </CatPosition>
-                    </dic>
-                </_>
-                <_>
-                    <dic type="CPoint">
-                        <BunnyPosition>
-                            <x>13</x>
-                            <y>76</y>
-                        </BunnyPosition>
-                        <CatPosition>
-                            <x>24</x>
-                            <y>55</y>
-                        </CatPosition>
-                    </dic>
-                </_>
-            </list>
-        </Component>
-     
         
         <Component type="CRenderComponent" name="Render">
-            <sceneName>MyScene</sceneName>
-            <resourceName>android.png</resourceName>
-            <positionRef>@Position.position</positionRef>
-            <atlasName>android</atlasName>
-            <color>white</color>
+            <positionProperty>@Position.position</positionProperty>
+            <layerName>gameLayer</layerName>
+            <resourceName>Character.png</resourceName>
+            <anchorPoint>
+                <x>0.5</x>
+                <y>0.5</y>
+            </anchorPoint>
+            <!--<userInteractionEnabled>true</userInteractionEnabled>-->
+        </Component>
+    </Entity>
+    
+    <Entity type="CEntity" name="House">
+        <Component type="CPositionComponent" name="Position">
+            <position>
+                <x>30</x>
+                <y>128</y>
+            </position>
         </Component>
         
+        <Component type="CRenderComponent" name="Render">
+            <positionProperty>@Position.position</positionProperty>
+            <layerName>gameLayer</layerName>
+            <resourceName>House.png</resourceName>
+            <anchorPoint>
+                <x>0.5</x>
+                <y>0.5</y>
+            </anchorPoint>
+            <!--<userInteractionEnabled>true</userInteractionEnabled>-->
+        </Component>
+    </Entity>
+    
+    <Entity type="CEntity" name="Tree">
+        <!-- Some Stuff-->
     </Entity>
     
     <!-- Group Sample -->
     <Group name="Things">
-        <ObjectReference name="Skeleton"/>
-        <ObjectReference name="skeletonEntity"/>
-        <ObjectReference name="EmptyEntity"/>
+        <ObjectReference name="Birdiot"/>
     </Group>
 </data>

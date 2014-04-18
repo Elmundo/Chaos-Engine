@@ -16,6 +16,7 @@
     static CSceneManager *instance = nil;
     if (instance == nil) {
         instance = [[CSceneManager alloc] init];
+        instance.name = @"SceneManager";
     }
     
     return instance;

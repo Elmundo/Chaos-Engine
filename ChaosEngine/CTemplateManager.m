@@ -101,7 +101,7 @@
     TBXMLElement *entityXML = [entityXMLWrapper pointerValue];
     
     if (!entityXML) {
-        clog(@"elementXml is null!");
+        cerror(@"elementXml is null!");
         @throw [NSException exceptionWithName:@"XMLParsingException"
                                        reason:[NSString stringWithFormat:(@"Entity: %@ could not be found!"), entityName]
                                      userInfo:nil];

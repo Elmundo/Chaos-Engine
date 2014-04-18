@@ -67,8 +67,7 @@
     else{
         self.spriteNode = [CSpriteNode spriteNodeWithTexture:defaultTexture];
     }
-    //self.spriteNode.userInteractionEnabled = self.userInteractionEnabled;
-    self.spriteNode.userInteractionEnabled = true;
+    self.spriteNode.userInteractionEnabled = self.userInteractionEnabled;
 
     if (self.spriteNode == nil) {
         clog(@"There is no such a texture: %@", self.resourceName);
@@ -124,7 +123,5 @@
 {
     self.spriteNode.position = [self.position CGPoint];
 }
-
-#pragma mark GETTER & SETTER
 
 @end

@@ -49,7 +49,6 @@
 }
 
 #pragma mark GETTER & SETTER
-
 - (void)setValue:(id)value forKey:(NSString *)key
 {
     if([key isEqualToString:@"x"])

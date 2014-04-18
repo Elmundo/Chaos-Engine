@@ -18,6 +18,7 @@
     if (instance == nil) {
         instance = [[CPhysicSystem alloc] init];
         instance.systemType = KEngineSystemTypePhysic;
+        instance.name = @"PhysicSystem";
     }
     
     return instance;
