@@ -25,9 +25,8 @@
         like CComponent and CEntity that PropertyReference class will know how to handle when
         it is defined EngineSystem in xml description and get the related object from Engine itself.
      ***********************************************************************************************/
-    _manager = [CSceneManager shared]; // i wanna run away from this approach
     //_manager = owner.getProperty(managerProperty);
-    
+    _manager = [CSceneManager shared]; // i wanna run away from this approach
     _layer = [_manager getLayerWithName:_layerName];
     
     if (self.resourceName == nil) {

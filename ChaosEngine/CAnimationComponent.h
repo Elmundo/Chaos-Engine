@@ -13,22 +13,21 @@
 #import <SpriteKit/SpriteKit.h>
 #import "CPropertyReference.h"
 
+//TODO: Baris - Move these macro defines to common Utils class
 #define kAppendStr(str1, str2)  [str1 stringByAppendingString:str2]
 #define kFormat @".png"
 #define kDefaultTimePerFrame 0.125f
 
 @interface CAnimationComponent : CComponent
-{
-    NSString *acking;
-}
 
-@property (nonatomic, strong) id rendererComponent;
+/* OUTSIDE PROPERTIES */
+@property (nonatomic, strong) CPropertyReference *spriteProperty; //Required
+@property (nonatomic, strong) CPropertyReference *atlasProperty; // Required
 
+/* INNER PROPERTIES */
 @property (nonatomic, strong) SKSpriteNode *spriteNode;
 @property (nonatomic, strong) CTextureAtlas *textureAtlas;
 @property (nonatomic, strong) SKAction *animationAction;
-@property (nonatomic, strong) CPropertyReference *renderProperty;
-@property (nonatomic, strong) CComponent *renderComponent;
 
 - (void)playAnimationWithName:(NSString *)animationName;
 

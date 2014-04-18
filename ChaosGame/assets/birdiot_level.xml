@@ -22,12 +22,8 @@
         <!-- RENDER -->
         <Component type="CRenderComponent" name="Render">
             <layerName>birdLayer</layerName>
-            <resourceName>bird.png</resourceName>
-            <atlasName>android</atlasName>
-            
+            <resourceName>btn_play.png</resourceName>
             <positionProperty>@Position.position</positionProperty>
-            <entityProperty>#Hero.render</entityProperty>
-            <managerProperty></managerProperty>
             
             <anchorPoint>
                 <x>0.5</x>
@@ -37,7 +33,8 @@
         
         <!-- ANIMATION -->
         <Component type="CAnimationComponent" name="Animation">
-            <renderProperty>@Render</renderProperty>
+            <spriteProperty>@Render.spriteNode</spriteProperty>
+            <atlasProperty>@Render.atlas</atlasProperty>
         </Component>
         
         <!-- CONTROLLER -->

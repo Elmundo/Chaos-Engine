@@ -14,11 +14,10 @@
 {
     [super didAddedToEntity:owner];
     
-    _renderComponent = [owner getProperty:self.renderProperty];
-    _spriteNode   = (SKSpriteNode*)[self.renderComponent performSelector:NSSelectorFromString(@"spriteNode")];
-    _textureAtlas = (CTextureAtlas*)[self.renderComponent performSelector:NSSelectorFromString(@"atlas")];
+    _spriteNode   = [owner getProperty:_spriteProperty];
+    _textureAtlas = [owner getProperty:_atlasProperty];
     
-    [self addEventListener:@selector(did_sprite_ready:) message:[CRenderEvent CE_SpriteReady]]; //TODO Refactor this - no more hard-coded.
+    [self addEventListener:@selector(did_sprite_ready:) message:[CRenderEvent CE_SpriteReady]];
 }
 
 - (void)playAnimationWithName:(NSString *)animationName
@@ -38,10 +37,10 @@
     [_spriteNode runAction:repeatAction];
 }
 
-- (void)did_sprite_ready:(CEvent *)event
+- (void)did_sprite_ready:(CRenderEvent *)event
 {
     _spriteNode   = event.object;
-    _textureAtlas = [event performSelector:NSSelectorFromString(@"atlas")];
+    _textureAtlas = event.atlas;
 }
 
 - (void)didRemovedFromEntity
@@ -49,9 +48,8 @@
     [self didRemovedFromEntity];
     
     [_spriteNode removeAllActions];
-    _spriteNode = nil;
+    _spriteNode   = nil;
     _textureAtlas = nil;
-    
 }
 
 @end
