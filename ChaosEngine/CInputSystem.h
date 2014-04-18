@@ -7,23 +7,23 @@
 //
 
 #import "CEngineSystem.h"
-@class CControllerComponent;
+#import "CEventDispatcher.h"
 
+@class CControllerComponent;
+@class CEventDispatcher;
+@class CEventListener;
 
 /*
-    Listen to all touch events of the scene
- */
+    Listen to all touch events which are not handled by another system
+*/
 @interface CInputSystem : CEngineSystem
 
-@property (nonatomic, strong) NSMutableArray *components;
+@property (nonatomic, strong) NSMutableArray *listeners;
+@property (nonatomic, strong) CEventDispatcher *dispatcher;
 
 + (id)shared;
 
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event;
-- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event;
-- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event;
-
-- (void)addController:(CControllerComponent *)controller;
-- (void)removeController:(CControllerComponent *)controller;
+- (void)addEventListener:(id)object withAction:(SEL)action withEvent:(NSString *)message;
+- (void)removeEventListener:(id)object withAction:(SEL)action withEvent:(NSString *)message;
 
 @end

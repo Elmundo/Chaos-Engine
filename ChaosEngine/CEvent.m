@@ -29,6 +29,8 @@
 }
 
 /* Event Static Messages */
-+ (NSString *)CE_Base { return @"CEvent_Base"; }
++ (NSString*)ETouchBegan{ return @"TouchBeganEvent"; }
++ (NSString*)ETouchMoved{ return @"TouchMovedEvent"; }
++ (NSString*)ETouchEnded{ return @"TouchEndedEvent"; }
 
 @end

@@ -26,20 +26,20 @@
     self.physicBody = self.render.spriteNode.physicsBody;
     
     // How to reacts to forces and collisions
-    self.physicBody.mass = 0.0f;
-    self.physicBody.friction = 0.0f;
-    self.physicBody.linearDamping = 0.0f;
-    self.physicBody.angularDamping = 0.0f;
-    self.physicBody.restitution = 0.0f;
+    self.physicBody.mass            = 0.0f;
+    self.physicBody.friction        = 0.0f;
+    self.physicBody.linearDamping   = 0.0f;
+    self.physicBody.angularDamping  = 0.0f;
+    self.physicBody.restitution     = 0.0f;
     
     // How the simulation is performed on the body itself
-    self.physicBody.dynamic = self.dynamic;
+    self.physicBody.dynamic           = self.dynamic;
     self.physicBody.affectedByGravity = NO;
-    self.physicBody.allowsRotation = NO;
+    self.physicBody.allowsRotation    = NO;
     
-    self.physicBody.categoryBitMask = self.category;
-    self.physicBody.collisionBitMask = self.collision;
-    self.physicBody.contactTestBitMask = self.contact;
+    self.physicBody.categoryBitMask     = self.category;
+    self.physicBody.collisionBitMask    = self.collision;
+    self.physicBody.contactTestBitMask  = self.contact;
     
     [self addEventListener:@selector(didBeginContact:) message:[CContactEvent CE_Contact]];
 }

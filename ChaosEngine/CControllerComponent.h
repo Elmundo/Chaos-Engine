@@ -10,8 +10,7 @@
 #import "CPoint.h"
 #import "CPositionComponent.h"
 #import "CAnimationComponent.h"
-
-@class CInputSystem;
+#import "CInputSystem.h"
 
 @interface CControllerComponent : CComponent
 {

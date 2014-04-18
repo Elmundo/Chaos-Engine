@@ -27,52 +27,39 @@
 {
     self = [super init];
     if (self) {
-        _components = [NSMutableArray arrayWithCapacity:10];
+        _listeners = [NSMutableArray arrayWithCapacity:10];
+        _dispatcher = [[CEventDispatcher alloc] init];
     }
     
     return self;
 }
 
-- (void)update:(NSTimeInterval)dt
-{
-    
-}
-
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    /*
-    for (CControllerComponent *controller in _components) {
-        [controller touchesBegan:touches withEvent:event];
-    }
-     */
+    CEvent *cEvent = [CEvent eventWithType:[CEvent ETouchBegan] withObject:event withBubbles:NO];
+    [_dispatcher dispatchEvent:cEvent];
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    /*
-    for (CControllerComponent *controller in _components) {
-        [controller touchesMoved:touches withEvent:event];
-    }
-     */
+    CEvent *cEvent = [CEvent eventWithType:[CEvent ETouchMoved] withObject:event withBubbles:NO];
+    [_dispatcher dispatchEvent:cEvent];
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    /*
-    for (CControllerComponent *controller in _components) {
-        [controller touchesEnded:touches withEvent:event];
-    }
-     */
+    CEvent *cEvent = [CEvent eventWithType:[CEvent ETouchEnded] withObject:event withBubbles:NO];
+    [_dispatcher dispatchEvent:cEvent];
 }
 
-- (void)addController:(CControllerComponent *)controller
+- (void)addEventListener:(id)object withAction:(SEL)action withEvent:(NSString *)message
 {
-    [_components addObject:controller];
+    [_dispatcher addEventListener:object withAction:action withEvent:message];
 }
 
-- (void)removeController:(CControllerComponent *)controller
+- (void)removeEventListener:(id)object withAction:(SEL)action withEvent:(NSString *)message
 {
-    [_components removeObject:controller];
+    [_dispatcher removeEventListener:object withAction:action withEvent:message];
 }
 
 @end

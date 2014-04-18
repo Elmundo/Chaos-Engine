@@ -17,7 +17,10 @@
 + (id)eventWithType:(NSString *)type withObject:(id)object withBubbles:(BOOL)bubbles;
 - (id)initWithType:(NSString *)type withObject:(id)object withBubbles:(BOOL)bubbles;
 
+/* GLOBAL SCOPE EVENTS ~ BROADCAST EVENTS*/
 /* Event Static Messages */
-+ (NSString *)CE_Base;
++ (NSString*)ETouchBegan;
++ (NSString*)ETouchMoved;
++ (NSString*)ETouchEnded;
 
 @end

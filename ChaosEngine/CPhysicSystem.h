@@ -16,7 +16,7 @@
 
 + (id)shared;
 
--  (void)didBeginContact:(SKPhysicsContact *)contact;
+- (void)didBeginContact:(SKPhysicsContact *)contact;
 - (void)didEndContact:(SKPhysicsContact *)contact;
 
 - (void)add:(CPhysicComponent *)collider;

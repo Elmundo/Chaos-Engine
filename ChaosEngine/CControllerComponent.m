@@ -17,23 +17,18 @@ static BOOL firstTouch = FALSE;
 {
     [super didAddedToEntity:owner];
     
-    _inputManager = [CInputSystem shared];
-    [_inputManager addController:self];
-    
     _pos = (CPositionComponent*)[self getComponent:@"Position"];
     
     _tappedScreen = FALSE;
     _vertSpeed = 0;
     _jumpSpeed = 300.f ;
-    _fallingConstant = 1000.f ;
-
+    _fallingConstant = 1000.f;
 }
 
 - (void)didRemovedFromEntity
 {
     [super didRemovedFromEntity];
     
-    [_inputManager removeController:self];
     _inputManager = nil;
     _renderRef = nil;
     _positionRef = nil;
