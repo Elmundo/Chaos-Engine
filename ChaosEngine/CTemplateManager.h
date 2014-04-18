@@ -11,7 +11,6 @@
 #import "CSerializer.h"
 #import "CEntityFactory.h"
 #import "CSerializable.h"
-#import "CXMLElement.h"
 
 @interface CTemplateManager : CEngineSystem
 {

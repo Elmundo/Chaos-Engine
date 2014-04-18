@@ -38,7 +38,7 @@
 @property (nonatomic, assign) BOOL userInteractionEnabled; // Optional
 
 /* INNER PROPERTIES */
-@property (nonatomic, strong) SKSpriteNode *spriteNode;
+@property (nonatomic, strong) CSpriteNode *spriteNode;
 @property (nonatomic, strong) SKTexture *sourceTexture;
 @property (nonatomic, strong) CTextureAtlas *atlas;
 @property (nonatomic, weak) CPoint *position;

@@ -67,7 +67,8 @@
     else{
         self.spriteNode = [CSpriteNode spriteNodeWithTexture:defaultTexture];
     }
-    self.spriteNode.userInteractionEnabled = self.userInteractionEnabled;
+    //self.spriteNode.userInteractionEnabled = self.userInteractionEnabled;
+    self.spriteNode.userInteractionEnabled = true;
 
     if (self.spriteNode == nil) {
         clog(@"There is no such a texture: %@", self.resourceName);

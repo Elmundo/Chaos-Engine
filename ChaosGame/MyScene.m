@@ -27,7 +27,7 @@
 {
     /* DO NOT COMMENT OUT LAYERS, OR YOU SHALL SEE THE RED OF THE HELL!*/
     [self createLayers];
-    self.backgroundColor = [SKColor redColor];
+    self.backgroundColor = [SKColor whiteColor];
     
     [self createLayers];
     //[self createTestEntitites];
