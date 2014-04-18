@@ -8,6 +8,7 @@
 
 #import "CPhysicComponent.h"
 #import "CPhysicSystem.h"
+#import "CContactEvent.h"
 
 @implementation CPhysicComponent
 

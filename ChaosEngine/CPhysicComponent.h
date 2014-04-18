@@ -9,9 +9,9 @@
 #import "CComponent.h"
 #import "CRenderComponent.h"
 #import <SpriteKit/SpriteKit.h>
-#import "CContactEvent.h"
 
 @class CPhysicSystem;
+@class CContactEvent;
 
 @interface CPhysicComponent : CComponent
 

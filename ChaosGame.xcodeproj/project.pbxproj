@@ -69,6 +69,8 @@
 		62AA5421188442E8001FA053 /* CPositionComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AA5420188442E8001FA053 /* CPositionComponent.m */; };
 		62AA5424188442F9001FA053 /* CRenderComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AA5423188442F9001FA053 /* CRenderComponent.m */; };
 		62B3BA9D1891433400DD8424 /* CInputSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 62B3BA9C1891433400DD8424 /* CInputSystem.m */; };
+		62BB4D5519010F670016D540 /* CSpriteNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 62BB4D5419010F670016D540 /* CSpriteNode.m */; };
+		62BB4D5819010F740016D540 /* CContactEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 62BB4D5719010F740016D540 /* CContactEvent.m */; };
 		62C8AFC718FC2ADA00B4C4A9 /* birdiot_level.xml in Resources */ = {isa = PBXBuildFile; fileRef = 62C8AFC618FC2ADA00B4C4A9 /* birdiot_level.xml */; };
 		62C8AFCA18FC2D9900B4C4A9 /* CPropertyReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 62C8AFC918FC2D9900B4C4A9 /* CPropertyReference.m */; };
 		62C8AFCD18FC2EBD00B4C4A9 /* CSerializable.m in Sources */ = {isa = PBXBuildFile; fileRef = 62C8AFCC18FC2EBD00B4C4A9 /* CSerializable.m */; };
@@ -121,12 +123,8 @@
 		6242555E18BB4E8B003E6324 /* CSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CSize.m; path = ChaosEngine/CSize.m; sourceTree = "<group>"; };
 		624819E118D6377700877225 /* CLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CLayer.h; path = ChaosEngine/CLayer.h; sourceTree = "<group>"; };
 		624819E218D6377700877225 /* CLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CLayer.m; path = ChaosEngine/CLayer.m; sourceTree = "<group>"; };
-		62496A3A18F1A11B00238B95 /* CSpriteNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CSpriteNode.h; path = ChaosEngine/CSpriteNode.h; sourceTree = "<group>"; };
-		62496A3B18F1A11B00238B95 /* CSpriteNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CSpriteNode.m; path = ChaosEngine/CSpriteNode.m; sourceTree = "<group>"; };
 		62496A4218F1D32300238B95 /* map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = map.png; path = assets/myassets/map.png; sourceTree = "<group>"; };
 		62496A4618F1D3C500238B95 /* dirtj.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = dirtj.jpg; path = assets/myassets/dirtj.jpg; sourceTree = "<group>"; };
-		62496A4818F1EB5B00238B95 /* CContactEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CContactEvent.h; path = ChaosEngine/CContactEvent.h; sourceTree = "<group>"; };
-		62496A4918F1EB5B00238B95 /* CContactEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CContactEvent.m; path = ChaosEngine/CContactEvent.m; sourceTree = "<group>"; };
 		6253D201188033120017790C /* ChaosGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChaosGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6253D204188033120017790C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6253D206188033120017790C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -200,6 +198,10 @@
 		62AA5423188442F9001FA053 /* CRenderComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CRenderComponent.m; path = ChaosEngine/CRenderComponent.m; sourceTree = "<group>"; };
 		62B3BA9B1891433400DD8424 /* CInputSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CInputSystem.h; path = ChaosEngine/CInputSystem.h; sourceTree = "<group>"; };
 		62B3BA9C1891433400DD8424 /* CInputSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CInputSystem.m; path = ChaosEngine/CInputSystem.m; sourceTree = "<group>"; };
+		62BB4D5319010F670016D540 /* CSpriteNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CSpriteNode.h; path = ChaosEngine/CSpriteNode.h; sourceTree = "<group>"; };
+		62BB4D5419010F670016D540 /* CSpriteNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CSpriteNode.m; path = ChaosEngine/CSpriteNode.m; sourceTree = "<group>"; };
+		62BB4D5619010F740016D540 /* CContactEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CContactEvent.h; path = ChaosEngine/CContactEvent.h; sourceTree = "<group>"; };
+		62BB4D5719010F740016D540 /* CContactEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CContactEvent.m; path = ChaosEngine/CContactEvent.m; sourceTree = "<group>"; };
 		62C8AFC618FC2ADA00B4C4A9 /* birdiot_level.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = birdiot_level.xml; path = assets/birdiot_level.xml; sourceTree = "<group>"; };
 		62C8AFC818FC2D9900B4C4A9 /* CPropertyReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CPropertyReference.h; path = ChaosEngine/CPropertyReference.h; sourceTree = "<group>"; };
 		62C8AFC918FC2D9900B4C4A9 /* CPropertyReference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CPropertyReference.m; path = ChaosEngine/CPropertyReference.m; sourceTree = "<group>"; };
@@ -376,6 +378,10 @@
 		6253D240188035950017790C /* ChaosEngine */ = {
 			isa = PBXGroup;
 			children = (
+				62BB4D5619010F740016D540 /* CContactEvent.h */,
+				62BB4D5719010F740016D540 /* CContactEvent.m */,
+				62BB4D5319010F670016D540 /* CSpriteNode.h */,
+				62BB4D5419010F670016D540 /* CSpriteNode.m */,
 				62AA541F188442E8001FA053 /* CPositionComponent.h */,
 				62AA5420188442E8001FA053 /* CPositionComponent.m */,
 				62AA5422188442F9001FA053 /* CRenderComponent.h */,
@@ -440,14 +446,10 @@
 				6221170518DEC9A30016F271 /* CPhysicComponent.m */,
 				6221170718DEE9F00016F271 /* CPhysicSystem.h */,
 				6221170818DEE9F00016F271 /* CPhysicSystem.m */,
-				62496A3A18F1A11B00238B95 /* CSpriteNode.h */,
-				62496A3B18F1A11B00238B95 /* CSpriteNode.m */,
 				62C8AFC818FC2D9900B4C4A9 /* CPropertyReference.h */,
 				62C8AFC918FC2D9900B4C4A9 /* CPropertyReference.m */,
 				62C8AFCB18FC2EBD00B4C4A9 /* CSerializable.h */,
 				62C8AFCC18FC2EBD00B4C4A9 /* CSerializable.m */,
-				62496A4818F1EB5B00238B95 /* CContactEvent.h */,
-				62496A4918F1EB5B00238B95 /* CContactEvent.m */,
 				6262776118852B1F00006BBD /* CViewController.xib */,
 				62ED0E4A18FFC98400D8E3CF /* CXMLElement.h */,
 				62ED0E4B18FFC98400D8E3CF /* CXMLElement.m */,
@@ -600,8 +602,6 @@
 				6242555718BB456A003E6324 /* btn_share.png in Resources */,
 				6295C589189018E000B45AB9 /* android.xml in Resources */,
 				6242555018BB456A003E6324 /* bg@2x.png in Resources */,
-				62496A4318F1D32300238B95 /* map.png in Resources */,
-				62496A4718F1D3C500238B95 /* dirtj.jpg in Resources */,
 				6226108D18CB584E00AC9675 /* bird@2x.png in Resources */,
 				6226108918CB4C5200AC9675 /* birdiot.xml in Resources */,
 				6242555A18BB456A003E6324 /* tube-inner@2x.png in Resources */,
@@ -624,6 +624,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62BB4D5519010F670016D540 /* CSpriteNode.m in Sources */,
 				6262776D1885669100006BBD /* CSceneManager.m in Sources */,
 				626F6356189111EA00103C36 /* CEngineSystem.m in Sources */,
 				62ED0E4C18FFC98400D8E3CF /* CXMLElement.m in Sources */,
@@ -640,7 +641,6 @@
 				62CF0D87189BE56E006CD912 /* TBXML.m in Sources */,
 				6262777B18868D0B00006BBD /* CUtil.m in Sources */,
 				62627793188926B300006BBD /* CPositionEvent.m in Sources */,
-				62496A3C18F1A11C00238B95 /* CSpriteNode.m in Sources */,
 				6262776218852B1F00006BBD /* CViewController.m in Sources */,
 				6242554018BB4435003E6324 /* CBackgroundComponent.m in Sources */,
 				6221170618DEC9A30016F271 /* CPhysicComponent.m in Sources */,
@@ -654,7 +654,6 @@
 				62C8AFCD18FC2EBD00B4C4A9 /* CSerializable.m in Sources */,
 				6253D217188033120017790C /* AppDelegate.m in Sources */,
 				626277901888283E00006BBD /* CEventListener.m in Sources */,
-				62496A4A18F1EB5B00238B95 /* CContactEvent.m in Sources */,
 				6262776A1885321600006BBD /* CAppDelegate.m in Sources */,
 				6242555F18BB4E8B003E6324 /* CSize.m in Sources */,
 				6262778B1886DE7F00006BBD /* CEvent.m in Sources */,
@@ -663,6 +662,7 @@
 				6217A19018CFB69400CC1EF5 /* CLog.m in Sources */,
 				62CF0D84189BE443006CD912 /* TBXML+HTTP.m in Sources */,
 				62AA5424188442F9001FA053 /* CRenderComponent.m in Sources */,
+				62BB4D5819010F740016D540 /* CContactEvent.m in Sources */,
 				626277881886DDC500006BBD /* CEventDispatcher.m in Sources */,
 				62CE609B189948F100F4C876 /* (null) in Sources */,
 				6226108618CAFFB200AC9675 /* PipeSpawnerSystem.m in Sources */,
