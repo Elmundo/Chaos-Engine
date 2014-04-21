@@ -40,8 +40,13 @@
                 <x>0.5</x>
                 <y>0.5</y>
             </anchorPoint>
-            <!--<userInteractionEnabled>true</userInteractionEnabled>-->
+            <userInteractionEnabled>true</userInteractionEnabled>
         </Component>
+        
+        <Component type="CControllerComponent" name="Controller">
+
+        </Component>
+        
     </Entity>
     
     <Entity type="CEntity" name="House">

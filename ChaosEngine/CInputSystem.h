@@ -14,7 +14,9 @@
 @class CEventListener;
 
 /*
-    Listen to all touch events which are not handled by another system
+    Listen to all touch events which are not handled by responder
+    CSpriteNode get its own touches and handles itself.
+    This class is also used for 'BROADCAST' event delivery chain.
 */
 @interface CInputSystem : CEngineSystem
 

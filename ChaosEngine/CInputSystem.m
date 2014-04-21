@@ -9,6 +9,7 @@
 #import "CInputSystem.h"
 #import "CEngine.h"
 #import "CControllerComponent.h"
+#import "CTouchEvent.h"
 
 @implementation CInputSystem
 
@@ -37,19 +38,19 @@
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    CEvent *cEvent = [CEvent eventWithType:[CEvent ETouchBegan] withObject:event withBubbles:NO];
+    CEvent *cEvent = [CEvent eventWithType:[CTouchEvent ETouchBegan] withObject:event withBubbles:NO];
     [_dispatcher dispatchEvent:cEvent];
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    CEvent *cEvent = [CEvent eventWithType:[CEvent ETouchMoved] withObject:event withBubbles:NO];
+    CEvent *cEvent = [CEvent eventWithType:[CTouchEvent ETouchMoved] withObject:event withBubbles:NO];
     [_dispatcher dispatchEvent:cEvent];
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    CEvent *cEvent = [CEvent eventWithType:[CEvent ETouchEnded] withObject:event withBubbles:NO];
+    CEvent *cEvent = [CEvent eventWithType:[CTouchEvent ETouchEnded] withObject:event withBubbles:NO];
     [_dispatcher dispatchEvent:cEvent];
 }
 

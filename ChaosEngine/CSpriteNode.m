@@ -7,27 +7,41 @@
 //
 
 #import "CSpriteNode.h"
+#import "CEntity.h"
+#import "CTouchEvent.h"
 
 @implementation CSpriteNode
 
--(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)theEvent
 {
-    // Invoke message to Entity that touch began
+    [super touchesBegan:touches withEvent:theEvent];
+ 
+    CTouchEvent *event = [CTouchEvent eventWithType:[CTouchEvent ETouchBegan] withObject:touches withEvent:theEvent withBubbles:NO];
+    [_owner.dispatcher dispatchEvent:event];
 }
 
--(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+-(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)theEvent
 {
-    // Invoke message to Entity that touch moved
+    [super touchesMoved:touches withEvent:theEvent];
+    
+    CTouchEvent *event = [CTouchEvent eventWithType:[CTouchEvent ETouchMoved] withObject:touches withEvent:theEvent withBubbles:NO];
+    [_owner.dispatcher dispatchEvent:event];
 }
 
--(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+-(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)theEvent
 {
-    // Invoke message to Entity that touch ended
+    [super touchesEnded:touches withEvent:theEvent];
+    
+    CTouchEvent *event = [CTouchEvent eventWithType:[CTouchEvent ETouchEnded] withObject:touches withEvent:theEvent withBubbles:NO];
+    [_owner.dispatcher dispatchEvent:event];
 }
 
--(void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
+-(void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)theEvent
 {
-    // Invoke message to Entity that touch cancelled
+    [super touchesCancelled:touches withEvent:theEvent];
+    
+    CTouchEvent *event = [CTouchEvent eventWithType:[CTouchEvent ETouchCancelled] withObject:touches withEvent:theEvent withBubbles:NO];
+    [_owner.dispatcher dispatchEvent:event];
 }
 
 @end

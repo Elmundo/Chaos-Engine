@@ -28,9 +28,4 @@
     return self;
 }
 
-/* Event Static Messages */
-+ (NSString*)ETouchBegan{ return @"TouchBeganEvent"; }
-+ (NSString*)ETouchMoved{ return @"TouchMovedEvent"; }
-+ (NSString*)ETouchEnded{ return @"TouchEndedEvent"; }
-
 @end

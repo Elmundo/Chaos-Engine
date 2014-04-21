@@ -7,69 +7,54 @@
 //
 
 #import "CControllerComponent.h"
-#import "CInputSystem.h"
+#import "CTouchEvent.h"
 
 @implementation CControllerComponent
-
-static BOOL firstTouch = FALSE;
 
 - (void)didAddedToEntity:(CEntity *)owner
 {
     [super didAddedToEntity:owner];
     
-    _pos = (CPositionComponent*)[self getComponent:@"Position"];
-    
-    _tappedScreen = FALSE;
-    _vertSpeed = 0;
-    _jumpSpeed = 300.f ;
-    _fallingConstant = 1000.f;
+    [self addEventListener:@selector(onTouchBegan:)     message:[CTouchEvent ETouchBegan]];
+    [self addEventListener:@selector(onTouchMoved:)     message:[CTouchEvent ETouchMoved]];
+    [self addEventListener:@selector(onTouchEnded:)     message:[CTouchEvent ETouchEnded]];
+    [self addEventListener:@selector(onTouchCancelled:) message:[CTouchEvent ETouchCancelled]];
 }
 
 - (void)didRemovedFromEntity
 {
     [super didRemovedFromEntity];
     
-    _inputManager = nil;
-    _renderRef = nil;
-    _positionRef = nil;
-    _pos = nil;
+    [self removeEventListener:@selector(onTouchBegan:)     message:[CTouchEvent ETouchBegan]];
+    [self removeEventListener:@selector(onTouchMoved:)     message:[CTouchEvent ETouchMoved]];
+    [self removeEventListener:@selector(onTouchEnded:)     message:[CTouchEvent ETouchEnded]];
+    [self removeEventListener:@selector(onTouchCancelled:) message:[CTouchEvent ETouchCancelled]];
 }
 
 - (void)update:(NSTimeInterval)dt
 {
-    if (firstTouch) {
-        if (_tappedScreen) {
-            _vertSpeed = _jumpSpeed;
-            _tappedScreen = NO;
-        }
-        
-        float posY = _pos.position.y + (_vertSpeed * dt);
-        [_pos setPoint:_pos.position.x and:posY];
-        
-        _vertSpeed -= (_fallingConstant * dt);
-    }
-    
-}
-
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    if (!firstTouch) {
-        firstTouch = YES;
-        CAnimationComponent *animation = (CAnimationComponent*)[self getComponent:@"CAnimationComponent"];
-        [animation playAnimationWithName:@"Fly"];
-    }
-    
-    _tappedScreen = YES;
-}
-
-- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
-{
 
 }
 
-- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+/* Event Listener Methods*/
+- (void)onTouchBegan:(CTouchEvent *)event
 {
+    // Override this method
+}
 
+- (void)onTouchMoved:(CTouchEvent *)event
+{
+    // Override this method
+}
+
+- (void)onTouchEnded:(CTouchEvent *)event
+{
+    // Override this method
+}
+
+- (void)onTouchCancelled:(CTouchEvent *)event
+{
+    // Override this method
 }
 
 @end

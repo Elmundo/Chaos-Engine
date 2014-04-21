@@ -65,10 +65,12 @@
         self.spriteNode = [CSpriteNode spriteNodeWithTexture:defaultTexture size:[self.textureSize CGSize]];
     }
     else{
-        self.spriteNode = [CSpriteNode spriteNodeWithTexture:defaultTexture];
+        _spriteNode = [CSpriteNode spriteNodeWithTexture:defaultTexture];
     }
-    self.spriteNode.userInteractionEnabled = self.userInteractionEnabled;
 
+    _spriteNode.owner = owner;
+    _spriteNode.userInteractionEnabled = self.userInteractionEnabled;
+    
     if (self.spriteNode == nil) {
         clog(@"There is no such a texture: %@", self.resourceName);
         return;
@@ -97,7 +99,11 @@
     
     [self.layer addChild:self.spriteNode];
     [self addEventListener:@selector(did_position_updated:) message:[CPositionEvent CE_PositionChanged] ];
-    CRenderEvent *event = [CRenderEvent eventWithType:[CRenderEvent CE_SpriteReady] withObject:self.spriteNode withAtlas:self.atlas withBubbles:YES];
+    
+    CRenderEvent *event = [CRenderEvent eventWithType:[CRenderEvent CE_SpriteReady]
+                                           withObject:self.spriteNode
+                                            withAtlas:self.atlas
+                                          withBubbles:YES];
     [self dispatchEventWithEvent:event];
 }
 

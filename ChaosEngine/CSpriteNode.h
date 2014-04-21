@@ -12,6 +12,10 @@
  */
 #import <SpriteKit/SpriteKit.h>
 
+@class CEntity;
+
 @interface CSpriteNode : SKSpriteNode
+
+@property (nonatomic, weak) CEntity *owner;
 
 @end
