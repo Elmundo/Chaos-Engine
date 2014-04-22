@@ -42,6 +42,31 @@
     return list;
 }
 
+- (NSDictionary *)tilesetWithName:(NSString *)tilesetName
+{
+    NSDictionary *tileset = [_tilesetAtlas objectForKey:tilesetName];
+    if (!tileset) {
+        cerror(@"There is no %@ tileset", tilesetName);
+    }
+    
+    return tileset;
+}
+
+- (SKTexture *)tileWithName:(NSString *)tileName andTilesetName:(NSString *)tilesetName
+{
+    NSDictionary *tileset = [_tilesetAtlas objectForKey:tilesetName];
+    if (!tileset) {
+        cerror(@"There is no %@ tileset", tilesetName);
+    }
+    
+    SKTexture *texture = [tileset objectForKey:tileName];
+    if (!tileset) {
+        cerror(@"There is no %@ tile", tileName);
+    }
+    
+    return texture;
+}
+
 - (SKTexture *)getFirstTexture
 {
     NSArray *list;
@@ -60,6 +85,7 @@
     if ([elementName isEqualToString:@"TextureAtlas"]) {
         
         _textureAtlas = [[NSMutableDictionary alloc] init];
+        _tilesetAtlas = [[NSMutableDictionary alloc] init];
         
         for (NSString *key in attributeDict) {
             
@@ -72,12 +98,23 @@
         }
     }
     
+    // Initialize TileSet and Add Texture Atlas Map
+    if ([elementName isEqualToString:@"tileset"]) {
+        _tilesetList = [[NSMutableDictionary alloc] init];
+        
+        [_tilesetAtlas setObject:_tilesetList forKey:[attributeDict objectForKey:@"name"]];
+        
+        _activeAtlasType = kAtlasTypeTileset;
+    }
+    
     // Initialize Animation List and Add Texture Atlas Map
     if ([elementName isEqualToString:@"animation"]) {
         
         _animationList = [[NSMutableArray alloc] init];
         
         [_textureAtlas setObject:_animationList forKey:[attributeDict objectForKey:@"name"]];
+        
+        _activeAtlasType = kAtlasTypeAnimation;
     }
     
     // Initialize Animation Texture and Add Animation List
@@ -98,20 +135,18 @@
             return;
         }
         SKTexture *texturePart = [SKTexture textureWithRect:unitRect inTexture:_atlas];
-        [_animationList addObject:texturePart];
+        
+        if (_activeAtlasType == kAtlasTypeAnimation)
+            [_animationList addObject:texturePart];
+        else {
+            NSString *tileName = [attributeDict objectForKey:@"n"];
+            [_tilesetList setObject:texturePart forKey:tileName];
+        }
         
     }
-    
 }
 
-- (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
-{
-
-}
-
-- (void)parserDidEndDocument:(NSXMLParser *)parser
-{
-
-}
+- (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName{}
+- (void)parserDidEndDocument:(NSXMLParser *)parser{}
 
 @end

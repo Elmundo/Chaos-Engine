@@ -21,12 +21,8 @@
 
 @interface CRenderComponent : CComponent
 
-@property (nonatomic, weak) CSceneManager *manager;
-
-@property (nonatomic, weak) CLayer *layer;
-@property (nonatomic, strong) CPropertyReference *positionProperty;
-
 /* OUTSIDE PROPERTIES*/
+@property (nonatomic, strong) CPropertyReference *positionProperty; //Required;
 @property (nonatomic, strong) NSString *layerName; //Required
 @property (nonatomic, strong) NSString *resourceName; // Required
 
@@ -38,6 +34,8 @@
 @property (nonatomic, assign) BOOL userInteractionEnabled; // Optional
 
 /* INNER PROPERTIES */
+@property (nonatomic, weak) CSceneManager *manager;
+@property (nonatomic, strong) CLayer *layer;
 @property (nonatomic, strong) CSpriteNode *spriteNode;
 @property (nonatomic, strong) SKTexture *sourceTexture;
 @property (nonatomic, strong) CTextureAtlas *atlas;

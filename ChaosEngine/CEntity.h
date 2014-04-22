@@ -17,6 +17,7 @@
 
 @property (nonatomic, weak) CEntityFactory *factory;
 @property (nonatomic, strong) NSMutableDictionary *componentDic;
+@property (nonatomic, strong) NSMutableArray *componentList;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) CEventDispatcher *dispatcher;
 @property (nonatomic, assign) uint32_t eid;

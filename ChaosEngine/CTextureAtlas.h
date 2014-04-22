@@ -11,16 +11,26 @@
 #import "CSerializable.h"
 #import "CUtil.h"
 
+typedef enum : NSUInteger {
+    kAtlasTypeAnimation = 0,
+    kAtlasTypeTileset = 1,
+} kAtlasType;
+
 @interface CTextureAtlas : NSObject<NSXMLParserDelegate>
 {
     NSURL *_xmlURL;
     NSXMLParser *_parser;
     SKTexture *_atlas;
+    
+    NSUInteger _activeAtlasType;
 }
 
 @property (nonatomic, strong) NSMutableDictionary *textureAtlas;
-
 @property (nonatomic, strong) NSMutableArray *animationList;
+
+@property (nonatomic, strong) NSMutableDictionary *tilesetAtlas;
+@property (nonatomic, strong) NSMutableDictionary *tilesetList;
+
 @property (nonatomic, strong) NSString *imagePath;
 @property (nonatomic, assign) unsigned width;
 @property (nonatomic, assign) unsigned height;
@@ -28,5 +38,7 @@
 + (CTextureAtlas *)atlasWithXmlName:(NSString *)xmlName andWithResource:(SKTexture *)resource;
 - (id)initWithXmlName:(NSString *)xmlName andWithResource:(SKTexture *)resource;
 - (NSArray *)animationWithName:(NSString *)animationName;
+- (NSDictionary *)tilesetWithName:(NSString *)tilesetName;
+- (SKTexture *)tileWithName:(NSString *)tileName andTilesetName:(NSString *)tilesetName;
 - (SKTexture *)getFirstTexture;
 @end

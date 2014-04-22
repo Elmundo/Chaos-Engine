@@ -48,9 +48,12 @@
     [[CTemplateManager shared] loadFile:@"test_level.xml"];
     
     // Instantiate the entities which will be visible in game
+    /*
     [[CTemplateManager shared] instantiateEntity:@"Background"];
     [[CTemplateManager shared] instantiateEntity:@"Character"];
     [[CTemplateManager shared] instantiateEntity:@"House"];
+     */
+    [[CTemplateManager shared] instantiateEntity:@"TileMapRenderer"];
 }
 
 

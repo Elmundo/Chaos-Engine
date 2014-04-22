@@ -17,6 +17,7 @@
     self = [super init];
     if (self) {
         self.componentDic = [[NSMutableDictionary alloc] initWithCapacity:3];
+        self.componentList = [NSMutableArray arrayWithCapacity:10];
         self.dispatcher = [[CEventDispatcher alloc] init];
         self.factory = [CEntityFactory shared];
     }
@@ -28,6 +29,10 @@
 {
     self.name = entityName;
     clog(@"['%@'] entity is created.", self.name);
+    
+    // Whether we order the component in xml, when we use
+    // dictionary it still init random component.
+    /*
     for (NSString *componentName in self.componentDic) {
         
         CComponent *component = [self.componentDic objectForKey:componentName];
@@ -36,17 +41,25 @@
             [component didAddedToEntity:self];
         }
     }
+    */
+    
+    // To make an order for components in xml, we should use array instead of dic
+    for (CComponent *component in _componentList) {
+        [component didAddedToEntity:self];
+    }
 }
 
 - (void)addComponent:(CComponent *)component
 {
     component.owner = self;
     [self.componentDic setObject:component forKey:component.componentName];
+    [_componentList addObject:component];
 }
 
 - (void)removeComponent:(CComponent *)component
 {
     [self.componentDic removeObjectForKey:component.componentName];
+    [_componentList removeObject:component];
 }
 
 - (CComponent *)getComponentWithName:(NSString *)componentName

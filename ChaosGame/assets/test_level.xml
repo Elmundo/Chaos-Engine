@@ -8,6 +8,7 @@
      Other tags will be INVALID in data tag scope
      -->
     <!-- GAME ENTITIES -->
+    <!--
     <Entity type="CEntity" name="Background">
         <Component type="CPositionComponent" name="Position">
             <position>
@@ -65,12 +66,33 @@
                 <x>0.5</x>
                 <y>0.5</y>
             </anchorPoint>
-            <!--<userInteractionEnabled>true</userInteractionEnabled>-->
         </Component>
     </Entity>
-    
-    <Entity type="CEntity" name="Tree">
-        <!-- Some Stuff-->
+    -->
+    <Entity type="CEntity" name="TileMapRenderer">
+        <Component type="CPositionComponent" name="Position">
+            <position>
+                <x>0</x>
+                <y>0</y>
+            </position>
+        </Component>
+        
+        <Component type="CRenderComponent" name="Render">
+            <positionProperty>@Position.position</positionProperty>
+            <layerName>bgLayer</layerName>
+            <resourceName>Tileset.png</resourceName>
+            <atlasName>tileset</atlasName>
+        </Component>
+        
+        <Component type="CTileRendererComponent" name="TileRenderer">
+            <spriteProperty>@Render.position</spriteProperty>
+            <atlasProperty>@Render.atlas</atlasProperty>
+            <layerProperty>@Render.layer</layerProperty>
+            <tileMapData>tiledata</tileMapData>
+            <tileWidth>32</tileWidth>
+            <tileHeight>32</tileHeight>
+        </Component>
+                
     </Entity>
     
     <!-- Group Sample -->
