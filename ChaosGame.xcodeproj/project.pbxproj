@@ -59,6 +59,7 @@
 		62AA5421188442E8001FA053 /* CPositionComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AA5420188442E8001FA053 /* CPositionComponent.m */; };
 		62AA5424188442F9001FA053 /* CRenderComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AA5423188442F9001FA053 /* CRenderComponent.m */; };
 		62B3BA9D1891433400DD8424 /* CInputSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 62B3BA9C1891433400DD8424 /* CInputSystem.m */; };
+		62B69F4C190E6FAD0060CFDF /* CCameraComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 62B69F4B190E6FAD0060CFDF /* CCameraComponent.m */; };
 		62BB4D5519010F670016D540 /* CSpriteNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 62BB4D5419010F670016D540 /* CSpriteNode.m */; };
 		62BB4D5819010F740016D540 /* CContactEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 62BB4D5719010F740016D540 /* CContactEvent.m */; };
 		62BB4D621901641E0016D540 /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 62BB4D601901641E0016D540 /* Background.png */; };
@@ -179,6 +180,8 @@
 		62AA5423188442F9001FA053 /* CRenderComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CRenderComponent.m; path = ChaosEngine/CRenderComponent.m; sourceTree = "<group>"; };
 		62B3BA9B1891433400DD8424 /* CInputSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CInputSystem.h; path = ChaosEngine/CInputSystem.h; sourceTree = "<group>"; };
 		62B3BA9C1891433400DD8424 /* CInputSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CInputSystem.m; path = ChaosEngine/CInputSystem.m; sourceTree = "<group>"; };
+		62B69F4A190E6FAD0060CFDF /* CCameraComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCameraComponent.h; path = ChaosEngine/CCameraComponent.h; sourceTree = "<group>"; };
+		62B69F4B190E6FAD0060CFDF /* CCameraComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CCameraComponent.m; path = ChaosEngine/CCameraComponent.m; sourceTree = "<group>"; };
 		62BB4D5319010F670016D540 /* CSpriteNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CSpriteNode.h; path = ChaosEngine/CSpriteNode.h; sourceTree = "<group>"; };
 		62BB4D5419010F670016D540 /* CSpriteNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CSpriteNode.m; path = ChaosEngine/CSpriteNode.m; sourceTree = "<group>"; };
 		62BB4D5619010F740016D540 /* CContactEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CContactEvent.h; path = ChaosEngine/CContactEvent.h; sourceTree = "<group>"; };
@@ -401,6 +404,8 @@
 				627B048219053E21002EC819 /* CTouchEvent.m */,
 				6284DA45190686F100385A35 /* CTileRendererComponent.h */,
 				6284DA46190686F100385A35 /* CTileRendererComponent.m */,
+				62B69F4A190E6FAD0060CFDF /* CCameraComponent.h */,
+				62B69F4B190E6FAD0060CFDF /* CCameraComponent.m */,
 			);
 			name = ChaosEngine;
 			sourceTree = "<group>";
@@ -572,6 +577,7 @@
 				624819E318D6377700877225 /* CLayer.m in Sources */,
 				6272FF8F188ECC64009B8440 /* CTextureAtlas.m in Sources */,
 				6253D220188033120017790C /* MyScene.m in Sources */,
+				62B69F4C190E6FAD0060CFDF /* CCameraComponent.m in Sources */,
 				6295C58C18901F0300B45AB9 /* CEngine.m in Sources */,
 				62CF0D87189BE56E006CD912 /* TBXML.m in Sources */,
 				6262777B18868D0B00006BBD /* CUtil.m in Sources */,

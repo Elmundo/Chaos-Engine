@@ -29,5 +29,6 @@
 {
     CLayer *bgLayer;
     CLayer *gameLayer;
+    CLayer *cameraLayer;
 }
 @end

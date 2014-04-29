@@ -24,8 +24,7 @@
     NSXMLParser *_parser;
 }
 
-@property (nonatomic, strong) CSceneManager *manager;
-@property (nonatomic, strong) CLayer *layer;
+
 
 /* OUTSIDE PROPERTIES */
 @property (nonatomic, strong) CPropertyReference *spriteProperty; //Required
@@ -40,6 +39,8 @@
 @property (nonatomic, strong) NSMutableArray *row;
 @property (nonatomic, strong) SKSpriteNode *spriteNode;
 @property (nonatomic, strong) CTextureAtlas *textureAtlas;
+@property (nonatomic, strong) CSceneManager *manager;
+@property (nonatomic, strong) CLayer *layer;
 
 - (void)moveTilesX:(float)x y:(float)y;
 
