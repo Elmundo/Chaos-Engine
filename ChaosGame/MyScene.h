@@ -31,4 +31,6 @@
     CLayer *gameLayer;
     CLayer *cameraLayer;
 }
+@property (nonatomic, strong) UITapGestureRecognizer *tapGesture;
+
 @end

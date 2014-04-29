@@ -42,13 +42,15 @@
 - (void)addSystem:(CEngineSystem *)system
 {
     system.engine = self;
-    [_systems setObject:system forKey:NSStringFromClass([system class])];
+    //[_systems setObject:system forKey:NSStringFromClass([system class])];
+    [_systems setObject:system forKey:system.name];
 }
 
 - (void)removeSystem:(CEngineSystem *)system
 {
     system.engine = nil;
-    [_systems removeObjectForKey:NSStringFromClass([system class])];
+    //[_systems removeObjectForKey:NSStringFromClass([system class])];
+    [_systems removeObjectForKey:system.name];
 }
 
 - (CEngineSystem *)getSystem:(NSString *)name

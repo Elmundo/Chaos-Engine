@@ -7,7 +7,17 @@
 //
 
 #import "CComponent.h"
+#import "CPropertyReference.h"
+#import "CEngineSystem.h"
+#import "CLayer.h"
+#import "CSpriteNode.h"
 
 @interface CCameraComponent : CComponent
+
+@property (nonatomic, strong) CPropertyReference *sceneManagerProperty;
+
+@property (nonatomic, weak) CEngineSystem *sceneManager;
+@property (nonatomic, strong) NSString *layerName;
+@property (nonatomic, strong) CLayer *cameraLayer;
 
 @end

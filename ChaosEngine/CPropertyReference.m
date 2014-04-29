@@ -73,15 +73,15 @@
         
     }else if ([_format isEqualToString:@"$"]) //Global Entity Lookup
     {
-        /*
-        id system = [CEngine shared].systems[_word];
+        
+        NSDictionary *systems = [CEngine shared].systems;
+        id system = systems[_word];
         for (int i=0; i < _propertyList.count; ++i) {
-            element = [element valueForKey:_propertyList[i]];
+            system = [system valueForKey:_propertyList[i]];
             //element = [element valueForKeyPath:_propertyList[i]];
         }
         
-        return element;
-        */
+        return system;
     }
     
     /*

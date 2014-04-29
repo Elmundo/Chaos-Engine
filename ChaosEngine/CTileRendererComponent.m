@@ -56,6 +56,7 @@
 {
     
 }
+
 - (void)parserDidEndDocument:(NSXMLParser *)parser
 {
     [self initializeTileMap];

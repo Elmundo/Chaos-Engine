@@ -18,9 +18,29 @@
     return self;
 }
 
+- (void)testMethod:(UITapGestureRecognizer * )recognizer
+{
+    CGPoint touchLocation = [recognizer locationInView:self.view];
+    NSLog(@"Location x:%f y:%f", touchLocation.x, touchLocation.y);
+}
+
+- (void)handleTap:(UITapGestureRecognizer *)sender
+{
+    if (sender.state == UIGestureRecognizerStateEnded)
+    {
+        // handling code
+    }
+}
+
 - (void)didMoveToView:(SKView *)view
 {
     [super didMoveToView:view];
+    
+    SKView *vieww = self.view;
+    _tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(testMethod:)];
+    
+    //[self.view addGestureRecognizer:_tapGesture];
+
 }
 
 - (void)createSceneContents
@@ -37,9 +57,13 @@
     bgLayer.name    = @"bgLayer";
     gameLayer       = [[CLayer alloc] init];
     gameLayer.name  = @"gameLayer";
+    cameraLayer     = [[CLayer alloc] init];
+    cameraLayer.name = @"cameraLayer";
     
+    // Add layers by considering the layer order
     [self addChild:bgLayer];
     [self addChild:gameLayer];
+    [self addChild:cameraLayer];
 }
 
 - (void)createTestGame
@@ -54,6 +78,7 @@
     [[CTemplateManager shared] instantiateEntity:@"House"];
      */
     [[CTemplateManager shared] instantiateEntity:@"TileMapRenderer"];
+    [[CTemplateManager shared] instantiateEntity:@"Camera"];
 }
 
 
