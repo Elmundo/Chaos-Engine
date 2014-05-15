@@ -44,9 +44,4 @@
     [_owner.dispatcher dispatchEvent:event];
 }
 
-- (void)gesture_is_activited:(UIEvent*)sender
-{
-    
-}
-
 @end

@@ -32,11 +32,11 @@
     }
 }
 
-- (void)didMoveToView:(SKView *)view
+- (void)didMoveToView:(SKView *)theView
 {
-    [super didMoveToView:view];
+    [super didMoveToView:theView];
     
-    SKView *vieww = self.view;
+    SKView *view = self.view;
     _tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(testMethod:)];
     
     //[self.view addGestureRecognizer:_tapGesture];
@@ -53,15 +53,12 @@
 
 - (void)createLayers
 {
-    bgLayer         = [[CLayer alloc] init];
-    bgLayer.name    = @"bgLayer";
     gameLayer       = [[CLayer alloc] init];
     gameLayer.name  = @"gameLayer";
     cameraLayer     = [[CLayer alloc] init];
     cameraLayer.name = @"cameraLayer";
     
     // Add layers by considering the layer order
-    [self addChild:bgLayer];
     [self addChild:gameLayer];
     [self addChild:cameraLayer];
 }
@@ -76,8 +73,12 @@
     [[CTemplateManager shared] instantiateEntity:@"Background"];
     [[CTemplateManager shared] instantiateEntity:@"Character"];
     [[CTemplateManager shared] instantiateEntity:@"House"];
-     */
     [[CTemplateManager shared] instantiateEntity:@"TileMapRenderer"];
+    */
+    
+    [[CTemplateManager shared] instantiateEntity:@"Character1"];
+    [[CTemplateManager shared] instantiateEntity:@"Character2"];
+    [[CTemplateManager shared] instantiateEntity:@"Character3"];
     [[CTemplateManager shared] instantiateEntity:@"Camera"];
 }
 

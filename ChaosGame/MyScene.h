@@ -27,7 +27,6 @@
 
 @interface MyScene : CScene
 {
-    CLayer *bgLayer;
     CLayer *gameLayer;
     CLayer *cameraLayer;
 }
