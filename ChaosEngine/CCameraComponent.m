@@ -26,7 +26,6 @@
     UIApplication<UIApplicationDelegate> *application = [UIApplication sharedApplication].delegate;
     UIWindow *window = application.window;
     
-    
     CSpriteNode *interface = [CSpriteNode spriteNodeWithColor:[UIColor redColor] size:CGSizeMake(480, 320)];
     interface.userInteractionEnabled = YES;
     interface.anchorPoint = CGPointMake(0, 0);
