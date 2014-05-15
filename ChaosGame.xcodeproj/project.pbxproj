@@ -399,13 +399,13 @@
 				62AA5423188442F9001FA053 /* CRenderComponent.m */,
 				6262776B1885669100006BBD /* CSceneManager.h */,
 				6262776C1885669100006BBD /* CSceneManager.m */,
-				6262776118852B1F00006BBD /* CViewController.xib */,
 				627B048119053E21002EC819 /* CTouchEvent.h */,
 				627B048219053E21002EC819 /* CTouchEvent.m */,
 				6284DA45190686F100385A35 /* CTileRendererComponent.h */,
 				6284DA46190686F100385A35 /* CTileRendererComponent.m */,
 				62B69F4A190E6FAD0060CFDF /* CCameraComponent.h */,
 				62B69F4B190E6FAD0060CFDF /* CCameraComponent.m */,
+				6262776118852B1F00006BBD /* CViewController.xib */,
 			);
 			name = ChaosEngine;
 			sourceTree = "<group>";

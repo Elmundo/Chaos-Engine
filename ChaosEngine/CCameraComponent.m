@@ -21,12 +21,30 @@
         _cameraLayer = [_sceneManager performSelector:@selector(getLayerWithName:) withObject:_layerName];
     }
     
+    
+    UIApplication<UIApplicationDelegate> *application = [UIApplication sharedApplication].delegate;
+    UIWindow *window = application.window;
+    
+    UIApplication *application2 = [UIApplication sharedApplication];
+    application2
+    
     CSpriteNode *interface = [CSpriteNode spriteNodeWithColor:[UIColor redColor] size:CGSizeMake(480, 320)];
     interface.userInteractionEnabled = YES;
     interface.anchorPoint = CGPointMake(0, 0);
-    interface.alpha = 0.5f;
+    interface.alpha = 1.0f;
+    interface.position = CGPointMake(150, 150);
     
     [_cameraLayer addChild:interface];
+    _cameraLayer.userInteractionEnabled = NO;
+    
+    _gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(gesture_is_activited:)];
+    
+    [window addGestureRecognizer:_gesture];
+}
+
+- (void)gesture_is_activited:(UIEvent*)sender
+{
+    
 }
 
 -(void)didRemovedFromEntity

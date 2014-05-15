@@ -16,6 +16,7 @@
 
 @property (nonatomic, strong) CPropertyReference *sceneManagerProperty;
 
+@property UITapGestureRecognizer *gesture;
 @property (nonatomic, weak) CEngineSystem *sceneManager;
 @property (nonatomic, strong) NSString *layerName;
 @property (nonatomic, strong) CLayer *cameraLayer;

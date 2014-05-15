@@ -76,6 +76,80 @@
         </Component>
     </Entity>
     
+    <Entity type="CEntity" name="Character1">
+        <Component type="CPositionComponent" name="Position">
+            <position>
+                <x>100</x>
+                <y>200</y>
+            </position>
+        </Component>
+        
+        <Component type="CRenderComponent" name="Render">
+            <positionProperty>@Position.position</positionProperty>
+            <layerName>gameLayer</layerName>
+            <resourceName>Character.png</resourceName>
+            <anchorPoint>
+                <x>0.5</x>
+                <y>0.5</y>
+            </anchorPoint>
+            <userInteractionEnabled>true</userInteractionEnabled>
+        </Component>
+        
+        <Component type="CControllerComponent" name="Controller">
+            
+        </Component>
+        
+    </Entity>
+    <Entity type="CEntity" name="Character2">
+        <Component type="CPositionComponent" name="Position">
+            <position>
+                <x>320</x>
+                <y>250</y>
+            </position>
+        </Component>
+        
+        <Component type="CRenderComponent" name="Render">
+            <positionProperty>@Position.position</positionProperty>
+            <layerName>gameLayer</layerName>
+            <resourceName>Character.png</resourceName>
+            <anchorPoint>
+                <x>0.5</x>
+                <y>0.5</y>
+            </anchorPoint>
+            <userInteractionEnabled>true</userInteractionEnabled>
+        </Component>
+        
+        <Component type="CControllerComponent" name="Controller">
+            
+        </Component>
+        
+    </Entity>
+    <Entity type="CEntity" name="Character3">
+        <Component type="CPositionComponent" name="Position">
+            <position>
+                <x>208</x>
+                <y>128</y>
+            </position>
+        </Component>
+        
+        <Component type="CRenderComponent" name="Render">
+            <positionProperty>@Position.position</positionProperty>
+            <layerName>gameLayer</layerName>
+            <resourceName>Character.png</resourceName>
+            <anchorPoint>
+                <x>0.5</x>
+                <y>0.5</y>
+            </anchorPoint>
+            <userInteractionEnabled>true</userInteractionEnabled>
+        </Component>
+        
+        <Component type="CControllerComponent" name="Controller">
+            
+        </Component>
+        
+    </Entity>
+
+    <!--
     <Entity type="CEntity" name="TileMapRenderer">
         <Component type="CPositionComponent" name="Position">
             <position>
@@ -101,7 +175,7 @@
         </Component>
                 
     </Entity>
-    
+    -->
     <!-- Group Sample -->
     <Group name="Things">
         <ObjectReference name="Birdiot"/>
