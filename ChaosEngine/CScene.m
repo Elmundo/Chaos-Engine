@@ -50,6 +50,7 @@
 /* Called when user make some touch inputs */
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
+    clog(@"Scene touch method is called.");
     [self.delegate touchesBegan:touches withEvent:event];
 }
 

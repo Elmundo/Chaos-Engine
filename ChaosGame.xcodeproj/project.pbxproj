@@ -30,6 +30,10 @@
 		6253D22D188033130017790C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6253D208188033120017790C /* UIKit.framework */; };
 		6253D235188033130017790C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6253D233188033130017790C /* InfoPlist.strings */; };
 		6253D237188033130017790C /* ChaosGameTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6253D236188033130017790C /* ChaosGameTests.m */; };
+		625C41F619263EC200404DBB /* CameraLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 625C41F519263EC200404DBB /* CameraLayer.m */; };
+		625C41F919263ED800404DBB /* GameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 625C41F819263ED800404DBB /* GameLayer.m */; };
+		625C41FC192650AF00404DBB /* ASpriteNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 625C41FB192650AF00404DBB /* ASpriteNode.m */; };
+		625C41FF192650BB00404DBB /* BSpriteNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 625C41FE192650BB00404DBB /* BSpriteNode.m */; };
 		6262776218852B1F00006BBD /* CViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6262776018852B1F00006BBD /* CViewController.m */; };
 		6262776318852B1F00006BBD /* CViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6262776118852B1F00006BBD /* CViewController.xib */; };
 		6262776618852CDE00006BBD /* CScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 6262776518852CDE00006BBD /* CScene.m */; };
@@ -126,6 +130,14 @@
 		6253D232188033130017790C /* ChaosGameTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ChaosGameTests-Info.plist"; sourceTree = "<group>"; };
 		6253D234188033130017790C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6253D236188033130017790C /* ChaosGameTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChaosGameTests.m; sourceTree = "<group>"; };
+		625C41F419263EC200404DBB /* CameraLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraLayer.h; sourceTree = "<group>"; };
+		625C41F519263EC200404DBB /* CameraLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraLayer.m; sourceTree = "<group>"; };
+		625C41F719263ED800404DBB /* GameLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLayer.h; sourceTree = "<group>"; };
+		625C41F819263ED800404DBB /* GameLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameLayer.m; sourceTree = "<group>"; };
+		625C41FA192650AF00404DBB /* ASpriteNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASpriteNode.h; sourceTree = "<group>"; };
+		625C41FB192650AF00404DBB /* ASpriteNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASpriteNode.m; sourceTree = "<group>"; };
+		625C41FD192650BB00404DBB /* BSpriteNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSpriteNode.h; sourceTree = "<group>"; };
+		625C41FE192650BB00404DBB /* BSpriteNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSpriteNode.m; sourceTree = "<group>"; };
 		6262775F18852B1F00006BBD /* CViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CViewController.h; path = ChaosEngine/CViewController.h; sourceTree = "<group>"; };
 		6262776018852B1F00006BBD /* CViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CViewController.m; path = ChaosEngine/CViewController.m; sourceTree = "<group>"; };
 		6262776118852B1F00006BBD /* CViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CViewController.xib; path = ChaosEngine/CViewController.xib; sourceTree = "<group>"; };
@@ -274,6 +286,10 @@
 		6253D20C188033120017790C /* ChaosGame */ = {
 			isa = PBXGroup;
 			children = (
+				625C41F719263ED800404DBB /* GameLayer.h */,
+				625C41F819263ED800404DBB /* GameLayer.m */,
+				625C41F419263EC200404DBB /* CameraLayer.h */,
+				625C41F519263EC200404DBB /* CameraLayer.m */,
 				626277721885811300006BBD /* assets */,
 				6253D215188033120017790C /* AppDelegate.h */,
 				6253D216188033120017790C /* AppDelegate.m */,
@@ -291,6 +307,10 @@
 				6226108518CAFFB200AC9675 /* PipeSpawnerSystem.m */,
 				6253D223188033120017790C /* Images.xcassets */,
 				6253D20D188033120017790C /* Supporting Files */,
+				625C41FA192650AF00404DBB /* ASpriteNode.h */,
+				625C41FB192650AF00404DBB /* ASpriteNode.m */,
+				625C41FD192650BB00404DBB /* BSpriteNode.h */,
+				625C41FE192650BB00404DBB /* BSpriteNode.m */,
 			);
 			path = ChaosGame;
 			sourceTree = "<group>";
@@ -591,10 +611,13 @@
 				6253D21D188033120017790C /* ViewController.m in Sources */,
 				62CE609E1899497300F4C876 /* (null) in Sources */,
 				626A5B5E18BFFB4400FBEE58 /* CPipeComponent.m in Sources */,
+				625C41FF192650BB00404DBB /* BSpriteNode.m in Sources */,
+				625C41F619263EC200404DBB /* CameraLayer.m in Sources */,
 				6295C57F188FCAD800B45AB9 /* CRenderEvent.m in Sources */,
 				62C8AFCD18FC2EBD00B4C4A9 /* CSerializable.m in Sources */,
 				6253D217188033120017790C /* AppDelegate.m in Sources */,
 				626277901888283E00006BBD /* CEventListener.m in Sources */,
+				625C41F919263ED800404DBB /* GameLayer.m in Sources */,
 				6262776A1885321600006BBD /* CAppDelegate.m in Sources */,
 				6284DA47190686F100385A35 /* CTileRendererComponent.m in Sources */,
 				6242555F18BB4E8B003E6324 /* CSize.m in Sources */,
@@ -605,6 +628,7 @@
 				62CF0D84189BE443006CD912 /* TBXML+HTTP.m in Sources */,
 				62AA5424188442F9001FA053 /* CRenderComponent.m in Sources */,
 				62BB4D5819010F740016D540 /* CContactEvent.m in Sources */,
+				625C41FC192650AF00404DBB /* ASpriteNode.m in Sources */,
 				626277881886DDC500006BBD /* CEventDispatcher.m in Sources */,
 				62CE609B189948F100F4C876 /* (null) in Sources */,
 				6226108618CAFFB200AC9675 /* PipeSpawnerSystem.m in Sources */,

@@ -24,6 +24,8 @@
 /*in Game Part*/
 #import "CBackgroundComponent.h"
 #import "PipeSpawnerSystem.h"
+#import "CameraLayer.h"
+#import "GameLayer.h"
 
 @interface MyScene : CScene
 {

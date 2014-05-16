@@ -25,6 +25,7 @@
 
 - (void)viewDidLoad
 {
+    // TODO: Baris - Remove CViewController.xib file and use the code below instead.
     /* If Nib file will not be used, this code blog shall be uncommented */
     /*
     CGRect bounds = [[UIScreen mainScreen] bounds];

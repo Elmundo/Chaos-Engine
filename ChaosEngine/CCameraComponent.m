@@ -22,27 +22,35 @@
         _cameraLayer = [_sceneManager performSelector:@selector(getLayerWithName:) withObject:_layerName];
     }
     
-    
     UIApplication<UIApplicationDelegate> *application = [UIApplication sharedApplication].delegate;
     UIWindow *window = application.window;
     
-    CSpriteNode *interface = [CSpriteNode spriteNodeWithColor:[UIColor redColor] size:CGSizeMake(480, 320)];
-    interface.userInteractionEnabled = YES;
-    interface.anchorPoint = CGPointMake(0, 0);
-    interface.alpha = 1.0f;
-    interface.position = CGPointMake(150, 150);
+    /*Red sprite*/
+    ASpriteNode *interfaceRed = [ASpriteNode spriteNodeWithColor:[UIColor redColor] size:CGSizeMake(240, 320)];
+    interfaceRed.anchorPoint = CGPointMake(0, 0);
+    interfaceRed.alpha = 0.5f;
+    interfaceRed.position = CGPointMake(0, 0);
+    interfaceRed.userInteractionEnabled = YES;
     
-    [_cameraLayer addChild:interface];
-    _cameraLayer.userInteractionEnabled = NO;
+    /*Red sprite*/
+    BSpriteNode *interfaceBlue = [BSpriteNode spriteNodeWithColor:[UIColor blueColor] size:CGSizeMake(140, 120)];
+    interfaceBlue.anchorPoint = CGPointMake(0, 0);
+    interfaceBlue.alpha = 0.5f;
+    interfaceBlue.position = CGPointMake(40, 40);
+    interfaceBlue.userInteractionEnabled = YES;
     
-    _gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(gesture_is_activited:)];
+    [interfaceRed addChild:interfaceBlue];
     
-    [window addGestureRecognizer:_gesture];
+    [_cameraLayer addChild:interfaceRed];
+    
+    //_gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(gesture_is_activited:)];
+    
+    //[window addGestureRecognizer:_gesture];
 }
 
 - (void)gesture_is_activited:(UIEvent*)sender
 {
-    
+    clog(@"Camera gesture is touched.");
 }
 
 -(void)didRemovedFromEntity

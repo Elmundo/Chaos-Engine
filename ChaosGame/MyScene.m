@@ -53,9 +53,9 @@
 
 - (void)createLayers
 {
-    gameLayer       = [[CLayer alloc] init];
+    gameLayer       = [[GameLayer alloc] init];
     gameLayer.name  = @"gameLayer";
-    cameraLayer     = [[CLayer alloc] init];
+    cameraLayer     = [[CameraLayer alloc] init];
     cameraLayer.name = @"cameraLayer";
     
     // Add layers by considering the layer order

@@ -15,7 +15,14 @@
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)theEvent
 {
     [super touchesBegan:touches withEvent:theEvent];
- 
+    clog(@"CSprite node is touched.");
+    
+    for (UITouch *touch in touches) {
+        
+        //clog(@"Touched view is %@", NSStringFromClass([touch.view class]));
+        
+    }
+    
     CTouchEvent *event = [CTouchEvent eventWithType:[CTouchEvent ETouchBegan] withObject:touches withEvent:theEvent withBubbles:NO];
     [_owner.dispatcher dispatchEvent:event];
 }

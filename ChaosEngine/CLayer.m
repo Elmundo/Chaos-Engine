@@ -20,10 +20,7 @@
     return self;
 }
 
-- (void)gesture_is_activited:(UIEvent*)sender
-{
-    
-}
+
 /*
 
 - (instancetype)initWithColor:(UIColor *)color size:(CGSize)size
