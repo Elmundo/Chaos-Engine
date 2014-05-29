@@ -1,7 +1,7 @@
 Chaos Game Engine
 =================
 
-**Chaos Engine** is a component-based, data-driven programming supported 2D game engine based-on SpriteKit and written in both **Objective-C** and **C** languages.
+**Chaos Engine** is a component-based, data-driven programming supported 2D game engine based-on SpriteKit. It is written in both **Objective-C** and **C** languages.
 
 Features
 --------
