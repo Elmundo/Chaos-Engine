@@ -5,7 +5,7 @@ Chaos Game Engine
 
 Features
 --------
-* Component-based system design.
+* Component-Based system design
 * Tilemap Rendering
 * Scene Management
 * Model/Controller (MVC Pattern)
