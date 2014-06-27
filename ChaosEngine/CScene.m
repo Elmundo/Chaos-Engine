@@ -22,9 +22,24 @@
         //Physic
         self.physicsWorld.contactDelegate = [CPhysicSystem shared];
         self.physicsWorld.gravity = CGVectorMake(0, 0);
+        
+        _layers = [NSMutableArray array];
     }
     
     return self;
+}
+
+// Overrided method
+-(void)addChild:(SKNode *)node
+{
+    [super addChild:node];
+    [_layers addObject:node];
+}
+
+-(void)removeChild:(SKNode *)node
+{
+    [node removeFromParent];
+    [_layers removeObject:node];
 }
 
 - (void)didMoveToView:(SKView *)view
@@ -48,20 +63,24 @@
 }
 
 /* Called when user make some touch inputs */
+/*
+    CEngine will not handle event dispatching system for now.
+    touchesBegan method will not be callad and CInputSystem is disabled for now.
+*/
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     clog(@"Scene touch method is called.");
-    [self.delegate touchesBegan:touches withEvent:event];
+    //[self.delegate touchesBegan:touches withEvent:event];
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    [self.delegate touchesEnded:touches withEvent:event];
+    //[self.delegate touchesEnded:touches withEvent:event];
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    [self.delegate touchesMoved:touches withEvent:event];
+    //[self.delegate touchesMoved:touches withEvent:event];
 }
 
 

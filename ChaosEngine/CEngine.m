@@ -79,7 +79,7 @@
         }
     }
 }
-
+/*
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     for (NSString *key in _systems) {
@@ -109,7 +109,7 @@
         }
     }
 }
-
+*/
 -(void)didBeginContact:(SKPhysicsContact *)contact
 {
     for (NSString *key in _systems) {

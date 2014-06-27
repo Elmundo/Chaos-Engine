@@ -53,4 +53,9 @@
     
     return angle;
 }
+
++ (CGSize)screenSize
+{
+    return [UIScreen mainScreen].bounds.size;
+}
 @end

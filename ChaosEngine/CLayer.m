@@ -14,23 +14,30 @@
 {
     self = [super init];
     if (self) {
-        //
-    }
-    
-    return self;
-}
-
-
-/*
-
-- (instancetype)initWithColor:(UIColor *)color size:(CGSize)size
-{
-    self = [super initWithColor:color size:size];
-    if (self) {
         
+        _sceneManager = [CSceneManager shared];
+        self.userInteractionEnabled = TRUE;
     }
     
     return self;
 }
-*/
+
+- (CLayer *)sublayer
+{
+    NSArray *layers = [_sceneManager activeScene].layers;
+    int index = [layers indexOfObject:self];
+    
+    if (index == 0) {
+        return nil;
+    }
+    
+    CLayer *sublayer = [layers objectAtIndex:index - 1];
+    return sublayer;
+}
+
+-(UIResponder *)nextResponder
+{
+    return  [self sublayer];
+}
+
 @end

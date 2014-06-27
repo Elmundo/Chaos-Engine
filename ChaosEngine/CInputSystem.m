@@ -11,6 +11,8 @@
 #import "CControllerComponent.h"
 #import "CTouchEvent.h"
 
+/* Disabled! */
+
 @implementation CInputSystem
 
 + (id)shared

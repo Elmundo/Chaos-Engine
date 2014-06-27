@@ -7,9 +7,15 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
+#import "CSpriteNode.h"
+#import "CSceneManager.h"
+#import "CUtil.h"
 
 @interface CLayer : SKNode
+{
+    CSceneManager *_sceneManager;
+}
 
-//- (instancetype)initWithColor:(UIColor *)color size:(CGSize)size;
+- (CLayer *)sublayer;
 
 @end

@@ -77,9 +77,7 @@
     */
     
     [[CTemplateManager shared] instantiateEntity:@"Character1"];
-    [[CTemplateManager shared] instantiateEntity:@"Character2"];
-    [[CTemplateManager shared] instantiateEntity:@"Character3"];
-    [[CTemplateManager shared] instantiateEntity:@"Camera"];
+    //[[CTemplateManager shared] instantiateEntity:@"Camera"];
 }
 
 

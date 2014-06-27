@@ -16,5 +16,6 @@
 + (CGRect)eulerToUnit:(CGRect)euler andResourceSize:(CGSize)sourceSize;
 + (CGFloat)radianToAngle:(CGFloat)value;
 + (CGFloat)angleToRadian:(CGFloat)value;
++ (CGSize)screenSize;
 
 @end

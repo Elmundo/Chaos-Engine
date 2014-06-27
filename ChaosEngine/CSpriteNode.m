@@ -14,41 +14,41 @@
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)theEvent
 {
-    [super touchesBegan:touches withEvent:theEvent];
-    clog(@"CSprite node is touched.");
-    
-    for (UITouch *touch in touches) {
-        
-        //clog(@"Touched view is %@", NSStringFromClass([touch.view class]));
-        
-    }
-    
     CTouchEvent *event = [CTouchEvent eventWithType:[CTouchEvent ETouchBegan] withObject:touches withEvent:theEvent withBubbles:NO];
     [_owner.dispatcher dispatchEvent:event];
+    
+    // Here must be a flag which represent that event propagation will be implemented or not
+    [super touchesBegan:touches withEvent:theEvent];
 }
 
 -(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)theEvent
 {
-    [super touchesMoved:touches withEvent:theEvent];
-    
     CTouchEvent *event = [CTouchEvent eventWithType:[CTouchEvent ETouchMoved] withObject:touches withEvent:theEvent withBubbles:NO];
     [_owner.dispatcher dispatchEvent:event];
+
+    [super touchesMoved:touches withEvent:theEvent];
 }
 
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)theEvent
 {
-    [super touchesEnded:touches withEvent:theEvent];
-    
     CTouchEvent *event = [CTouchEvent eventWithType:[CTouchEvent ETouchEnded] withObject:touches withEvent:theEvent withBubbles:NO];
     [_owner.dispatcher dispatchEvent:event];
+    
+    [super touchesEnded:touches withEvent:theEvent];
 }
 
 -(void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)theEvent
 {
-    [super touchesCancelled:touches withEvent:theEvent];
-    
     CTouchEvent *event = [CTouchEvent eventWithType:[CTouchEvent ETouchCancelled] withObject:touches withEvent:theEvent withBubbles:NO];
     [_owner.dispatcher dispatchEvent:event];
+    
+    [super touchesCancelled:touches withEvent:theEvent];
+}
+
+-(UIResponder *)nextResponder
+{
+    return nil;
+    //return self.parent;
 }
 
 @end

@@ -11,8 +11,6 @@
 #import "CEngineSystem.h"
 #import "CLayer.h"
 #import "CSpriteNode.h"
-#import "ASpriteNode.h"
-#import "BSpriteNode.h"
 
 @interface CCameraComponent : CComponent
 

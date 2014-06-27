@@ -17,6 +17,7 @@
         self.userInteractionEnabled = YES;
         
         /*Red sprite*/
+        /*
         CSpriteNode *interface = [CSpriteNode spriteNodeWithColor:[UIColor yellowColor] size:CGSizeMake(480, 320)];
         interface.anchorPoint = CGPointMake(0, 0);
         interface.alpha = 0.0f;
@@ -24,14 +25,10 @@
         interface.userInteractionEnabled = YES;
         
         [self addChild:interface];
+         */
     }
     
     return self;
-}
-
-- (UIResponder *)nextResponder
-{
-    return self.parent;
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event

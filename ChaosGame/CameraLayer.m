@@ -15,14 +15,10 @@
     self = [super init];
     if (self) {
         self.userInteractionEnabled = YES;
+
     }
     
     return self;
-}
-
-- (UIResponder *)nextResponder
-{
-    return self.parent;
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event

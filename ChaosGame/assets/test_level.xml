@@ -79,8 +79,8 @@
     <Entity type="CEntity" name="Character1">
         <Component type="CPositionComponent" name="Position">
             <position>
-                <x>100</x>
-                <y>200</y>
+                <x>206</x>
+                <y>126</y>
             </position>
         </Component>
         
@@ -100,6 +100,7 @@
         </Component>
         
     </Entity>
+    <!--
     <Entity type="CEntity" name="Character2">
         <Component type="CPositionComponent" name="Position">
             <position>
@@ -149,7 +150,7 @@
         
     </Entity>
 
-    <!--
+
     <Entity type="CEntity" name="TileMapRenderer">
         <Component type="CPositionComponent" name="Position">
             <position>

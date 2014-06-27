@@ -20,9 +20,10 @@
 
 @interface CScene : SKScene
 
-@property (nonatomic, strong) id<CSceneDelegate> delegate;
+@property (nonatomic, strong) id<CSceneDelegate> delegate; // CEngine object
 @property (nonatomic, assign) BOOL contentCreated;
 @property (nonatomic, strong) NSString *sceneName;
+@property (nonatomic, strong) NSMutableArray *layers;
 
 -(id)initWithSize:(CGSize)size;
 
