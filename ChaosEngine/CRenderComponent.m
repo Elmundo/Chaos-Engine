@@ -40,6 +40,23 @@
         return;
     }
     
+    [self setTextureAtlas];
+    [self setDefaultTexture:owner];
+    [self setPositionAndAttributes:owner];
+    
+    //Add to layer, not to scene directly
+    [self.layer addChild:self.spriteNode];
+    [self addEventListener:@selector(did_position_updated:) message:[CPositionEvent CE_PositionChanged] ];
+    
+    CRenderEvent *event = [CRenderEvent eventWithType:[CRenderEvent CE_SpriteReady]
+                                           withObject:self.spriteNode
+                                            withAtlas:self.atlas
+                                          withBubbles:YES];
+    [self dispatchEventWithEvent:event];
+}
+
+- (void)setTextureAtlas
+{
     if (self.atlasName == nil) {
         clog(@"atlasName property is nil.");
         
@@ -50,7 +67,10 @@
             return;
         }
     }
-    
+}
+
+- (void)setDefaultTexture:(CEntity*)owner
+{
     SKTexture *defaultTexture;
     if (self.atlas) // If there is an texture atlas, then get first texture of it.
         defaultTexture = [self.atlas getFirstTexture];
@@ -58,16 +78,16 @@
         defaultTexture = self.sourceTexture;
     
     /* If texture size is given, the sprite is initialized using the texture,
-       but the texture’s dimensions are not used.
-       Instead, the size passed into the constructor method is used. 
-    */
+     but the texture’s dimensions are not used.
+     Instead, the size passed into the constructor method is used.
+     */
     if (self.textureSize) {
         self.spriteNode = [CSpriteNode spriteNodeWithTexture:defaultTexture size:[self.textureSize CGSize]];
     }
     else{
         _spriteNode = [CSpriteNode spriteNodeWithTexture:defaultTexture];
     }
-
+    
     _spriteNode.owner = owner;
     _spriteNode.userInteractionEnabled = self.userInteractionEnabled;
     
@@ -75,7 +95,10 @@
         clog(@"There is no such a texture: %@", self.resourceName);
         return;
     }
-   
+}
+
+- (void)setPositionAndAttributes:(CEntity*)owner
+{
     // Init the sprite position
     _position = [owner getProperty:_positionProperty];
     
@@ -94,17 +117,7 @@
     if (self.scaleFactor) {
         self.spriteNode.xScale = self.spriteNode.yScale = _scaleFactor;
     }
-    
-    //Add to layer, not to scene directly
-    
-    [self.layer addChild:self.spriteNode];
-    [self addEventListener:@selector(did_position_updated:) message:[CPositionEvent CE_PositionChanged] ];
-    
-    CRenderEvent *event = [CRenderEvent eventWithType:[CRenderEvent CE_SpriteReady]
-                                           withObject:self.spriteNode
-                                            withAtlas:self.atlas
-                                          withBubbles:YES];
-    [self dispatchEventWithEvent:event];
+
 }
 
 - (void)didRemovedFromEntity

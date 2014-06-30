@@ -24,8 +24,6 @@
     NSXMLParser *_parser;
 }
 
-
-
 /* OUTSIDE PROPERTIES */
 @property (nonatomic, strong) CPropertyReference *spriteProperty; //Required
 @property (nonatomic, strong) CPropertyReference *atlasProperty; //Required

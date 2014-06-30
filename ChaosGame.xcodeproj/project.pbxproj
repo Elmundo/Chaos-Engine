@@ -424,6 +424,8 @@
 		626277721885811300006BBD /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				62BA2BD0195FE98C007FE4A3 /* tilemaps */,
+				62BA2BCF195FE986007FE4A3 /* tilesets */,
 				62BB4D5B190160B90016D540 /* resources */,
 				62CF0D4D189BD378006CD912 /* levels */,
 				6272FF90188ED24E009B8440 /* xml */,
@@ -438,6 +440,20 @@
 				6284DA48190688A100385A35 /* tiledata.xml */,
 			);
 			name = xml;
+			sourceTree = "<group>";
+		};
+		62BA2BCF195FE986007FE4A3 /* tilesets */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = tilesets;
+			sourceTree = "<group>";
+		};
+		62BA2BD0195FE98C007FE4A3 /* tilemaps */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = tilemaps;
 			sourceTree = "<group>";
 		};
 		62BB4D5B190160B90016D540 /* resources */ = {

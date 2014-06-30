@@ -149,7 +149,7 @@
         </Component>
         
     </Entity>
-
+    -->
 
     <Entity type="CEntity" name="TileMapRenderer">
         <Component type="CPositionComponent" name="Position">
@@ -176,7 +176,7 @@
         </Component>
                 
     </Entity>
-    -->
+
     <!-- Group Sample -->
     <Group name="Things">
         <ObjectReference name="Birdiot"/>

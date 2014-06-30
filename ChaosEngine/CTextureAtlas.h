@@ -36,9 +36,11 @@ typedef enum : NSUInteger {
 @property (nonatomic, assign) unsigned height;
 
 + (CTextureAtlas *)atlasWithXmlName:(NSString *)xmlName andWithResource:(SKTexture *)resource;
+
 - (id)initWithXmlName:(NSString *)xmlName andWithResource:(SKTexture *)resource;
 - (NSArray *)animationWithName:(NSString *)animationName;
 - (NSDictionary *)tilesetWithName:(NSString *)tilesetName;
 - (SKTexture *)tileWithName:(NSString *)tileName andTilesetName:(NSString *)tilesetName;
 - (SKTexture *)getFirstTexture;
+
 @end
