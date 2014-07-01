@@ -29,6 +29,13 @@
             <atlasName>megamen_spritesheet.xml</atlasName>
         </Component>
         
+        <Component type="CAnimationComponent" name="Animation">
+            <spriteProperty>@AnimationRenderer.spriteNode</spriteProperty>
+            <animationProperty>@AnimationRenderer.animationDic</animationProperty>
+            <intervalPerFrame>0.5</intervalPerFrame>
+            <isResizable>true</isResizable>
+        </Component>
+        
     </Entity>
 
     <!-- Group Sample -->

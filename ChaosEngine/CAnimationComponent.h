@@ -23,11 +23,13 @@
 
 /* OUTSIDE PROPERTIES */
 @property (nonatomic, strong) CPropertyReference *spriteProperty; //Required
-@property (nonatomic, strong) CPropertyReference *atlasProperty; // Required
+@property (nonatomic, strong) CPropertyReference *animationProperty; //Required
+@property (nonatomic, assign) CGFloat intervalPerFrame; //Required
+@property (nonatomic, assign) BOOL isResizable; //Required
 
 /* INNER PROPERTIES */
 @property (nonatomic, strong) CSpriteNode *spriteNode;
-@property (nonatomic, strong) CTextureAtlas *textureAtlas;
+@property (nonatomic, strong) NSDictionary *animationDic;
 @property (nonatomic, strong) SKAction *animationAction;
 
 - (void)playAnimationWithName:(NSString *)animationName;

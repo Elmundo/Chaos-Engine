@@ -13,14 +13,6 @@
 -(void)didAddedToEntity:(CEntity *)owner
 {
     [super didAddedToEntity:owner];
-    
-    NSError *error;
-    _tbxml = [TBXML newTBXMLWithXMLFile:_atlasName error:&error];
-    TBXMLElement *rootElement = _tbxml.rootXMLElement;
-    
-    _animationDic = [[NSMutableDictionary alloc] initWithCapacity:4];
-    
-    [self traverseElement:rootElement];
 }
 
 -(void)didRemovedFromEntity
@@ -28,9 +20,31 @@
     [super didRemovedFromEntity];
 }
 
+/* Override */
+- (void)render
+{
+    NSError *error;
+    _tbxml = [TBXML newTBXMLWithXMLFile:_atlasName error:&error];
+    _rootElement = _tbxml.rootXMLElement;
+    
+    _animationDic = [[NSMutableDictionary alloc] initWithCapacity:4];
+    
+    [self traverseElement:_rootElement];
+    
+    SKTexture *firstTexture;
+    for (NSString *key in _animationDic) {
+        NSArray *list = [_animationDic objectForKey:key];
+        firstTexture = [list objectAtIndex:0];
+        break;
+    }
+    
+    self.spriteNode = [CSpriteNode spriteNodeWithTexture:firstTexture];
+    [self.layer addChild:self.spriteNode];
+}
+
 - (NSArray *)animationWithName:(NSString *)animationName
 {
-    return nil;
+    return [_animationDic objectForKey:animationName];
 }
 
 #pragma mark XML Parser

@@ -38,4 +38,8 @@
 @property (nonatomic, strong) SKTexture *sourceTexture;
 @property (nonatomic, weak) CPoint *position;
 
+
+/* METHODS */
+- (void)render;
+
 @end

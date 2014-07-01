@@ -39,12 +39,11 @@
         clog(@"There is no such a resource: %@", self.resourceName);
         return;
     }
-    
-    [self setDefaultTexture:owner];
+
+    [self render];
+    [self setDefaultSprite:owner];
     [self setPositionAndAttributes:owner];
     
-    //Add to layer, not to scene directly
-    [self.layer addChild:self.spriteNode];
     [self addEventListener:@selector(did_position_updated:) message:[CPositionEvent CE_PositionChanged] ];
     
     CRenderEvent *event = [CRenderEvent eventWithType:[CRenderEvent CE_SpriteReady]
@@ -53,8 +52,8 @@
     [self dispatchEventWithEvent:event];
 }
 
-
-- (void)setDefaultTexture:(CEntity*)owner
+/* Overrideble */
+- (void)render
 {
     if (self.textureSize) {
         self.spriteNode = [CSpriteNode spriteNodeWithTexture:_sourceTexture size:[self.textureSize CGSize]];
@@ -63,13 +62,19 @@
         _spriteNode = [CSpriteNode spriteNodeWithTexture:_sourceTexture];
     }
     
-    _spriteNode.owner = owner;
-    _spriteNode.userInteractionEnabled = self.userInteractionEnabled;
-    
-    if (self.spriteNode == nil) {
+    if (_spriteNode == nil) {
         clog(@"There is no such a texture: %@", self.resourceName);
         return;
     }
+    
+    //Add sprite to layer, not to scene directly
+    [self.layer addChild:self.spriteNode];
+}
+
+- (void)setDefaultSprite:(CEntity*)owner
+{
+    _spriteNode.owner = owner;
+    _spriteNode.userInteractionEnabled = self.userInteractionEnabled;
 }
 
 - (void)setPositionAndAttributes:(CEntity*)owner

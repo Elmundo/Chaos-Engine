@@ -14,14 +14,18 @@
 @interface CAnimationRendererComponent : CRendererComponent
 {
     TBXML *_tbxml;
-    NSMutableDictionary *_animationDic;
+    TBXMLElement *_rootElement;
 }
 /* OUTSIDE PROPERTIES */
 @property (nonatomic, strong) NSString *atlasName;
 
 /* INNER PROPERTIES */
+@property (nonatomic, strong) NSMutableDictionary *animationDic;
 @property (nonatomic, strong) NSString *imagePath;
 @property (nonatomic, assign) int width;
 @property (nonatomic, assign) int height;
+
+/* METHODS */
+- (NSArray *)animationWithName:(NSString *)animationName;
 
 @end
