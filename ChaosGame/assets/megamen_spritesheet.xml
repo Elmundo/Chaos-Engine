@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<atlas imagePath="megamen.png" width="93" height="28">
+    <animation name="stand">
+    	<texture x="0"  y="0" w="31" h="28"/>
+        <texture x="31" y="0" w="31" h="28"/>
+        <texture x="62" y="0" w="31" h="28"/>
+    </animation>
+    <animation name="walk">
+    	<texture x="0"  y="0" w="31" h="28"/>
+        <texture x="31" y="0" w="31" h="28"/>
+        <texture x="62" y="0" w="31" h="28"/>
+    </animation>
+    <animation name="jump">
+    	<texture x="0"  y="0" w="31" h="28"/>
+        <texture x="31" y="0" w="31" h="28"/>
+        <texture x="62" y="0" w="31" h="28"/>
+    </animation>
+</atlas>

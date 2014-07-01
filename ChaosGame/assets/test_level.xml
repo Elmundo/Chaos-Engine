@@ -69,6 +69,30 @@
         </Component>
     </Entity>
     -->
+    
+    <Entity type="CEntity" name="Megamen">
+
+        <Component type="CPositionComponent" name="Position">
+            <position>
+                <x>206</x>
+                <y>126</y>
+            </position>
+        </Component>
+        
+        <Component type="CAnimationRendererComponent" name="AnimationRenderer">
+            <positionProperty>@Position.position</positionProperty>
+            <layerName>gameLayer</layerName>
+            <resourceName>Megamen.png</resourceName>
+            <anchorPoint>
+                <x>0.5</x>
+                <y>0.5</y>
+            </anchorPoint>
+            <userInteractionEnabled>true</userInteractionEnabled>
+        </Component>
+        
+    </Entity>
+    
+    <!--
     <Entity type="CEntity" name="Camera">
         <Component type="CCameraComponent" name="Camera">
             <sceneManagerProperty>$SceneManager</sceneManagerProperty>
@@ -100,7 +124,7 @@
         </Component>
         
     </Entity>
-    <!--
+    
     <Entity type="CEntity" name="Character2">
         <Component type="CPositionComponent" name="Position">
             <position>

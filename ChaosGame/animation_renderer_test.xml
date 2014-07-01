@@ -1,0 +1,38 @@
+<!-- Level1 Entity List-->
+<data>
+    <!-- There could be only three types of object of data tag;
+     Entitiy
+     Template
+     Group
+     
+     Other tags will be INVALID in data tag scope
+     -->
+    <Entity type="CEntity" name="Megamen">
+        
+        <Component type="CPositionComponent" name="Position">
+            <position>
+                <x>206</x>
+                <y>126</y>
+            </position>
+        </Component>
+        
+        <Component type="CAnimationRendererComponent" name="AnimationRenderer">
+            <positionProperty>@Position.position</positionProperty>
+            <layerName>gameLayer</layerName>
+            <resourceName>Megamen.png</resourceName>
+            <anchorPoint>
+                <x>0.5</x>
+                <y>0.5</y>
+            </anchorPoint>
+            <userInteractionEnabled>true</userInteractionEnabled>
+            
+            <atlasName>megamen_spritesheet.xml</atlasName>
+        </Component>
+        
+    </Entity>
+
+    <!-- Group Sample -->
+    <Group name="Things">
+        <ObjectReference name="Megamen"/>
+    </Group>
+</data>

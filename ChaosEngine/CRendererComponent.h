@@ -11,7 +11,6 @@
 #import "CSceneManager.h"
 #import "CPoint.h"
 #import "CPositionEvent.h" 
-#import "CTextureAtlas.h"
 #import "CRenderEvent.h"
 #import "CSize.h"
 #import "CLayer.h"

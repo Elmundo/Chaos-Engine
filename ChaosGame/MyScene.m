@@ -57,8 +57,8 @@
 - (void)createTestGame
 {
     // Load the level xml description file
-    [[CTemplateManager shared] loadFile:@"test_level.xml"];
-    
+    //[[CTemplateManager shared] loadFile:@"test_level.xml"];
+    [[CTemplateManager shared] loadFile:@"animation_renderer_test.xml"];
     // Instantiate the entities which will be visible in game
     /*
     [[CTemplateManager shared] instantiateEntity:@"Background"];
@@ -67,8 +67,9 @@
     [[CTemplateManager shared] instantiateEntity:@"TileMapRenderer"];
     */
     
-    [[CTemplateManager shared] instantiateEntity:@"Character1"];
+    //[[CTemplateManager shared] instantiateEntity:@"Character1"];
     //[[CTemplateManager shared] instantiateEntity:@"Camera"];
+    [[CTemplateManager shared] instantiateEntity:@"Megamen"];
 }
 
 

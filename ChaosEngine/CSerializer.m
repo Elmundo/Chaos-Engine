@@ -64,72 +64,84 @@
 
 - (void)traverseObject:(TBXMLElement *)parentXMLElement object:(id)parentObject
 {
-    unsigned int outPropertyCount, i = 0;
-    enum PropertyType outType;
-    objc_property_t *properties = class_copyPropertyList([parentObject class], &outPropertyCount);
-
-    for (; i < outPropertyCount; ++i) {
-        objc_property_t property = properties[i];
+    //Traverse across super class until it reach NSObject
+    Class class = [parentObject class];
+    const char *className = class_getName(class);
+    NSString *classNameStr = [NSString stringWithFormat:@"%s", className];
+    
+    while (![classNameStr isEqualToString:@"NSObject"] && ![classNameStr isEqualToString:@"CComponent"]) {
         
-        // Get Objective-C ParentObject's property type and name values
-        NSString *propertyName    = [NSString stringWithUTF8String:property_getName(property)];
-        NSString *propertyType    = [self propertyTypeStringOfProperty:property propertyType:&outType];
-        TBXMLElement *propertyXMLElement = [TBXML childElementNamed:propertyName parentElement:parentXMLElement];
+        unsigned int outPropertyCount, i = 0;
+        enum PropertyType outType;
         
-        //There is no match in XML for propertyName so skip that!
-        if (propertyXMLElement == Nil) {
-            clog(@"['%@']property is defined in ['%s']Objective-C class, not in XML definition", propertyName, class_getName([parentObject class]));
-            continue;
-        }
-        
-        /* CSerializable object */
-        if ([NSClassFromString(propertyType) isSubclassOfClass:[CSerializable class]]) {
-            Class classObj = NSClassFromString(propertyType);
-            CSerializable *propertyObject = [[classObj alloc] init];
-            [propertyObject deserialize:propertyXMLElement];
-            [parentObject setValue:propertyObject forKey:propertyName];
-        }
-        // Instantiate the related property with type
-        /* String*/
-        else if (outType == PropertyTypeString) {
-            NSString *stringValue = [TBXML textForElement:propertyXMLElement];
-            [parentObject setValue:stringValue forKey:propertyName];
-        }
-        /* Class */
-        else if (outType == PropertyTypeClass) {
-            Class classObj = NSClassFromString(propertyType);
-            id propertyObject = [[classObj alloc] init];
+        objc_property_t *properties = class_copyPropertyList([class class], &outPropertyCount);
+        for (; i < outPropertyCount; ++i) {
+            objc_property_t property = properties[i];
             
-            if (!propertyXMLElement) {
-                cerror(@"XML ELEMENT MISSING!: There is no match in XML with property name: %@", propertyName);
+            // Get Objective-C ParentObject's property type and name values
+            NSString *propertyName    = [NSString stringWithUTF8String:property_getName(property)];
+            NSString *propertyType    = [self propertyTypeStringOfProperty:property propertyType:&outType];
+            TBXMLElement *propertyXMLElement = [TBXML childElementNamed:propertyName parentElement:parentXMLElement];
+            
+            //There is no match in XML for propertyName so skip that!
+            if (propertyXMLElement == Nil) {
+                clog(@"['%@']property is defined in ['%s']Objective-C class, not in XML definition", propertyName, class_getName([parentObject class]));
                 continue;
             }
             
-            // NSString is a unique class which does not need to be traversed.
-            // If type is NSString, do not traverse, just assign the string value
-            if ([propertyType isEqualToString:@"NSString"]) {
-                propertyObject = [NSString stringWithFormat:@"%s", propertyXMLElement->text];
-            }else{
-                [self traverseObject:propertyXMLElement object:propertyObject];
+            /* CSerializable object */
+            if ([NSClassFromString(propertyType) isSubclassOfClass:[CSerializable class]]) {
+                Class classObj = NSClassFromString(propertyType);
+                CSerializable *propertyObject = [[classObj alloc] init];
+                [propertyObject deserialize:propertyXMLElement];
+                [parentObject setValue:propertyObject forKey:propertyName];
             }
-            
-            [parentObject setValue:propertyObject forKey:propertyName];
-            
-        }/* Collection */
-        else if(outType == PropertyTypeCollection) {
-            
-            Class classObj = NSClassFromString(propertyType);
-            id collectionObject = [[classObj alloc] init];
-            
-            [self traverseCollection:propertyXMLElement object:collectionObject];
-            
-            [parentObject setValue:collectionObject forKey:propertyName];
-          
-        }/* Scalar */
-        else if(outType == PropertyTypeScalar) {
-            [self setScalarValue:parentObject xml:propertyXMLElement propertyName:propertyName propertyType:propertyType];
-            
+            // Instantiate the related property with type
+            /* String*/
+            else if (outType == PropertyTypeString) {
+                NSString *stringValue = [TBXML textForElement:propertyXMLElement];
+                [parentObject setValue:stringValue forKey:propertyName];
+            }
+            /* Class */
+            else if (outType == PropertyTypeClass) {
+                Class classObj = NSClassFromString(propertyType);
+                id propertyObject = [[classObj alloc] init];
+                
+                if (!propertyXMLElement) {
+                    cerror(@"XML ELEMENT MISSING!: There is no match in XML with property name: %@", propertyName);
+                    continue;
+                }
+                
+                // NSString is a unique class which does not need to be traversed.
+                // If type is NSString, do not traverse, just assign the string value
+                if ([propertyType isEqualToString:@"NSString"]) {
+                    propertyObject = [NSString stringWithFormat:@"%s", propertyXMLElement->text];
+                }else{
+                    [self traverseObject:propertyXMLElement object:propertyObject];
+                }
+                
+                [parentObject setValue:propertyObject forKey:propertyName];
+                
+            }/* Collection */
+            else if(outType == PropertyTypeCollection) {
+                
+                Class classObj = NSClassFromString(propertyType);
+                id collectionObject = [[classObj alloc] init];
+                
+                [self traverseCollection:propertyXMLElement object:collectionObject];
+                
+                [parentObject setValue:collectionObject forKey:propertyName];
+                
+            }/* Scalar */
+            else if(outType == PropertyTypeScalar) {
+                [self setScalarValue:parentObject xml:propertyXMLElement propertyName:propertyName propertyType:propertyType];
+                
+            }
         }
+        
+        class = [class superclass];
+        className = class_getName(class);
+        classNameStr = [NSString stringWithFormat:@"%s", className];
     }
 }
 
