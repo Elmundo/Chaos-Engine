@@ -14,7 +14,7 @@
 
 /*Dependency Time*/
 #import "CPositionComponent.h"
-#import "CRenderComponent.h"
+#import "CRendererComponent.h"
 
 typedef NS_ENUM(NSInteger, kPipeDireciton)
 {
@@ -29,7 +29,7 @@ typedef NS_ENUM(NSInteger, kPipeDireciton)
 @property (nonatomic, weak) CScene *scene;
 @property (nonatomic, weak) SKSpriteNode *pipeSprite;
 @property (nonatomic, weak) CPositionComponent *pos;
-@property (nonatomic, weak) CRenderComponent *render;
+@property (nonatomic, weak) CRendererComponent *render;
 
 @property (nonatomic, assign) int pipeHeight;
 @property (nonatomic, assign) int pipeDirection;

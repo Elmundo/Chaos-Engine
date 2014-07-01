@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Baris YILMAZ. All rights reserved.
 //
 
-#import "CRenderComponent.h"
+#import "CRendererComponent.h"
 
-@implementation CRenderComponent
+@implementation CRendererComponent
 
 #define kDefaultRenderAnchorPoint CGPointMake(0.0f, 0.0f)
 
@@ -40,7 +40,6 @@
         return;
     }
     
-    [self setTextureAtlas];
     [self setDefaultTexture:owner];
     [self setPositionAndAttributes:owner];
     
@@ -50,42 +49,18 @@
     
     CRenderEvent *event = [CRenderEvent eventWithType:[CRenderEvent CE_SpriteReady]
                                            withObject:self.spriteNode
-                                            withAtlas:self.atlas
                                           withBubbles:YES];
     [self dispatchEventWithEvent:event];
 }
 
-- (void)setTextureAtlas
-{
-    if (self.atlasName == nil) {
-        clog(@"atlasName property is nil.");
-        
-    }else{
-        self.atlas = [CTextureAtlas atlasWithXmlName:self.atlasName andWithResource:self.sourceTexture];
-        if (self.atlas == nil) {
-            clog(@"There is no such a atlas: %@", self.atlasName);
-            return;
-        }
-    }
-}
 
 - (void)setDefaultTexture:(CEntity*)owner
 {
-    SKTexture *defaultTexture;
-    if (self.atlas) // If there is an texture atlas, then get first texture of it.
-        defaultTexture = [self.atlas getFirstTexture];
-    else // If not, get the whole source resource as texture.
-        defaultTexture = self.sourceTexture;
-    
-    /* If texture size is given, the sprite is initialized using the texture,
-     but the texture’s dimensions are not used.
-     Instead, the size passed into the constructor method is used.
-     */
     if (self.textureSize) {
-        self.spriteNode = [CSpriteNode spriteNodeWithTexture:defaultTexture size:[self.textureSize CGSize]];
+        self.spriteNode = [CSpriteNode spriteNodeWithTexture:_sourceTexture size:[self.textureSize CGSize]];
     }
     else{
-        _spriteNode = [CSpriteNode spriteNodeWithTexture:defaultTexture];
+        _spriteNode = [CSpriteNode spriteNodeWithTexture:_sourceTexture];
     }
     
     _spriteNode.owner = owner;
@@ -131,16 +106,19 @@
     self.spriteNode = nil;
     self.layerName = nil;
     self.resourceName = nil;
-    self.atlasName = nil;
     self.textureSize = nil;
     self.anchorPoint = nil;
     self.sourceTexture = nil;
-    self.atlas = nil;
 }
 
 - (void)did_position_updated:(CPositionEvent *)event
 {
     self.spriteNode.position = [self.position CGPoint];
+}
+
+- (void)setUserInteractionEnabled:(BOOL)userInteractionEnabled
+{
+    _userInteractionEnabled = userInteractionEnabled;
 }
 
 @end

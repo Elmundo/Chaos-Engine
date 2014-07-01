@@ -16,7 +16,7 @@
     
     self.manager  = [CSceneManager shared];
     self.scene    = [self.manager getSceneWithName:self.sceneName];
-    self.renderer = (CRenderComponent *)[self getComponent:@"CRenderComponent"];
+    self.renderer = (CRendererComponent *)[self getComponent:@"CRendererComponent"];
     if (self.renderer.spriteNode) {
         [self render_init:nil];
     }

@@ -58,8 +58,10 @@
 		62AA5414188434C9001FA053 /* CEntityFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AA5413188434C9001FA053 /* CEntityFactory.m */; };
 		62AA5417188434D5001FA053 /* CComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AA5416188434D5001FA053 /* CComponent.m */; };
 		62AA5421188442E8001FA053 /* CPositionComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AA5420188442E8001FA053 /* CPositionComponent.m */; };
-		62AA5424188442F9001FA053 /* CRenderComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AA5423188442F9001FA053 /* CRenderComponent.m */; };
+		62AA5424188442F9001FA053 /* CRendererComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AA5423188442F9001FA053 /* CRendererComponent.m */; };
 		62B3BA9D1891433400DD8424 /* CInputSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 62B3BA9C1891433400DD8424 /* CInputSystem.m */; };
+		62B672F71961649000CB4ED2 /* Tilemap1.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 62B672F61961649000CB4ED2 /* Tilemap1.tmx */; };
+		62B672FD1961651800CB4ED2 /* Tileset1.png in Resources */ = {isa = PBXBuildFile; fileRef = 62B672FC1961651800CB4ED2 /* Tileset1.png */; };
 		62B69F4C190E6FAD0060CFDF /* CCameraComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 62B69F4B190E6FAD0060CFDF /* CCameraComponent.m */; };
 		62BA2BCD195D9675007FE4A3 /* CRect.m in Sources */ = {isa = PBXBuildFile; fileRef = 62BA2BCA195D9675007FE4A3 /* CRect.m */; };
 		62BA2BCE195D9675007FE4A3 /* CSceneManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 62BA2BCC195D9675007FE4A3 /* CSceneManager.m */; };
@@ -180,10 +182,12 @@
 		62AA5416188434D5001FA053 /* CComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CComponent.m; path = ChaosEngine/CComponent.m; sourceTree = "<group>"; };
 		62AA541F188442E8001FA053 /* CPositionComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CPositionComponent.h; path = ChaosEngine/CPositionComponent.h; sourceTree = "<group>"; };
 		62AA5420188442E8001FA053 /* CPositionComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CPositionComponent.m; path = ChaosEngine/CPositionComponent.m; sourceTree = "<group>"; };
-		62AA5422188442F9001FA053 /* CRenderComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CRenderComponent.h; path = ChaosEngine/CRenderComponent.h; sourceTree = "<group>"; };
-		62AA5423188442F9001FA053 /* CRenderComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CRenderComponent.m; path = ChaosEngine/CRenderComponent.m; sourceTree = "<group>"; };
+		62AA5422188442F9001FA053 /* CRendererComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CRendererComponent.h; path = ChaosEngine/CRendererComponent.h; sourceTree = "<group>"; };
+		62AA5423188442F9001FA053 /* CRendererComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CRendererComponent.m; path = ChaosEngine/CRendererComponent.m; sourceTree = "<group>"; };
 		62B3BA9B1891433400DD8424 /* CInputSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CInputSystem.h; path = ChaosEngine/CInputSystem.h; sourceTree = "<group>"; };
 		62B3BA9C1891433400DD8424 /* CInputSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CInputSystem.m; path = ChaosEngine/CInputSystem.m; sourceTree = "<group>"; };
+		62B672F61961649000CB4ED2 /* Tilemap1.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Tilemap1.tmx; path = assets/tilemaps/Tilemap1.tmx; sourceTree = "<group>"; };
+		62B672FC1961651800CB4ED2 /* Tileset1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tileset1.png; sourceTree = "<group>"; };
 		62B69F4A190E6FAD0060CFDF /* CCameraComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCameraComponent.h; path = ChaosEngine/CCameraComponent.h; sourceTree = "<group>"; };
 		62B69F4B190E6FAD0060CFDF /* CCameraComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CCameraComponent.m; path = ChaosEngine/CCameraComponent.m; sourceTree = "<group>"; };
 		62BA2BC9195D9675007FE4A3 /* CRect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CRect.h; path = ChaosEngine/CRect.h; sourceTree = "<group>"; };
@@ -381,8 +385,8 @@
 				62627792188926B300006BBD /* CPositionEvent.m */,
 				62C8AFC818FC2D9900B4C4A9 /* CPropertyReference.h */,
 				62C8AFC918FC2D9900B4C4A9 /* CPropertyReference.m */,
-				62AA5422188442F9001FA053 /* CRenderComponent.h */,
-				62AA5423188442F9001FA053 /* CRenderComponent.m */,
+				62AA5422188442F9001FA053 /* CRendererComponent.h */,
+				62AA5423188442F9001FA053 /* CRendererComponent.m */,
 				6295C57D188FCAD800B45AB9 /* CRenderEvent.h */,
 				6295C57E188FCAD800B45AB9 /* CRenderEvent.m */,
 				6262776418852CDE00006BBD /* CScene.h */,
@@ -409,8 +413,8 @@
 				6262776018852B1F00006BBD /* CViewController.m */,
 				62AA541F188442E8001FA053 /* CPositionComponent.h */,
 				62AA5420188442E8001FA053 /* CPositionComponent.m */,
-				62AA5422188442F9001FA053 /* CRenderComponent.h */,
-				62AA5423188442F9001FA053 /* CRenderComponent.m */,
+				62AA5422188442F9001FA053 /* CRendererComponent.h */,
+				62AA5423188442F9001FA053 /* CRendererComponent.m */,
 				627B048219053E21002EC819 /* CTouchEvent.m */,
 				6284DA45190686F100385A35 /* CTileRendererComponent.h */,
 				6284DA46190686F100385A35 /* CTileRendererComponent.m */,
@@ -424,8 +428,8 @@
 		626277721885811300006BBD /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				62B672FB1961651800CB4ED2 /* tilesets */,
 				62BA2BD0195FE98C007FE4A3 /* tilemaps */,
-				62BA2BCF195FE986007FE4A3 /* tilesets */,
 				62BB4D5B190160B90016D540 /* resources */,
 				62CF0D4D189BD378006CD912 /* levels */,
 				6272FF90188ED24E009B8440 /* xml */,
@@ -442,16 +446,19 @@
 			name = xml;
 			sourceTree = "<group>";
 		};
-		62BA2BCF195FE986007FE4A3 /* tilesets */ = {
+		62B672FB1961651800CB4ED2 /* tilesets */ = {
 			isa = PBXGroup;
 			children = (
+				62B672FC1961651800CB4ED2 /* Tileset1.png */,
 			);
 			name = tilesets;
+			path = assets/tilesets;
 			sourceTree = "<group>";
 		};
 		62BA2BD0195FE98C007FE4A3 /* tilemaps */ = {
 			isa = PBXGroup;
 			children = (
+				62B672F61961649000CB4ED2 /* Tilemap1.tmx */,
 			);
 			name = tilemaps;
 			sourceTree = "<group>";
@@ -572,6 +579,8 @@
 				62BB4D65190165D90016D540 /* House.png in Resources */,
 				6284DA441906861A00385A35 /* tileset.xml in Resources */,
 				6284DA49190688A100385A35 /* tiledata.xml in Resources */,
+				62B672F71961649000CB4ED2 /* Tilemap1.tmx in Resources */,
+				62B672FD1961651800CB4ED2 /* Tileset1.png in Resources */,
 				6253D211188033120017790C /* InfoPlist.strings in Resources */,
 				6253D224188033120017790C /* Images.xcassets in Resources */,
 			);
@@ -633,7 +642,7 @@
 				6253D213188033120017790C /* main.m in Sources */,
 				6217A19018CFB69400CC1EF5 /* CLog.m in Sources */,
 				62CF0D84189BE443006CD912 /* TBXML+HTTP.m in Sources */,
-				62AA5424188442F9001FA053 /* CRenderComponent.m in Sources */,
+				62AA5424188442F9001FA053 /* CRendererComponent.m in Sources */,
 				62BB4D5819010F740016D540 /* CContactEvent.m in Sources */,
 				626277881886DDC500006BBD /* CEventDispatcher.m in Sources */,
 				62CE609B189948F100F4C876 /* (null) in Sources */,

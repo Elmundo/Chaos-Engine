@@ -11,7 +11,7 @@
 
 #import "CEntityFactory.h"
 #import "CPositionComponent.h"
-#import "CRenderComponent.h"
+#import "CRendererComponent.h"
 #import "CAnimationComponent.h"
 #import "CControllerComponent.h"
 #import "CBirdComponent.h"
@@ -29,8 +29,9 @@
 
 @interface MyScene : CScene
 {
+    CLayer *bgLayer;
     CLayer *gameLayer;
-    CLayer *cameraLayer;
+    CLayer *UILayer;
 }
 @property (nonatomic, strong) UITapGestureRecognizer *tapGesture;
 

@@ -7,7 +7,7 @@
 //
 
 #import "CComponent.h"
-#import "CRenderComponent.h"
+#import "CRendererComponent.h"
 #import <SpriteKit/SpriteKit.h>
 
 @class CPhysicSystem;
@@ -23,7 +23,7 @@
 @property (nonatomic, assign) bool dynamic;
 
 @property (nonatomic, strong) SKPhysicsBody *physicBody;
-@property (nonatomic, strong) CRenderComponent *render;
+@property (nonatomic, strong) CRendererComponent *render;
 
 - (void)didBeginContact:(SKPhysicsContact *)contact;
 - (void)didEndContact:(SKPhysicsContact *)contact;

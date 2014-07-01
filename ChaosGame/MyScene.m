@@ -18,20 +18,6 @@
     return self;
 }
 
-- (void)testMethod:(UITapGestureRecognizer * )recognizer
-{
-    CGPoint touchLocation = [recognizer locationInView:self.view];
-    NSLog(@"Location x:%f y:%f", touchLocation.x, touchLocation.y);
-}
-
-- (void)handleTap:(UITapGestureRecognizer *)sender
-{
-    if (sender.state == UIGestureRecognizerStateEnded)
-    {
-        // handling code
-    }
-}
-
 - (void)didMoveToView:(SKView *)theView
 {
     [super didMoveToView:theView];
@@ -53,14 +39,19 @@
 
 - (void)createLayers
 {
+    bgLayer = [[CLayer alloc] init];
+    bgLayer.name = @"bgLayer";
+    
     gameLayer       = [[GameLayer alloc] init];
     gameLayer.name  = @"gameLayer";
-    cameraLayer     = [[CameraLayer alloc] init];
-    cameraLayer.name = @"cameraLayer";
+    
+    UILayer = [[CLayer alloc] init];
+    UILayer.name = @"UILayer";
     
     // Add layers by considering the layer order
+    [self addChild:bgLayer];
     [self addChild:gameLayer];
-    [self addChild:cameraLayer];
+    [self addChild:UILayer];
 }
 
 - (void)createTestGame

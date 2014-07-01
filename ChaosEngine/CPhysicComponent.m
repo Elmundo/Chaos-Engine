@@ -19,7 +19,7 @@
     _physicManager = [CPhysicSystem shared];
     [_physicManager add:self];
     
-    self.render = (CRenderComponent *)[self getComponent:@"CRenderComponent"];
+    self.render = (CRendererComponent *)[self getComponent:@"CRendererComponent"];
     
     self.render.spriteNode.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(self.render.spriteNode.size.width, self.render.spriteNode.size.height)];
     

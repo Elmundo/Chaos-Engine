@@ -8,7 +8,7 @@
 
 #import "CEngineSystem.h"
 #import "CPositionComponent.h"
-#import "CRenderComponent.h"
+#import "CRendererComponent.h"
 #import "CPipeComponent.h"
 #import "CEntity.h"
 #import "CEntityFactory.h"

@@ -12,6 +12,7 @@
 #import "CRenderEvent.h"
 #import <SpriteKit/SpriteKit.h>
 #import "CPropertyReference.h"
+#import "CSpriteNode.h"
 
 //TODO: Baris - Move these macro defines to common Utils class
 #define kAppendStr(str1, str2)  [str1 stringByAppendingString:str2]
@@ -25,7 +26,7 @@
 @property (nonatomic, strong) CPropertyReference *atlasProperty; // Required
 
 /* INNER PROPERTIES */
-@property (nonatomic, strong) SKSpriteNode *spriteNode;
+@property (nonatomic, strong) CSpriteNode *spriteNode;
 @property (nonatomic, strong) CTextureAtlas *textureAtlas;
 @property (nonatomic, strong) SKAction *animationAction;
 

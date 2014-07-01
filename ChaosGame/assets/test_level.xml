@@ -84,7 +84,7 @@
             </position>
         </Component>
         
-        <Component type="CRenderComponent" name="Render">
+        <Component type="CRendererComponent" name="Render">
             <positionProperty>@Position.position</positionProperty>
             <layerName>gameLayer</layerName>
             <resourceName>Character.png</resourceName>
@@ -159,7 +159,7 @@
             </position>
         </Component>
         
-        <Component type="CRenderComponent" name="Render">
+        <Component type="CRendererComponent" name="Render">
             <positionProperty>@Position.position</positionProperty>
             <layerName>bgLayer</layerName>
             <resourceName>Tileset.png</resourceName>

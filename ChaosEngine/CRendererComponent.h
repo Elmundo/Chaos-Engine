@@ -19,14 +19,13 @@
 #import "CPropertyReference.h"
 #import <SpriteKit/SpriteKit.h>
 
-@interface CRenderComponent : CComponent
+@interface CRendererComponent : CComponent
 
 /* OUTSIDE PROPERTIES*/
 @property (nonatomic, strong) CPropertyReference *positionProperty; //Required;
 @property (nonatomic, strong) NSString *layerName; //Required
 @property (nonatomic, strong) NSString *resourceName; // Required
 
-@property (nonatomic, strong) NSString *atlasName; // Optional
 @property (nonatomic, strong) CSize *textureSize; // Optional
 @property (nonatomic, strong) CPoint *anchorPoint; // Optional
 @property (nonatomic, assign) CGFloat rotateValue; // Optional
@@ -38,7 +37,6 @@
 @property (nonatomic, strong) CLayer *layer;
 @property (nonatomic, strong) CSpriteNode *spriteNode;
 @property (nonatomic, strong) SKTexture *sourceTexture;
-@property (nonatomic, strong) CTextureAtlas *atlas;
 @property (nonatomic, weak) CPoint *position;
 
 @end

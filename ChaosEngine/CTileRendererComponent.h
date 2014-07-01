@@ -35,7 +35,7 @@
 /* INNER PROPERTIES */
 @property (nonatomic, strong) NSMutableArray *tileMatrix;
 @property (nonatomic, strong) NSMutableArray *row;
-@property (nonatomic, strong) SKSpriteNode *spriteNode;
+@property (nonatomic, strong) CSpriteNode *spriteNode;
 @property (nonatomic, strong) CTextureAtlas *textureAtlas;
 @property (nonatomic, strong) CSceneManager *manager;
 @property (nonatomic, strong) CLayer *layer;
