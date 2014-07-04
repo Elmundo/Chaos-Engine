@@ -13,6 +13,7 @@
 -(id)initWithSize:(CGSize)size {    
     if (self = [super initWithSize:size]) {
         /* Setup your scene here */
+        self.anchorPoint = CGPointMake(0.0, 0.0);
     }
 
     return self;
@@ -49,16 +50,18 @@
     UILayer.name = @"UILayer";
     
     // Add layers by considering the layer order
-    [self addChild:bgLayer];
+    //[self addChild:bgLayer];
     [self addChild:gameLayer];
-    [self addChild:UILayer];
+    //[self addChild:UILayer];
 }
 
 - (void)createTestGame
 {
     // Load the level xml description file
     //[[CTemplateManager shared] loadFile:@"test_level.xml"];
-    [[CTemplateManager shared] loadFile:@"animation_renderer_test.xml"];
+    //[[CTemplateManager shared] loadFile:@"animation_renderer_test.xml"];
+    [[CTemplateManager shared] loadFile:@"tilemap_renderer_test.xml"];
+    
     // Instantiate the entities which will be visible in game
     /*
     [[CTemplateManager shared] instantiateEntity:@"Background"];
@@ -69,7 +72,8 @@
     
     //[[CTemplateManager shared] instantiateEntity:@"Character1"];
     //[[CTemplateManager shared] instantiateEntity:@"Camera"];
-    [[CTemplateManager shared] instantiateEntity:@"Megamen"];
+    //[[CTemplateManager shared] instantiateEntity:@"Megamen"];
+    [[CTemplateManager shared] instantiateEntity:@"TilemapRenderer"];
 }
 
 

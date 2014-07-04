@@ -1,0 +1,25 @@
+<!-- Level1 Entity List-->
+<data>
+    <!-- There could be only three types of object of data tag;
+     Entitiy
+     Template
+     Group
+     
+     Other tags will be INVALID in data tag scope
+     -->
+    <Entity type="CEntity" name="TilemapRenderer">
+        <Component type="CTilemapRendererComponent" name="TilemapRenderer">
+            <tilemapDataName>Tilemap5x5.tmx</tilemapDataName>
+            <anchorPoint>
+                <x>0.0</x>
+                <y>0.0</y>
+            </anchorPoint>
+        </Component>
+        
+    </Entity>
+    
+    <!-- Group Sample -->
+    <Group name="Things">
+        <ObjectReference name="TilemapRenderer"/>
+    </Group>
+</data>
