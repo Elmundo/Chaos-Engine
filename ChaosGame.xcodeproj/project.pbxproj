@@ -73,6 +73,7 @@
 		62C20FD91962C7CC0014FED9 /* megamen.png in Resources */ = {isa = PBXBuildFile; fileRef = 62C20FD81962C7CC0014FED9 /* megamen.png */; };
 		62C20FDB1962D20A0014FED9 /* animation_renderer_test.xml in Resources */ = {isa = PBXBuildFile; fileRef = 62C20FDA1962D20A0014FED9 /* animation_renderer_test.xml */; };
 		62C3C7B31966A2B100FB01EB /* Tilemap5x5.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 62C3C7B21966A2B100FB01EB /* Tilemap5x5.tmx */; };
+		62C3C7B51966CDB900FB01EB /* BigMap.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 62C3C7B41966CDB900FB01EB /* BigMap.tmx */; };
 		62C8AFC718FC2ADA00B4C4A9 /* test_level.xml in Resources */ = {isa = PBXBuildFile; fileRef = 62C8AFC618FC2ADA00B4C4A9 /* test_level.xml */; };
 		62C8AFCA18FC2D9900B4C4A9 /* CPropertyReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 62C8AFC918FC2D9900B4C4A9 /* CPropertyReference.m */; };
 		62C8AFCD18FC2EBD00B4C4A9 /* CSerializable.m in Sources */ = {isa = PBXBuildFile; fileRef = 62C8AFCC18FC2EBD00B4C4A9 /* CSerializable.m */; };
@@ -208,6 +209,7 @@
 		62C20FD81962C7CC0014FED9 /* megamen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = megamen.png; path = assets/spritesheets/megamen.png; sourceTree = "<group>"; };
 		62C20FDA1962D20A0014FED9 /* animation_renderer_test.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = animation_renderer_test.xml; sourceTree = "<group>"; };
 		62C3C7B21966A2B100FB01EB /* Tilemap5x5.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Tilemap5x5.tmx; path = assets/tilemaps/Tilemap5x5.tmx; sourceTree = "<group>"; };
+		62C3C7B41966CDB900FB01EB /* BigMap.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = BigMap.tmx; path = assets/tilemaps/BigMap.tmx; sourceTree = "<group>"; };
 		62C8AFC618FC2ADA00B4C4A9 /* test_level.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = test_level.xml; path = assets/test_level.xml; sourceTree = "<group>"; };
 		62C8AFC818FC2D9900B4C4A9 /* CPropertyReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CPropertyReference.h; path = ChaosEngine/CPropertyReference.h; sourceTree = "<group>"; };
 		62C8AFC918FC2D9900B4C4A9 /* CPropertyReference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CPropertyReference.m; path = ChaosEngine/CPropertyReference.m; sourceTree = "<group>"; };
@@ -467,6 +469,7 @@
 		62BA2BD0195FE98C007FE4A3 /* tilemaps */ = {
 			isa = PBXGroup;
 			children = (
+				62C3C7B41966CDB900FB01EB /* BigMap.tmx */,
 				62C3C7B21966A2B100FB01EB /* Tilemap5x5.tmx */,
 			);
 			name = tilemaps;
@@ -592,6 +595,7 @@
 			files = (
 				6284DA42190685AF00385A35 /* Tileset.png in Resources */,
 				62C3C7B31966A2B100FB01EB /* Tilemap5x5.tmx in Resources */,
+				62C3C7B51966CDB900FB01EB /* BigMap.tmx in Resources */,
 				6262776318852B1F00006BBD /* CViewController.xib in Resources */,
 				62C8AFC718FC2ADA00B4C4A9 /* test_level.xml in Resources */,
 				62BB4D621901641E0016D540 /* Background.png in Resources */,

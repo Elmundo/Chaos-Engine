@@ -14,6 +14,7 @@
     if (self = [super initWithSize:size]) {
         /* Setup your scene here */
         self.anchorPoint = CGPointMake(0.0, 0.0);
+        self.backgroundColor = [SKColor blueColor];
     }
 
     return self;

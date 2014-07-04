@@ -58,8 +58,8 @@
         NSString *tilesetName = [TBXML valueOfAttributeNamed:@"source" forElement:imageElement];
         SKTexture *tilesetTexture = [SKTexture textureWithImageNamed:tilesetName];
         
-        for (int i=0; i<widthGrid; ++i) {
-            for (int j=0; j<heightGrid; ++j) {
+        for (int i=0; i<heightGrid; ++i) {
+            for (int j=0; j<widthGrid; ++j) {
                 
                 CGRect eulerRect = CGRectMake(j*tileWidth, i*tileHeight, tileWidth, tileHeight);
                 CGRect unitRect = [CUtil eulerToUnit:eulerRect andResourceSize:CGSizeMake(width, height)];
@@ -89,8 +89,8 @@
         TBXMLElement *tileElement = element->firstChild->firstChild;
         int gridMatrix[layerWidth][layerHeight];
         
-        for (int i=0; i<layerWidth; ++i) {
-            for (int j=0; j<layerHeight; ++j) {
+        for (int i=0; i<layerHeight; ++i) {
+            for (int j=0; j<layerWidth; ++j) {
                 int gid = [[TBXML valueOfAttributeNamed:@"gid" forElement:tileElement] integerValue];
                 
                 /*TMX formatı upper-left corner, SpriteKit koordinat sistemi lower-left corner olduğundan,
@@ -100,8 +100,8 @@
             }
         }
         
-        for (int i=0; i<layerWidth; ++i) {
-            for (int j=0; j<layerHeight; ++j) {
+        for (int i=0; i<layerHeight; ++i) {
+            for (int j=0; j<layerWidth; ++j) {
                 int gid = gridMatrix[j][i];
                 if (gid == 0) {
                     // Empty tile
@@ -123,7 +123,7 @@
 - (void)update:(NSTimeInterval)dt
 {
     for (CLayer *l in _layers) {
-        //l.position = CGPointMake(l.position.x-1, l.position.y-1);
+        l.position = CGPointMake(l.position.x-1, l.position.y);
     }
 }
 

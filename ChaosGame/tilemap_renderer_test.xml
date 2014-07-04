@@ -9,7 +9,7 @@
      -->
     <Entity type="CEntity" name="TilemapRenderer">
         <Component type="CTilemapRendererComponent" name="TilemapRenderer">
-            <tilemapDataName>Tilemap5x5.tmx</tilemapDataName>
+            <tilemapDataName>BigMap.tmx</tilemapDataName>
             <anchorPoint>
                 <x>0.0</x>
                 <y>0.0</y>
