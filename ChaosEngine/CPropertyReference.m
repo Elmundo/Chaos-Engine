@@ -63,13 +63,13 @@
         
         CEntityFactory *factory = [CEntityFactory shared];
         id element = [factory getEntity:_word];
-        id component = [element getComponent:_propertyList[0]];
+        id component = [element getComponentWithName:_propertyList[0]];
         for (int i=1; i < _propertyList.count; ++i) {
             component = [component valueForKey:_propertyList[i]];
             //element = [element valueForKeyPath:_propertyList[i]];
         }
         
-        return element;
+        return component;
         
     }else if ([_format isEqualToString:@"$"]) //Global Entity Lookup
     {

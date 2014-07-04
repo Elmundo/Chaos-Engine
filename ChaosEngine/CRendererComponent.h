@@ -25,6 +25,7 @@
 @property (nonatomic, strong) NSString *layerName; //Required
 @property (nonatomic, strong) NSString *resourceName; // Required
 
+@property (nonatomic, assign) CGFloat zPosition; //Optional
 @property (nonatomic, strong) CSize *textureSize; // Optional
 @property (nonatomic, strong) CPoint *anchorPoint; // Optional
 @property (nonatomic, assign) CGFloat rotateValue; // Optional

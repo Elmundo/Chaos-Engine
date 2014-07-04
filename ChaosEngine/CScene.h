@@ -18,7 +18,7 @@
 
 @end
 
-@interface CScene : SKScene
+@interface CScene : SKScene<UIGestureRecognizerDelegate>
 
 @property (nonatomic, strong) id<CSceneDelegate> delegate; // CEngine object
 @property (nonatomic, assign) BOOL contentCreated;

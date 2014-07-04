@@ -36,8 +36,15 @@
     
     clog(@"GameLayer touch method is called.");
     
+    [self nextResponder];
+    
     [super touchesBegan:touches withEvent:event];
 
+}
+
+- (UIResponder *)nextResponder
+{
+    return self.parent;
 }
 
 @end

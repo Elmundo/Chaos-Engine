@@ -7,7 +7,7 @@
 //
 
 #import "CControllerComponent.h"
-#import "CTouchEvent.h"
+
 
 @implementation CControllerComponent
 
@@ -33,7 +33,7 @@
 
 - (void)update:(NSTimeInterval)dt
 {
-
+    // Override this method
 }
 
 /* Event Listener Methods*/

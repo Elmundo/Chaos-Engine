@@ -97,6 +97,8 @@
     if (self.scaleFactor) {
         self.spriteNode.xScale = self.spriteNode.yScale = _scaleFactor;
     }
+    
+    self.spriteNode.zPosition = _zPosition;
 
 }
 

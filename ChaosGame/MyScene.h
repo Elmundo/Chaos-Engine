@@ -13,25 +13,18 @@
 #import "CPositionComponent.h"
 #import "CRendererComponent.h"
 #import "CAnimationComponent.h"
-#import "CControllerComponent.h"
-#import "CBirdComponent.h"
-#import "CPipeComponent.h"
+
 #import "CControllerComponent.h"
 #import "CLayer.h"
 #import "CTemplateManager.h"
 #import "CPhysicComponent.h"
 
 /*in Game Part*/
-#import "CBackgroundComponent.h"
-#import "PipeSpawnerSystem.h"
-#import "CameraLayer.h"
 #import "GameLayer.h"
 
 @interface MyScene : CScene
 {
-    CLayer *bgLayer;
     CLayer *gameLayer;
-    CLayer *UILayer;
 }
 @property (nonatomic, strong) UITapGestureRecognizer *tapGesture;
 

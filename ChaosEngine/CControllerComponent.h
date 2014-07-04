@@ -7,7 +7,17 @@
 //
 
 #import "CComponent.h"
+#import "CTouchEvent.h"
 
 @interface CControllerComponent : CComponent
+
+/* Event Listener Methods*/
+- (void)onTouchBegan:(CTouchEvent *)event;
+
+- (void)onTouchMoved:(CTouchEvent *)event;
+
+- (void)onTouchEnded:(CTouchEvent *)event;
+
+- (void)onTouchCancelled:(CTouchEvent *)event;
 
 @end

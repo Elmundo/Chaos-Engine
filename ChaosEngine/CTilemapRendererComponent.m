@@ -120,13 +120,6 @@
     }
 }
 
-- (void)update:(NSTimeInterval)dt
-{
-    for (CLayer *l in _layers) {
-        l.position = CGPointMake(l.position.x-1, l.position.y);
-    }
-}
-
 - (void)didRemovedFromEntity
 {
     [super didRemovedFromEntity];

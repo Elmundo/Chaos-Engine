@@ -156,31 +156,39 @@
         
         NSString *supportName = [TBXML elementName:supportXMLElement];
         TBXMLElement *childXMLElement = supportXMLElement->firstChild;
+        NSString *elementText = [TBXML textForElement:supportXMLElement];
         Class classObj = NSClassFromString(childType);
         id childObject = [[classObj alloc] init];
         
-        if (!childXMLElement) {
-            cerror(@"XML ELEMENT MISSING!: There is no match in XML with property name: %@", childType);
-            continue;
+        if (elementText) {
+            [collectionObject addObject:elementText];
         }
-        
-        if ([childType isEqualToString:@"NSMutableArray"]) {
-            //Avoid "_" element, pass child of it instead; "_" is not a property to add directly
-            [self traverseCollection:childXMLElement object:childObject];
-        }else if ([childType isEqualToString:@"NSMutableDictionary"])
+        else
         {
-            //Avoid "KeyValue" element, pass child of it instead; "KeyValue" is not a property to add directly
-            [self traverseCollection:childXMLElement object:childObject];
-        }else{
-            [self traverseObject:supportXMLElement object:childObject];
-        }
-        
-        if ([collectionObject isKindOfClass:[NSMutableArray class]]) {
-            [(NSMutableArray*)collectionObject addObject:childObject];
-        }else if ([collectionObject isKindOfClass:[NSMutableDictionary class]]) {
-            [collectionObject setObject:childObject forKey:supportName];
-        }else{
-            [collectionObject setObject:childObject forKey:supportName];
+            if (!childXMLElement) {
+                cerror(@"XML ELEMENT MISSING!: There is no match in XML with property name: %@", childType);
+                continue;
+            }
+            
+            if ([childType isEqualToString:@"NSMutableArray"]) {
+                //Avoid "_" element, pass child of it instead; "_" is not a property to add directly
+                [self traverseCollection:childXMLElement object:childObject];
+            }else if ([childType isEqualToString:@"NSMutableDictionary"])
+            {
+                //Avoid "KeyValue" element, pass child of it instead; "KeyValue" is not a property to add directly
+                [self traverseCollection:childXMLElement object:childObject];
+            }else{
+                [self traverseObject:supportXMLElement object:childObject];
+            }
+            
+            if ([collectionObject isKindOfClass:[NSMutableArray class]]) {
+                [(NSMutableArray*)collectionObject addObject:childObject];
+            }else if ([collectionObject isKindOfClass:[NSMutableDictionary class]]) {
+                [collectionObject setObject:childObject forKey:supportName];
+            }else{
+                [collectionObject setObject:childObject forKey:supportName];
+
+            }
         }
 
         supportXMLElement = supportXMLElement->nextSibling;

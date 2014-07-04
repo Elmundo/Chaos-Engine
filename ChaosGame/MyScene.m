@@ -20,15 +20,10 @@
     return self;
 }
 
-- (void)didMoveToView:(SKView *)theView
+- (void)didMoveToView:(SKView *)view
 {
-    [super didMoveToView:theView];
+    [super didMoveToView:view];
     
-    SKView *view = self.view;
-    _tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(testMethod:)];
-    
-    //[self.view addGestureRecognizer:_tapGesture];
-
 }
 
 - (void)createSceneContents
@@ -41,40 +36,22 @@
 
 - (void)createLayers
 {
-    bgLayer = [[CLayer alloc] init];
-    bgLayer.name = @"bgLayer";
-    
     gameLayer       = [[GameLayer alloc] init];
     gameLayer.name  = @"gameLayer";
     
-    UILayer = [[CLayer alloc] init];
-    UILayer.name = @"UILayer";
-    
     // Add layers by considering the layer order
-    //[self addChild:bgLayer];
     [self addChild:gameLayer];
-    //[self addChild:UILayer];
 }
 
 - (void)createTestGame
 {
     // Load the level xml description file
-    //[[CTemplateManager shared] loadFile:@"test_level.xml"];
-    //[[CTemplateManager shared] loadFile:@"animation_renderer_test.xml"];
     [[CTemplateManager shared] loadFile:@"tilemap_renderer_test.xml"];
     
     // Instantiate the entities which will be visible in game
-    /*
-    [[CTemplateManager shared] instantiateEntity:@"Background"];
-    [[CTemplateManager shared] instantiateEntity:@"Character"];
-    [[CTemplateManager shared] instantiateEntity:@"House"];
-    [[CTemplateManager shared] instantiateEntity:@"TileMapRenderer"];
-    */
-    
-    //[[CTemplateManager shared] instantiateEntity:@"Character1"];
-    //[[CTemplateManager shared] instantiateEntity:@"Camera"];
-    //[[CTemplateManager shared] instantiateEntity:@"Megamen"];
+    [[CTemplateManager shared] instantiateEntity:@"Camera"];
     [[CTemplateManager shared] instantiateEntity:@"TilemapRenderer"];
+    [[CTemplateManager shared] instantiateEntity:@"Gudu"];
 }
 
 
