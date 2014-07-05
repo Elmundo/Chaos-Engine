@@ -35,6 +35,7 @@
     }
     
     self.sourceTexture = [SKTexture textureWithImageNamed:self.resourceName];
+    self.sourceTexture.filteringMode = SKTextureFilteringNearest;// This mode is faster, and the results are often pixelated.
     if (self.sourceTexture == nil) {
         clog(@"There is no such a resource: %@", self.resourceName);
         return;

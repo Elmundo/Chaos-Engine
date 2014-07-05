@@ -14,7 +14,7 @@
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)theEvent
 {
-    NSLog(@"Guduu tocuh began");
+    clog(@"CSpriteNode: touchesBegan");
     CTouchEvent *event = [CTouchEvent eventWithType:[CTouchEvent ETouchBegan] withObject:touches withEvent:theEvent withBubbles:NO];
     [_owner.dispatcher dispatchEvent:event];
     

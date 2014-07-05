@@ -47,6 +47,30 @@
     if (!self.contentCreated) {
         [self createSceneContents];
         self.contentCreated = YES;
+        
+        _panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGesture:)];
+        _panGesture.delegate = self;
+        _panGesture.delaysTouchesBegan = true;
+        [self.view addGestureRecognizer:_panGesture];
+    }
+}
+
+- (void)panGesture:(UIPanGestureRecognizer *)recognizer
+{
+    if (recognizer.state == UIGestureRecognizerStateFailed){
+        clog(@"Gesture recognizer is failed.");
+    }else if (recognizer.state == UIGestureRecognizerStateBegan){
+        clog(@"Gesture recognizer is began.");
+    }else if (recognizer.state == UIGestureRecognizerStateRecognized){
+        clog(@"Gesture recognizer is recognized.");
+    }else if (recognizer.state == UIGestureRecognizerStatePossible){
+        clog(@"Gesture recognizer is possible.");
+    }else if (recognizer.state == UIGestureRecognizerStateCancelled){
+        clog(@"Gesture recognizer is cancelled.");
+    }else if (recognizer.state == UIGestureRecognizerStateEnded){
+        clog(@"Gesture recognizer is ended.");
+    }else if (recognizer.state == UIGestureRecognizerStateChanged){
+        clog(@"Gesture recognizer is changed.");
     }
 }
 
@@ -69,19 +93,26 @@
 */
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    clog(@"Scene touch method is called.");
+    clog(@"CScene: touchesBegan");
     //[self.delegate touchesBegan:touches withEvent:event];
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
+    clog(@"CScene: touchesEnded");
     //[self.delegate touchesEnded:touches withEvent:event];
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
+    clog(@"CScene: touchesMoved");
     //[self.delegate touchesMoved:touches withEvent:event];
 }
 
+- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    clog(@"CScene: touchesCancelled");
+    //[self.delegate touchesCancelled:touches withEvent:event];
+}
 
 @end

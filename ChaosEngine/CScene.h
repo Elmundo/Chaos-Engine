@@ -25,6 +25,14 @@
 @property (nonatomic, strong) NSString *sceneName;
 @property (nonatomic, strong) NSMutableArray *layers;
 
+
+/* Experimental */
+@property UITapGestureRecognizer *tapGesture;
+@property UILongPressGestureRecognizer *longGesture;
+@property UIPanGestureRecognizer *panGesture;
+@property UISwipeGestureRecognizer *swipeGesture;
+@property UIGestureRecognizer *recognizer;
+
 -(id)initWithSize:(CGSize)size;
 
 /* Called before each frame is rendered */

@@ -34,10 +34,9 @@
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     
-    clog(@"GameLayer touch method is called.");
-    
     [self nextResponder];
     
+    clog(@"GameLayer: touchesBegan");
     [super touchesBegan:touches withEvent:event];
 
 }

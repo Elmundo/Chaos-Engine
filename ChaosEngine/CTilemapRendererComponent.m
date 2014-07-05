@@ -107,6 +107,7 @@
                     // Empty tile
                 }else{
                     SKTexture *gtexture = [_tiles objectAtIndex:gid-1];
+                    gtexture.filteringMode = SKTextureFilteringNearest; // This mode is faster, and the results are often pixelated. 
                     CSpriteNode *grid = [CSpriteNode spriteNodeWithTexture:gtexture];
                     grid.anchorPoint = CGPointMake(0, 0);
                     grid.position = CGPointMake(j * _tileWidth, i * _tileHeight);
