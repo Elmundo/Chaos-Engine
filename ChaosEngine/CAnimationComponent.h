@@ -8,7 +8,6 @@
 
 #import "CComponent.h"
 #import "CScene.h"
-#import "CTextureAtlas.h"
 #import "CRenderEvent.h"
 #import <SpriteKit/SpriteKit.h>
 #import "CPropertyReference.h"

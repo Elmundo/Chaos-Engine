@@ -50,7 +50,7 @@
         
         _panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGesture:)];
         _panGesture.delegate = self;
-        _panGesture.delaysTouchesBegan = true;
+        _panGesture.delaysTouchesBegan = false; // This boolean data should be given from Config file in XML or something
         [self.view addGestureRecognizer:_panGesture];
     }
 }

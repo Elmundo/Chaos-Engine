@@ -30,8 +30,8 @@
 {
     /* DO NOT COMMENT OUT LAYERS, OR YOU SHALL SEE THE RED OF THE HELL!*/
     self.backgroundColor = [SKColor whiteColor];
-    //[self createLayers];
-    //[self createTestGame];
+    [self createLayers];
+    [self createTestGame];
 }
 
 - (void)createLayers

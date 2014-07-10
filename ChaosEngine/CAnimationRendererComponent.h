@@ -8,7 +8,6 @@
 
 #import "CRendererComponent.h"
 #import "TBXML.h"
-#import "CTextureAtlas.h"
 #import "CRect.h"
 
 @interface CAnimationRendererComponent : CRendererComponent

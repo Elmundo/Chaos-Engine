@@ -41,7 +41,6 @@
 		62627793188926B300006BBD /* CPositionEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 62627792188926B300006BBD /* CPositionEvent.m */; };
 		62627796188935C800006BBD /* CAnimationComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 62627795188935C800006BBD /* CAnimationComponent.m */; };
 		626F6356189111EA00103C36 /* CEngineSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 626F6355189111EA00103C36 /* CEngineSystem.m */; };
-		6272FF8F188ECC64009B8440 /* CTextureAtlas.m in Sources */ = {isa = PBXBuildFile; fileRef = 6272FF8E188ECC64009B8440 /* CTextureAtlas.m */; };
 		627B048319053E21002EC819 /* CTouchEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 627B048219053E21002EC819 /* CTouchEvent.m */; };
 		6284DA42190685AF00385A35 /* Tileset.png in Resources */ = {isa = PBXBuildFile; fileRef = 6284DA41190685AF00385A35 /* Tileset.png */; };
 		6284DA441906861A00385A35 /* megamen_spritesheet.xml in Resources */ = {isa = PBXBuildFile; fileRef = 6284DA431906861900385A35 /* megamen_spritesheet.xml */; };
@@ -154,8 +153,6 @@
 		62627795188935C800006BBD /* CAnimationComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CAnimationComponent.m; path = ChaosEngine/CAnimationComponent.m; sourceTree = "<group>"; };
 		626F6354189111EA00103C36 /* CEngineSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CEngineSystem.h; path = ChaosEngine/CEngineSystem.h; sourceTree = "<group>"; };
 		626F6355189111EA00103C36 /* CEngineSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CEngineSystem.m; path = ChaosEngine/CEngineSystem.m; sourceTree = "<group>"; };
-		6272FF8D188ECC64009B8440 /* CTextureAtlas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTextureAtlas.h; path = ChaosEngine/CTextureAtlas.h; sourceTree = "<group>"; };
-		6272FF8E188ECC64009B8440 /* CTextureAtlas.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTextureAtlas.m; path = ChaosEngine/CTextureAtlas.m; sourceTree = "<group>"; };
 		627B048219053E21002EC819 /* CTouchEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTouchEvent.m; path = ChaosEngine/CTouchEvent.m; sourceTree = "<group>"; };
 		6284DA41190685AF00385A35 /* Tileset.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Tileset.png; path = assets/resources/Tileset.png; sourceTree = "<group>"; };
 		6284DA431906861900385A35 /* megamen_spritesheet.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = megamen_spritesheet.xml; path = assets/megamen_spritesheet.xml; sourceTree = "<group>"; };
@@ -403,8 +400,6 @@
 				62CF0D48189BACCF006CD912 /* CTemplateManager.m */,
 				62BA2BCB195D9675007FE4A3 /* CSceneManager.h */,
 				62BA2BCC195D9675007FE4A3 /* CSceneManager.m */,
-				6272FF8D188ECC64009B8440 /* CTextureAtlas.h */,
-				6272FF8E188ECC64009B8440 /* CTextureAtlas.m */,
 				6262777918868D0B00006BBD /* CUtil.h */,
 				6262777A18868D0B00006BBD /* CUtil.m */,
 				6262775F18852B1F00006BBD /* CViewController.h */,
@@ -635,7 +630,6 @@
 				62B3BA9D1891433400DD8424 /* CInputSystem.m in Sources */,
 				626277821886A4BF00006BBD /* CPoint.m in Sources */,
 				624819E318D6377700877225 /* CLayer.m in Sources */,
-				6272FF8F188ECC64009B8440 /* CTextureAtlas.m in Sources */,
 				6253D220188033120017790C /* MyScene.m in Sources */,
 				62B69F4C190E6FAD0060CFDF /* CCameraComponent.m in Sources */,
 				6295C58C18901F0300B45AB9 /* CEngine.m in Sources */,
