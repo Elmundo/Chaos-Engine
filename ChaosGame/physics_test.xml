@@ -56,6 +56,10 @@
             <affectedByGravity>true</affectedByGravity>
             <allowsRotation>false</allowsRotation>
             
+            <category>1</category>
+            <collision>1</collision>
+            <contact>1</contact>
+            
             <volumeSize>
                 <width>32</width>
                 <height>32</height>

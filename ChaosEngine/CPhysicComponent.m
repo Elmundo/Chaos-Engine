@@ -42,10 +42,10 @@
     _physicBody.affectedByGravity = _affectedByGravity;
     _physicBody.allowsRotation    = _allowsRotation;
     
-    // Mask categories
-    _physicBody.categoryBitMask     = 0x1;//_category;
-    _physicBody.collisionBitMask    = 0x1;//_collision;
-    _physicBody.contactTestBitMask  = 0x1;//_contact;
+    // Mask categories TODO: This part should be set from XML
+    _physicBody.categoryBitMask     = _category;
+    _physicBody.collisionBitMask    = _collision;
+    _physicBody.contactTestBitMask  = _contact;
     
     [self addEventListener:@selector(didBeginContact:) message:[CContactEvent CE_Contact]];
 }

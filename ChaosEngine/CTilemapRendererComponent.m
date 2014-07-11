@@ -24,7 +24,6 @@
     
     _tilesetDic = [[NSMutableDictionary alloc] init];
     _tiles      = [[NSMutableArray alloc] init];
-    _collisionMatrix = [NSMutableArray array];
     
     [self setCollisionBox:_rootElement];
     [self traverseElement:_rootElement];
@@ -42,38 +41,37 @@
             NSString *layerName = [TBXML valueOfAttributeNamed:@"name" forElement:layerNode];
             int layerWidth = [[TBXML valueOfAttributeNamed:@"width" forElement:layerNode] integerValue];
             int layerHeight = [[TBXML valueOfAttributeNamed:@"height" forElement:layerNode] integerValue];
+            _collisionMatrix = [NSMutableArray arrayWithCapacity:layerHeight];
             
             if ([layerName isEqualToString:@"collision"]) {
                 TBXMLElement *tileElement = layerNode->firstChild->firstChild;
-                for (int j=0; j < layerHeight; ++j) {
+                for (int i=0; i < layerHeight; ++i) {
                     NSMutableArray *list = [NSMutableArray array];
-                    for (int i=0; i<layerWidth; ++i) {
+                    for (int j=0; j<layerWidth; ++j) {
                         
-                        int val = [[TBXML valueOfAttributeNamed:@"gid" forElement:tileElement] intValue];
-                        if (val != 0) {
-                            NSLog(@"asdasdas");
-                        }
-                        NSNumber *value = [NSNumber numberWithInt:val];
-                        [list addObject:value];
+                        int gid = [[TBXML valueOfAttributeNamed:@"gid" forElement:tileElement] intValue];
+                        NSNumber *collisionValue = [NSNumber numberWithInt:gid];
+                        [list addObject:collisionValue];
                         tileElement = tileElement->nextSibling;
                     }
                     
-                    [_collisionMatrix addObject:list];
+                    [_collisionMatrix insertObject:list atIndex:i];
                     
                 }
+                
+                for (int k=0; k < _collisionMatrix.count/2; ++k) {
+                    [_collisionMatrix exchangeObjectAtIndex:k withObjectAtIndex:(_collisionMatrix.count-1-k)];
+                }
+                
+                break;
             }
             
-        }
-        
-        // Reverse the array
-        
-        for (int i=0; i < (_collisionMatrix.count / 2); ++i) {
-            //[_collisionMatrix exchangeObjectAtIndex:i withObjectAtIndex:(_collisionMatrix.count-i-1)];
         }
         
         layerNode = layerNode->nextSibling;
     }
     
+    NSLog(@"Get out of the while");
 }
 
 /* Traverse the tilemap in TBX format */
@@ -135,14 +133,14 @@
         }
         
         TBXMLElement *tileElement = element->firstChild->firstChild;
-        int gridMatrix[layerWidth][layerHeight];
+        int gridMatrix[layerHeight][layerWidth];
         
         /*TMX formatı upper-left corner, SpriteKit koordinat sistemi lower-left corner olduğundan,
          tile'ları layer'a eklerken doğru sonucun çıkması için satırlar ters sırada matris'de saklanıyor. */
         for (int i=0; i<layerHeight; ++i) {
             for (int j=0; j<layerWidth; ++j) {
                 int gid = [[TBXML valueOfAttributeNamed:@"gid" forElement:tileElement] integerValue];
-                gridMatrix[j][layerHeight-i-1] = gid;
+                gridMatrix[layerHeight-i-1][j] = gid;
                 tileElement = tileElement->nextSibling;
             }
         }
@@ -151,20 +149,21 @@
         for (int i=0; i<layerHeight; ++i) {
             NSArray *list = [_collisionMatrix objectAtIndex:i];
             for (int j=0; j<layerWidth; ++j) {
-                int gid = gridMatrix[j][i];
+                int gid = gridMatrix[i][j];
                 if (gid == 0) {
-                    // Empty tile
+                    // Empty tile, do nothing
                 }else{
-                    SKTexture *gtexture = [_tiles objectAtIndex:gid-1];
-                    gtexture.filteringMode = SKTextureFilteringNearest; // This mode is faster, and the results are often pixelated. 
-                    CSpriteNode *grid = [CSpriteNode spriteNodeWithTexture:gtexture];
-                    grid.anchorPoint = CGPointMake(0, 0);
-                    grid.position = CGPointMake(j * _tileWidth, i * _tileHeight);
+                    SKTexture *gtexture     = [_tiles objectAtIndex:gid-1];
+                    gtexture.filteringMode  = SKTextureFilteringNearest; // This mode is faster, and the results are often pixelated.
+                    CSpriteNode *grid       = [CSpriteNode spriteNodeWithTexture:gtexture];
+                    grid.anchorPoint        = CGPointMake(0, 0);
+                    grid.position           = CGPointMake(j * _tileWidth, i * _tileHeight);
                     
                     NSNumber *value = [list objectAtIndex:j];
                     if ([value integerValue] != 0) {
                         grid.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(_tileWidth, _tileHeight)];
                         grid.physicsBody.dynamic = NO;
+                        /* TODO: This part should be set from XML*/
                         grid.physicsBody.categoryBitMask = 0x1;
                         grid.physicsBody.contactTestBitMask = 0x1;
                         grid.physicsBody.collisionBitMask = 0x1;
