@@ -17,7 +17,7 @@
     
     <Entity type="CEntity" name="TilemapRenderer">
         <Component type="CTilemapRendererComponent" name="TilemapRenderer">
-            <tilemapDataName>BigMap.tmx</tilemapDataName>
+            <tilemapDataName>physicsmap.tmx</tilemapDataName>
             <anchorPoint>
                 <x>0.0</x>
                 <y>0.0</y>
@@ -28,8 +28,8 @@
     <Entity type="CEntity" name="Gudu">
         <Component type="CPositionComponent" name="Position">
             <position>
-                <x>206</x>
-                <y>92</y>
+                <x>100</x>
+                <y>202</y>
             </position>
         </Component>
         
@@ -45,6 +45,23 @@
             <userInteractionEnabled>true</userInteractionEnabled>
         </Component>
 
+        <Component type="CPhysicComponent" name="Physic">
+            <mass>0</mass>
+            <friction>0</friction>
+            <linearDamping>0</linearDamping>
+            <angularDamping>0</angularDamping>
+            <restitution>0</restitution>
+            
+            <dynamic>true</dynamic>
+            <affectedByGravity>true</affectedByGravity>
+            <allowsRotation>false</allowsRotation>
+            
+            <volumeSize>
+                <width>32</width>
+                <height>32</height>
+            </volumeSize>
+            
+        </Component>
         
         <Component type="GuduComponent" name="Guduu">
         </Component>

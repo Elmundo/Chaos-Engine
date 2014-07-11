@@ -19,27 +19,33 @@
     _physicManager = [CPhysicSystem shared];
     [_physicManager add:self];
     
-    self.render = (CRendererComponent *)[self getComponent:@"CRendererComponent"];
+    _render = (CRendererComponent *)[self getComponent:@"Render"];
+    CGSize physicObjectSize = CGSizeMake(self.render.spriteNode.size.width, self.render.spriteNode.size.height);
     
-    self.render.spriteNode.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(self.render.spriteNode.size.width, self.render.spriteNode.size.height)];
+    _render.spriteNode.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:physicObjectSize];
+    _volumeSprite = [[CSpriteNode alloc] initWithColor:[UIColor redColor] size:physicObjectSize];
+    _volumeSprite.anchorPoint = _render.spriteNode.anchorPoint;
+    _volumeSprite.alpha = 0.5f;
+    [_render.spriteNode addChild:_volumeSprite];
     
-    self.physicBody = self.render.spriteNode.physicsBody;
+    _physicBody = _render.spriteNode.physicsBody;
     
     // How to reacts to forces and collisions
-    self.physicBody.mass            = 0.0f;
-    self.physicBody.friction        = 0.0f;
-    self.physicBody.linearDamping   = 0.0f;
-    self.physicBody.angularDamping  = 0.0f;
-    self.physicBody.restitution     = 0.0f;
+    _physicBody.mass            = _mass;
+    _physicBody.friction        = _friction;
+    _physicBody.linearDamping   = _linearDamping;
+    _physicBody.angularDamping  = _angularDamping;
+    _physicBody.restitution     = _restitution;
     
     // How the simulation is performed on the body itself
-    self.physicBody.dynamic           = self.dynamic;
-    self.physicBody.affectedByGravity = NO;
-    self.physicBody.allowsRotation    = NO;
+    _physicBody.dynamic           = _dynamic;
+    _physicBody.affectedByGravity = _affectedByGravity;
+    _physicBody.allowsRotation    = _allowsRotation;
     
-    self.physicBody.categoryBitMask     = self.category;
-    self.physicBody.collisionBitMask    = self.collision;
-    self.physicBody.contactTestBitMask  = self.contact;
+    // Mask categories
+    _physicBody.categoryBitMask     = 0x1;//_category;
+    _physicBody.collisionBitMask    = 0x1;//_collision;
+    _physicBody.contactTestBitMask  = 0x1;//_contact;
     
     [self addEventListener:@selector(didBeginContact:) message:[CContactEvent CE_Contact]];
 }
@@ -53,12 +59,12 @@
 
 -(void)didBeginContact:(SKPhysicsContact *)contact
 {
-
+    // Override this method
 }
 
 - (void)didEndContact:(SKPhysicsContact *)contact
 {
-    //
+    // Override this method
 }
 
 

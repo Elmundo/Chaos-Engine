@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		62103DAB196EBDE200EACD12 /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 62103DAA196EBDE200EACD12 /* Config.plist */; };
+		62103DAD196ECF2300EACD12 /* physics_test.xml in Resources */ = {isa = PBXBuildFile; fileRef = 62103DAC196ECF2300EACD12 /* physics_test.xml */; };
 		6217A19018CFB69400CC1EF5 /* CLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 6217A18F18CFB69400CC1EF5 /* CLog.m */; };
 		6221170618DEC9A30016F271 /* CPhysicComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 6221170518DEC9A30016F271 /* CPhysicComponent.m */; };
 		6221170918DEE9F00016F271 /* CPhysicSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 6221170818DEE9F00016F271 /* CPhysicSystem.m */; };
@@ -40,6 +42,7 @@
 		626277901888283E00006BBD /* CEventListener.m in Sources */ = {isa = PBXBuildFile; fileRef = 6262778F1888283E00006BBD /* CEventListener.m */; };
 		62627793188926B300006BBD /* CPositionEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 62627792188926B300006BBD /* CPositionEvent.m */; };
 		62627796188935C800006BBD /* CAnimationComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 62627795188935C800006BBD /* CAnimationComponent.m */; };
+		626C3711197003A70022B989 /* physicsmap.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 626C3710197003A70022B989 /* physicsmap.tmx */; };
 		626F6356189111EA00103C36 /* CEngineSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 626F6355189111EA00103C36 /* CEngineSystem.m */; };
 		627B048319053E21002EC819 /* CTouchEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 627B048219053E21002EC819 /* CTouchEvent.m */; };
 		6284DA42190685AF00385A35 /* Tileset.png in Resources */ = {isa = PBXBuildFile; fileRef = 6284DA41190685AF00385A35 /* Tileset.png */; };
@@ -96,6 +99,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		62103DAA196EBDE200EACD12 /* Config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
+		62103DAC196ECF2300EACD12 /* physics_test.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = physics_test.xml; sourceTree = "<group>"; };
 		6217A18E18CFB69400CC1EF5 /* CLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CLog.h; path = ChaosEngine/CLog.h; sourceTree = "<group>"; };
 		6217A18F18CFB69400CC1EF5 /* CLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CLog.m; path = ChaosEngine/CLog.m; sourceTree = "<group>"; };
 		6221170418DEC9A30016F271 /* CPhysicComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CPhysicComponent.h; path = ChaosEngine/CPhysicComponent.h; sourceTree = "<group>"; };
@@ -151,6 +156,7 @@
 		62627792188926B300006BBD /* CPositionEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CPositionEvent.m; path = ChaosEngine/CPositionEvent.m; sourceTree = "<group>"; };
 		62627794188935C800006BBD /* CAnimationComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CAnimationComponent.h; path = ChaosEngine/CAnimationComponent.h; sourceTree = "<group>"; };
 		62627795188935C800006BBD /* CAnimationComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CAnimationComponent.m; path = ChaosEngine/CAnimationComponent.m; sourceTree = "<group>"; };
+		626C3710197003A70022B989 /* physicsmap.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = physicsmap.tmx; path = assets/tilemaps/physicsmap.tmx; sourceTree = "<group>"; };
 		626F6354189111EA00103C36 /* CEngineSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CEngineSystem.h; path = ChaosEngine/CEngineSystem.h; sourceTree = "<group>"; };
 		626F6355189111EA00103C36 /* CEngineSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CEngineSystem.m; path = ChaosEngine/CEngineSystem.m; sourceTree = "<group>"; };
 		627B048219053E21002EC819 /* CTouchEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTouchEvent.m; path = ChaosEngine/CTouchEvent.m; sourceTree = "<group>"; };
@@ -426,6 +432,7 @@
 				62BB4D5B190160B90016D540 /* resources */,
 				62CF0D4D189BD378006CD912 /* levels */,
 				6272FF90188ED24E009B8440 /* xml */,
+				62103DAA196EBDE200EACD12 /* Config.plist */,
 			);
 			name = assets;
 			sourceTree = "<group>";
@@ -450,6 +457,7 @@
 		62BA2BD0195FE98C007FE4A3 /* tilemaps */ = {
 			isa = PBXGroup;
 			children = (
+				626C3710197003A70022B989 /* physicsmap.tmx */,
 				62C3C7B41966CDB900FB01EB /* BigMap.tmx */,
 				62C3C7B21966A2B100FB01EB /* Tilemap5x5.tmx */,
 			);
@@ -493,6 +501,7 @@
 				62C8AFC618FC2ADA00B4C4A9 /* test_level.xml */,
 				62C20FDA1962D20A0014FED9 /* animation_renderer_test.xml */,
 				62B0456E1963192C00AF05C4 /* tilemap_renderer_test.xml */,
+				62103DAC196ECF2300EACD12 /* physics_test.xml */,
 			);
 			name = levels;
 			sourceTree = "<group>";
@@ -587,9 +596,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				62C3C7C01966EA0D00FB01EB /* Gudu.png in Resources */,
+				626C3711197003A70022B989 /* physicsmap.tmx in Resources */,
 				6284DA42190685AF00385A35 /* Tileset.png in Resources */,
 				62C3C7B31966A2B100FB01EB /* Tilemap5x5.tmx in Resources */,
+				62103DAD196ECF2300EACD12 /* physics_test.xml in Resources */,
 				62C3C7B51966CDB900FB01EB /* BigMap.tmx in Resources */,
+				62103DAB196EBDE200EACD12 /* Config.plist in Resources */,
 				6262776318852B1F00006BBD /* CViewController.xib in Resources */,
 				62C8AFC718FC2ADA00B4C4A9 /* test_level.xml in Resources */,
 				62BB4D621901641E0016D540 /* Background.png in Resources */,

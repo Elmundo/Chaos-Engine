@@ -24,8 +24,56 @@
     
     _tilesetDic = [[NSMutableDictionary alloc] init];
     _tiles      = [[NSMutableArray alloc] init];
+    _collisionMatrix = [NSMutableArray array];
     
+    [self setCollisionBox:_rootElement];
     [self traverseElement:_rootElement];
+}
+
+/* First set the collision map in TBX format */
+- (void)setCollisionBox:(TBXMLElement *)element
+{
+    TBXMLElement *root = element;
+    TBXMLElement *layerNode = root->firstChild;
+    
+    while (layerNode) {
+        
+        if ([[TBXML elementName:layerNode] isEqualToString:@"layer"]){
+            NSString *layerName = [TBXML valueOfAttributeNamed:@"name" forElement:layerNode];
+            int layerWidth = [[TBXML valueOfAttributeNamed:@"width" forElement:layerNode] integerValue];
+            int layerHeight = [[TBXML valueOfAttributeNamed:@"height" forElement:layerNode] integerValue];
+            
+            if ([layerName isEqualToString:@"collision"]) {
+                TBXMLElement *tileElement = layerNode->firstChild->firstChild;
+                for (int j=0; j < layerHeight; ++j) {
+                    NSMutableArray *list = [NSMutableArray array];
+                    for (int i=0; i<layerWidth; ++i) {
+                        
+                        int val = [[TBXML valueOfAttributeNamed:@"gid" forElement:tileElement] intValue];
+                        if (val != 0) {
+                            NSLog(@"asdasdas");
+                        }
+                        NSNumber *value = [NSNumber numberWithInt:val];
+                        [list addObject:value];
+                        tileElement = tileElement->nextSibling;
+                    }
+                    
+                    [_collisionMatrix addObject:list];
+                    
+                }
+            }
+            
+        }
+        
+        // Reverse the array
+        
+        for (int i=0; i < (_collisionMatrix.count / 2); ++i) {
+            //[_collisionMatrix exchangeObjectAtIndex:i withObjectAtIndex:(_collisionMatrix.count-i-1)];
+        }
+        
+        layerNode = layerNode->nextSibling;
+    }
+    
 }
 
 /* Traverse the tilemap in TBX format */
@@ -43,7 +91,7 @@
         
         [self traverseElement:element->firstChild];
         
-    }else if ([[TBXML elementName:element] isEqualToString:@"tileset"]){
+    }else if ([[TBXML elementName:element] isEqualToString:@"tileset"]){ //TODO: Birden fazla tileset olrsa patlar, revize olması lazım
         
         CGFloat tileWidth  = [[TBXML valueOfAttributeNamed:@"tilewidth" forElement:element] floatValue];
         CGFloat tileHeight = [[TBXML valueOfAttributeNamed:@"tileheight" forElement:element] floatValue];
@@ -89,18 +137,19 @@
         TBXMLElement *tileElement = element->firstChild->firstChild;
         int gridMatrix[layerWidth][layerHeight];
         
+        /*TMX formatı upper-left corner, SpriteKit koordinat sistemi lower-left corner olduğundan,
+         tile'ları layer'a eklerken doğru sonucun çıkması için satırlar ters sırada matris'de saklanıyor. */
         for (int i=0; i<layerHeight; ++i) {
             for (int j=0; j<layerWidth; ++j) {
                 int gid = [[TBXML valueOfAttributeNamed:@"gid" forElement:tileElement] integerValue];
-                
-                /*TMX formatı upper-left corner, SpriteKit koordinat sistemi lower-left corner olduğundan,
-                  tile'ları layer'a eklerken doğru sonucun çıkması için satırlar ters sırada matris'de saklanıyor. */
                 gridMatrix[j][layerHeight-i-1] = gid;
                 tileElement = tileElement->nextSibling;
             }
         }
         
+        /* Adding all tiles to layer*/
         for (int i=0; i<layerHeight; ++i) {
+            NSArray *list = [_collisionMatrix objectAtIndex:i];
             for (int j=0; j<layerWidth; ++j) {
                 int gid = gridMatrix[j][i];
                 if (gid == 0) {
@@ -111,6 +160,15 @@
                     CSpriteNode *grid = [CSpriteNode spriteNodeWithTexture:gtexture];
                     grid.anchorPoint = CGPointMake(0, 0);
                     grid.position = CGPointMake(j * _tileWidth, i * _tileHeight);
+                    
+                    NSNumber *value = [list objectAtIndex:j];
+                    if ([value integerValue] != 0) {
+                        grid.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(_tileWidth, _tileHeight)];
+                        grid.physicsBody.dynamic = NO;
+                        grid.physicsBody.categoryBitMask = 0x1;
+                        grid.physicsBody.contactTestBitMask = 0x1;
+                        grid.physicsBody.collisionBitMask = 0x1;
+                    }
                     
                     [layer addChild:grid];
                 }

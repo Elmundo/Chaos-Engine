@@ -17,13 +17,26 @@
 
 @property (nonatomic, weak) CPhysicSystem *physicManager;
 
+/* OUTSIDE PROPERTIES */
+@property (nonatomic, assign) CGFloat mass;
+@property (nonatomic, assign) CGFloat friction;
+@property (nonatomic, assign) CGFloat linearDamping;
+@property (nonatomic, assign) CGFloat angularDamping;
+@property (nonatomic, assign) CGFloat restitution;
 @property (nonatomic, assign) uint32_t category;
 @property (nonatomic, assign) uint32_t collision;
 @property (nonatomic, assign) uint32_t contact;
 @property (nonatomic, assign) bool dynamic;
+@property (nonatomic, assign) bool affectedByGravity;
+@property (nonatomic, assign) bool allowsRotation;
 
+@property (nonatomic, strong) CSize *volumeSize;
+@property (nonatomic, strong) CPoint *volumeAnchorPoint;
+
+/* INNER PROPERTIES */
 @property (nonatomic, strong) SKPhysicsBody *physicBody;
 @property (nonatomic, strong) CRendererComponent *render;
+@property (nonatomic, strong) CSpriteNode *volumeSprite;
 
 - (void)didBeginContact:(SKPhysicsContact *)contact;
 - (void)didEndContact:(SKPhysicsContact *)contact;

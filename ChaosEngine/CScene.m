@@ -19,9 +19,17 @@
         self.contentCreated = NO;
         self.sceneName = NSStringFromClass([self class]);
         self.anchorPoint = kDefaultSceneAnchorPoint;
-        //Physic
+        self.scaleMode = SKSceneScaleModeAspectFill;
+        
+        /* Read in the Property list */
+        NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"Config" ofType:@"plist"];
+        _config = [[NSDictionary alloc] initWithContentsOfFile:plistPath];
+        NSDictionary *gravityDic = [_config objectForKey:@"Gravity"];
+        CGVector gravity = CGVectorMake([[gravityDic objectForKey:@"X"] floatValue], [[gravityDic objectForKey:@"Y"] floatValue]);
+        
+        //TODO: Physic -> This assignment should be implemented in CSceneManager, scene must not know the CPhysicSystem
         self.physicsWorld.contactDelegate = [CPhysicSystem shared];
-        self.physicsWorld.gravity = CGVectorMake(0, 0);
+        self.physicsWorld.gravity = gravity;
         
         _layers = [NSMutableArray array];
     }
@@ -50,7 +58,7 @@
         
         _panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGesture:)];
         _panGesture.delegate = self;
-        _panGesture.delaysTouchesBegan = false; // This boolean data should be given from Config file in XML or something
+        _panGesture.delaysTouchesBegan = (BOOL)[_config objectForKey:@"DelaysTouchesBegan"];
         [self.view addGestureRecognizer:_panGesture];
     }
 }

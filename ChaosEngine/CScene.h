@@ -19,6 +19,9 @@
 @end
 
 @interface CScene : SKScene<UIGestureRecognizerDelegate>
+{
+    NSDictionary *_config;
+}
 
 @property (nonatomic, strong) id<CSceneDelegate> delegate; // CEngine object
 @property (nonatomic, assign) BOOL contentCreated;

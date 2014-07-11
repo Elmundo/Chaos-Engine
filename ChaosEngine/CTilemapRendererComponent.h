@@ -9,11 +9,13 @@
 #import "CRendererComponent.h"
 #import "TBXML.h"
 #import "CSceneManager.h"
+#import <SpriteKit/SpriteKit.h>
 
 @interface CTilemapRendererComponent : CComponent
 {
     TBXML *_tbxml;
     TBXMLElement *_rootElement;
+    NSMutableArray *_collisionMatrix;
 }
 
 /* OUTSIDE PROPERTIES */

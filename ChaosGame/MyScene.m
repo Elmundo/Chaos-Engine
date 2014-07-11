@@ -46,7 +46,7 @@
 - (void)createTestGame
 {
     // Load the level xml description file
-    [[CTemplateManager shared] loadFile:@"tilemap_renderer_test.xml"];
+    [[CTemplateManager shared] loadFile:@"physics_test.xml"];
     
     // Instantiate the entities which will be visible in game
     [[CTemplateManager shared] instantiateEntity:@"Camera"];
