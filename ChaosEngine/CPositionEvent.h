@@ -7,13 +7,11 @@
 //
 
 #import "CEvent.h"
-
-enum kPosition {
-    kPositionInit = 0,
-    kPositionChanged = 1,
-};
+#import "CPoint.h"
 
 @interface CPositionEvent : CEvent
+
+@property(nonatomic, strong) CPoint *position;
 
 /* Event Static Messages */
 + (NSString *)CE_PositionChanged;

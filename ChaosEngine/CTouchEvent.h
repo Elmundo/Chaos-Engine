@@ -7,13 +7,16 @@
 //
 
 #import "CEvent.h"
+#import "CSpriteNode.h"
 
 @interface CTouchEvent : CEvent
 
-@property (nonatomic, strong) id event;
+@property (nonatomic, strong) UIEvent *event;
+@property (nonatomic, strong) NSArray *touches;
+@property (nonatomic, strong) CSpriteNode *spriteNode;
 
-+ (id)eventWithType:(NSString *)type withObject:(id)object withEvent:(id)theEvent withBubbles:(BOOL)bubbles;
-- (id)initWithType:(NSString *)type withObject:(id)object withEvent:(id)event withBubbles:(BOOL)bubbles;
++ (id)eventWithType:(NSString *)type;
+- (id)initWithType:(NSString *)type;
 
 /* Event Static Messages */
 + (NSString*)ETouchBegan;

@@ -11,7 +11,7 @@
 
 @interface CContactEvent : CEvent
 
-@property (nonatomic, strong)SKPhysicsContact *physicContact;
+@property (nonatomic, strong) SKPhysicsContact *physicContact;
 
 /* Event Static Messages */
 + (NSString *)CE_Contact;

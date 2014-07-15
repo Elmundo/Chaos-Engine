@@ -45,8 +45,7 @@
 - (void)update:(NSTimeInterval)dt
 {
     if (_isTouching) {
-        [_camera moveCameraWithX:1 andY:0];
-        [_positionComponent setPoint:_positionComponent.position.x+1 and:_positionComponent.position.y];
+        
     }
 }
 

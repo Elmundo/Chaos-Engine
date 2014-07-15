@@ -14,8 +14,10 @@
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)theEvent
 {
-    clog(@"CSpriteNode: touchesBegan");
-    CTouchEvent *event = [CTouchEvent eventWithType:[CTouchEvent ETouchBegan] withObject:touches withEvent:theEvent withBubbles:NO];
+    CTouchEvent *event = [CTouchEvent eventWithType:[CTouchEvent ETouchBegan]];
+    event.event = theEvent;
+    event.touches = [touches allObjects];
+    event.spriteNode = self;
     [_owner.dispatcher dispatchEvent:event];
     
     // Here must be a flag which represent that event propagation will be implemented or not
@@ -24,7 +26,10 @@
 
 -(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)theEvent
 {
-    CTouchEvent *event = [CTouchEvent eventWithType:[CTouchEvent ETouchMoved] withObject:touches withEvent:theEvent withBubbles:NO];
+    CTouchEvent *event = [CTouchEvent eventWithType:[CTouchEvent ETouchMoved]];
+    event.event = theEvent;
+    event.touches = [touches allObjects];
+    event.spriteNode = self;
     [_owner.dispatcher dispatchEvent:event];
 
     // Here must be a flag which represent that event propagation will be implemented or not
@@ -33,7 +38,10 @@
 
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)theEvent
 {
-    CTouchEvent *event = [CTouchEvent eventWithType:[CTouchEvent ETouchEnded] withObject:touches withEvent:theEvent withBubbles:NO];
+    CTouchEvent *event = [CTouchEvent eventWithType:[CTouchEvent ETouchEnded]];
+    event.event = theEvent;
+    event.touches = [touches allObjects];
+    event.spriteNode = self;
     [_owner.dispatcher dispatchEvent:event];
     
     // Here must be a flag which represent that event propagation will be implemented or not
@@ -42,7 +50,10 @@
 
 -(void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)theEvent
 {
-    CTouchEvent *event = [CTouchEvent eventWithType:[CTouchEvent ETouchCancelled] withObject:touches withEvent:theEvent withBubbles:NO];
+    CTouchEvent *event = [CTouchEvent eventWithType:[CTouchEvent ETouchCancelled]];
+    event.event = theEvent;
+    event.touches = [touches allObjects];
+    event.spriteNode = self;
     [_owner.dispatcher dispatchEvent:event];
     
     // Here must be a flag which represent that event propagation will be implemented or not

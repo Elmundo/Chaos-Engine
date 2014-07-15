@@ -39,19 +39,24 @@
     gameLayer       = [[GameLayer alloc] init];
     gameLayer.name  = @"gameLayer";
     
+    uiLayer       = [[CLayer alloc] init];
+    uiLayer.name  = @"uiLayer";
+    
     // Add layers by considering the layer order
     [self addChild:gameLayer];
+    [self addChild:uiLayer];
 }
 
 - (void)createTestGame
 {
     // Load the level xml description file
-    [[CTemplateManager shared] loadFile:@"physics_test.xml"];
+    [[CTemplateManager shared] loadFile:@"gamepad_test.xml"];
     
     // Instantiate the entities which will be visible in game
     [[CTemplateManager shared] instantiateEntity:@"Camera"];
     [[CTemplateManager shared] instantiateEntity:@"TilemapRenderer"];
     [[CTemplateManager shared] instantiateEntity:@"Gudu"];
+    [[CTemplateManager shared] instantiateEntity:@"Gamepad"];
 }
 
 

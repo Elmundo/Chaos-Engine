@@ -26,7 +26,7 @@
     _volumeSprite = [[CSpriteNode alloc] initWithColor:[UIColor redColor] size:physicObjectSize];
     _volumeSprite.anchorPoint = _render.spriteNode.anchorPoint;
     _volumeSprite.alpha = 0.5f;
-    [_render.spriteNode addChild:_volumeSprite];
+    //[_render.spriteNode addChild:_volumeSprite];
     
     _physicBody = _render.spriteNode.physicsBody;
     

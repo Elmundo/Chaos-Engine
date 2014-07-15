@@ -10,21 +10,23 @@
 
 @implementation CContactEvent
 
-/* Event Static Messages */
-+ (NSString *)CE_Contact { return @"Contact"; }
-+ (id)eventWithType:(NSString *)type withObject:(id)object withAtlas:(id)atlas withBubbles:(BOOL)bubbles
++ (id)eventWithType:(NSString *)type
 {
-    CContactEvent *event = [[CContactEvent alloc] initWithType:type withObject:object withAtlas:atlas withBubbles:bubbles];
+    CContactEvent *event = [[CContactEvent alloc] initWithType:type];
     return event;
 }
 
-- (id)initWithType:(NSString *)type withObject:(id)object withAtlas:(id)atlas withBubbles:(BOOL)bubbles
+- (id)initWithType:(NSString *)type
 {
-    self = [super initWithType:type withObject:object withBubbles:bubbles];
+    self = [super initWithType:type];
     if (self) {
-        self.physicContact = object;
+
     }
     
     return self;
 }
+
+/* Event Static Messages */
++ (NSString *)CE_Contact { return @"Contact"; }
+
 @end

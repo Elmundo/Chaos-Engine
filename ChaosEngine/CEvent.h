@@ -11,11 +11,10 @@
 @interface CEvent : NSObject
 
 @property (nonatomic, strong) NSString *type;
-@property (nonatomic, strong) id object;
-@property (nonatomic, assign) BOOL bubbles;
 
-+ (id)eventWithType:(NSString *)type withObject:(id)object withBubbles:(BOOL)bubbles;
-- (id)initWithType:(NSString *)type withObject:(id)object withBubbles:(BOOL)bubbles;
++ (id)eventWithType:(NSString *)type;
+- (id)initWithType:(NSString *)type;
 
 /* Event Static Messages */
+/* There is no static message for basic CEvent class */
 @end

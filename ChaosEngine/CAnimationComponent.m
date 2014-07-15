@@ -39,7 +39,7 @@
 
 - (void)did_sprite_ready:(CRenderEvent *)event
 {
-    _spriteNode   = event.object;
+    _spriteNode   = event.spriteNode;
 }
 
 - (void)didRemovedFromEntity

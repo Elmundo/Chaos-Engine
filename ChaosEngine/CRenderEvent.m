@@ -10,21 +10,23 @@
 
 @implementation CRenderEvent
 
-/* Event Static Messages */
-+ (NSString *)CE_SpriteReady { return @"SpriteIsReady"; }
-+ (id)eventWithType:(NSString *)type withObject:(id)object withBubbles:(BOOL)bubbles
++ (id)eventWithType:(NSString *)type
 {
-    CRenderEvent *event = [[CRenderEvent alloc] initWithType:type withObject:object withBubbles:bubbles];
+    CRenderEvent *event = [[CRenderEvent alloc] initWithType:type];
     return event;
 }
 
-- (id)initWithType:(NSString *)type withObject:(id)object withBubbles:(BOOL)bubbles
+- (id)initWithType:(NSString *)type
 {
-    self = [super initWithType:type withObject:object withBubbles:bubbles];
+    self = [super initWithType:type];
     if (self) {
-        self.object = object;
+
     }
     
     return self;
 }
+
+/* Event Static Messages */
++ (NSString *)CE_SpriteReady { return @"SpriteIsReady"; }
+
 @end

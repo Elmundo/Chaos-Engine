@@ -45,11 +45,11 @@
     [self setDefaultSprite:owner];
     [self setPositionAndAttributes:owner];
     
-    [self addEventListener:@selector(did_position_updated:) message:[CPositionEvent CE_PositionChanged] ];
+    [self addEventListener:@selector(did_position_updated:) message:[CPositionEvent CE_PositionChanged]];
     
-    CRenderEvent *event = [CRenderEvent eventWithType:[CRenderEvent CE_SpriteReady]
-                                           withObject:self.spriteNode
-                                          withBubbles:YES];
+    CRenderEvent *event = [CRenderEvent eventWithType:[CRenderEvent CE_SpriteReady]];
+    event.spriteNode = _spriteNode;
+    
     [self dispatchEventWithEvent:event];
 }
 

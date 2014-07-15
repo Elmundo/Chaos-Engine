@@ -10,19 +10,17 @@
 
 @implementation CEvent
 
-+ (id)eventWithType:(NSString *)type withObject:(id)object withBubbles:(BOOL)bubbles
++ (id)eventWithType:(NSString *)type
 {
-    CEvent *event = [[CEvent alloc] initWithType:type withObject:object withBubbles:bubbles];
+    CEvent *event = [[CEvent alloc] initWithType:type];
     return event;
 }
 
-- (id)initWithType:(NSString *)type withObject:(id)object withBubbles:(BOOL)bubbles
+- (id)initWithType:(NSString *)type
 {
     self = [super init];
     if (self) {
         _type    = type;
-        _bubbles = bubbles;
-        _object  = object;
     }
     
     return self;

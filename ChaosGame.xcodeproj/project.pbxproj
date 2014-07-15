@@ -53,7 +53,6 @@
 		62AA5414188434C9001FA053 /* CEntityFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AA5413188434C9001FA053 /* CEntityFactory.m */; };
 		62AA5417188434D5001FA053 /* CComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AA5416188434D5001FA053 /* CComponent.m */; };
 		62AA5421188442E8001FA053 /* CPositionComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AA5420188442E8001FA053 /* CPositionComponent.m */; };
-		62AA5424188442F9001FA053 /* CRendererComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AA5423188442F9001FA053 /* CRendererComponent.m */; };
 		62B0456B1963104500AF05C4 /* CTilemapRendererComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 62B0456A1963104500AF05C4 /* CTilemapRendererComponent.m */; };
 		62B0456F1963192C00AF05C4 /* tilemap_renderer_test.xml in Resources */ = {isa = PBXBuildFile; fileRef = 62B0456E1963192C00AF05C4 /* tilemap_renderer_test.xml */; };
 		62B3BA9D1891433400DD8424 /* CInputSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 62B3BA9C1891433400DD8424 /* CInputSystem.m */; };
@@ -77,6 +76,9 @@
 		62C8AFC718FC2ADA00B4C4A9 /* test_level.xml in Resources */ = {isa = PBXBuildFile; fileRef = 62C8AFC618FC2ADA00B4C4A9 /* test_level.xml */; };
 		62C8AFCA18FC2D9900B4C4A9 /* CPropertyReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 62C8AFC918FC2D9900B4C4A9 /* CPropertyReference.m */; };
 		62C8AFCD18FC2EBD00B4C4A9 /* CSerializable.m in Sources */ = {isa = PBXBuildFile; fileRef = 62C8AFCC18FC2EBD00B4C4A9 /* CSerializable.m */; };
+		62CA724A19704DF800C815B3 /* gamepad_test.xml in Resources */ = {isa = PBXBuildFile; fileRef = 62CA724919704DF800C815B3 /* gamepad_test.xml */; };
+		62CA724D1970511700C815B3 /* GamepadComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 62CA724C1970511700C815B3 /* GamepadComponent.m */; };
+		62CA724F1970535100C815B3 /* CRendererComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 62CA724E1970535100C815B3 /* CRendererComponent.m */; };
 		62CE609B189948F100F4C876 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		62CE609E1899497300F4C876 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		62CF0D49189BACCF006CD912 /* CTemplateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 62CF0D48189BACCF006CD912 /* CTemplateManager.m */; };
@@ -159,6 +161,8 @@
 		626C3710197003A70022B989 /* physicsmap.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = physicsmap.tmx; path = assets/tilemaps/physicsmap.tmx; sourceTree = "<group>"; };
 		626F6354189111EA00103C36 /* CEngineSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CEngineSystem.h; path = ChaosEngine/CEngineSystem.h; sourceTree = "<group>"; };
 		626F6355189111EA00103C36 /* CEngineSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CEngineSystem.m; path = ChaosEngine/CEngineSystem.m; sourceTree = "<group>"; };
+		626FBA3319757524007F3E48 /* CTouchEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTouchEvent.h; path = ChaosEngine/CTouchEvent.h; sourceTree = "<group>"; };
+		626FBA3419757573007F3E48 /* CRendererComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CRendererComponent.h; path = ChaosEngine/CRendererComponent.h; sourceTree = "<group>"; };
 		627B048219053E21002EC819 /* CTouchEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTouchEvent.m; path = ChaosEngine/CTouchEvent.m; sourceTree = "<group>"; };
 		6284DA41190685AF00385A35 /* Tileset.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Tileset.png; path = assets/resources/Tileset.png; sourceTree = "<group>"; };
 		6284DA431906861900385A35 /* megamen_spritesheet.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = megamen_spritesheet.xml; path = assets/megamen_spritesheet.xml; sourceTree = "<group>"; };
@@ -166,7 +170,6 @@
 		6295C57E188FCAD800B45AB9 /* CRenderEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CRenderEvent.m; path = ChaosEngine/CRenderEvent.m; sourceTree = "<group>"; };
 		6295C58A18901F0300B45AB9 /* CEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CEngine.h; path = ChaosEngine/CEngine.h; sourceTree = "<group>"; };
 		6295C58B18901F0300B45AB9 /* CEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CEngine.m; path = ChaosEngine/CEngine.m; sourceTree = "<group>"; };
-		62999CF11966FA230008F2CC /* CTouchEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTouchEvent.h; path = ChaosEngine/CTouchEvent.h; sourceTree = "<group>"; };
 		62AA540F188433BB001FA053 /* CEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CEntity.h; path = ChaosEngine/CEntity.h; sourceTree = "<group>"; };
 		62AA5410188433BB001FA053 /* CEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CEntity.m; path = ChaosEngine/CEntity.m; sourceTree = "<group>"; };
 		62AA5412188434C9001FA053 /* CEntityFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CEntityFactory.h; path = ChaosEngine/CEntityFactory.h; sourceTree = "<group>"; };
@@ -175,8 +178,6 @@
 		62AA5416188434D5001FA053 /* CComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CComponent.m; path = ChaosEngine/CComponent.m; sourceTree = "<group>"; };
 		62AA541F188442E8001FA053 /* CPositionComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CPositionComponent.h; path = ChaosEngine/CPositionComponent.h; sourceTree = "<group>"; };
 		62AA5420188442E8001FA053 /* CPositionComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CPositionComponent.m; path = ChaosEngine/CPositionComponent.m; sourceTree = "<group>"; };
-		62AA5422188442F9001FA053 /* CRendererComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CRendererComponent.h; path = ChaosEngine/CRendererComponent.h; sourceTree = "<group>"; };
-		62AA5423188442F9001FA053 /* CRendererComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CRendererComponent.m; path = ChaosEngine/CRendererComponent.m; sourceTree = "<group>"; };
 		62B045691963104500AF05C4 /* CTilemapRendererComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTilemapRendererComponent.h; path = ChaosEngine/CTilemapRendererComponent.h; sourceTree = "<group>"; };
 		62B0456A1963104500AF05C4 /* CTilemapRendererComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTilemapRendererComponent.m; path = ChaosEngine/CTilemapRendererComponent.m; sourceTree = "<group>"; };
 		62B0456E1963192C00AF05C4 /* tilemap_renderer_test.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = tilemap_renderer_test.xml; sourceTree = "<group>"; };
@@ -212,6 +213,10 @@
 		62C8AFC918FC2D9900B4C4A9 /* CPropertyReference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CPropertyReference.m; path = ChaosEngine/CPropertyReference.m; sourceTree = "<group>"; };
 		62C8AFCB18FC2EBD00B4C4A9 /* CSerializable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CSerializable.h; path = ChaosEngine/CSerializable.h; sourceTree = "<group>"; };
 		62C8AFCC18FC2EBD00B4C4A9 /* CSerializable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CSerializable.m; path = ChaosEngine/CSerializable.m; sourceTree = "<group>"; };
+		62CA724919704DF800C815B3 /* gamepad_test.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = gamepad_test.xml; sourceTree = "<group>"; };
+		62CA724B1970511700C815B3 /* GamepadComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GamepadComponent.h; sourceTree = "<group>"; };
+		62CA724C1970511700C815B3 /* GamepadComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GamepadComponent.m; sourceTree = "<group>"; };
+		62CA724E1970535100C815B3 /* CRendererComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CRendererComponent.m; path = ChaosEngine/CRendererComponent.m; sourceTree = "<group>"; };
 		62CF0D47189BACCF006CD912 /* CTemplateManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTemplateManager.h; path = ChaosEngine/CTemplateManager.h; sourceTree = "<group>"; };
 		62CF0D48189BACCF006CD912 /* CTemplateManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CTemplateManager.m; path = ChaosEngine/CTemplateManager.m; sourceTree = "<group>"; };
 		62CF0D4A189BCF2A006CD912 /* CSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CSerializer.h; path = ChaosEngine/CSerializer.h; sourceTree = "<group>"; };
@@ -294,6 +299,8 @@
 			children = (
 				62C3C7B61966E25300FB01EB /* Character */,
 				626277721885811300006BBD /* assets */,
+				62CA724B1970511700C815B3 /* GamepadComponent.h */,
+				62CA724C1970511700C815B3 /* GamepadComponent.m */,
 				625C41F719263ED800404DBB /* GameLayer.h */,
 				625C41F819263ED800404DBB /* GameLayer.m */,
 				6253D215188033120017790C /* AppDelegate.h */,
@@ -346,20 +353,16 @@
 				626277691885321600006BBD /* CAppDelegate.m */,
 				62AA5415188434D5001FA053 /* CComponent.h */,
 				62AA5416188434D5001FA053 /* CComponent.m */,
-				62BB4D5619010F740016D540 /* CContactEvent.h */,
-				62BB4D5719010F740016D540 /* CContactEvent.m */,
 				62FB7BA61891698100A6340F /* CControllerComponent.h */,
 				62FB7BA71891698100A6340F /* CControllerComponent.m */,
 				6295C58A18901F0300B45AB9 /* CEngine.h */,
 				6295C58B18901F0300B45AB9 /* CEngine.m */,
 				626F6354189111EA00103C36 /* CEngineSystem.h */,
 				626F6355189111EA00103C36 /* CEngineSystem.m */,
-				62AA540F188433BB001FA053 /* CEntity.h */,
-				62AA5410188433BB001FA053 /* CEntity.m */,
 				62AA5412188434C9001FA053 /* CEntityFactory.h */,
 				62AA5413188434C9001FA053 /* CEntityFactory.m */,
-				626277891886DE7F00006BBD /* CEvent.h */,
-				6262778A1886DE7F00006BBD /* CEvent.m */,
+				62AA540F188433BB001FA053 /* CEntity.h */,
+				62AA5410188433BB001FA053 /* CEntity.m */,
 				626277861886DDC500006BBD /* CEventDispatcher.h */,
 				626277871886DDC500006BBD /* CEventDispatcher.m */,
 				6262778E1888283E00006BBD /* CEventListener.h */,
@@ -378,18 +381,14 @@
 				626277811886A4BF00006BBD /* CPoint.m */,
 				62AA541F188442E8001FA053 /* CPositionComponent.h */,
 				62AA5420188442E8001FA053 /* CPositionComponent.m */,
-				62627791188926B300006BBD /* CPositionEvent.h */,
-				62627792188926B300006BBD /* CPositionEvent.m */,
 				62C8AFC818FC2D9900B4C4A9 /* CPropertyReference.h */,
 				62C8AFC918FC2D9900B4C4A9 /* CPropertyReference.m */,
-				62AA5422188442F9001FA053 /* CRendererComponent.h */,
-				62AA5423188442F9001FA053 /* CRendererComponent.m */,
+				626FBA3419757573007F3E48 /* CRendererComponent.h */,
+				62CA724E1970535100C815B3 /* CRendererComponent.m */,
 				62C20FD41962C07E0014FED9 /* CAnimationRendererComponent.h */,
 				62C20FD51962C07E0014FED9 /* CAnimationRendererComponent.m */,
 				62B045691963104500AF05C4 /* CTilemapRendererComponent.h */,
 				62B0456A1963104500AF05C4 /* CTilemapRendererComponent.m */,
-				6295C57D188FCAD800B45AB9 /* CRenderEvent.h */,
-				6295C57E188FCAD800B45AB9 /* CRenderEvent.m */,
 				6262776418852CDE00006BBD /* CScene.h */,
 				6262776518852CDE00006BBD /* CScene.m */,
 				62C8AFCB18FC2EBD00B4C4A9 /* CSerializable.h */,
@@ -412,9 +411,15 @@
 				6262776018852B1F00006BBD /* CViewController.m */,
 				62AA541F188442E8001FA053 /* CPositionComponent.h */,
 				62AA5420188442E8001FA053 /* CPositionComponent.m */,
-				62AA5422188442F9001FA053 /* CRendererComponent.h */,
-				62AA5423188442F9001FA053 /* CRendererComponent.m */,
-				62999CF11966FA230008F2CC /* CTouchEvent.h */,
+				626277891886DE7F00006BBD /* CEvent.h */,
+				6262778A1886DE7F00006BBD /* CEvent.m */,
+				62627791188926B300006BBD /* CPositionEvent.h */,
+				62627792188926B300006BBD /* CPositionEvent.m */,
+				62BB4D5619010F740016D540 /* CContactEvent.h */,
+				62BB4D5719010F740016D540 /* CContactEvent.m */,
+				6295C57D188FCAD800B45AB9 /* CRenderEvent.h */,
+				6295C57E188FCAD800B45AB9 /* CRenderEvent.m */,
+				626FBA3319757524007F3E48 /* CTouchEvent.h */,
 				627B048219053E21002EC819 /* CTouchEvent.m */,
 				62B69F4A190E6FAD0060CFDF /* CCameraComponent.h */,
 				62B69F4B190E6FAD0060CFDF /* CCameraComponent.m */,
@@ -502,6 +507,7 @@
 				62C20FDA1962D20A0014FED9 /* animation_renderer_test.xml */,
 				62B0456E1963192C00AF05C4 /* tilemap_renderer_test.xml */,
 				62103DAC196ECF2300EACD12 /* physics_test.xml */,
+				62CA724919704DF800C815B3 /* gamepad_test.xml */,
 			);
 			name = levels;
 			sourceTree = "<group>";
@@ -604,6 +610,7 @@
 				62103DAB196EBDE200EACD12 /* Config.plist in Resources */,
 				6262776318852B1F00006BBD /* CViewController.xib in Resources */,
 				62C8AFC718FC2ADA00B4C4A9 /* test_level.xml in Resources */,
+				62CA724A19704DF800C815B3 /* gamepad_test.xml in Resources */,
 				62BB4D621901641E0016D540 /* Background.png in Resources */,
 				62BB4D631901641E0016D540 /* Character.png in Resources */,
 				62BB4D65190165D90016D540 /* House.png in Resources */,
@@ -651,6 +658,7 @@
 				6262776218852B1F00006BBD /* CViewController.m in Sources */,
 				62B0456B1963104500AF05C4 /* CTilemapRendererComponent.m in Sources */,
 				6221170618DEC9A30016F271 /* CPhysicComponent.m in Sources */,
+				62CA724D1970511700C815B3 /* GamepadComponent.m in Sources */,
 				62C3C7B91966E27A00FB01EB /* GuduComponent.m in Sources */,
 				62AA5421188442E8001FA053 /* CPositionComponent.m in Sources */,
 				62627796188935C800006BBD /* CAnimationComponent.m in Sources */,
@@ -663,6 +671,7 @@
 				6253D217188033120017790C /* AppDelegate.m in Sources */,
 				626277901888283E00006BBD /* CEventListener.m in Sources */,
 				625C41F919263ED800404DBB /* GameLayer.m in Sources */,
+				62CA724F1970535100C815B3 /* CRendererComponent.m in Sources */,
 				6262776A1885321600006BBD /* CAppDelegate.m in Sources */,
 				62C20FD61962C07E0014FED9 /* CAnimationRendererComponent.m in Sources */,
 				6242555F18BB4E8B003E6324 /* CSize.m in Sources */,
@@ -671,7 +680,6 @@
 				6253D213188033120017790C /* main.m in Sources */,
 				6217A19018CFB69400CC1EF5 /* CLog.m in Sources */,
 				62CF0D84189BE443006CD912 /* TBXML+HTTP.m in Sources */,
-				62AA5424188442F9001FA053 /* CRendererComponent.m in Sources */,
 				62BB4D5819010F740016D540 /* CContactEvent.m in Sources */,
 				626277881886DDC500006BBD /* CEventDispatcher.m in Sources */,
 				62CE609B189948F100F4C876 /* (null) in Sources */,

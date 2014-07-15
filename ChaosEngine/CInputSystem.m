@@ -40,19 +40,19 @@
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    CEvent *cEvent = [CEvent eventWithType:[CTouchEvent ETouchBegan] withObject:event withBubbles:NO];
+    CEvent *cEvent = [CEvent eventWithType:[CTouchEvent ETouchBegan]];
     [_dispatcher dispatchEvent:cEvent];
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    CEvent *cEvent = [CEvent eventWithType:[CTouchEvent ETouchMoved] withObject:event withBubbles:NO];
+    CEvent *cEvent = [CEvent eventWithType:[CTouchEvent ETouchMoved]];
     [_dispatcher dispatchEvent:cEvent];
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    CEvent *cEvent = [CEvent eventWithType:[CTouchEvent ETouchEnded] withObject:event withBubbles:NO];
+    CEvent *cEvent = [CEvent eventWithType:[CTouchEvent ETouchEnded]];
     [_dispatcher dispatchEvent:cEvent];
 }
 

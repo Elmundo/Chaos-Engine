@@ -10,17 +10,17 @@
 
 @implementation CTouchEvent
 
-+ (id)eventWithType:(NSString *)type withObject:(id)object withEvent:(id)theEvent withBubbles:(BOOL)bubbles
++ (id)eventWithType:(NSString *)type
 {
-    CTouchEvent *event = [[CTouchEvent alloc] initWithType:type withObject:object withEvent:(id)theEvent withBubbles:bubbles];
+    CTouchEvent *event = [[CTouchEvent alloc] initWithType:type];
     return event;
 }
 
-- (id)initWithType:(NSString *)type withObject:(id)object withEvent:(id)theEvent withBubbles:(BOOL)bubbles
+- (id)initWithType:(NSString *)type
 {
-    self = [super initWithType:type withObject:object withBubbles:bubbles];
+    self = [super initWithType:type];
     if (self) {
-        _event = theEvent;
+        
     }
     
     return self;

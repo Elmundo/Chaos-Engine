@@ -25,7 +25,7 @@
 @interface MyScene : CScene
 {
     CLayer *gameLayer;
+    CLayer *uiLayer;
 }
-@property (nonatomic, strong) UITapGestureRecognizer *tapGesture;
 
 @end

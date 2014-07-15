@@ -10,13 +10,13 @@
 
 @implementation CPositionComponent
 
-@synthesize position = _position;
-
 - (void)didAddedToEntity:(CEntity *)owner
 {
     [super didAddedToEntity:owner];
     
-    CPositionEvent *event = [CPositionEvent eventWithType:[CPositionEvent CE_PositionChanged] withObject:self withBubbles:YES];
+    CPositionEvent *event = [CPositionEvent eventWithType:[CPositionEvent CE_PositionChanged]];
+    event.position = _position;
+    
     [self dispatchEventWithEvent:event];
 }
 
@@ -31,7 +31,9 @@
 {
     _position.x = x;
     _position.y = y;
-    CPositionEvent *event = [CPositionEvent eventWithType:[CPositionEvent CE_PositionChanged] withObject:_position withBubbles:YES];
+    CPositionEvent *event = [CPositionEvent eventWithType:[CPositionEvent CE_PositionChanged]];
+    event.position = _position;
+    
     [self dispatchEventWithEvent:event];
 }
 
@@ -39,9 +41,5 @@
 {
     [self setPoint:point.x and:point.y];
 }
-
-#pragma mark GETTER & SETTER
-- (CPoint *)position { return _position; }
-- (void)setPosition:(CPoint *)position { _position = position; }
 
 @end
