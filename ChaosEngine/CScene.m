@@ -59,7 +59,7 @@
         _panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGesture:)];
         _panGesture.delegate = self;
         _panGesture.delaysTouchesBegan = (BOOL)[_config objectForKey:@"DelaysTouchesBegan"];
-        [self.view addGestureRecognizer:_panGesture];
+        //[self.view addGestureRecognizer:_panGesture];
     }
 }
 

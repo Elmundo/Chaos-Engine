@@ -25,6 +25,12 @@
         </Component>
     </Entity>
     
+    <Entity tpye="CEntity" name="Gamepad">
+        <Component type="GamepadComponent" name="GamepadComponent">
+            <layerName>uiLayer</layerName>
+        </Component>
+    </Entity>
+    
     <Entity type="CEntity" name="Gudu">
         <Component type="CPositionComponent" name="Position">
             <position>
@@ -67,24 +73,18 @@
         </Component>
         
         <Component type="GuduComponent" name="Gudu">
-        </Component>
-        
-        <Component type="GuduController" name="GuduController">
-            <cameraProperty>#Camera.Camera</cameraProperty>
+            <gamepadProperty>#Gamepad.GamepadComponent</gamepadProperty>
             <positionProperty>@Position</positionProperty>
         </Component>
     </Entity>
     
-    <Entity tpye="CEntity" name="Gamepad">
-        <Component type="GamepadComponent" name="GamepadComponent">
-            <layerName>uiLayer</layerName>
-        </Component>
-    </Entity>
+    
     <!-- Group Sample -->
     <Group name="Things">
         <ObjectReference name="Camera"/>
         <ObjectReference name="TilemapRenderer"/>
-        <ObjectReference name="Gudu"/>
         <ObjectReference name="Gamepad"/>
+        <ObjectReference name="Gudu"/>
+        
     </Group>
 </data>

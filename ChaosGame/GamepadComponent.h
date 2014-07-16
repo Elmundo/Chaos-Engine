@@ -13,19 +13,17 @@
 #import "CPositionComponent.h"
 #import "CEntityFactory.h"
 
+typedef enum : NSUInteger {
+    kGamepadLeft = 0,
+    kGamepadRight,
+    kGamepadJump,
+} kGamepad;
+
 @interface GamepadComponent : CControllerComponent
-{
-    BOOL _isTouched;
-}
+
 @property (nonatomic, strong) NSString *layerName;
+@property (nonatomic, assign) BOOL *keys;
 
-
-@property NSInteger direction;
-@property NSInteger jumpValue;
-@property NSInteger jumpSpeed;
-@property BOOL isJumping;
-
-@property (nonatomic, strong) CPositionComponent *position;
 @property (nonatomic, strong) CSpriteNode *leftButton;
 @property (nonatomic, strong) CSpriteNode *rightButton;
 @property (nonatomic, strong) CSpriteNode *jumpButton;

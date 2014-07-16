@@ -8,8 +8,6 @@
 
 #import "GamepadComponent.h"
 
-#define JUMP_TIME 26
-
 @implementation GamepadComponent
 
 - (void)didAddedToEntity:(CEntity *)owner
@@ -44,13 +42,7 @@
     [uiLayer addChild:_jumpButton];
     [uiLayer setUserInteractionEnabled:YES];
     
-    CEntity *entity = [[CEntityFactory shared] getEntity:@"Gudu"];
-    _position = (CPositionComponent *)[entity getComponentWithName:@"Position"];
-    _isTouched = FALSE;
-    
-    _direction = 1;
-    _jumpValue = JUMP_TIME;
-    _isJumping = false;
+    _keys = malloc(sizeof(int)*3);
 }
 
 -(void)didRemovedFromEntity
@@ -58,67 +50,42 @@
     [super didRemovedFromEntity];
 }
 
-- (void)update:(NSTimeInterval)dt
-{
-    if (_isTouched) {
-        [_position setPoint:_position.position.x+_direction and:_position.position.y];
-    }
-    
-    if (_isJumping) {
-        
-        [_position setPoint:_position.position.x and:_position.position.y+_jumpValue*0.100];
-        _jumpValue--;
-        if (_jumpValue == -JUMP_TIME) {
-            _isJumping = false;
-            _jumpValue = JUMP_TIME;
-        }
-
-    }
-    
-}
-
 /* Event Listener Methods*/
 - (void)onTouchBegan:(CTouchEvent *)event
 {
     
     for (int i=0; i < event.touches.count; ++i) {
-        UITouch *touch = [event.touches objectAtIndex:i];
+        
         CSpriteNode *node = event.spriteNode;
         if (node == _leftButton) {
-            
-            _direction = -1;
-            _isTouched = true;
-            
+            _keys[kGamepadLeft] = true;
         }else if (node == _rightButton){
-            
-            _direction = 1;
-            _isTouched = true;
-            
-        }
-        
-        if (_isJumping == false && node == _jumpButton){
-            
-            _isJumping = true;
+            _keys[kGamepadRight] = true;
         }
 
+        if (node == _jumpButton){
+            _keys[kGamepadJump] = true;
+            clog(@"Jump is true");
+        }
     }
-    
-    
-}
-
-- (void)onTouchMoved:(CTouchEvent *)event
-{
-    _isTouched = false;
 }
 
 - (void)onTouchEnded:(CTouchEvent *)event
 {
-    _isTouched = false;
-}
-
-- (void)onTouchCancelled:(CTouchEvent *)event
-{
-    _isTouched = false;
+    for (int i=0; i < event.touches.count; ++i) {
+        
+        CSpriteNode *node = event.spriteNode;
+        if (node == _leftButton) {
+            _keys[kGamepadLeft] = false;
+        }else if (node == _rightButton){
+            _keys[kGamepadRight] = false;
+        }
+        
+        if (node == _jumpButton){
+            _keys[kGamepadJump] = false;
+            clog(@"Jump is false");
+        }
+    }
 }
 
 @end

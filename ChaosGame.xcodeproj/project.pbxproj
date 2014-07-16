@@ -71,7 +71,6 @@
 		62C3C7B31966A2B100FB01EB /* Tilemap5x5.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 62C3C7B21966A2B100FB01EB /* Tilemap5x5.tmx */; };
 		62C3C7B51966CDB900FB01EB /* BigMap.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 62C3C7B41966CDB900FB01EB /* BigMap.tmx */; };
 		62C3C7B91966E27A00FB01EB /* GuduComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 62C3C7B81966E27A00FB01EB /* GuduComponent.m */; };
-		62C3C7BC1966E2F200FB01EB /* GuduController.m in Sources */ = {isa = PBXBuildFile; fileRef = 62C3C7BB1966E2F200FB01EB /* GuduController.m */; };
 		62C3C7C01966EA0D00FB01EB /* Gudu.png in Resources */ = {isa = PBXBuildFile; fileRef = 62C3C7BF1966EA0D00FB01EB /* Gudu.png */; };
 		62C8AFC718FC2ADA00B4C4A9 /* test_level.xml in Resources */ = {isa = PBXBuildFile; fileRef = 62C8AFC618FC2ADA00B4C4A9 /* test_level.xml */; };
 		62C8AFCA18FC2D9900B4C4A9 /* CPropertyReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 62C8AFC918FC2D9900B4C4A9 /* CPropertyReference.m */; };
@@ -205,8 +204,6 @@
 		62C3C7B41966CDB900FB01EB /* BigMap.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = BigMap.tmx; path = assets/tilemaps/BigMap.tmx; sourceTree = "<group>"; };
 		62C3C7B71966E27A00FB01EB /* GuduComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GuduComponent.h; path = Character/GuduComponent.h; sourceTree = "<group>"; };
 		62C3C7B81966E27A00FB01EB /* GuduComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GuduComponent.m; path = Character/GuduComponent.m; sourceTree = "<group>"; };
-		62C3C7BA1966E2F200FB01EB /* GuduController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GuduController.h; path = Character/GuduController.h; sourceTree = "<group>"; };
-		62C3C7BB1966E2F200FB01EB /* GuduController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GuduController.m; path = Character/GuduController.m; sourceTree = "<group>"; };
 		62C3C7BF1966EA0D00FB01EB /* Gudu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Gudu.png; path = assets/resources/Gudu.png; sourceTree = "<group>"; };
 		62C8AFC618FC2ADA00B4C4A9 /* test_level.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = test_level.xml; path = assets/test_level.xml; sourceTree = "<group>"; };
 		62C8AFC818FC2D9900B4C4A9 /* CPropertyReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CPropertyReference.h; path = ChaosEngine/CPropertyReference.h; sourceTree = "<group>"; };
@@ -494,8 +491,6 @@
 			children = (
 				62C3C7B71966E27A00FB01EB /* GuduComponent.h */,
 				62C3C7B81966E27A00FB01EB /* GuduComponent.m */,
-				62C3C7BA1966E2F200FB01EB /* GuduController.h */,
-				62C3C7BB1966E2F200FB01EB /* GuduController.m */,
 			);
 			name = Character;
 			sourceTree = "<group>";
@@ -645,7 +640,6 @@
 				62AA5411188433BB001FA053 /* CEntity.m in Sources */,
 				62C8AFCA18FC2D9900B4C4A9 /* CPropertyReference.m in Sources */,
 				62CF0D49189BACCF006CD912 /* CTemplateManager.m in Sources */,
-				62C3C7BC1966E2F200FB01EB /* GuduController.m in Sources */,
 				62B3BA9D1891433400DD8424 /* CInputSystem.m in Sources */,
 				626277821886A4BF00006BBD /* CPoint.m in Sources */,
 				624819E318D6377700877225 /* CLayer.m in Sources */,

@@ -67,7 +67,7 @@
         if ([target respondsToSelector:action]) {
             [target performSelector:action withObject:event];
         }else{
-            clog(@"Target does not have specified action.");
+            clog(@"Target does not have specified %@ action.", NSStringFromSelector(action));
         }
         
     }
