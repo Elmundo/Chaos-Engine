@@ -1,0 +1,12 @@
+xcodeproj 'ChaosDemo'
+workspace '../ChaosDemo'
+inhibit_all_warnings!
+
+platform :ios, '7.0'
+source 'https://github.com/CocoaPods/Specs.git'
+
+target 'ChaosDemo' do
+
+pod 'ChaosEngine', :local=>'../'
+
+end

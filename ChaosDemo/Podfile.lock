@@ -1,0 +1,17 @@
+PODS:
+  - ChaosEngine (0.0.1):
+    - TBXML (~> 1.5)
+  - TBXML (1.5)
+
+DEPENDENCIES:
+  - ChaosEngine (from `../`)
+
+EXTERNAL SOURCES:
+  ChaosEngine:
+    :local: "../"
+
+SPEC CHECKSUMS:
+  ChaosEngine: cdc5c366d56f02cb390083dee54d146a0f4e9d4f
+  TBXML: 9f9dadb239f2f2af1dadb87fe43a0ce6e479379a
+
+COCOAPODS: 0.37.2

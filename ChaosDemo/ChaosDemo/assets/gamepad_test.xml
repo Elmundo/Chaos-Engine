@@ -1,0 +1,69 @@
+<!-- Level1 Entity List-->
+<data>
+    <!-- There could be only three types of object of data tag;
+     Entitiy
+     Template
+     Group
+     
+     Other tags will be INVALID in data tag scope
+     -->
+    <Entity type="CEntity" name="Camera">
+        <Component type="CCameraComponent" name="Camera">
+            <layerNameList type="NSString">
+                <_>gameLayer</_>
+            </layers>
+        </Component>
+    </Entity>
+    
+    <Entity type="CEntity" name="TilemapRenderer">
+        <Component type="CTilemapRendererComponent" name="TilemapRenderer">
+            <tilemapDataName>BigMap.tmx</tilemapDataName>
+            <anchorPoint>
+                <x>0.0</x>
+                <y>0.0</y>
+            </anchorPoint>
+        </Component>
+    </Entity>
+    
+    <Entity tpye="CEntity" name="Gamepad">
+        <Component type="GamepadComponent" name="GamepadComponent">
+            <layerName>uiLayer</layerName>
+        </Component>
+    </Entity>
+    
+    <Entity type="CEntity" name="Gudu">
+        <Component type="CPositionComponent" name="Position">
+            <position>
+                <x>100</x>
+                <y>100</y>
+            </position>
+        </Component>
+        
+        <Component type="CRendererComponent" name="Render">
+            <positionProperty>@Position.position</positionProperty>
+            <layerName>gameLayer</layerName>
+            <resourceName>Gudu.png</resourceName>
+            <anchorPoint>
+                <x>0.5</x>
+                <y>0.5</y>
+            </anchorPoint>
+            <zPosition>100</<zPosition>
+            <userInteractionEnabled>true</userInteractionEnabled>
+        </Component>
+        
+        <Component type="GuduComponent" name="Gudu">
+            <gamepadProperty>#Gamepad.GamepadComponent</gamepadProperty>
+            <positionProperty>@Position</positionProperty>
+        </Component>
+    </Entity>
+    
+    
+    <!-- Group Sample -->
+    <Group name="Things">
+        <ObjectReference name="Camera"/>
+        <ObjectReference name="TilemapRenderer"/>
+        <ObjectReference name="Gamepad"/>
+        <ObjectReference name="Gudu"/>
+        
+    </Group>
+</data>
