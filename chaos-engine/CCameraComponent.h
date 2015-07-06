@@ -12,11 +12,13 @@
 #import "CLayer.h"
 #import "CSpriteNode.h"
 #import "CSceneManager.h"
+#import "CPositionComponent.h"
 
 @interface CCameraComponent : CComponent
 
 /* OUTSIDE PROPERTIES */
 @property (nonatomic, strong) NSMutableArray *layerNameList; //Required
+@property (nonatomic, strong) CPropertyReference *objectToFollowProperty;
 @property (nonatomic, strong) CPropertyReference *sceneManagerProperty;
 
 /* INNER PROPERTIES */
@@ -24,6 +26,7 @@
 @property (nonatomic, strong) NSMutableArray *layers;
 @property (nonatomic, strong) NSString *layerName;
 @property (nonatomic, strong) CLayer *cameraLayer;
+@property (nonatomic, weak) CPositionComponent *positionComponent;
 
 /* METHODS */
 - (void)moveCameraWithX:(int)x andY:(int)y;

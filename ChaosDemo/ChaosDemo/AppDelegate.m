@@ -6,6 +6,11 @@
 //  Copyright (c) 2014 Baris YILMAZ. All rights reserved.
 //
 
+#import <CSceneManager.h>
+#import <CEntityFactory.h>
+#import <CInputSystem.h>
+#import <CPhysicSystem.h>
+
 #import "AppDelegate.h"
 #import "ViewController.h"
 
@@ -13,9 +18,18 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
+    [super application:application didFinishLaunchingWithOptions:launchOptions];
     ViewController *view = [[ViewController alloc] initWithNibName:nil bundle:nil];
     
     UINavigationController *controller = [[UINavigationController alloc] initWithRootViewController:view];
+    
+    // Init the Chaos Engine
+    /** Also this system adding part could be defined in XML for TemplateManager] **/
+    [self.engine addSystem:[CSceneManager shared]];
+    [self.engine addSystem:[CEntityFactory shared]];
+    [self.engine addSystem:[CInputSystem shared]];
+    [self.engine addSystem:[CPhysicSystem shared]];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.rootViewController = controller;

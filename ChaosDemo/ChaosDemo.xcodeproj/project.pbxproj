@@ -148,18 +148,18 @@
 		6229AB0F1B452108008485C0 /* ChaosDemo */ = {
 			isa = PBXGroup;
 			children = (
+				626568181B4578A50005BB34 /* Base.lproj */,
+				626568241B4578A50005BB34 /* en.lproj */,
 				62E00B981B46C2540097C1A0 /* Character */,
+				626568531B4578CA0005BB34 /* Support Files */,
+				626568011B4578A50005BB34 /* assets */,
 				62E00B861B469A1E0097C1A0 /* GameLayer.h */,
 				62E00B871B469A1E0097C1A0 /* GameLayer.m */,
 				62E00B881B469A1E0097C1A0 /* GamepadComponent.h */,
 				62E00B891B469A1E0097C1A0 /* GamepadComponent.m */,
-				626568531B4578CA0005BB34 /* Support Files */,
-				626568011B4578A50005BB34 /* assets */,
 				626567FF1B4578A40005BB34 /* AppDelegate.h */,
 				626568001B4578A40005BB34 /* AppDelegate.m */,
 				6265682D1B4578A50005BB34 /* main.m */,
-				626568181B4578A50005BB34 /* Base.lproj */,
-				626568241B4578A50005BB34 /* en.lproj */,
 				6265682B1B4578A50005BB34 /* Images.xcassets */,
 				62E00B841B46950C0097C1A0 /* ViewController.xib */,
 				62E00B921B469AE20097C1A0 /* ViewController.h */,
@@ -350,6 +350,7 @@
 				TargetAttributes = {
 					6229AB0C1B452108008485C0 = {
 						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = EVH3NXQ4SC;
 					};
 					6229AB251B452108008485C0 = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -599,6 +600,7 @@
 			baseConfigurationReference = 511AC63526163F10039447BA /* Pods-ChaosDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/ChaosDemo/ChaosGame-Prefix.pch";
 				INFOPLIST_FILE = ChaosDemo/Info.plist;
@@ -606,6 +608,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "f4a73b29-9bca-476b-bcc2-e95de61a3b0e";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -616,6 +619,7 @@
 			baseConfigurationReference = 992D6466C8C43FB910F7D0C2 /* Pods-ChaosDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/ChaosDemo/ChaosGame-Prefix.pch";
 				INFOPLIST_FILE = ChaosDemo/Info.plist;
@@ -623,6 +627,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "f4a73b29-9bca-476b-bcc2-e95de61a3b0e";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

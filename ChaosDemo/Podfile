@@ -7,6 +7,5 @@ source 'https://github.com/CocoaPods/Specs.git'
 
 target 'ChaosDemo' do
 
-pod 'ChaosEngine', :local=>'../'
-
+    pod 'ChaosEngine', :path=>'../'
 end

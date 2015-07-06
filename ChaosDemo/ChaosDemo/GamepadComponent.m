@@ -43,6 +43,10 @@
     [uiLayer setUserInteractionEnabled:YES];
     
     _keys = malloc(sizeof(int)*3);
+    
+    for (int i = 0; i < 3; ++i) {
+        _keys[i] = false;
+    }
 }
 
 -(void)didRemovedFromEntity

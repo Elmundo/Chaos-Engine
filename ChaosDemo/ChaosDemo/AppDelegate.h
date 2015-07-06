@@ -6,9 +6,11 @@
 //  Copyright (c) 2014 Baris YILMAZ. All rights reserved.
 //
 
+#import <CAppDelegate.h>
+
 #import <UIKit/UIKit.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : CAppDelegate
 
 @property (strong, nonatomic) UIWindow *window;
 

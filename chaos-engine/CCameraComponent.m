@@ -22,6 +22,11 @@
         CLayer *layer = [_sceneManager getLayerWithName:layerName];
         [_layers addObject:layer];
     }
+    
+    if (self.objectToFollowProperty) {
+        self.positionComponent = [self.objectToFollowProperty getPropertyWithEntity:nil];
+        [self.positionComponent addEventListener:@selector(onPositionChange:) message:[CPositionEvent CE_PositionChanged ] component:self];
+    }
 }
 
 -(void)didRemovedFromEntity
@@ -45,6 +50,16 @@
     for (CLayer *layer in _layers) {
         layer.position = CGPointMake(x, y);
     }
+}
+
+- (void)onPositionChange:(CPositionEvent *)event
+{
+    CGRect frame = [UIScreen mainScreen].bounds;
+    
+    CGFloat cameraX = -event.position.x + frame.size.width/2 - 100;
+    CGFloat cameraY = -event.position.y + frame.size.height/2- 100;
+    
+    [self setCameraPositionWithX:cameraX andY:cameraY];
 }
 
 @end

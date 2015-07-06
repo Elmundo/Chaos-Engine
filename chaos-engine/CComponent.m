@@ -51,9 +51,19 @@
     [_owner.dispatcher addEventListener:self withAction:action withEvent:message];
 }
 
+- (void)addEventListener:(SEL)action message:(NSString *)message component:(CComponent *)component
+{
+    [_owner.dispatcher addEventListener:component withAction:action withEvent:message];
+}
+
 - (void)removeEventListener:(SEL)action message:(NSString *)message
 {
     [_owner.dispatcher removeEventListener:self withAction:action withEvent:message];
+}
+
+- (void)removeEventListener:(SEL)action message:(NSString *)message component:(CComponent *)component
+{
+    [_owner.dispatcher removeEventListener:component withAction:action withEvent:message];
 }
 
 - (void)dispatchEventWithEvent:(CEvent *)event

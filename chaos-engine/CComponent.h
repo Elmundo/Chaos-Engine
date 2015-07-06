@@ -23,7 +23,9 @@
 - (CComponent *)getComponent:(NSString *)componentName;
 - (void)update:(NSTimeInterval)dt;
 - (void)addEventListener:(SEL)action message:(NSString *)message;
+- (void)addEventListener:(SEL)action message:(NSString *)message component:(CComponent *)component;
 - (void)removeEventListener:(SEL)action message:(NSString *)message;
+- (void)removeEventListener:(SEL)action message:(NSString *)message component:(CComponent *)component;
 - (void)dispatchEventWithEvent:(CEvent *)event;
 
 @end

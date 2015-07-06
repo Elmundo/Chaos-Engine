@@ -66,10 +66,9 @@
     
     // Instantiate the entities which will be visible in game
     [[CTemplateManager shared] instantiateEntity:@"Gamepad"];
-    [[CTemplateManager shared] instantiateEntity:@"Camera"];
     [[CTemplateManager shared] instantiateEntity:@"TilemapRenderer"];
     [[CTemplateManager shared] instantiateEntity:@"Gudu"];
-    
+    [[CTemplateManager shared] instantiateEntity:@"Camera"];
 }
 
 

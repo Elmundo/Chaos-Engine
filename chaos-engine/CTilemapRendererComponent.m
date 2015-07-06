@@ -71,8 +71,6 @@
         
         layerNode = layerNode->nextSibling;
     }
-    
-    NSLog(@"Get out of the while");
 }
 
 /* Traverse the tilemap in TBX format */
