@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 Baris YILMAZ. All rights reserved.
 //
 
+#import <CEngine.h>
+
 #import "CViewController.h"
 
 @interface CViewController ()
@@ -38,6 +40,14 @@
     self.rootView = (SKView *)self.view;
     self.rootView.showsFPS = YES;
     self.rootView.showsNodeCount = YES;
+    
+    // Set Engine screen size
+    [CEngine shared].screenSize = self.view.bounds.size;
+    [self.navigationController setNavigationBarHidden:YES];
+}
+
+- (BOOL)prefersStatusBarHidden {
+    return YES;
 }
 
 - (BOOL)shouldAutorotate

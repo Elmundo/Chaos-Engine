@@ -11,8 +11,8 @@
         <Component type="CTilemapRendererComponent" name="TilemapRenderer">
             <tilemapDataName>BigMap.tmx</tilemapDataName>
             <anchorPoint>
-                <x>0.0</x>
-                <y>0.0</y>
+                <x>0</x>
+                <y>0</y>
             </anchorPoint>
         </Component>
     </Entity>
@@ -26,8 +26,8 @@
     <Entity type="CEntity" name="Gudu">
         <Component type="CPositionComponent" name="Position">
             <position>
-                <x>100</x>
-                <y>100</y>
+                <x>0</x>
+                <y>0</y>
             </position>
         </Component>
         
@@ -39,7 +39,7 @@
                 <x>0.5</x>
                 <y>0.5</y>
             </anchorPoint>
-            <zPosition>100</<zPosition>
+            <zPosition>10</<zPosition>
             <userInteractionEnabled>true</userInteractionEnabled>
         </Component>
         
@@ -64,6 +64,5 @@
         <ObjectReference name="TilemapRenderer"/>
         <ObjectReference name="Gamepad"/>
         <ObjectReference name="Gudu"/>
-        
     </Group>
 </data>

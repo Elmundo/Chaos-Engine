@@ -16,6 +16,8 @@
     CSceneManager *_sceneManager;
 }
 
+@property (nonatomic, assign) CGFloat speed;
+
 - (CLayer *)sublayer;
 
 @end

@@ -25,7 +25,6 @@
 @property (nonatomic, weak) CSceneManager *sceneManager;
 @property (nonatomic, strong) NSMutableArray *layers;
 @property (nonatomic, strong) NSString *layerName;
-@property (nonatomic, strong) CLayer *cameraLayer;
 @property (nonatomic, weak) CPositionComponent *positionComponent;
 
 /* METHODS */

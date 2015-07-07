@@ -8,24 +8,42 @@
 
 #import "CCameraComponent.h"
 
+@interface CCameraComponent()
+
+@property (nonatomic, assign) CGPoint offset;
+@property (nonatomic, assign) CGSize screenSize;
+@property (nonatomic, assign) CGFloat widthHalf;
+@property (nonatomic, assign) CGFloat heightHalf;
+
+@end
+
 @implementation CCameraComponent
 
 -(void)didAddedToEntity:(CEntity *)owner
 {
     [super didAddedToEntity:owner];
     
-    _layers = [[NSMutableArray alloc] init];
-    _sceneManager = [CSceneManager shared];
+    _layers         = [[NSMutableArray alloc] init];
+    _sceneManager   = [CSceneManager shared];
+    _screenSize     = [CEngine shared].screenSize;
+    _widthHalf      = _screenSize.width/2;
+    _heightHalf     = _screenSize.height/2;
+    _offset = CGPointMake(0.f, 0.f);
     
     for (NSString *layerName in _layerNameList) {
-        
         CLayer *layer = [_sceneManager getLayerWithName:layerName];
         [_layers addObject:layer];
     }
     
+    // There is entity to follow
     if (self.objectToFollowProperty) {
         self.positionComponent = [self.objectToFollowProperty getPropertyWithEntity:nil];
-        [self.positionComponent addEventListener:@selector(onPositionChange:) message:[CPositionEvent CE_PositionChanged ] component:self];
+        [self setCameraPositionWithX:self.positionComponent.position.x andY:self.positionComponent.position.y];
+        [self.positionComponent addEventListener:@selector(onPositionChange:)
+                                         message:[CPositionEvent CE_PositionChanged]
+                                       component:self];
+    }else{
+        [self setCameraPositionWithX:_offset.x andY:_offset.y];
     }
 }
 
@@ -38,28 +56,39 @@
     _layers = nil;
 }
 
-- (void)moveCameraWithX:(int)x andY:(int)y
+#pragma mark - Camera Movement
+- (void)moveCameraWithX:(int)diffX andY:(int)diffY
 {
-    for (CLayer *layer in _layers) {
-        layer.position = CGPointMake(layer.position.x - x, layer.position.y - y);
-    }
+    _offset.x += diffX;
+    _offset.y += diffY;
+    [self _setPosition:_offset];
 }
 
 - (void)setCameraPositionWithX:(int)x andY:(int)y
 {
-    for (CLayer *layer in _layers) {
-        layer.position = CGPointMake(x, y);
-    }
+    _offset.x = x;
+    _offset.y = y;
+    [self _setPosition:_offset];
 }
 
+#pragma mark - Callback methods
 - (void)onPositionChange:(CPositionEvent *)event
 {
-    CGRect frame = [UIScreen mainScreen].bounds;
-    
-    CGFloat cameraX = -event.position.x + frame.size.width/2 - 100;
-    CGFloat cameraY = -event.position.y + frame.size.height/2- 100;
-    
-    [self setCameraPositionWithX:cameraX andY:cameraY];
+    CPoint *objectToFollowPos = event.position;
+    _offset.x = objectToFollowPos.x;
+    _offset.y = objectToFollowPos.y;
+    [self setCameraPositionWithX:_offset.x andY:_offset.y];
+}
+
+#pragma mark - Inline Methods
+- (void)_setPosition:(CGPoint)offset
+{
+    for (CLayer *layer in _layers) {
+        
+        CGFloat x       = _widthHalf - offset.x;
+        CGFloat y       = _heightHalf - offset.y;
+        layer.position  = CGPointMake(x, y);
+    }
 }
 
 @end

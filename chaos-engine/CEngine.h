@@ -25,6 +25,9 @@ typedef NS_ENUM(int, EngineSystemType) {
 @property (nonatomic, assign) NSTimeInterval systemTime;
 @property (nonatomic, assign) NSTimeInterval prevTime;
 @property (nonatomic, assign) NSTimeInterval elapsedTime;
+@property (nonatomic, assign) CGSize screenSize;
+@property (nonatomic, assign) CGFloat widthHalf;
+@property (nonatomic, assign) CGFloat heightHalf;
 
 + (CEngine *)shared;
 + (CEngine *)initChaosEngine;
@@ -32,5 +35,6 @@ typedef NS_ENUM(int, EngineSystemType) {
 - (void)addSystem:(CEngineSystem *)system;
 - (void)removeSystem:(CEngineSystem *)system;
 - (CEngineSystem *)getSystem:(NSString *)name;
+- (void)setScreenSize:(CGSize)screenSize;
 
 @end

@@ -34,7 +34,11 @@
     CLayer *sublayer = [layers objectAtIndex:index - 1];
     return sublayer;
 }
-
+/*
+    Importand:If you implement a custom view to handle remote control events, action messages, shake-motion events with UIKit, or editing-menu messages,
+    don’t forward the event or message to nextResponder directly to send it up the responder chain. 
+    Instead, invoke the superclass implementation of the current event handling method and let UIKit handle the traversal of the responder chain for you.
+*/
 -(UIResponder *)nextResponder
 {
     return  [self sublayer];

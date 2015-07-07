@@ -53,10 +53,10 @@
 {
     if([key isEqualToString:@"x"])
     {
-        _x = [value intValue];
+        _x = [value floatValue];
     }else if ([key isEqualToString:@"y"])
     {
-        _y = [value intValue];
+        _y = [value floatValue];
     }
 }
 
